@@ -156,11 +156,8 @@ updateServiceFields();
 </script>
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { firebaseConfig } from "./firebase-config.js";
-const app=initializeApp(firebaseConfig);
-const db=getFirestore(app);
+import { db } from "./firebase-config.js";
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 document.getElementById('employerServiceForm').addEventListener('submit',async e=>{
  e.preventDefault();
