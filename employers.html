@@ -129,14 +129,7 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 <footer><div class="footer-name">Sandeep HR Solutions</div>Recruitment • Payroll • Compliance • HR Consulting<br>© 2026 Sandeep HR Solutions. All rights reserved.<div class="footer-udyam"><strong>Udyam Registered MSME</strong><br>Udyam Registration No.: <strong>UDYAM-KR-03-0669511</strong></div></footer>
 <a class="wa" href="https://wa.me/917978259944" target="_blank" rel="noopener">💬 WhatsApp</a>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { firebaseConfig } from "./firebase-config.js";
-
-const app=initializeApp(firebaseConfig);
-const db=getFirestore(app);
-
+<script>
 function toggleMenu(){
  const nav=document.getElementById('siteNav'),btn=document.querySelector('.mobile-menu');
  const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');
@@ -145,13 +138,29 @@ window.toggleMenu=toggleMenu;
 
 const recruitmentIds=['jobTitle','vacancies','location','experience','salary','qualification','workingDays'];
 const recruitmentSection=document.getElementById('recruitmentSection');
-document.querySelectorAll('input[name="service"]').forEach(r=>{
- r.addEventListener('change',()=>{
-   const recruitment=r.value==='Recruitment & Staffing';
-   recruitmentSection.classList.toggle('hidden',!recruitment);
-   recruitmentIds.forEach(id=>document.getElementById(id).required=(recruitment && id==='jobTitle'));
+
+function updateServiceFields(){
+ const selected=document.querySelector('input[name="service"]:checked');
+ const recruitment=selected && selected.value==='Recruitment & Staffing';
+ recruitmentSection.classList.toggle('hidden',!recruitment);
+ recruitmentIds.forEach(id=>{
+   const el=document.getElementById(id);
+   if(el) el.required=(recruitment && id==='jobTitle');
  });
+}
+
+document.querySelectorAll('input[name="service"]').forEach(r=>{
+ r.addEventListener('change',updateServiceFields);
 });
+updateServiceFields();
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { firebaseConfig } from "./firebase-config.js";
+const app=initializeApp(firebaseConfig);
+const db=getFirestore(app);
 
 document.getElementById('employerServiceForm').addEventListener('submit',async e=>{
  e.preventDefault();
