@@ -57,6 +57,10 @@ from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
 const form=document.getElementById("loginForm");
+
+// Always start this page signed out.
+// The admin must explicitly submit the login form to enter the dashboard.
+await signOut(auth);
 const msg=document.getElementById("msg");
 const email=document.getElementById("email");
 const password=document.getElementById("password");
