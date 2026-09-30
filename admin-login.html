@@ -1,42 +1,127 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Admin Login | Sandeep HR Solutions</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#071b34,#123f70);min-height:100vh;display:grid;place-items:center;padding:20px;color:#172033}
-.card{width:min(440px,100%);background:#fff;border-radius:24px;padding:32px;box-shadow:0 24px 70px #0005}
-h1{margin:0 0 8px;font-size:28px}.muted{color:#68758a;font-size:14px;margin:0 0 25px}
-label{display:block;font-weight:700;font-size:13px;margin:16px 0 7px}input{width:100%;padding:13px 14px;border:1px solid #d7e0ea;border-radius:12px;font-size:15px}
-button{width:100%;margin-top:22px;border:0;border-radius:12px;padding:14px;background:#f4b83f;color:#071b34;font-weight:800;font-size:15px;cursor:pointer}
-.msg{margin-top:14px;padding:11px;border-radius:10px;font-size:13px;display:none}.err{background:#fff0f0;color:#a32929}.ok{background:#eefaf2;color:#176b38}
-.back{display:block;margin-top:18px;text-align:center;color:#315b88;text-decoration:none;font-size:13px}
+*{box-sizing:border-box}
+:root{--navy:#071b34;--blue:#123f70;--gold:#f4b83f;--muted:#718096}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f4f7fb;color:#172033;min-height:100vh}
+.page{min-height:100vh;display:grid;grid-template-columns:1.08fr .92fr}
+.brand-side{position:relative;overflow:hidden;background:linear-gradient(145deg,#06182e,#0d3763 65%,#123f70);color:#fff;padding:7vw;display:flex;align-items:center}
+.brand-side:before,.brand-side:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.10);border-radius:50%}
+.brand-side:before{width:520px;height:520px;right:-220px;top:-150px}
+.brand-side:after{width:380px;height:380px;left:-220px;bottom:-170px}
+.brand-content{position:relative;z-index:1;max-width:560px}
+.logo{width:82px;height:82px;border-radius:20px;object-fit:contain;background:#fff;padding:8px;margin-bottom:28px}
+.kicker{color:#f7c85c;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800}
+h1{font-size:clamp(38px,5vw,68px);line-height:1.02;margin:13px 0 18px;letter-spacing:-2px}
+.lead{font-size:19px;line-height:1.65;color:#dce8f6;max-width:510px}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+.point{padding:14px 16px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.06);font-size:13px;color:#e8f0f8}
+.login-side{display:grid;place-items:center;padding:28px}
+.card{width:min(470px,100%);background:#fff;border:1px solid #e1e8f0;border-radius:26px;padding:34px;box-shadow:0 25px 70px rgba(7,27,52,.12)}
+.card h2{margin:0 0 7px;font-size:30px;letter-spacing:-.7px}.sub{margin:0 0 26px;color:var(--muted);font-size:14px;line-height:1.55}
+label{display:block;font-size:13px;font-weight:800;margin:17px 0 7px}
+.input-wrap{position:relative}
+input{width:100%;border:1px solid #d8e1eb;border-radius:12px;padding:14px 14px;font:inherit;font-size:15px;outline:none;background:#fbfcfe}
+input:focus{border-color:#3973a9;box-shadow:0 0 0 3px rgba(57,115,169,.10)}
+button{width:100%;border:0;border-radius:12px;padding:14px;margin-top:22px;background:var(--gold);color:var(--navy);font-weight:850;font-size:15px;cursor:pointer}
+.links{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:13px}
+.links a{color:#2b5d8d;text-decoration:none;font-weight:700}
+.msg{display:none;margin-top:14px;padding:11px 12px;border-radius:10px;font-size:13px;line-height:1.45}
+.err{background:#fff0f0;color:#a32929}.ok{background:#eefaf2;color:#176b38}
+.footer{margin-top:26px;text-align:center;color:#8793a3;font-size:12px}
+@media(max-width:850px){
+ .page{grid-template-columns:1fr}.brand-side{padding:42px 28px;min-height:430px}.brand-content{max-width:700px}
+ .login-side{padding:28px 18px;margin-top:-30px;position:relative}.card{box-shadow:0 18px 45px rgba(7,27,52,.14)}
+}
+@media(max-width:500px){.points{grid-template-columns:1fr}h1{font-size:42px}.card{padding:26px 21px}}
 </style>
 </head>
 <body>
-<div class="card">
-<h1>Admin Login</h1><p class="muted">Sandeep HR Solutions — private administration</p>
-<form id="loginForm">
-<label>Email</label><input id="email" type="email" value="sandeep.hr.solutions.shr@gmail.com" required>
-<label>Password</label><input id="password" type="password" required autocomplete="current-password">
-<button type="submit">Login to Admin Dashboard →</button>
-</form>
-<div id="msg" class="msg"></div>
-<a class="back" href="index.html">← Back to website</a>
+<div class="page">
+<section class="brand-side">
+  <div class="brand-content">
+    <img class="logo" src="Logo.png" alt="Sandeep HR Solutions">
+    <div class="kicker">Sandeep HR Solutions · Private Admin</div>
+    <h1>Welcome back, Admin.</h1>
+    <p class="lead">Manage hiring, job vacancies, candidate activity and applications from one secure workspace.</p>
+    <div class="points">
+      <div class="point">📊 Hiring activity &amp; statistics</div>
+      <div class="point">💼 Job &amp; vacancy management</div>
+      <div class="point">👤 Candidate records</div>
+      <div class="point">📩 Application tracking</div>
+    </div>
+  </div>
+</section>
+
+<section class="login-side">
+  <div class="card">
+    <h2>Admin Login</h2>
+    <p class="sub">Sign in with your authorized Sandeep HR Solutions administrator account.</p>
+    <form id="loginForm">
+      <label for="email">Email Address</label>
+      <input id="email" name="email" type="email" value="sandeep.hr.solutions.shr@gmail.com" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+      <button type="submit">Login to Admin Dashboard →</button>
+    </form>
+    <div class="links">
+      <a href="#" id="forgot">Forgot Password?</a>
+      <a href="index.html">← Website</a>
+    </div>
+    <div id="msg" class="msg"></div>
+    <div class="footer">Sandeep HR Solutions · Admin Portal</div>
+  </div>
+</section>
 </div>
+
 <script type="module">
 import {auth} from "./firebase-config.js";
-import {signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {signInWithEmailAndPassword,onAuthStateChanged,sendPasswordResetEmail,signOut}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
 const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
-const form=document.getElementById("loginForm"), msg=document.getElementById("msg");
-function show(t,ok=false){msg.textContent=t;msg.className="msg "+(ok?"ok":"err");msg.style.display="block";}
-onAuthStateChanged(auth,u=>{if(u && u.email===ADMIN_EMAIL) location.href="admin-dashboard.html";});
+const form=document.getElementById("loginForm");
+const msg=document.getElementById("msg");
+const email=document.getElementById("email");
+
+function show(text,ok=false){
+  msg.textContent=text;
+  msg.className="msg "+(ok?"ok":"err");
+  msg.style.display="block";
+}
+onAuthStateChanged(auth,user=>{
+  if(user && user.email===ADMIN_EMAIL) location.href="admin-dashboard.html";
+});
 form.addEventListener("submit",async e=>{
- e.preventDefault(); show("Signing in…",true);
- try{const c=await signInWithEmailAndPassword(auth,form.email.value.trim(),form.password.value);
- if(c.user.email!==ADMIN_EMAIL){await auth.signOut();show("This account is not authorized for admin access.");return;}
- location.href="admin-dashboard.html";
- }catch(err){show("Login failed. Please check your email and password.");}
+  e.preventDefault();
+  show("Signing in…",true);
+  try{
+    const cred=await signInWithEmailAndPassword(auth,email.value.trim(),document.getElementById("password").value);
+    if(cred.user.email!==ADMIN_EMAIL){
+      await signOut(auth);
+      show("This account is not authorized for admin access.");
+      return;
+    }
+    location.href="admin-dashboard.html";
+  }catch(error){
+    show("Login failed. Please check your password and try again.");
+  }
+});
+document.getElementById("forgot").addEventListener("click",async e=>{
+  e.preventDefault();
+  const address=email.value.trim();
+  if(!address){show("Enter your admin email first.");return;}
+  try{
+    await sendPasswordResetEmail(auth,address);
+    show("Password reset email sent. Check your inbox.",true);
+  }catch(error){
+    show("Unable to send the reset email. Check the email address.");
+  }
 });
 </script>
-</body></html>
+</body>
+</html>
