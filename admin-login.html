@@ -79,7 +79,7 @@ form.addEventListener("submit",async e=>{
   button.disabled=true;button.textContent="Signing in…";show("Signing in…",true);
   try{
     const cred=await signInWithEmailAndPassword(auth,email.value.trim(),password.value);
-    if(cred.user.email!==ADMIN_EMAIL){
+    if((cred.user.email||"").toLowerCase()!==ADMIN_EMAIL.toLowerCase()){
       await signOut(auth);
       show("This account is not authorized for admin access.");
       button.disabled=false;button.textContent="Login to Admin Dashboard →";
@@ -95,8 +95,9 @@ form.addEventListener("submit",async e=>{
 
 document.getElementById("forgot").onclick=async e=>{
   e.preventDefault();
-  const address=email.value.trim();
+  const address=email.value.trim().toLowerCase();
   if(!address){show("Enter your admin email first.");return;}
+  if(address!==ADMIN_EMAIL.toLowerCase()){show("Password reset is available only for the authorized admin email.");return;}
   try{
     await sendPasswordResetEmail(auth,address);
     show("Password reset email sent. Check your inbox.",true);
