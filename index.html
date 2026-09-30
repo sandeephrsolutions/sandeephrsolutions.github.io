@@ -7,7 +7,7 @@
 <link rel="icon" href="Logo.png" type="image/png">
 <link rel="canonical" href="https://sandeephrsolutions.github.io/">
 <meta name="description" content="Sandeep HR Solutions provides recruitment, payroll, statutory compliance and HR consulting services for startups, SMEs and growing businesses.">
-<meta name="theme-color" content="#0b1f3a">
+<meta name="theme-color" content="#071b34">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sandeep HR Solutions | Recruitment • Payroll • Compliance">
 <meta property="og:description" content="Recruitment, payroll, statutory compliance and HR consulting services for startups, SMEs and growing businesses.">
@@ -19,333 +19,184 @@
 <title>Sandeep HR Solutions | Recruitment • Payroll • Compliance</title>
 
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;color:#172033;background:#f7f9fc;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.c{max-width:1150px;margin:auto;padding:0 20px}
-
-header{position:sticky;top:0;z-index:50;background:#0b1f3a;color:#fff;box-shadow:0 2px 12px #0003}
-.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}
-.brand img{width:52px;height:52px;object-fit:contain;background:#fff;border-radius:10px}
-.brand b{display:block;font-size:16px}
-.brand small{color:#f5b942;letter-spacing:1px;font-size:9px}
-nav{display:flex;gap:17px;font-size:13px;font-weight:bold}
-nav a:hover{color:#f5b942}
-
-.hero{background:linear-gradient(135deg,#0b1f3a,#153b68);color:#fff;padding:68px 0}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
-.badge{display:inline-block;margin:0 0 14px;padding:6px 12px;border:1px solid #ffffff45;border-radius:30px;font-size:13px}
-h1{font-size:48px;line-height:1.08;margin:0 0 18px}
-.hero p{font-size:18px;color:#dce7f5;max-width:700px}
-.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.btn{display:inline-block;padding:12px 19px;border-radius:9px;font-weight:bold}
-.gold{background:#f5b942;color:#0b1f3a}
-.outline{border:1px solid #ffffff66;color:#fff}
-.hero-card{background:#fff;color:#172033;border-radius:18px;padding:25px;box-shadow:0 12px 30px #0003}
-.hero-card h3{margin-top:0;color:#0b1f3a}
-.hero-card ul{margin:0;padding:0}
-.hero-card li{list-style:none;padding:9px 0;border-bottom:1px solid #e8edf4}
-.hero-card li:last-child{border-bottom:0}
-
-section{padding:68px 0}
-.section-white{background:#fff}
-.title{text-align:center;margin-bottom:36px}
-.title h2{font-size:34px;color:#0b1f3a;margin:0 0 7px}
-.title p{color:#657083;margin:0}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-.card{background:#fff;border:1px solid #e7ebf2;border-radius:15px;padding:24px;box-shadow:0 5px 18px #0b1f3a0b}
-.section-white .card{background:#fdfefe}
-.checks{padding:0}
-.checks li{list-style:none;margin:10px 0}
-.checks li:before{content:"✓";color:#15803d;font-weight:bold;margin-right:9px}
-
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.service-card{min-height:190px}
-.icon{font-size:28px}
-.service-card h3{margin:8px 0 7px;color:#0b1f3a}
-
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.step{text-align:center;background:#fff;border:1px solid #e7ebf2;border-radius:14px;padding:22px}
-.step-number{width:38px;height:38px;border-radius:50%;background:#0b1f3a;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-weight:bold}
-
-.form{max-width:850px;margin:auto}
-.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.field{display:flex;flex-direction:column;gap:5px}
-.full{grid-column:1/-1}
-input,textarea{font:inherit;padding:11px;border:1px solid #d8dee8;border-radius:8px;background:#fff}
-input:focus,textarea:focus{outline:2px solid #f5b94255;border-color:#f5b942}
-textarea{min-height:100px;resize:vertical}
-button{font:inherit}
-
-.cta{background:#0b1f3a;color:#fff;text-align:center}
-.cta h2{font-size:32px;margin-top:0}
-.cta p{color:#dce7f5}
-
-.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.contact div{text-align:center;background:#fff;border:1px solid #e7ebf2;border-radius:14px;padding:22px}
-.contact h3{margin-top:0}
-
-.social-card{text-align:center;transition:transform .2s,box-shadow .2s}
-.social-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px #0b1f3a14}
-.social-card h3{color:#0b1f3a;margin:0 0 5px}
-.social-card p{color:#657083;margin:0}
-
-.legal{text-align:center;margin:28px 0 10px;font-size:14px}
-.legal a{margin:0 8px;color:#536174}
-.legal a:hover{color:#0b1f3a}
-
-footer{background:#071527;color:#b9c5d4;text-align:center;padding:28px 20px}
-.footer-brand{color:#fff;font-weight:bold}
-.udyam-registration{margin-top:13px;font-size:14px;line-height:1.7}
-.udyam-registration strong{color:#f5b942}
-
-.wa{position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;padding:14px 19px;border-radius:50px;font-weight:bold;z-index:60;box-shadow:0 5px 16px #0003}
-
-@media(max-width:900px){
- nav{display:none}
- .hero-grid,.grid2{grid-template-columns:1fr}
- h1{font-size:40px}
- .cards,.contact,.process{grid-template-columns:1fr 1fr}
-}
-@media(max-width:600px){
- .hero{padding:48px 0}
- h1{font-size:35px}
- section{padding:52px 0}
- .cards,.contact,.process,.fg{grid-template-columns:1fr}
- .full{grid-column:auto}
- .brand small{font-size:8px}
- .brand b{font-size:15px}
- .hero-card{padding:20px}
- .wa{right:12px;bottom:12px;padding:12px 16px}
-}
+:root{--navy:#071b34;--blue:#123f70;--gold:#f4b83f;--ink:#172033;--muted:#687487;--line:#e7ebf2;--bg:#f5f8fc;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:100;background:#071b34ee;backdrop-filter:blur(12px);color:#fff;border-bottom:1px solid #ffffff18}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px}.brand img{width:52px;height:52px;object-fit:contain;background:#fff;border-radius:12px}.brand strong{display:block;font-size:16px}.brand small{font-size:9px;letter-spacing:1.3px;color:var(--gold)}
+nav{display:flex;gap:16px;font-size:13px;font-weight:700}nav a:hover{color:var(--gold)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 80% 15%,#23588f55,transparent 30%),linear-gradient(135deg,#071b34,#123f70);color:#fff;padding:76px 0 70px}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff12;border-radius:50%;width:300px;height:300px}.hero:before{right:-100px;top:-110px}.hero:after{left:-170px;bottom:-200px}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff35;background:#ffffff0d;border-radius:30px;padding:7px 13px;font-size:12px;color:#f9df9d;margin-bottom:18px}.dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+h1{font-size:52px;line-height:1.06;margin:0 0 18px;letter-spacing:-1px}.hero p{font-size:18px;color:#d9e6f5;max-width:690px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:10px;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--gold);color:#071b34}.secondary{border:1px solid #ffffff45;color:#fff;background:#ffffff08}
+.hero-trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:#cbd9e8;font-size:12px}.hero-trust span:before{content:"✓";color:var(--gold);font-weight:bold;margin-right:6px}
+.hero-panel{background:#ffffff0d;border:1px solid #ffffff22;border-radius:22px;padding:26px;box-shadow:0 18px 50px #0003}.panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.panel-top b{font-size:17px}.msme{font-size:10px;padding:5px 8px;border-radius:20px;background:#f4b83f;color:#071b34;font-weight:800}.panel-list{margin:0;padding:0}.panel-list li{list-style:none;padding:11px 0;border-bottom:1px solid #ffffff18}.panel-list li:last-child{border:0}.panel-bottom{margin-top:18px;padding-top:15px;border-top:1px solid #ffffff18;font-size:12px;color:#cbd9e8}
+section{padding:76px 0}.white{background:#fff}.heading{text-align:center;margin-bottom:38px}.heading h2{margin:0;color:var(--navy);font-size:35px;letter-spacing:-.4px}.heading p{margin:7px auto 0;color:var(--muted);max-width:680px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}.about-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 10px 30px #071b340b}.about-card h3{margin-top:0;color:var(--navy)}.ticks{padding:0;margin:18px 0 0}.ticks li{list-style:none;margin:11px 0}.ticks li:before{content:"✓";color:#16803c;font-weight:bold;margin-right:9px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.service{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;min-height:190px;transition:.2s;box-shadow:0 7px 22px #071b3408}.service:hover{transform:translateY(-5px);box-shadow:0 14px 35px #071b3414}.service-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#eef5fb;font-size:24px}.service h3{color:var(--navy);margin:15px 0 7px}.service p{color:var(--muted);margin:0;font-size:14px}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;text-align:center}.num{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-weight:800}.step h3{margin:0 0 6px;color:var(--navy)}.step p{margin:0;color:var(--muted);font-size:13px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.cta-card{border-radius:22px;padding:34px;color:#fff;background:linear-gradient(135deg,#0b2c50,#154f84);box-shadow:0 15px 40px #071b3420}.cta-card.gold-card{background:linear-gradient(135deg,#f4b83f,#e39b18);color:#071b34}.cta-card h3{font-size:26px;margin:0 0 8px}.cta-card p{opacity:.9}.cta-card .btn{background:#fff;color:var(--navy);margin-top:8px}
+.form-wrap{max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 10px 32px #071b340b}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:5px}.full{grid-column:1/-1}label{font-size:13px;font-weight:700}input,textarea{font:inherit;padding:11px 12px;border:1px solid #d8dee8;border-radius:9px;background:#fff}input:focus,textarea:focus{outline:2px solid #f4b83f55;border-color:var(--gold)}textarea{min-height:105px;resize:vertical}
+.socials,.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.social,.contact{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;text-align:center;transition:.2s}.social:hover{transform:translateY(-4px)}.social h3,.contact h3{margin:0 0 6px;color:var(--navy)}.social p,.contact p{margin:0;color:var(--muted);font-size:13px}
+.final-cta{background:linear-gradient(135deg,#071b34,#123f70);color:#fff;text-align:center}.final-cta h2{font-size:34px;margin:0 0 7px}.final-cta p{color:#d9e6f5}
+.legal{text-align:center;background:#fff;padding:25px 15px 5px;font-size:13px}.legal a{margin:0 8px;color:#5e6a7c}.legal a:hover{color:var(--navy)}
+footer{background:#051225;color:#aebdce;text-align:center;padding:30px 18px}.footer-name{color:#fff;font-weight:800;font-size:16px}.udyam{margin-top:12px;font-size:13px;line-height:1.7}.udyam strong{color:var(--gold)}
+.wa{position:fixed;right:18px;bottom:18px;z-index:200;background:#25d366;color:#fff;border-radius:50px;padding:14px 18px;font-weight:800;box-shadow:0 7px 22px #0004}
+@media(max-width:900px){nav{display:none}.hero-grid,.about-grid,.split{grid-template-columns:1fr}h1{font-size:43px}.services{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.socials,.contacts{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.container{padding:0 16px}.hero{padding:58px 0}.hero-grid{gap:25px}h1{font-size:36px}.hero p{font-size:16px}section{padding:57px 0}.heading h2{font-size:30px}.services,.process,.socials,.contacts,.fields{grid-template-columns:1fr}.full{grid-column:auto}.form-wrap{padding:20px}.wa{right:12px;bottom:12px;padding:12px 15px;font-size:13px}}
 </style>
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"Sandeep HR Solutions",
-  "url":"https://sandeephrsolutions.github.io/",
-  "logo":"https://sandeephrsolutions.github.io/Logo.png",
-  "email":"sandeep.hr.solutions.shr@gmail.com",
-  "telephone":"+91-7978259944",
-  "sameAs":[
-    "https://www.linkedin.com/company/sandeep-hr-solutions/",
-    "https://www.instagram.com/sandeep_hr_solutions?stkn=MXd6aW4wdnhsZTNkMA==",
-    "https://www.facebook.com/share/18W9KU7tyC/"
-  ]
+ "@context":"https://schema.org",
+ "@type":"Organization",
+ "name":"Sandeep HR Solutions",
+ "url":"https://sandeephrsolutions.github.io/",
+ "logo":"https://sandeephrsolutions.github.io/Logo.png",
+ "email":"sandeep.hr.solutions.shr@gmail.com",
+ "telephone":"+91-7978259944",
+ "sameAs":[
+  "https://www.linkedin.com/company/sandeep-hr-solutions/",
+  "https://www.instagram.com/sandeep_hr_solutions?stkn=MXd6aW4wdnhsZTNkMA==",
+  "https://www.facebook.com/share/18W9KU7tyC/"
+ ]
 }
 </script>
 </head>
 
 <body>
-<header>
-  <div class="c nav">
-    <a class="brand" href="#home">
-      <img src="Logo.png" alt="Sandeep HR Solutions logo">
-      <span><b>Sandeep HR Solutions</b><small>HR • RECRUITMENT • CONSULTING</small></span>
-    </a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#employers">Employers</a>
-      <a href="#jobs">Jobs</a>
-      <a href="#social">Social</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+<header><div class="container nav">
+<a class="brand" href="#home"><img src="Logo.png" alt="Sandeep HR Solutions logo"><span><strong>Sandeep HR Solutions</strong><small>HR • RECRUITMENT • CONSULTING</small></span></a>
+<nav><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#process">Process</a><a href="#employers">Employers</a><a href="#jobs">Jobs</a><a href="#social">Social</a><a href="#contact">Contact</a></nav>
+</div></header>
 
-<main>
-<section class="hero" id="home">
-  <div class="c hero-grid">
-    <div>
-      <div class="badge">Professional HR Solutions • Bangalore</div>
-      <h1>Your Trusted HR Partner for Business Growth</h1>
-      <p>Recruitment, payroll management, statutory compliance, HR policies and practical HR consulting for startups, SMEs and growing businesses.</p>
-      <div class="buttons">
-        <a class="btn gold" href="https://wa.me/917978259944?text=Hello%20Sandeep%20HR%20Solutions%2C%20I%20would%20like%20to%20discuss%20your%20HR%20services." target="_blank" rel="noopener">WhatsApp Us</a>
-        <a class="btn outline" href="#services">Explore Services</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h3>How We Can Support Your Business</h3>
-      <ul>
-        <li>✓ End-to-End Recruitment</li>
-        <li>✓ Bulk & Niche Hiring</li>
-        <li>✓ Payroll Management</li>
-        <li>✓ PF / ESIC & Compliance Support</li>
-        <li>✓ HR Policy & Documentation</li>
-        <li>✓ Startup HR Consulting</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section-white" id="about">
-  <div class="c grid2">
-    <div>
-      <div class="title" style="text-align:left;margin-bottom:18px"><h2>About Sandeep HR Solutions</h2></div>
-      <p>Practical HR, recruitment, payroll and compliance support for businesses that need dependable people, processes and HR systems.</p>
-      <ul class="checks">
-        <li>Business-focused HR support</li>
-        <li>Recruitment and workforce solutions</li>
-        <li>Payroll and documentation support</li>
-        <li>Compliance-oriented HR processes</li>
-        <li>Flexible support for growing businesses</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Our Approach</h3>
-      <p>Understand the requirement → Build the right HR process → Support implementation → Maintain documentation → Improve the employee experience.</p>
-      <p><strong>Udyam Registered MSME</strong><br>Udyam Registration No.: UDYAM-KR-03-0669511</p>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="c">
-    <div class="title"><h2>Our HR Services</h2><p>Practical HR support from hiring to compliance.</p></div>
-    <div class="cards">
-      <div class="card service-card"><div class="icon">👥</div><h3>Recruitment Services</h3><p>End-to-end recruitment, bulk hiring and niche hiring support.</p></div>
-      <div class="card service-card"><div class="icon">💼</div><h3>Payroll Management</h3><p>Payroll processing, attendance support, salary structures and records.</p></div>
-      <div class="card service-card"><div class="icon">⚖️</div><h3>Statutory Compliance</h3><p>Support for PF, ESIC and applicable statutory processes.</p></div>
-      <div class="card service-card"><div class="icon">📋</div><h3>HR Policy Development</h3><p>HR policies, documentation, SOPs and process setup.</p></div>
-      <div class="card service-card"><div class="icon">📈</div><h3>Employee Engagement</h3><p>Engagement and retention-focused HR initiatives.</p></div>
-      <div class="card service-card"><div class="icon">🚀</div><h3>Startup HR Consulting</h3><p>HR setup, documentation, recruitment and process consulting.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section-white" id="process">
-  <div class="c">
-    <div class="title"><h2>Our Recruitment Process</h2><p>A simple workflow for employer requirements.</p></div>
-    <div class="process">
-      <div class="step"><div class="step-number">1</div><h3>Requirement</h3><p>Understand role, skills, experience and hiring needs.</p></div>
-      <div class="step"><div class="step-number">2</div><h3>Sourcing</h3><p>Source and identify relevant candidate profiles.</p></div>
-      <div class="step"><div class="step-number">3</div><h3>Screening</h3><p>Initial screening against the stated requirements.</p></div>
-      <div class="step"><div class="step-number">4</div><h3>Interview</h3><p>Coordinate the next stage with the employer and candidate.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section-white" id="employers">
-  <div class="c">
-    <div class="title"><h2>For Employers</h2><p>Submit your hiring requirement directly to WhatsApp.</p></div>
-    <div class="card form">
-      <form onsubmit="sendReq(event)">
-        <div class="fg">
-          <div class="field"><label>Company Name *</label><input id="co" required></div>
-          <div class="field"><label>Contact Person *</label><input id="cp" required></div>
-          <div class="field"><label>Mobile *</label><input id="cm" required></div>
-          <div class="field"><label>Email</label><input id="ce" type="email"></div>
-          <div class="field"><label>Job Title *</label><input id="jt" required></div>
-          <div class="field"><label>Vacancies</label><input id="nv"></div>
-          <div class="field"><label>Location</label><input id="jl"></div>
-          <div class="field"><label>Experience</label><input id="ex"></div>
-          <div class="field"><label>Salary Range</label><input id="sr"></div>
-          <div class="field full"><label>Requirement / Job Description</label><textarea id="jd"></textarea></div>
-        </div>
-        <button class="btn gold" style="border:0;margin-top:18px;cursor:pointer" type="submit">Submit Requirement on WhatsApp</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section id="jobs">
-  <div class="c">
-    <div class="title"><h2>Candidate Registration</h2><p>Register your profile with Sandeep HR Solutions for suitable opportunities.</p></div>
-    <div class="card form">
-      <form onsubmit="sendCandidate(event)">
-        <div class="fg">
-          <div class="field"><label>Full Name *</label><input id="cn" required></div>
-          <div class="field"><label>Mobile Number *</label><input id="cmo" required></div>
-          <div class="field"><label>Email</label><input id="cem" type="email"></div>
-          <div class="field"><label>Qualification</label><input id="cq"></div>
-          <div class="field"><label>Total Experience</label><input id="ctx"></div>
-          <div class="field"><label>Current Designation</label><input id="cd"></div>
-          <div class="field"><label>Current Company</label><input id="cc"></div>
-          <div class="field"><label>Current Salary</label><input id="ccs"></div>
-          <div class="field"><label>Expected Salary</label><input id="ces"></div>
-          <div class="field"><label>Preferred Location</label><input id="cpl"></div>
-          <div class="field"><label>Notice Period</label><input id="cnp"></div>
-          <div class="field"><label>Key Skills</label><input id="cks"></div>
-          <div class="field full"><label>Resume / LinkedIn Profile (optional)</label><input id="cr"></div>
-        </div>
-        <button class="btn gold" style="border:0;margin-top:18px;cursor:pointer" type="submit">Register Profile on WhatsApp</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section id="social">
-  <div class="c">
-    <div class="title"><h2>Connect With Us</h2><p>Follow Sandeep HR Solutions on social media.</p></div>
-    <div class="cards">
-      <a class="card social-card" href="https://www.linkedin.com/company/sandeep-hr-solutions/" target="_blank" rel="noopener"><h3>LinkedIn</h3><p>Follow our HR updates, hiring and professional services.</p></a>
-      <a class="card social-card" href="https://www.instagram.com/sandeep_hr_solutions?stkn=MXd6aW4wdnhsZTNkMA==" target="_blank" rel="noopener"><h3>Instagram</h3><p>See our latest HR, recruitment and career content.</p></a>
-      <a class="card social-card" href="https://www.facebook.com/share/18W9KU7tyC/" target="_blank" rel="noopener"><h3>Facebook</h3><p>Connect with Sandeep HR Solutions on Facebook.</p></a>
-    </div>
-  </div>
-</section>
-
-<section class="section-white" id="contact">
-  <div class="c">
-    <div class="title"><h2>Get in Touch</h2><p>Let's discuss your HR requirement.</p></div>
-    <div class="contact">
-      <div><h3>📞 Phone</h3><a href="tel:+917978259944">7978259944</a></div>
-      <div><h3>✉️ Email</h3><a href="mailto:sandeep.hr.solutions.shr@gmail.com">sandeep.hr.solutions.shr@gmail.com</a></div>
-      <div><h3>💬 WhatsApp</h3><a href="https://wa.me/917978259944" target="_blank" rel="noopener">Chat with us</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="c">
-    <h2>Ready to strengthen your HR?</h2>
-    <p>Recruitment • Payroll • Compliance • HR Consulting</p>
-    <div class="buttons" style="justify-content:center">
-      <a class="btn gold" href="https://wa.me/917978259944?text=Hello%20Sandeep%20HR%20Solutions%2C%20I%20need%20HR%20support." target="_blank" rel="noopener">Contact Us on WhatsApp</a>
-    </div>
-  </div>
-</section>
-</main>
-
-<div class="legal">
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms &amp; Conditions</a>
-  <a href="disclaimer.html">Disclaimer</a>
+<section class="hero" id="home"><div class="container hero-grid">
+<div>
+<div class="eyebrow"><span class="dot"></span> Professional HR Solutions • Bangalore</div>
+<h1>People. Process. Performance.</h1>
+<p>Practical recruitment, payroll, compliance and HR consulting support for startups, SMEs and growing businesses.</p>
+<div class="actions"><a class="btn primary" href="#employers">Hire Talent</a><a class="btn secondary" href="#jobs">Find Opportunities</a></div>
+<div class="hero-trust"><span>Recruitment Support</span><span>Payroll & HR Support</span><span>Compliance Support</span></div>
 </div>
+<div class="hero-panel">
+<div class="panel-top"><b>What We Support</b><span class="msme">UDYAM REGISTERED</span></div>
+<ul class="panel-list">
+<li>✓ End-to-End Recruitment</li><li>✓ Bulk & Niche Hiring</li><li>✓ Payroll Management</li><li>✓ PF / ESIC & Compliance Support</li><li>✓ HR Policies & Documentation</li><li>✓ Startup HR Consulting</li>
+</ul>
+<div class="panel-bottom">Udyam Registration No.: <strong>UDYAM-KR-03-0669511</strong></div>
+</div>
+</div></section>
 
-<footer>
-  <div class="footer-brand">Sandeep HR Solutions</div>
-  Recruitment • Payroll • Compliance • HR Consulting<br>
-  © 2026 Sandeep HR Solutions. All rights reserved.
-  <div class="udyam-registration">
-    <strong>Udyam Registered MSME</strong><br>
-    Udyam Registration No.: <strong>UDYAM-KR-03-0669511</strong>
-  </div>
-</footer>
+<section class="white" id="about"><div class="container">
+<div class="heading"><h2>About Sandeep HR Solutions</h2><p>Business-focused HR support designed around practical hiring and HR requirements.</p></div>
+<div class="about-grid">
+<div class="about-card"><h3>HR Support That Fits Your Business</h3><p>We support businesses with recruitment, payroll, statutory compliance, HR documentation and consulting requirements.</p><ul class="ticks"><li>Recruitment and workforce solutions</li><li>Payroll and HR documentation support</li><li>Compliance-oriented processes</li><li>Startup and SME HR support</li><li>Employee engagement initiatives</li></ul></div>
+<div class="about-card"><h3>Udyam Registered MSME</h3><p>Sandeep HR Solutions is registered as a Micro enterprise under Udyam Registration.</p><p><strong>Registration No.</strong><br>UDYAM-KR-03-0669511</p><a class="btn primary" href="https://udyamregistration.gov.in/" target="_blank" rel="noopener">Official Udyam Portal</a></div>
+</div></div></section>
+
+<section id="services"><div class="container">
+<div class="heading"><h2>Our HR Services</h2><p>From hiring to HR process support, choose the service your business needs.</p></div>
+<div class="services">
+<div class="service"><div class="service-icon">👥</div><h3>Recruitment</h3><p>End-to-end recruitment, bulk hiring and niche hiring support.</p></div>
+<div class="service"><div class="service-icon">🎯</div><h3>Bulk & Niche Hiring</h3><p>Support for volume hiring and role-specific talent requirements.</p></div>
+<div class="service"><div class="service-icon">💼</div><h3>Payroll Management</h3><p>Payroll, attendance, salary records and HR documentation support.</p></div>
+<div class="service"><div class="service-icon">⚖️</div><h3>PF / ESIC & Compliance</h3><p>Support for applicable statutory HR processes and documentation.</p></div>
+<div class="service"><div class="service-icon">📋</div><h3>HR Policies</h3><p>HR policy, documentation and process setup for growing teams.</p></div>
+<div class="service"><div class="service-icon">🚀</div><h3>Startup HR Consulting</h3><p>Practical HR setup and consulting for startups and SMEs.</p></div>
+</div></div></section>
+
+<section class="white" id="process"><div class="container">
+<div class="heading"><h2>Our Recruitment Process</h2><p>A clear and structured approach from requirement to interview coordination.</p></div>
+<div class="process">
+<div class="step"><div class="num">1</div><h3>Requirement</h3><p>Understand the role, skills, experience and hiring requirement.</p></div>
+<div class="step"><div class="num">2</div><h3>Sourcing</h3><p>Source relevant candidate profiles based on the requirement.</p></div>
+<div class="step"><div class="num">3</div><h3>Screening</h3><p>Initial screening against the stated role requirements.</p></div>
+<div class="step"><div class="num">4</div><h3>Interview</h3><p>Coordinate the next stage between employer and candidate.</p></div>
+</div></div></section>
+
+<section><div class="container split">
+<div class="cta-card"><h3>Are You Hiring?</h3><p>Share your vacancy details and let us understand your recruitment requirement.</p><a class="btn" href="#employers">Submit Employer Requirement</a></div>
+<div class="cta-card gold-card"><h3>Looking for a Job?</h3><p>Register your profile with your experience, skills and preferred location.</p><a class="btn" href="#jobs">Register Your Profile</a></div>
+</div></section>
+
+<section class="white" id="employers"><div class="container">
+<div class="heading"><h2>Employer Requirement</h2><p>Submit your hiring requirement directly through WhatsApp.</p></div>
+<div class="form-wrap"><form onsubmit="sendReq(event)"><div class="fields">
+<div class="field"><label>Company Name *</label><input id="co" required></div><div class="field"><label>Contact Person *</label><input id="cp" required></div>
+<div class="field"><label>Mobile *</label><input id="cm" required></div><div class="field"><label>Email</label><input id="ce" type="email"></div>
+<div class="field"><label>Job Title *</label><input id="jt" required></div><div class="field"><label>Vacancies</label><input id="nv"></div>
+<div class="field"><label>Location</label><input id="jl"></div><div class="field"><label>Experience</label><input id="ex"></div>
+<div class="field"><label>Salary Range</label><input id="sr"></div><div class="field full"><label>Requirement / Job Description</label><textarea id="jd"></textarea></div>
+</div><button class="btn primary" style="border:0;margin-top:18px;cursor:pointer" type="submit">Submit on WhatsApp</button></form></div>
+</div></section>
+
+<section id="jobs"><div class="container">
+<div class="heading"><h2>Candidate Registration</h2><p>Register your profile for suitable job opportunities.</p></div>
+<div class="form-wrap"><form onsubmit="sendCandidate(event)"><div class="fields">
+<div class="field"><label>Full Name *</label><input id="cn" required></div><div class="field"><label>Mobile Number *</label><input id="cmo" required></div>
+<div class="field"><label>Email</label><input id="cem" type="email"></div><div class="field"><label>Qualification</label><input id="cq"></div>
+<div class="field"><label>Total Experience</label><input id="ctx"></div><div class="field"><label>Current Designation</label><input id="cd"></div>
+<div class="field"><label>Current Company</label><input id="cc"></div><div class="field"><label>Current Salary</label><input id="ccs"></div>
+<div class="field"><label>Expected Salary</label><input id="ces"></div><div class="field"><label>Preferred Location</label><input id="cpl"></div>
+<div class="field"><label>Notice Period</label><input id="cnp"></div><div class="field"><label>Key Skills</label><input id="cks"></div>
+<div class="field full"><label>Resume / LinkedIn Profile (optional)</label><input id="cr"></div>
+</div><button class="btn primary" style="border:0;margin-top:18px;cursor:pointer" type="submit">Register on WhatsApp</button></form></div>
+</div></section>
+
+<section class="white" id="social"><div class="container">
+<div class="heading"><h2>Connect With Us</h2><p>Follow our latest HR, recruitment and career updates.</p></div>
+<div class="socials">
+<a class="social" href="https://www.linkedin.com/company/sandeep-hr-solutions/" target="_blank" rel="noopener"><h3>LinkedIn</h3><p>Professional HR and hiring updates</p></a>
+<a class="social" href="https://www.instagram.com/sandeep_hr_solutions?stkn=MXd6aW4wdnhsZTNkMA==" target="_blank" rel="noopener"><h3>Instagram</h3><p>HR, recruitment and career content</p></a>
+<a class="social" href="https://www.facebook.com/share/18W9KU7tyC/" target="_blank" rel="noopener"><h3>Facebook</h3><p>Connect with Sandeep HR Solutions</p></a>
+</div></div></section>
+
+<section id="contact"><div class="container">
+<div class="heading"><h2>Let's Connect</h2><p>Discuss your HR or recruitment requirement with us.</p></div>
+<div class="contacts">
+<div class="contact"><h3>📞 Phone</h3><p><a href="tel:+917978259944">7978259944</a></p></div>
+<div class="contact"><h3>✉️ Email</h3><p><a href="mailto:sandeep.hr.solutions.shr@gmail.com">sandeep.hr.solutions.shr@gmail.com</a></p></div>
+<div class="contact"><h3>💬 WhatsApp</h3><p><a href="https://wa.me/917978259944" target="_blank" rel="noopener">Chat with us</a></p></div>
+</div></div></section>
+
+<section class="final-cta"><div class="container"><h2>Ready to strengthen your HR?</h2><p>Recruitment • Payroll • Compliance • HR Consulting</p><a class="btn primary" href="https://wa.me/917978259944?text=Hello%20Sandeep%20HR%20Solutions%2C%20I%20need%20HR%20support." target="_blank" rel="noopener">Talk to Us on WhatsApp</a></div></section>
+
+<div class="legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="disclaimer.html">Disclaimer</a></div>
+<footer><div class="footer-name">Sandeep HR Solutions</div>Recruitment • Payroll • Compliance • HR Consulting<br>© 2026 Sandeep HR Solutions. All rights reserved.
+<div class="udyam"><strong>Udyam Registered MSME</strong><br>Udyam Registration No.: <strong>UDYAM-KR-03-0669511</strong></div></footer>
 
 <a class="wa" href="https://wa.me/917978259944" target="_blank" rel="noopener">💬 WhatsApp</a>
 
 <script>
-function sendReq(e){
-  e.preventDefault();
-  const g=id=>document.getElementById(id).value.trim();
-  const s=`Hello Sandeep HR Solutions, I would like to submit a job requirement.%0A%0ACompany: ${encodeURIComponent(g("co"))}%0AContact Person: ${encodeURIComponent(g("cp"))}%0AMobile: ${encodeURIComponent(g("cm"))}%0AEmail: ${encodeURIComponent(g("ce"))}%0AJob Title: ${encodeURIComponent(g("jt"))}%0AVacancies: ${encodeURIComponent(g("nv"))}%0ALocation: ${encodeURIComponent(g("jl"))}%0AExperience: ${encodeURIComponent(g("ex"))}%0ASalary: ${encodeURIComponent(g("sr"))}%0ARequirement: ${encodeURIComponent(g("jd"))}`;
-  window.open("https://wa.me/917978259944?text="+s,"_blank");
-}
-function sendCandidate(e){
-  e.preventDefault();
-  const g=id=>document.getElementById(id).value.trim();
-  const s=`Hello Sandeep HR Solutions, I would like to register as a job seeker.%0A%0AFull Name: ${encodeURIComponent(g("cn"))}%0AMobile: ${encodeURIComponent(g("cmo"))}%0AEmail: ${encodeURIComponent(g("cem"))}%0AQualification: ${encodeURIComponent(g("cq"))}%0ATotal Experience: ${encodeURIComponent(g("ctx"))}%0ACurrent Designation: ${encodeURIComponent(g("cd"))}%0ACurrent Company: ${encodeURIComponent(g("cc"))}%0ACurrent Salary: ${encodeURIComponent(g("ccs"))}%0AExpected Salary: ${encodeURIComponent(g("ces"))}%0APreferred Location: ${encodeURIComponent(g("cpl"))}%0ANotice Period: ${encodeURIComponent(g("cnp"))}%0AKey Skills: ${encodeURIComponent(g("cks"))}%0AResume/LinkedIn: ${encodeURIComponent(g("cr"))}`;
-  window.open("https://wa.me/917978259944?text="+s,"_blank");
-}
+function sendReq(e){e.preventDefault();const g=id=>document.getElementById(id).value.trim();const msg=`Hello Sandeep HR Solutions, I would like to submit a job requirement.
+
+Company: ${g("co")}
+Contact Person: ${g("cp")}
+Mobile: ${g("cm")}
+Email: ${g("ce")}
+Job Title: ${g("jt")}
+Vacancies: ${g("nv")}
+Location: ${g("jl")}
+Experience: ${g("ex")}
+Salary: ${g("sr")}
+Requirement: ${g("jd")}`;window.open("https://wa.me/917978259944?text="+encodeURIComponent(msg),"_blank")}
+function sendCandidate(e){e.preventDefault();const g=id=>document.getElementById(id).value.trim();const msg=`Hello Sandeep HR Solutions, I would like to register as a job seeker.
+
+Full Name: ${g("cn")}
+Mobile: ${g("cmo")}
+Email: ${g("cem")}
+Qualification: ${g("cq")}
+Total Experience: ${g("ctx")}
+Current Designation: ${g("cd")}
+Current Company: ${g("cc")}
+Current Salary: ${g("ccs")}
+Expected Salary: ${g("ces")}
+Preferred Location: ${g("cpl")}
+Notice Period: ${g("cnp")}
+Key Skills: ${g("cks")}
+Resume/LinkedIn: ${g("cr")}`;window.open("https://wa.me/917978259944?text="+encodeURIComponent(msg),"_blank")}
 </script>
 </body>
 </html>
