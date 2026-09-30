@@ -26,6 +26,9 @@ main{padding:22px 0 55px}.layout{display:grid;grid-template-columns:245px 1fr;ga
 footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 @media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.side .side-note{display:none}.side button{text-align:center;font-size:10px;padding:10px 5px}.profile-summary{grid-template-columns:repeat(2,1fr)}.hero-row{align-items:flex-start;flex-direction:column}.hero-user{width:100%}}
 @media(max-width:600px){.nav-links a:not(.active){display:none}.hero h1{font-size:29px}.grid,.info-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.job-grid{grid-template-columns:1fr 1fr}.job-head{flex-direction:column}.resume-current{align-items:flex-start;flex-direction:column}.side{grid-template-columns:repeat(2,1fr)}.card{padding:17px}}
+
+.profile-view{display:grid;gap:16px}.view-card{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:16px}.view-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}.view-head h3{margin:0;font-size:15px;color:var(--navy)}.edit-btn{border:1px solid #d7e0e9;background:#fff;color:#145b91;border-radius:8px;padding:7px 10px;font-size:11px;font-weight:850;cursor:pointer}.view-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.view-item{background:#fff;border:1px solid #e8edf3;border-radius:10px;padding:10px}.view-item small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.4px}.view-item b{display:block;margin-top:4px;font-size:12px;word-break:break-word}.experience-list{display:grid;gap:10px}.experience-card{background:#fff;border:1px solid #e5ebf1;border-radius:12px;padding:13px}.experience-top{display:flex;justify-content:space-between;gap:10px}.experience-title{font-weight:900;color:var(--navy);font-size:13px}.experience-company{font-size:11px;color:#5e6c7e;margin-top:3px}.experience-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.experience-meta span{font-size:10px;background:#f2f6fa;border-radius:20px;padding:5px 8px;color:#4d5d70}.editor-box{border:1px solid #dfe7ef;border-radius:14px;padding:15px;background:#fff;margin-top:12px}.editor-box h4{margin:0 0 12px;font-size:13px}.experience-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}.danger-outline{background:#fff;border:1px solid #f0cccc;color:var(--red)}.counter{font-size:10px;color:var(--muted);font-weight:800}.empty-inline{padding:14px;border:1px dashed #d8e0e8;border-radius:10px;color:var(--muted);font-size:11px;background:#fbfcfe}
+@media(max-width:600px){.view-grid{grid-template-columns:1fr}.experience-top{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -49,31 +52,92 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 <div id="notice" class="notice" aria-live="polite"></div>
 
 <section class="section active" id="profile">
-<div class="section-head"><div><h2>Professional Profile</h2><div class="muted">Keep your qualification, experience and career details updated.</div></div><span class="pill">PRIVATE</span></div>
-<div class="profile-summary">
-<div class="summary"><b id="summaryQualification">—</b><small>Qualification</small></div>
-<div class="summary"><b id="summaryExperience">—</b><small>Experience</small></div>
-<div class="summary"><b id="summaryLocation">—</b><small>Preferred Location</small></div>
-<div class="summary"><b id="summaryResume">Not uploaded</b><small>Resume / CV</small></div>
+<div class="section-head"><div><h2>My Profile</h2><div class="muted">Your saved information is shown below. Use Edit on any section to update it later.</div></div><span class="pill">PRIVATE</span></div>
+
+<div id="profileView" class="profile-view">
+  <div class="profile-summary">
+    <div class="summary"><b id="summaryQualification">—</b><small>Qualification</small></div>
+    <div class="summary"><b id="summaryExperience">—</b><small>Total Experience</small></div>
+    <div class="summary"><b id="summaryLocation">—</b><small>Preferred Location</small></div>
+    <div class="summary"><b id="summaryResume">Not uploaded</b><small>Resume / CV</small></div>
+  </div>
+
+  <div class="view-card">
+    <div class="view-head"><h3>👤 Personal Details</h3><button class="edit-btn" data-edit="personalEditor">✎ Edit</button></div>
+    <div class="view-grid">
+      <div class="view-item"><small>Full Name</small><b id="viewFullName">Not added</b></div>
+      <div class="view-item"><small>Mobile</small><b id="viewMobile">Not added</b></div>
+      <div class="view-item"><small>Email</small><b id="viewEmail">Not added</b></div>
+      <div class="view-item"><small>Preferred Location</small><b id="viewLocation">Not added</b></div>
+    </div>
+    <div class="editor-box" id="personalEditor" hidden>
+      <div class="grid">
+        <div class="field"><label for="fullName">Full Name *</label><input id="fullName" maxlength="100" autocomplete="name"></div>
+        <div class="field"><label for="mobile">Mobile Number *</label><input id="mobile" maxlength="15" inputmode="tel" autocomplete="tel"></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" disabled></div>
+        <div class="field"><label for="location">Preferred Job Location</label><input id="location" maxlength="120" placeholder="e.g. Bengaluru"></div>
+      </div>
+      <div class="actions"><button class="btn primary save-section" data-section-save="personal">Save Personal Details</button><button class="btn secondary cancel-edit" data-editor="personalEditor">Cancel</button></div>
+    </div>
+  </div>
+
+  <div class="view-card">
+    <div class="view-head"><h3>🎓 Education & Professional Details</h3><button class="edit-btn" data-edit="professionalEditor">✎ Edit</button></div>
+    <div class="view-grid">
+      <div class="view-item"><small>Highest Qualification</small><b id="viewQualification">Not added</b></div>
+      <div class="view-item"><small>Total Experience</small><b id="viewExperience">Not added</b></div>
+      <div class="view-item"><small>Current / Last Designation</small><b id="viewDesignation">Not added</b></div>
+      <div class="view-item"><small>Current / Last Company</small><b id="viewCompany">Not added</b></div>
+      <div class="view-item"><small>Current Salary</small><b id="viewCurrentSalary">Not added</b></div>
+      <div class="view-item"><small>Expected Salary</small><b id="viewExpectedSalary">Not added</b></div>
+      <div class="view-item"><small>Notice Period</small><b id="viewNoticePeriod">Not added</b></div>
+      <div class="view-item"><small>Key Skills</small><b id="viewSkills">Not added</b></div>
+    </div>
+    <div class="editor-box" id="professionalEditor" hidden>
+      <div class="grid">
+        <div class="field"><label for="qualification">Highest Qualification *</label><input id="qualification" maxlength="120" placeholder="e.g. MBA HR, B.Tech, B.Com"></div>
+        <div class="field"><label for="experience">Total Experience *</label><input id="experience" maxlength="60" placeholder="e.g. 3 Years / Fresher"></div>
+        <div class="field"><label for="designation">Current / Last Designation</label><input id="designation" maxlength="100"></div>
+        <div class="field"><label for="company">Current / Last Company</label><input id="company" maxlength="120"></div>
+        <div class="field"><label for="currentSalary">Current Salary</label><input id="currentSalary" maxlength="60" placeholder="e.g. ₹5 LPA"></div>
+        <div class="field"><label for="expectedSalary">Expected Salary</label><input id="expectedSalary" maxlength="60" placeholder="e.g. ₹7 LPA"></div>
+        <div class="field"><label for="noticePeriod">Notice Period</label><input id="noticePeriod" maxlength="60" placeholder="e.g. Immediate / 30 Days"></div>
+        <div class="field"><label for="skills">Key Skills</label><input id="skills" maxlength="300" placeholder="e.g. Recruitment, Payroll, Excel"></div>
+        <div class="field full"><label for="summary">Professional Summary</label><textarea id="summary" maxlength="1200" placeholder="Briefly describe your experience and career profile"></textarea></div>
+      </div>
+      <div class="actions"><button class="btn primary save-section" data-section-save="professional">Save Professional Details</button><button class="btn secondary cancel-edit" data-editor="professionalEditor">Cancel</button></div>
+    </div>
+  </div>
+
+  <div class="view-card">
+    <div class="view-head"><div><h3>💼 Work Experience</h3><div class="muted">Add every company you have worked with. Maximum 100 experience records.</div></div><button class="edit-btn" data-edit="experienceEditor">＋ Add / Edit</button></div>
+    <div id="experienceList" class="experience-list"></div>
+    <div class="editor-box" id="experienceEditor" hidden>
+      <h4 id="experienceEditorTitle">Add Experience</h4>
+      <input id="experienceEditId" type="hidden">
+      <div class="grid">
+        <div class="field"><label for="expCompany">Company Name *</label><input id="expCompany" maxlength="150"></div>
+        <div class="field"><label for="expLocation">Company Location</label><input id="expLocation" maxlength="120" placeholder="City, State"></div>
+        <div class="field"><label for="expDesignation">Designation / Role *</label><input id="expDesignation" maxlength="120"></div>
+        <div class="field"><label for="expEmploymentType">Employment Type</label><select id="expEmploymentType"><option value="">Select</option><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option><option>Freelance</option></select></div>
+        <div class="field"><label for="expFrom">Date From *</label><input id="expFrom" type="month"></div>
+        <div class="field"><label for="expTo">Date To</label><input id="expTo" type="month"><div class="hint">Leave blank if this is your current job.</div></div>
+        <div class="field"><label for="expSalary">Salary / CTC</label><input id="expSalary" maxlength="60"></div>
+        <div class="field"><label for="expReason">Reason for Leaving</label><input id="expReason" maxlength="200"></div>
+        <div class="field full"><label for="expDescription">Responsibilities / Achievements</label><textarea id="expDescription" maxlength="1200" placeholder="Key responsibilities, achievements, team size, tools, targets etc."></textarea></div>
+      </div>
+      <div class="experience-actions"><button class="btn secondary cancel-edit" data-editor="experienceEditor">Cancel</button><button class="btn primary" id="saveExperience" type="button">Save Experience</button></div>
+      <div class="counter" id="experienceCounter"></div>
+    </div>
+  </div>
+
+  <div class="view-card">
+    <div class="view-head"><h3>📝 Career Summary</h3><button class="edit-btn" data-edit="professionalEditor">✎ Edit</button></div>
+    <div class="view-item"><small>Professional Summary</small><b id="viewSummary">Not added</b></div>
+  </div>
+
+  <div class="actions"><button class="btn primary" id="openFullEdit" type="button">✎ Edit Profile</button><button class="btn secondary" id="goResume" type="button">📄 Manage Resume / CV</button></div>
 </div>
-<form id="profileForm">
-<div class="grid">
-<div class="field"><label for="fullName">Full Name *</label><input id="fullName" required maxlength="100" autocomplete="name"></div>
-<div class="field"><label for="mobile">Mobile Number *</label><input id="mobile" required maxlength="15" inputmode="tel" autocomplete="tel"></div>
-<div class="field"><label for="email">Email</label><input id="email" type="email" disabled></div>
-<div class="field"><label for="qualification">Highest Qualification *</label><input id="qualification" required maxlength="120" placeholder="e.g. MBA HR, B.Tech, B.Com"></div>
-<div class="field"><label for="experience">Total Experience *</label><input id="experience" required maxlength="60" placeholder="e.g. 3 Years / Fresher"></div>
-<div class="field"><label for="designation">Current / Last Designation</label><input id="designation" maxlength="100"></div>
-<div class="field"><label for="company">Current / Last Company</label><input id="company" maxlength="120"></div>
-<div class="field"><label for="currentSalary">Current Salary</label><input id="currentSalary" maxlength="60" placeholder="e.g. ₹5 LPA"></div>
-<div class="field"><label for="expectedSalary">Expected Salary</label><input id="expectedSalary" maxlength="60" placeholder="e.g. ₹7 LPA"></div>
-<div class="field"><label for="location">Preferred Job Location</label><input id="location" maxlength="120" placeholder="e.g. Bengaluru"></div>
-<div class="field"><label for="noticePeriod">Notice Period</label><input id="noticePeriod" maxlength="60" placeholder="e.g. Immediate / 30 Days"></div>
-<div class="field"><label for="skills">Key Skills</label><input id="skills" maxlength="300" placeholder="e.g. Recruitment, Payroll, Excel"></div>
-<div class="field full"><label for="summary">Professional Summary</label><textarea id="summary" maxlength="1200" placeholder="Briefly describe your experience and career profile"></textarea></div>
-</div>
-<div class="actions"><button class="btn primary" type="submit" id="saveProfile">Save Profile</button></div>
-</form>
 </section>
 
 <section class="section" id="resume">
@@ -111,67 +175,115 @@ const $=id=>document.getElementById(id);
 const notice=$("notice"), jobNotice=$("jobNotice");
 let currentUser=null,currentProfile={},resumeUrl="",jobsCache=[];
 const profileFields=["fullName","mobile","qualification","experience","designation","company","currentSalary","expectedSalary","location","noticePeriod","skills","summary"];
+let experiences=[];
 
-function show(msg,type="error"){notice.textContent=msg;notice.className="notice show "+type;window.scrollTo({top:0,behavior:"smooth"});}
-function showJob(msg,type="error"){jobNotice.textContent=msg;jobNotice.className="notice show "+type;}
-function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
-function clean(v){return String(v??"").trim();}
-function fileSize(bytes){return (bytes/1024/1024).toFixed(2)+" MB";}
+function val(id){return clean($(id)?.value);}
+function setVal(id,v){if($(id)) $(id).value=v??"";}
 
-function setSection(name){
- document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===name));
- document.querySelectorAll(".side-tab").forEach(x=>x.classList.toggle("active",x.dataset.section===name));
- if(name==="jobs")loadJobs();
+function populateEditors(){
+ profileFields.forEach(k=>setVal(k,currentProfile[k]));
+ setVal("email",currentUser?.email||"");
 }
 
-document.querySelectorAll(".side-tab").forEach(b=>b.addEventListener("click",()=>setSection(b.dataset.section)));
-
-async function logout(){try{await signOut(auth);}finally{location.href="candidate-login.html";}}
-$("logout").onclick=e=>{e.preventDefault();logout();};
-
-onAuthStateChanged(auth,async user=>{
- if(!user){location.href="candidate-login.html";return;}
- currentUser=user;
- $("email").value=user.email||"";
- $("heroEmail").textContent=user.email||"";
- $("appEmail").textContent=user.email||"";
- try{
-  const snap=await getDoc(doc(db,"candidates",user.uid));
-  if(snap.exists()){
-   currentProfile=snap.data();
-   profileFields.forEach(k=>$(k).value=currentProfile[k]??"");
-   resumeUrl=currentProfile.resumeUrl||"";
-   if(currentProfile.fullName) $("heroTitle").textContent="Hello, "+currentProfile.fullName;
-  }
-  $("appCandidate").textContent=currentProfile.fullName||"Candidate";
-  updateSummary();
-  renderResume();
- }catch(err){show("Could not load your profile. Please try again.");console.error(err);}
- loadJobs();
-});
-
-function updateSummary(){
+function updateProfileView(){
+ const map={
+  viewFullName:["fullName","Not added"],viewMobile:["mobile","Not added"],viewEmail:["email","Not added"],
+  viewLocation:["location","Not added"],viewQualification:["qualification","Not added"],viewExperience:["experience","Not added"],
+  viewDesignation:["designation","Not added"],viewCompany:["company","Not added"],viewCurrentSalary:["currentSalary","Not added"],
+  viewExpectedSalary:["expectedSalary","Not added"],viewNoticePeriod:["noticePeriod","Not added"],viewSkills:["skills","Not added"],
+  viewSummary:["summary","Not added"]
+ };
+ Object.entries(map).forEach(([id,[key,fallback]])=>$(id).textContent=clean(currentProfile[key])||fallback);
  $("summaryQualification").textContent=currentProfile.qualification||"Not added";
  $("summaryExperience").textContent=currentProfile.experience||"Not added";
  $("summaryLocation").textContent=currentProfile.location||"Not added";
  $("summaryResume").textContent=resumeUrl?"Uploaded":"Not uploaded";
  $("appCandidate").textContent=currentProfile.fullName||"Candidate";
+ $("heroTitle").textContent=currentProfile.fullName?"Hello, "+currentProfile.fullName:"Candidate Portal";
+ $("heroEmail").textContent=currentUser?.email||"";
 }
 
-$("profileForm").onsubmit=async e=>{
- e.preventDefault();if(!currentUser)return;
- const required=["fullName","mobile","qualification","experience"];
- if(required.some(k=>!clean($(k).value))){show("Please complete Full Name, Mobile, Qualification and Experience.");return;}
- const data={};profileFields.forEach(k=>data[k]=clean($(k).value));
+function renderExperiences(){
+ const list=$("experienceList");
+ experiences=Array.isArray(experiences)?experiences:[];
+ $("experienceCounter").textContent=experiences.length+" / 100 experience records used";
+ if(!experiences.length){list.innerHTML='<div class="empty-inline">No work experience added yet. Click “Add / Edit” to add your first company.</div>';return;}
+ const sorted=[...experiences].sort((a,b)=>String(b.from||"").localeCompare(String(a.from||"")));
+ list.innerHTML=sorted.map((x,i)=>`
+ <article class="experience-card">
+  <div class="experience-top"><div><div class="experience-title">${esc(x.designation||"Role not added")}</div><div class="experience-company">${esc(x.company||"Company not added")}${x.location?" · "+esc(x.location):""}</div></div><span class="pill">${x.to?"Past":"Current"}</span></div>
+  <div class="experience-meta">
+   <span>📅 ${esc(x.from||"—")} → ${esc(x.to||"Present")}</span>
+   ${x.employmentType?`<span>💼 ${esc(x.employmentType)}</span>`:""}
+   ${x.salary?`<span>💰 ${esc(x.salary)}</span>`:""}
+  </div>
+  ${x.reason?`<div class="hint"><b>Reason for leaving:</b> ${esc(x.reason)}</div>`:""}
+  ${x.description?`<div class="job-desc"><b>Responsibilities / Achievements</b><br>${esc(x.description)}</div>`:""}
+  <div class="experience-actions"><button class="edit-btn" data-exp-edit="${esc(x.id)}">✎ Edit</button><button class="edit-btn danger-outline" data-exp-delete="${esc(x.id)}">Delete</button></div>
+ </article>`).join("");
+ list.querySelectorAll("[data-exp-edit]").forEach(b=>b.onclick=()=>editExperience(b.dataset.expEdit));
+ list.querySelectorAll("[data-exp-delete]").forEach(b=>b.onclick=()=>deleteExperience(b.dataset.expDelete));
+}
+
+function openEditor(id){$(id).hidden=false;$(id).scrollIntoView({behavior:"smooth",block:"center"});}
+function closeEditor(id){$(id).hidden=true;}
+
+document.querySelectorAll("[data-edit]").forEach(b=>b.addEventListener("click",()=>openEditor(b.dataset.edit)));
+document.querySelectorAll(".cancel-edit").forEach(b=>b.addEventListener("click",()=>closeEditor(b.dataset.editor)));
+$("openFullEdit").onclick=()=>{openEditor("personalEditor");openEditor("professionalEditor");};
+$("goResume").onclick=()=>setSection("resume");
+
+document.querySelectorAll(".save-section").forEach(b=>b.addEventListener("click",async()=>{
+ if(!currentUser)return;
+ const type=b.dataset.sectionSave;
+ if(type==="personal" && (!val("fullName")||!val("mobile"))){show("Please complete Full Name and Mobile Number.");return;}
+ if(type==="professional" && (!val("qualification")||!val("experience"))){show("Please complete Qualification and Total Experience.");return;}
+ const data={};const keys=type==="personal"?["fullName","mobile","location"]:["qualification","experience","designation","company","currentSalary","expectedSalary","noticePeriod","skills","summary"];
+ keys.forEach(k=>data[k]=val(k));
  data.email=currentUser.email||"";data.resumeUrl=resumeUrl||"";data.updatedAt=serverTimestamp();
+ b.disabled=true;b.textContent="Saving…";
  try{
-  $("saveProfile").disabled=true;$("saveProfile").textContent="Saving…";
   await setDoc(doc(db,"candidates",currentUser.uid),data,{merge:true});
-  currentProfile={...currentProfile,...data};updateSummary();
-  show("Profile updated successfully.","success");
+  currentProfile={...currentProfile,...data};populateEditors();updateProfileView();
+  show(type==="personal"?"Personal details updated successfully.":"Professional details updated successfully.","success");
+  closeEditor(type==="personal"?"personalEditor":"professionalEditor");
  }catch(err){console.error(err);show("Could not save your profile. Please try again.");}
- finally{$("saveProfile").disabled=false;$("saveProfile").textContent="Save Profile";}
+ finally{b.disabled=false;b.textContent=type==="personal"?"Save Personal Details":"Save Professional Details";}
+}));
+
+function clearExperienceEditor(){
+ ["experienceEditId","expCompany","expLocation","expDesignation","expFrom","expTo","expSalary","expReason","expDescription"].forEach(id=>setVal(id,""));
+ setVal("expEmploymentType","");
+ $("experienceEditorTitle").textContent="Add Experience";
+}
+function editExperience(id){
+ const x=experiences.find(e=>e.id===id);if(!x)return;
+ setVal("experienceEditId",x.id);setVal("expCompany",x.company);setVal("expLocation",x.location);setVal("expDesignation",x.designation);
+ setVal("expEmploymentType",x.employmentType);setVal("expFrom",x.from);setVal("expTo",x.to);setVal("expSalary",x.salary);setVal("expReason",x.reason);setVal("expDescription",x.description);
+ $("experienceEditorTitle").textContent="Edit Experience";openEditor("experienceEditor");
+}
+$("saveExperience").onclick=async()=>{
+ if(!currentUser)return;
+ const company=val("expCompany"),designation=val("expDesignation"),from=val("expFrom"),to=val("expTo");
+ if(!company||!designation||!from){show("Company Name, Designation and Date From are required.");return;}
+ if(to && to<from){show("Date To cannot be earlier than Date From.");return;}
+ const editId=val("experienceEditId");
+ if(!editId && experiences.length>=100){show("Maximum 100 experience records allowed.");return;}
+ const item={id:editId||("exp_"+Date.now()+"_"+Math.random().toString(36).slice(2,8)),company,location:val("expLocation"),designation,employmentType:val("expEmploymentType"),from,to,salary:val("expSalary"),reason:val("expReason"),description:val("expDescription")};
+ const next=editId?experiences.map(x=>x.id===editId?item:x):[...experiences,item];
+ const btn=$("saveExperience");btn.disabled=true;btn.textContent="Saving…";
+ try{
+  await setDoc(doc(db,"candidates",currentUser.uid),{experiences:next,updatedAt:serverTimestamp()},{merge:true});
+  experiences=next;currentProfile.experiences=next;renderExperiences();clearExperienceEditor();closeEditor("experienceEditor");show("Work experience saved successfully.","success");
+ }catch(err){console.error(err);show("Could not save work experience. Please try again.");}
+ finally{btn.disabled=false;btn.textContent="Save Experience";}
 };
+async function deleteExperience(id){
+ if(!confirm("Delete this experience record?"))return;
+ const next=experiences.filter(x=>x.id!==id);
+ try{await setDoc(doc(db,"candidates",currentUser.uid),{experiences:next,updatedAt:serverTimestamp()},{merge:true});experiences=next;currentProfile.experiences=next;renderExperiences();show("Experience record deleted.","success");}
+ catch(err){console.error(err);show("Could not delete this experience.");}
+}
 
 function renderResume(){
  const box=$("currentResume");
