@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manage Jobs | Sandeep HR Solutions</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f5f8fc;color:#172033}
+.top{background:#071b34;color:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center}.top a{color:#fff;text-decoration:none}
+main{width:min(900px,92%);margin:30px auto}.card{background:#fff;border:1px solid #e0e7ef;border-radius:20px;padding:25px;box-shadow:0 10px 25px #071b3408}
+h1{margin:0 0 7px}.muted{color:#68758a;margin:0 0 24px;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{font-weight:700;font-size:13px;display:block;margin-bottom:7px}input,textarea,select{width:100%;padding:13px;border:1px solid #d7e0ea;border-radius:11px;font:inherit}textarea{min-height:130px;resize:vertical}.full{grid-column:1/-1}
+button{margin-top:20px;border:0;border-radius:11px;padding:14px 18px;background:#f4b83f;color:#071b34;font-weight:800;cursor:pointer}
+.msg{margin-top:14px;font-size:14px}.err{color:#a32929}.ok{color:#176b38}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<header class="top"><a href="admin-dashboard.html">← Admin Dashboard</a><span>Job Management</span></header>
+<main><div class="card">
+<h1>Add New Job</h1><p class="muted">Create a vacancy that candidates can view and apply for.</p>
+<form id="jobForm"><div class="grid">
+<div><label>Job Position *</label><input id="position" required placeholder="e.g. HR Executive"></div>
+<div><label>Location *</label><input id="location" required placeholder="e.g. Bangalore"></div>
+<div><label>Salary *</label><input id="salary" required placeholder="e.g. ₹25,000–₹35,000/month"></div>
+<div><label>Working Days *</label><input id="workingDays" required placeholder="e.g. Monday–Saturday"></div>
+<div><label>Vacancies *</label><input id="vacancies" type="number" min="1" required placeholder="e.g. 2"></div>
+<div><label>Experience</label><input id="experience" placeholder="e.g. 1–3 years"></div>
+<div><label>Qualification</label><input id="qualification" placeholder="e.g. Graduate"></div>
+<div><label>Status</label><select id="status"><option value="active">Active</option><option value="closed">Closed</option></select></div>
+<div class="full"><label>Job Description *</label><textarea id="description" required placeholder="Describe responsibilities, requirements and other details…"></textarea></div>
+</div><button type="submit">Publish Job →</button></form>
+<div id="msg" class="msg"></div>
+</div></main>
+<script type="module">
+import {auth,db} from "./firebase-config.js";
+import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {addDoc,collection,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
+const form=document.getElementById("jobForm"),msg=document.getElementById("msg");let allowed=false;
+onAuthStateChanged(auth,u=>{allowed=!!u&&u.email===ADMIN_EMAIL;if(!allowed)location.href="admin-login.html";});
+form.addEventListener("submit",async e=>{
+ e.preventDefault(); if(!allowed)return;
+ msg.textContent="Publishing…";msg.className="msg";
+ try{
+  await addDoc(collection(db,"jobs"),{
+   position:position.value.trim(),description:description.value.trim(),location:location.value.trim(),
+   salary:salary.value.trim(),workingDays:workingDays.value.trim(),vacancies:Number(vacancies.value),
+   experience:experience.value.trim(),qualification:qualification.value.trim(),status:status.value,
+   createdAt:serverTimestamp()
+  });
+  msg.textContent="Job published successfully.";msg.className="msg ok";form.reset();
+ }catch(err){msg.textContent="Could not publish. Firestore rules need to allow admin job creation.";msg.className="msg err";}
+});
+</script>
+</body></html>

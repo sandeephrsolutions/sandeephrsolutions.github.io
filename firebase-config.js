@@ -1,6 +1,3 @@
-// Firebase client configuration for Sandeep HR Solutions.
-// This is intended for browser use. Never put Firebase Admin/service-account
-// private keys in this file or in GitHub.
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";

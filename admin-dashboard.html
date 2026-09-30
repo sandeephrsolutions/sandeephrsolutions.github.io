@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Dashboard | Sandeep HR Solutions</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f5f8fc;color:#172033}
+.top{background:#071b34;color:#fff;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-weight:800}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:700;cursor:pointer}.light{background:#fff;color:#123f70}.gold{background:#f4b83f;color:#071b34}
+main{width:min(1120px,92%);margin:32px auto}.head h1{margin:0 0 7px;font-size:30px}.head p{margin:0;color:#68758a}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:26px 0}.stat{background:#fff;border:1px solid #e0e7ef;border-radius:18px;padding:22px;box-shadow:0 10px 25px #071b3408}.stat small{color:#68758a}.num{font-size:32px;font-weight:850;margin-top:8px}
+.panel{background:#fff;border:1px solid #e0e7ef;border-radius:18px;padding:22px;margin-top:18px}.panel h2{margin:0 0 15px;font-size:20px}.empty{color:#68758a;font-size:14px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">SANDEEP HR SOLUTIONS · ADMIN</div><div class="actions"><a class="btn gold" href="admin-jobs.html">+ Add Job</a><a class="btn light" href="index.html">Website</a><button class="btn light" id="logout">Logout</button></div></header>
+<main>
+<section class="head"><h1>Admin Dashboard</h1><p>Manage hiring activity and monitor your recruitment data.</p></section>
+<section class="grid">
+<div class="stat"><small>Total Candidates</small><div class="num" id="candidates">—</div></div>
+<div class="stat"><small>Companies Reached Out</small><div class="num" id="companies">—</div></div>
+<div class="stat"><small>Active Vacancies</small><div class="num" id="vacancies">—</div></div>
+<div class="stat"><small>Total Applications</small><div class="num" id="applications">—</div></div>
+</section>
+<section class="panel"><h2>Job Management</h2><p class="empty">Use <b>+ Add Job</b> to create live vacancies. Applications and employer records will be connected in the next stage.</p></section>
+<section class="panel"><h2>Admin Access</h2><p class="empty">Signed in as <span id="adminEmail">—</span>. This dashboard is restricted to the configured admin email.</p></section>
+</main>
+<script type="module">
+import {auth,db} from "./firebase-config.js";
+import {onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {collection,getCountFromServer} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
+onAuthStateChanged(auth,async u=>{
+ if(!u||u.email!==ADMIN_EMAIL){location.href="admin-login.html";return;}
+ document.getElementById("adminEmail").textContent=u.email;
+ try{
+  const [c,j,a,e]=await Promise.all([
+   getCountFromServer(collection(db,"candidates")),
+   getCountFromServer(collection(db,"jobs")),
+   getCountFromServer(collection(db,"applications")),
+   getCountFromServer(collection(db,"employers"))
+  ]);
+  document.getElementById("candidates").textContent=c.data().count;
+  document.getElementById("vacancies").textContent=j.data().count;
+  document.getElementById("applications").textContent=a.data().count;
+  document.getElementById("companies").textContent=e.data().count;
+ }catch(err){
+  document.getElementById("candidates").textContent="—";
+  document.getElementById("companies").textContent="—";
+  document.getElementById("vacancies").textContent="—";
+  document.getElementById("applications").textContent="—";
+ }
+});
+document.getElementById("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html";};
+</script>
+</body></html>

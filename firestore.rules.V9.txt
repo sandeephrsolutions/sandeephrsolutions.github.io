@@ -1,0 +1,31 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /candidates/{userId} {
+      allow read, create, update, delete: if request.auth != null
+        && request.auth.uid == userId;
+    }
+
+    // Temporary V9 admin rules: replace the ADMIN_UID value below
+    // with the Firebase UID of your admin account before publishing.
+    match /jobs/{jobId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null
+        && request.auth.uid == "REPLACE_WITH_ADMIN_UID";
+    }
+
+    match /applications/{applicationId} {
+      allow create: if request.auth != null;
+      allow read, update, delete: if request.auth != null
+        && request.auth.uid == "REPLACE_WITH_ADMIN_UID";
+    }
+
+    match /employers/{employerId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null
+        && request.auth.uid == "REPLACE_WITH_ADMIN_UID";
+    }
+  }
+}
