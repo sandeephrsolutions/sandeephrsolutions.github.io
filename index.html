@@ -19,9 +19,38 @@
 <div class="card"><div class="icon">🚀</div><h3>Startup HR Consulting</h3><p>HR setup, documentation, recruitment and process consulting.</p></div>
 </div></div></section>
 <section class="about" id="employers"><div class="c"><div class="title"><h2>For Employers</h2><p>Submit your hiring requirement directly to our WhatsApp.</p></div><div class="card form"><form onsubmit="sendReq(event)"><div class="fg"><div class="field"><label>Company Name *</label><input id="co" required></div><div class="field"><label>Contact Person *</label><input id="cp" required></div><div class="field"><label>Mobile *</label><input id="cm" required></div><div class="field"><label>Email</label><input id="ce" type="email"></div><div class="field"><label>Job Title *</label><input id="jt" required></div><div class="field"><label>Vacancies</label><input id="nv"></div><div class="field"><label>Location</label><input id="jl"></div><div class="field"><label>Experience</label><input id="ex"></div><div class="field"><label>Salary Range</label><input id="sr"></div><div class="field full"><label>Requirement / Job Description</label><textarea id="jd"></textarea></div></div><button class="btn gold" style="border:0;margin-top:18px;cursor:pointer" type="submit">Submit Requirement on WhatsApp</button></form></div></div></section>
-<section id="jobs"><div class="c"><div class="title"><h2>Jobs & Candidate Registration</h2><p>Contact us for current vacancies and recruitment support.</p></div><div class="cards"><div class="card"><h3>Looking for a Job?</h3><p>Share your profile and latest resume with our recruitment team.</p><div class="buttons"><a class="btn gold" href="https://wa.me/917978259944?text=Hello%20Sandeep%20HR%20Solutions%2C%20I%20would%20like%20to%20register%20as%20a%20job%20seeker." target="_blank">Register Profile</a></div></div><div class="card"><h3>Have a Vacancy?</h3><p>Submit your company hiring requirement and we will discuss the next steps.</p><div class="buttons"><a class="btn gold" href="#employers">Submit Requirement</a></div></div><div class="card"><h3>Bulk & Niche Hiring</h3><p>Recruitment support for urgent, specialized and volume hiring requirements.</p></div></div></div></section>
+<section id="jobs">
+<div class="c">
+<div class="title"><h2>Candidate Registration</h2><p>Register your profile with Sandeep HR Solutions for suitable opportunities.</p></div>
+<div class="card form">
+<form onsubmit="sendCandidate(event)">
+<div class="fg">
+<div class="field"><label>Full Name *</label><input id="cn" required></div>
+<div class="field"><label>Mobile Number *</label><input id="cmo" required></div>
+<div class="field"><label>Email</label><input id="cem" type="email"></div>
+<div class="field"><label>Qualification</label><input id="cq"></div>
+<div class="field"><label>Total Experience</label><input id="ctx"></div>
+<div class="field"><label>Current Designation</label><input id="cd"></div>
+<div class="field"><label>Current Company</label><input id="cc"></div>
+<div class="field"><label>Current Salary</label><input id="ccs"></div>
+<div class="field"><label>Expected Salary</label><input id="ces"></div>
+<div class="field"><label>Preferred Location</label><input id="cpl"></div>
+<div class="field"><label>Notice Period</label><input id="cnp"></div>
+<div class="field"><label>Key Skills</label><input id="cks"></div>
+<div class="field full"><label>Resume / LinkedIn Profile (optional)</label><input id="cr"></div>
+</div>
+<button class="btn gold" style="border:0;margin-top:18px;cursor:pointer" type="submit">Register Profile on WhatsApp</button>
+</form>
+</div>
+</div>
+</section>
 <section class="about" id="contact"><div class="c"><div class="title"><h2>Get in Touch</h2><p>Let's discuss your HR requirement.</p></div><div class="contact"><div><h3>📞 Phone</h3><a href="tel:+917978259944">7978259944</a></div><div><h3>✉️ Email</h3><a href="mailto:sandeep.hr.solutions.shr@gmail.com">sandeep.hr.solutions.shr@gmail.com</a></div><div><h3>💬 WhatsApp</h3><a href="https://wa.me/917978259944" target="_blank">Chat with us</a></div></div></div></section>
 <section class="cta"><div class="c"><h2>Ready to strengthen your HR?</h2><p>Recruitment • Payroll • Compliance • HR Consulting</p><div class="buttons" style="justify-content:center"><a class="btn gold" href="https://wa.me/917978259944?text=Hello%20Sandeep%20HR%20Solutions%2C%20I%20need%20HR%20support." target="_blank">Contact Us on WhatsApp</a></div></div></section>
 </main><a class="wa" href="https://wa.me/917978259944" target="_blank">💬 WhatsApp</a><footer><b>Sandeep HR Solutions</b><br>Recruitment • Payroll • Compliance • HR Consulting<br>© 2026 Sandeep HR Solutions. All rights reserved.</footer>
-<script>function sendReq(e){e.preventDefault();let g=id=>document.getElementById(id).value.trim();let s=`Hello Sandeep HR Solutions, I would like to submit a job requirement.%0A%0ACompany: ${encodeURIComponent(g("co"))}%0AContact Person: ${encodeURIComponent(g("cp"))}%0AMobile: ${encodeURIComponent(g("cm"))}%0AEmail: ${encodeURIComponent(g("ce"))}%0AJob Title: ${encodeURIComponent(g("jt"))}%0AVacancies: ${encodeURIComponent(g("nv"))}%0ALocation: ${encodeURIComponent(g("jl"))}%0AExperience: ${encodeURIComponent(g("ex"))}%0ASalary: ${encodeURIComponent(g("sr"))}%0ARequirement: ${encodeURIComponent(g("jd"))}`;window.open("https://wa.me/917978259944?text="+s,"_blank")}</script>
+<script>function sendReq(e){e.preventDefault();let g=id=>document.getElementById(id).value.trim();let s=`Hello Sandeep HR Solutions, I would like to submit a job requirement.%0A%0ACompany: ${encodeURIComponent(g("co"))}%0AContact Person: ${encodeURIComponent(g("cp"))}%0AMobile: ${encodeURIComponent(g("cm"))}%0AEmail: ${encodeURIComponent(g("ce"))}%0AJob Title: ${encodeURIComponent(g("jt"))}%0AVacancies: ${encodeURIComponent(g("nv"))}%0ALocation: ${encodeURIComponent(g("jl"))}%0AExperience: ${encodeURIComponent(g("ex"))}%0ASalary: ${encodeURIComponent(g("sr"))}%0ARequirement: ${encodeURIComponent(g("jd"))}`;window.open("https://wa.me/917978259944?text="+s,"_blank")}function sendCandidate(e){
+e.preventDefault();
+let g=id=>document.getElementById(id).value.trim();
+let s=`Hello Sandeep HR Solutions, I would like to register as a job seeker.%0A%0AFull Name: ${encodeURIComponent(g("cn"))}%0AMobile: ${encodeURIComponent(g("cmo"))}%0AEmail: ${encodeURIComponent(g("cem"))}%0AQualification: ${encodeURIComponent(g("cq"))}%0ATotal Experience: ${encodeURIComponent(g("ctx"))}%0ACurrent Designation: ${encodeURIComponent(g("cd"))}%0ACurrent Company: ${encodeURIComponent(g("cc"))}%0ACurrent Salary: ${encodeURIComponent(g("ccs"))}%0AExpected Salary: ${encodeURIComponent(g("ces"))}%0APreferred Location: ${encodeURIComponent(g("cpl"))}%0ANotice Period: ${encodeURIComponent(g("cnp"))}%0AKey Skills: ${encodeURIComponent(g("cks"))}%0AResume/LinkedIn: ${encodeURIComponent(g("cr"))}`;
+window.open("https://wa.me/917978259944?text="+s,"_blank")
+}</script>
 </body></html>
