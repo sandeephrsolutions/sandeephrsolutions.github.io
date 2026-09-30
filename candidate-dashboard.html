@@ -23,7 +23,7 @@ main{padding:22px 0 55px}.layout{display:grid;grid-template-columns:245px 1fr;ga
 .resume-box{border:1px solid var(--line);background:#fbfcfe;border-radius:14px;padding:16px}.resume-current{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:12px;padding:12px;background:#fff;border:1px solid #e6ebf1;border-radius:10px}.resume-name{font-size:12px;font-weight:850;word-break:break-word}.resume-meta{font-size:10px;color:var(--muted);margin-top:3px}.hint{font-size:10px;color:var(--muted);line-height:1.5;margin-top:7px}
 .job-list{display:grid;gap:12px}.job-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fbfcfe}.job-head{display:flex;justify-content:space-between;gap:12px}.job-title{font-size:16px;font-weight:900;color:var(--navy)}.job-company{font-size:11px;color:var(--muted);margin-top:3px}.job-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.job-item{font-size:11px;color:#5e6c7e}.job-item b{display:block;color:#26354b;font-size:10px;margin-bottom:2px}.job-desc{margin-top:12px;padding:11px;background:#fff;border:1px solid #e8edf3;border-radius:10px;white-space:pre-wrap;line-height:1.5;font-size:11px;color:#4c5b6e}.job-actions{margin-top:13px;display:flex;gap:8px;flex-wrap:wrap}
 .empty{padding:22px;text-align:center;color:var(--muted);font-size:12px;border:1px dashed #d8e0e8;border-radius:12px;background:#fbfcfe}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.info{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfcfe}.info small{display:block;color:var(--muted);font-size:10px}.info b{display:block;margin-top:4px;font-size:12px;word-break:break-word}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.info{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfcfe}.info small{display:block;color:var(--muted);font-size:10px}.info b{display:block;margin-top:4px;font-size:12px;word-break:break-word}.resume-info-head{display:flex;align-items:center;justify-content:space-between;gap:6px}.resume-field-actions{display:flex;gap:4px}.mini-edit,.mini-delete{border:0;border-radius:6px;padding:4px 7px;font-size:9px;font-weight:850;cursor:pointer}.mini-edit{background:#edf5fb;color:#145b91}.mini-delete{background:#fff0f0;color:#a52828}.mini-edit:hover,.mini-delete:hover{filter:brightness(.97)}
 footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 @media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.side .side-note{display:none}.side button{text-align:center;font-size:10px;padding:10px 5px}.profile-summary{grid-template-columns:repeat(2,1fr)}.hero-row{align-items:flex-start;flex-direction:column}.hero-user{width:100%}}
 @media(max-width:600px){.nav-links a:not(.active){display:none}.hero h1{font-size:29px}.grid,.info-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.job-grid{grid-template-columns:1fr 1fr}.job-head{flex-direction:column}.resume-current{align-items:flex-start;flex-direction:column}.side{grid-template-columns:repeat(2,1fr)}.card{padding:17px}}
@@ -182,14 +182,38 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 <div class="view-card" style="margin-top:14px">
   <div class="view-head"><div><h3>✨ Extracted Profile Summary</h3><div class="muted">Review the information below. You can edit any section from the Profile tab.</div></div><span class="pill" id="resumeProcessedBadge">Not processed</span></div>
   <div class="info-grid">
-    <div class="info"><small>Career Summary</small><b id="resumeSummaryText">Not added</b></div>
-    <div class="info"><small>Designation</small><b id="resumeDesignationText">Not added</b></div>
-    <div class="info"><small>Company</small><b id="resumeCompanyText">Not added</b></div>
-    <div class="info"><small>Experience</small><b id="resumeExperienceText">Not added</b></div>
-    <div class="info"><small>Qualification</small><b id="resumeQualificationText">Not added</b></div>
-    <div class="info"><small>Location</small><b id="resumeLocationText">Not added</b></div>
-    <div class="info"><small>Skills</small><b id="resumeSkillsText">Not added</b></div>
-    <div class="info"><small>Work Experience Records</small><b id="resumeExperienceCount">0</b></div>
+    <div class="info">
+      <div class="resume-info-head"><small>Career Summary</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="summary">Edit</button><button type="button" class="mini-delete" data-resume-delete="summary">Delete</button></span></div>
+      <b id="resumeSummaryText">Not added</b>
+    </div>
+    <div class="info">
+      <div class="resume-info-head"><small>Designation</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="designation">Edit</button><button type="button" class="mini-delete" data-resume-delete="designation">Delete</button></span></div>
+      <b id="resumeDesignationText">Not added</b>
+    </div>
+    <div class="info">
+      <div class="resume-info-head"><small>Company</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="company">Edit</button><button type="button" class="mini-delete" data-resume-delete="company">Delete</button></span></div>
+      <b id="resumeCompanyText">Not added</b>
+    </div>
+    <div class="info">
+      <div class="resume-info-head"><small>Experience</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="experience">Edit</button><button type="button" class="mini-delete" data-resume-delete="experience">Delete</button></span></div>
+      <b id="resumeExperienceText">Not added</b>
+    </div>
+    <div class="info">
+      <div class="resume-info-head"><small>Qualification</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="qualification">Edit</button><button type="button" class="mini-delete" data-resume-delete="qualification">Delete</button></span></div>
+      <b id="resumeQualificationText">Not added</b>
+    </div>
+    <div class="info">
+      <div class="resume-info-head"><small>Location</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="location">Edit</button><button type="button" class="mini-delete" data-resume-delete="location">Delete</button></span></div>
+      <b id="resumeLocationText">Not added</b>
+    </div>
+    <div class="info">
+      <div class="resume-info-head"><small>Skills</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="skills">Edit</button><button type="button" class="mini-delete" data-resume-delete="skills">Delete</button></span></div>
+      <b id="resumeSkillsText">Not added</b>
+    </div>
+    <div class="info">
+      <div class="resume-info-head"><small>Work Experience Records</small><span class="resume-field-actions"><button type="button" class="mini-edit" data-resume-edit="experiences">Edit</button><button type="button" class="mini-delete" data-resume-delete="experiences">Delete</button></span></div>
+      <b id="resumeExperienceCount">0</b>
+    </div>
   </div>
   <div class="hint">Privacy: the original resume stays on this device during processing. Only structured profile fields and work-experience details are retained in Firebase. Raw resume text is not saved.</div>
 </div>
@@ -472,6 +496,77 @@ $("clearResumeSummary")?.addEventListener("click",async()=>{
  if(!currentUser)return;if(!confirm("Clear the resume-processing status and extracted resume fields? Your manually saved profile data will remain unless you clear those fields yourself."))return;
  try{await setDoc(doc(db,"candidates",currentUser.uid),{resumeProcessed:false,resumeProcessedAt:null,resumeFileName:"",resumeFileType:"",resumeSummary:null,updatedAt:serverTimestamp()},{merge:true});currentProfile={...currentProfile,resumeProcessed:false,resumeProcessedAt:null,resumeFileName:"",resumeFileType:"",resumeSummary:null};updateProfileView();renderResumeSummary();showResume("Resume processing status cleared. Your profile data has not been deleted.","success");}catch(e){console.error(e);showResume("Could not clear the resume status.","error");}
 });
+
+
+// Extracted summary field controls
+const resumeFieldMap={
+  summary:{editor:"professionalEditor",input:"summary",label:"Career Summary"},
+  designation:{editor:"professionalEditor",input:"designation",label:"Designation"},
+  company:{editor:"professionalEditor",input:"company",label:"Company"},
+  experience:{editor:"professionalEditor",input:"experience",label:"Experience"},
+  qualification:{editor:"professionalEditor",input:"qualification",label:"Qualification"},
+  location:{editor:"personalEditor",input:"location",label:"Location"},
+  skills:{editor:"professionalEditor",input:"skills",label:"Skills"}
+};
+
+document.querySelectorAll("[data-resume-edit]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const key=btn.dataset.resumeEdit;
+    if(key==="experiences"){openEditor("experienceEditor");return;}
+    const cfg=resumeFieldMap[key];
+    if(!cfg)return;
+    setVal(cfg.input,currentProfile[cfg.input]||"");
+    openEditor(cfg.editor);
+    const input=$(cfg.input);
+    if(input){input.focus();input.scrollIntoView({behavior:"smooth",block:"center"});}
+  });
+});
+
+document.querySelectorAll("[data-resume-delete]").forEach(btn=>{
+  btn.addEventListener("click",async()=>{
+    const key=btn.dataset.resumeDelete;
+    if(key==="experiences"){
+      if(!experiences.length){notify("There are no work experience records to delete.","info");return;}
+      if(!confirm("Delete all work experience records from this profile?"))return;
+      await deleteAllExperiences();
+      return;
+    }
+    const cfg=resumeFieldMap[key];
+    if(!cfg||!currentUser)return;
+    if(!currentProfile[cfg.input]){notify(cfg.label+" is already empty.","info");return;}
+    if(!confirm("Delete "+cfg.label+" from your profile?"))return;
+    try{
+      const data={};
+      data[cfg.input]="";
+      data.updatedAt=serverTimestamp();
+      await setDoc(doc(db,"candidates",currentUser.uid),data,{merge:true});
+      currentProfile={...currentProfile,[cfg.input]:""};
+      populateEditors();
+      updateProfileView();
+      renderResumeSummary();
+      notify(cfg.label+" deleted.");
+      showResume(cfg.label+" deleted from your profile.","success");
+    }catch(err){
+      console.error(err);
+      notify("Could not delete "+cfg.label+".","error");
+    }
+  });
+});
+
+async function deleteAllExperiences(){
+  try{
+    await setDoc(doc(db,"candidates",currentUser.uid),{experiences:[],updatedAt:serverTimestamp()},{merge:true});
+    experiences=[];
+    currentProfile.experiences=[];
+    renderExperiences();
+    renderResumeSummary();
+    notify("All work experience records deleted.");
+    showResume("All work experience records deleted from your profile.","success");
+  }catch(err){
+    console.error(err);
+    notify("Could not delete work experience records.","error");
+  }
+}
 
 function jobValue(j,...keys){for(const k of keys){if(j[k]!==undefined&&j[k]!==null&&String(j[k]).trim()!=="")return j[k];}return "Not specified";}
 async function loadJobs(){
