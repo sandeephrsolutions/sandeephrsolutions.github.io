@@ -29,6 +29,31 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 
 .profile-view{display:grid;gap:16px}.view-card{border:1px solid var(--line);border-radius:14px;background:#fbfcfe;padding:16px}.view-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px}.view-head h3{margin:0;font-size:15px;color:var(--navy)}.edit-btn{border:1px solid #d7e0e9;background:#fff;color:#145b91;border-radius:8px;padding:7px 10px;font-size:11px;font-weight:850;cursor:pointer}.view-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.view-item{background:#fff;border:1px solid #e8edf3;border-radius:10px;padding:10px}.view-item small{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.4px}.view-item b{display:block;margin-top:4px;font-size:12px;word-break:break-word}.experience-list{display:grid;gap:10px}.experience-card{background:#fff;border:1px solid #e5ebf1;border-radius:12px;padding:13px}.experience-top{display:flex;justify-content:space-between;gap:10px}.experience-title{font-weight:900;color:var(--navy);font-size:13px}.experience-company{font-size:11px;color:#5e6c7e;margin-top:3px}.experience-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.experience-meta span{font-size:10px;background:#f2f6fa;border-radius:20px;padding:5px 8px;color:#4d5d70}.editor-box{border:1px solid #dfe7ef;border-radius:14px;padding:15px;background:#fff;margin-top:12px}.editor-box h4{margin:0 0 12px;font-size:13px}.experience-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}.danger-outline{background:#fff;border:1px solid #f0cccc;color:var(--red)}.counter{font-size:10px;color:var(--muted);font-weight:800}.empty-inline{padding:14px;border:1px dashed #d8e0e8;border-radius:10px;color:var(--muted);font-size:11px;background:#fbfcfe}
 @media(max-width:600px){.view-grid{grid-template-columns:1fr}.experience-top{flex-direction:column}}
+
+.resume-preview-wrap{margin-top:12px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:12px}
+.resume-preview-title{font-size:11px;font-weight:900;color:var(--navy);margin-bottom:9px}
+.resume-preview-frame{width:100%;height:230px;border:1px solid #e5ebf1;border-radius:10px;background:#f5f8fc;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.resume-preview-frame img{width:100%;height:100%;object-fit:contain;background:#fff}
+.resume-preview-frame iframe{width:100%;height:100%;border:0;background:#fff}
+.resume-doc-preview{text-align:center;padding:28px 15px;color:#4d5d70}
+.resume-doc-preview .file-icon{font-size:42px;display:block;margin-bottom:8px}
+.resume-doc-preview b{display:block;color:var(--navy);font-size:12px;word-break:break-word}
+.resume-preview-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.preview-btn{border:0;border-radius:9px;padding:9px 12px;font-size:11px;font-weight:850;cursor:pointer;background:#071b34;color:#fff}
+.preview-btn.secondary{background:#edf3f8;color:#071b34}
+.preview-note{font-size:10px;color:var(--muted);line-height:1.45;margin-top:7px}
+.full-preview-overlay{position:fixed;inset:0;background:rgba(3,12,25,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:18px}
+.full-preview-overlay.show{display:flex}
+.full-preview-box{width:min(1050px,96vw);height:min(92vh,900px);background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.full-preview-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;background:#071b34;color:#fff}
+.full-preview-head strong{font-size:12px;word-break:break-word}
+.full-preview-close{border:0;background:#fff;color:#071b34;border-radius:8px;padding:7px 10px;font-weight:900;cursor:pointer}
+.full-preview-content{flex:1;overflow:auto;background:#e9eef4;display:flex;align-items:center;justify-content:center}
+.full-preview-content img{max-width:100%;max-height:100%;object-fit:contain;background:#fff}
+.full-preview-content iframe{width:100%;height:100%;border:0;background:#fff}
+.full-preview-doc{padding:35px;text-align:center;color:#4d5d70}
+.full-preview-doc .file-icon{font-size:70px}
+@media(max-width:600px){.resume-preview-frame{height:200px}.resume-preview-actions .preview-btn{flex:1}.full-preview-overlay{padding:7px}.full-preview-box{width:100%;height:96vh;border-radius:10px}}
 </style>
 </head>
 <body>
@@ -59,7 +84,10 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
     <div class="summary"><b id="summaryQualification">—</b><small>Qualification</small></div>
     <div class="summary"><b id="summaryExperience">—</b><small>Total Experience</small></div>
     <div class="summary"><b id="summaryLocation">—</b><small>Preferred Location</small></div>
-    <div class="summary"><b id="summaryResume">Not uploaded</b><small>Resume / CV</small></div>
+    <div class="summary resume-summary">
+      <b id="summaryResume">Not uploaded</b><small>Resume / CV</small>
+      <div id="summaryResumePreview"></div>
+    </div>
   </div>
 
   <div class="view-card">
@@ -157,19 +185,43 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 
 <section class="section" id="applications">
 <div class="section-head"><div><h2>My Applications</h2><div class="muted">Applications submitted from this candidate portal.</div></div><span class="pill">PRIVATE</span></div>
-<div class="empty">Application history is recorded securely. If you need an application-status update, please contact Sandeep HR Solutions.</div>
-<div class="info-grid" style="margin-top:12px"><div class="info"><small>Candidate</small><b id="appCandidate">—</b></div><div class="info"><small>Email</small><b id="appEmail">—</b></div></div>
+<div class="info-grid" style="margin-bottom:12px"><div class="info"><small>Candidate</small><b id="appCandidate">—</b></div><div class="info"><small>Email</small><b id="appEmail">—</b></div></div>
+<div id="applicationList" class="app-list"><div class="empty">Loading applications…</div></div>
 </section>
 </section></div></main>
 
+
+<div class="full-preview-overlay" id="fullPreviewOverlay" aria-hidden="true">
+  <div class="full-preview-box" role="dialog" aria-modal="true" aria-label="Resume preview">
+    <div class="full-preview-head">
+      <strong id="fullPreviewTitle">Resume / CV Preview</strong>
+      <button class="full-preview-close" id="closeFullPreview" type="button">✕ Close</button>
+    </div>
+    <div class="full-preview-content" id="fullPreviewContent"></div>
+  </div>
+</div>
 <footer>Sandeep HR Solutions • Candidate Portal • Recruitment • HR Consulting</footer>
 
+<script>
+(function(){
+ function activate(name){
+   var target=document.getElementById(name); if(!target)return;
+   document.querySelectorAll('.section').forEach(function(s){s.classList.toggle('active',s.id===name);});
+   document.querySelectorAll('.side-tab').forEach(function(b){b.classList.toggle('active',b.dataset.section===name);});
+   window.scrollTo({top:0,behavior:'smooth'});
+ }
+ document.querySelectorAll('.side-tab').forEach(function(btn){btn.addEventListener('click',function(e){e.preventDefault();activate(btn.dataset.section);});});
+ document.querySelectorAll('[data-edit]').forEach(function(btn){btn.addEventListener('click',function(){var el=document.getElementById(btn.dataset.edit);if(el){el.hidden=false;el.scrollIntoView({behavior:'smooth',block:'center'});}});});
+ document.querySelectorAll('.cancel-edit').forEach(function(btn){btn.addEventListener('click',function(){var el=document.getElementById(btn.dataset.editor);if(el)el.hidden=true;});});
+ var go=document.getElementById('goResume');if(go)go.addEventListener('click',function(){activate('resume');});
+ var full=document.getElementById('openFullEdit');if(full)full.addEventListener('click',function(){var a=document.getElementById('personalEditor'),b=document.getElementById('professionalEditor');if(a)a.hidden=false;if(b)b.hidden=false;});
+})();
+</script>
 <script type="module">
 import {auth,db} from "./firebase-config.js";
 import {onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import {doc,getDoc,setDoc,serverTimestamp,collection,getDocs,query,where,addDoc} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 import {getApps} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-import {getStorage,ref,uploadBytes,getDownloadURL} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js";
 
 const $=id=>document.getElementById(id);
 const notice=$("notice"), jobNotice=$("jobNotice");
@@ -177,6 +229,34 @@ let currentUser=null,currentProfile={},resumeUrl="",jobsCache=[];
 const profileFields=["fullName","mobile","qualification","experience","designation","company","currentSalary","expectedSalary","location","noticePeriod","skills","summary"];
 let experiences=[];
 
+function clean(v){return String(v??"").trim();}
+function show(msg,type="error"){
+ const el=$("notice");
+ if(!el)return;
+ el.textContent=msg;
+ el.className="notice show "+type;
+}
+function showJob(msg,type="error"){
+ const el=$("jobNotice");
+ if(!el)return;
+ el.textContent=msg;
+ el.className="notice show "+type;
+}
+
+function setSection(name){
+  const target=$(name);
+  if(!target)return false;
+  document.querySelectorAll(".section").forEach(section=>{section.classList.toggle("active",section.id===name);});
+  document.querySelectorAll(".side-tab").forEach(tab=>{tab.classList.toggle("active",tab.dataset.section===name);});
+  if($("notice"))$("notice").className="notice";
+  if(name==="jobs")loadJobs();
+  if(name==="applications")loadApplications();
+  if(name==="resume"){renderResume();if(typeof renderSummaryResume==="function")renderSummaryResume();}
+  window.scrollTo({top:0,behavior:"smooth"});
+  return true;
+}
+
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]||m));}
 function val(id){return clean($(id)?.value);}
 function setVal(id,v){if($(id)) $(id).value=v??"";}
 
@@ -201,6 +281,7 @@ function updateProfileView(){
  $("appCandidate").textContent=currentProfile.fullName||"Candidate";
  $("heroTitle").textContent=currentProfile.fullName?"Hello, "+currentProfile.fullName:"Candidate Portal";
  $("heroEmail").textContent=currentUser?.email||"";
+ renderSummaryResume();
 }
 
 function renderExperiences(){
@@ -285,13 +366,92 @@ async function deleteExperience(id){
  catch(err){console.error(err);show("Could not delete this experience.");}
 }
 
+function resumeType(){
+ const name=String(currentProfile.resumeFileName||"").toLowerCase();
+ const type=String(currentProfile.resumeFileType||"").toLowerCase();
+ if(type.includes("pdf")||name.endsWith(".pdf"))return "pdf";
+ if(type.includes("jpeg")||type.includes("jpg")||name.endsWith(".jpg")||name.endsWith(".jpeg"))return "image";
+ if(type.includes("word")||name.endsWith(".doc")||name.endsWith(".docx"))return "word";
+ return "file";
+}
+function resumeDisplayName(){return currentProfile.resumeFileName||"Resume / CV";}
+
+function buildPreviewMarkup(target="summary"){
+ if(!resumeUrl)return '<div class="empty-inline">No resume/CV uploaded yet.</div>';
+ const type=resumeType(), name=esc(resumeDisplayName());
+ if(type==="image"){
+   return `<div class="resume-preview-wrap">
+     <div class="resume-preview-title">Resume / CV Preview</div>
+     <div class="resume-preview-frame"><img src="${esc(resumeUrl)}" alt="Resume front page preview"></div>
+     <div class="resume-preview-actions"><button class="preview-btn" type="button" data-preview-full>👁 View Full Resume</button></div>
+   </div>`;
+ }
+ if(type==="pdf"){
+   return `<div class="resume-preview-wrap">
+     <div class="resume-preview-title">Resume / CV — First Page Preview</div>
+     <div class="resume-preview-frame"><iframe src="${esc(resumeUrl)}#page=1&view=FitH" title="Resume first page preview"></iframe></div>
+     <div class="resume-preview-actions"><button class="preview-btn" type="button" data-preview-full>👁 View Full Resume</button></div>
+     <div class="preview-note">PDF preview shows the first page. Use “View Full Resume” for the complete document.</div>
+   </div>`;
+ }
+ if(type==="word"){
+   return `<div class="resume-preview-wrap">
+     <div class="resume-preview-title">Resume / CV</div>
+     <div class="resume-preview-frame"><div class="resume-doc-preview"><span class="file-icon">📄</span><b>${name}</b><div class="preview-note">Word documents cannot be reliably rendered as a first-page preview directly in the browser.</div></div></div>
+     <div class="resume-preview-actions"><button class="preview-btn" type="button" data-preview-full>👁 Open Full Resume</button></div>
+   </div>`;
+ }
+ return `<div class="resume-preview-wrap"><div class="resume-preview-frame"><div class="resume-doc-preview"><span class="file-icon">📄</span><b>${name}</b></div></div><div class="resume-preview-actions"><button class="preview-btn" type="button" data-preview-full>👁 Open Full Resume</button></div></div>`;
+}
+
+function bindPreviewButtons(root=document){
+ root.querySelectorAll("[data-preview-full]").forEach(btn=>btn.onclick=()=>openFullResume());
+}
+
+function renderSummaryResume(){
+ const box=$("summaryResumePreview");
+ $("summaryResume").textContent=resumeUrl?"Uploaded":"Not uploaded";
+ box.innerHTML=resumeUrl?buildPreviewMarkup("summary"):"";
+ bindPreviewButtons(box);
+}
+
 function renderResume(){
  const box=$("currentResume");
- if(!resumeUrl){box.innerHTML='<div class="empty" style="margin-top:12px">No resume/CV uploaded yet.</div>';$("openResume").disabled=true;return;}
+ if(!resumeUrl){
+   box.innerHTML='<div class="empty" style="margin-top:12px">No resume/CV uploaded yet.</div>';
+   $("openResume").disabled=true;
+   return;
+ }
  $("openResume").disabled=false;
- box.innerHTML='<div class="resume-current"><div><div class="resume-name">📄 Current Resume / CV</div><div class="resume-meta">Stored securely with your candidate profile.</div></div><a class="btn secondary" target="_blank" rel="noopener" href="'+esc(resumeUrl)+'">Open</a></div>';
+ box.innerHTML=buildPreviewMarkup("resume")+
+   `<div class="resume-current"><div><div class="resume-name">📄 ${esc(resumeDisplayName())}</div><div class="resume-meta">Stored securely with your candidate profile.</div></div></div>`;
+ bindPreviewButtons(box);
 }
-$("openResume").onclick=()=>{if(resumeUrl)window.open(resumeUrl,"_blank","noopener");};
+function openFullResume(){
+ if(!resumeUrl)return;
+ const overlay=$("fullPreviewOverlay"), content=$("fullPreviewContent");
+ $("fullPreviewTitle").textContent=resumeDisplayName();
+ const type=resumeType();
+ if(type==="image"){
+   content.innerHTML=`<img src="${esc(resumeUrl)}" alt="Full resume preview">`;
+ }else if(type==="pdf"){
+   content.innerHTML=`<iframe src="${esc(resumeUrl)}#toolbar=1&navpanes=0&scrollbar=1" title="Full resume preview"></iframe>`;
+ }else{
+   content.innerHTML=`<div class="full-preview-doc"><div class="file-icon">📄</div><h3>${esc(resumeDisplayName())}</h3><p>Word documents open in the document viewer/download flow supported by your device.</p><button class="preview-btn" id="openResumeExternal" type="button">Open Resume</button></div>`;
+   $("openResumeExternal").onclick=()=>window.open(resumeUrl,"_blank","noopener");
+ }
+ overlay.classList.add("show");overlay.setAttribute("aria-hidden","false");
+}
+$("openResume").onclick=openFullResume;
+$("closeFullPreview").onclick=()=>{
+ $("fullPreviewOverlay").classList.remove("show");
+ $("fullPreviewOverlay").setAttribute("aria-hidden","true");
+ $("fullPreviewContent").innerHTML="";
+};
+$("fullPreviewOverlay").addEventListener("click",e=>{
+ if(e.target===$("fullPreviewOverlay"))$("closeFullPreview").click();
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("fullPreviewOverlay").classList.contains("show"))$("closeFullPreview").click();});
 
 $("uploadResume").onclick=async()=>{
  if(!currentUser)return;
@@ -304,13 +464,14 @@ $("uploadResume").onclick=async()=>{
  const btn=$("uploadResume");btn.disabled=true;btn.textContent="Uploading…";
  try{
   const apps=getApps();if(!apps.length)throw new Error("Firebase is not initialized.");
+  const {getStorage,ref,uploadBytes,getDownloadURL}=await import("https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js");
   const storage=getStorage(apps[0]);
   const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
   const storageRef=ref(storage,`candidate-resumes/${currentUser.uid}/${Date.now()}_${safeName}`);
   const snap=await uploadBytes(storageRef,file,{contentType:file.type||undefined});
   const url=await getDownloadURL(snap.ref);
   await setDoc(doc(db,"candidates",currentUser.uid),{resumeUrl:url,resumeFileName:file.name,resumeFileType:file.type||ext,resumeFileSize:file.size,updatedAt:serverTimestamp()},{merge:true});
-  resumeUrl=url;currentProfile.resumeUrl=url;renderResume();updateSummary();$("resumeFile").value="";
+  resumeUrl=url;currentProfile.resumeUrl=url;renderResume();renderSummaryResume();updateProfileView();$("resumeFile").value="";
   show("Resume/CV uploaded successfully.","success");
  }catch(err){console.error(err);show("Resume upload failed. If this is your first upload, Firebase Storage may need to be enabled and secured.");}
  finally{btn.disabled=false;btn.textContent="Upload / Replace Resume";}
@@ -345,6 +506,19 @@ async function loadJobs(){
  }catch(err){console.error(err);list.innerHTML='<div class="empty">Could not load approved vacancies. Please try again later.</div>';}
 }
 $("refreshJobs").onclick=loadJobs;
+
+async function loadApplications(){
+ const list=$("applicationList");
+ if(!list||!currentUser)return;
+ list.innerHTML='<div class="empty">Loading applications…</div>';
+ try{
+  const snap=await getDocs(query(collection(db,"applications"),where("candidateId","==",currentUser.uid)));
+  const rows=[];snap.forEach(d=>rows.push({id:d.id,...d.data()}));
+  rows.sort((a,b)=>(b.appliedAt?.seconds||0)-(a.appliedAt?.seconds||0));
+  if(!rows.length){list.innerHTML='<div class="empty">No applications submitted yet.</div>';return;}
+  list.innerHTML=rows.map(x=>`<article class="app-card"><b>${esc(x.jobTitle||"Job Application")}</b><div class="app-meta">📍 ${esc(x.location||"Not specified")} · Status: <strong>${esc(x.status||"Applied")}</strong></div></article>`).join("");
+ }catch(e){console.error(e);list.innerHTML='<div class="empty">Could not load your applications. Please check Firestore rules.</div>';}
+}
 
 async function applyToJob(jobId){
  const job=jobsCache.find(x=>x.id===jobId);if(!job||!currentUser)return;
