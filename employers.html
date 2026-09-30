@@ -116,7 +116,7 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:28px 18px;font
 <div class="container">
 <div class="heading"><span class="kicker">Employer Requirement</span><h2>Tell Us Your Hiring Requirement</h2><p>Share the role details below. Your requirement will open in WhatsApp for quick coordination.</p></div>
 <div class="form-wrap">
-<div class="form-top"><div><b>Hiring Request</b><div style="font-size:10px;color:#6c7888;margin-top:2px">Fields marked with * are required.</div></div><span>WHATSAPP SUBMISSION</span></div>
+<div class="form-top"><div><b>Hiring Request</b><div style="font-size:10px;color:#6c7888;margin-top:2px">Fields marked with * are required.</div></div><span>SECURE ADMIN SUBMISSION</span></div>
 
 <form id="employerForm">
 <div class="form-section">
@@ -142,8 +142,8 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:28px 18px;font
 </div></div>
 
 <div class="form-bottom">
-<div class="response"><strong>✓ Quick response via WhatsApp</strong>Your entered details will be prepared as a WhatsApp message.</div>
-<button class="submit" type="submit">Send Hiring Requirement →</button>
+<div class="response"><strong>✓ Secure submission</strong>Your requirement is saved privately for admin review. Company contact details are never published to candidates.</div>
+<button class="submit" type="submit">Submit Hiring Requirement →</button>
 </div>
 </form></div></div></section>
 
@@ -166,32 +166,75 @@ document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()
  document.getElementById('siteNav').classList.remove('open');
  const b=document.querySelector('.mobile-menu'); if(b)b.setAttribute('aria-expanded','false');
 }));
+</script>
+<script type="module">
+import {db} from "./firebase-config.js";
+import {addDoc,collection,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-document.getElementById('employerForm').addEventListener('submit',function(e){
+const form=document.getElementById('employerForm');
+const submit=form.querySelector('.submit');
+const response=document.querySelector('.response');
+
+form.addEventListener('submit',async function(e){
  e.preventDefault();
  const v=id=>document.getElementById(id).value.trim();
- const msg =
-`Hello Sandeep HR Solutions,
 
-I would like to share a hiring requirement.
+ const payload={
+   companyName:v('companyName'),
+   contactPerson:v('contactPerson'),
+   mobile:v('mobile'),
+   email:v('email') || '',
+   position:v('jobTitle'),
+   vacancies:Number(v('vacancies')) || 0,
+   location:v('location') || '',
+   experience:v('experience') || '',
+   salary:v('salary') || '',
+   qualification:v('qualification') || '',
+   workingDays:v('workingDays') || '',
+   description:v('description') || '',
+   status:'pending',
+   source:'employer-form',
+   createdAt:serverTimestamp()
+ };
 
-Company Name: ${v('companyName')}
-Contact Person: ${v('contactPerson')}
-Mobile: ${v('mobile')}
-Email: ${v('email') || 'Not provided'}
+ submit.disabled=true;
+ submit.textContent='Saving Requirement…';
+ try{
+   await addDoc(collection(db,'jobRequests'),payload);
 
-Job Title: ${v('jobTitle')}
-No. of Vacancies: ${v('vacancies') || 'Not specified'}
-Location: ${v('location') || 'Not specified'}
-Experience: ${v('experience') || 'Not specified'}
-Salary Range: ${v('salary') || 'Not specified'}
-Qualification: ${v('qualification') || 'Not specified'}
-Working Days / Work Pattern: ${v('workingDays') || 'Not specified'}
+   // Notify the admin on WhatsApp too. The database remains the source of truth.
+   const msg=`New Employer Hiring Requirement
 
-Job Description / Requirement:
-${v('description') || 'Not provided'}`;
+Company: ${payload.companyName}
+Contact Person: ${payload.contactPerson}
+Mobile: ${payload.mobile}
+Email: ${payload.email || 'Not provided'}
 
- window.open('https://wa.me/917978259944?text='+encodeURIComponent(msg),'_blank');
+Job Position: ${payload.position}
+Vacancies: ${payload.vacancies || 'Not specified'}
+Location: ${payload.location || 'Not specified'}
+Experience: ${payload.experience || 'Not specified'}
+Salary: ${payload.salary || 'Not specified'}
+Qualification: ${payload.qualification || 'Not specified'}
+Working Days: ${payload.workingDays || 'Not specified'}
+
+Job Description:
+${payload.description || 'Not provided'}
+
+Saved in Admin Job Requests for review.`;
+
+   window.open('https://wa.me/917978259944?text='+encodeURIComponent(msg),'_blank');
+   response.innerHTML='<strong>✓ Submitted successfully</strong>Your requirement is now saved in the Admin Job Requests. Our team will review and publish the vacancy. Company contact details remain private.';
+   response.style.color='#176b38';
+   form.reset();
+ }catch(err){
+   console.error(err);
+   response.innerHTML='<strong>⚠ Submission failed</strong>Please try again. If the problem continues, contact us on WhatsApp.';
+   response.style.color='#a32929';
+ }finally{
+   submit.disabled=false;
+   submit.textContent='Submit Hiring Requirement →';
+ }
 });
 </script>
 </body>
