@@ -31,7 +31,7 @@ main{width:min(1180px,92%);margin:28px auto 50px}.head h1{margin:0 0 5px;font-si
 </head>
 <body>
 <header class="top" aria-label="Admin navigation"><div class="brand">SANDEEP HR SOLUTIONS · ADMIN</div><div class="actions">
-<a class="btn gold" href="admin-jobs.html">Job Management</a><a class="btn light" href="admin-candidates.html">Candidate Management</a><a class="btn light" href="index.html">Website</a><button class="btn light" id="logout">Logout</button>
+<a class="btn gold" href="admin-jobs.html">Job Management</a><a class="btn light" href="admin-candidates.html">Candidate Management</a><a class="btn light" href="index.html">Website</a><button class="btn light" id="refresh">↻ Refresh</button><button class="btn light" id="logout">Logout</button>
 </div></header>
 <main id="main-content">
 <section class="head"><h1>Admin Dashboard</h1><p>Employer enquiries, recruitment requests, candidates and applications — all in one place.</p></section>
@@ -165,9 +165,20 @@ function excelValue(v){
 function normalizeRows(rows){
   return rows.map(r=>{
     const o={};
-    Object.keys(r).sort().forEach(k=>o[k]=excelValue(r[k]));
+    Object.keys(r).forEach(k=>o[k]=excelValue(r[k]));
     return o;
   });
+}
+function makeWorksheet(XLSX,rows){
+  const normalized=normalizeRows(rows);
+  if(!normalized.length)return XLSX.utils.aoa_to_sheet([["No records found for selected period"]]);
+  const headers=[...new Set(normalized.flatMap(r=>Object.keys(r)))].sort();
+  const values=normalized.map(r=>headers.map(h=>r[h]??""));
+  const ws=XLSX.utils.aoa_to_sheet([headers,...values]);
+  ws["!cols"]=headers.map(k=>({wch:Math.min(42,Math.max(14,String(k).length+4))}));
+  if(ws["!ref"])ws["!autofilter"]={ref:ws["!ref"]};
+  ws["!freeze"]={xSplit:0,ySplit:1};
+  return ws;
 }
 async function getCollectionRows(name){
   const snap=await getDocs(collection(db,name));
@@ -187,11 +198,7 @@ async function exportReport(type){
     if(type==="employers"||type==="all")dataMap.Employers=filterReportRows(await getCollectionRows("jobRequests"));
     if(type==="jobs"||type==="all")dataMap.Jobs=filterReportRows(await getCollectionRows("jobs"));
     Object.entries(dataMap).forEach(([name,rows])=>{
-      const normalized=normalizeRows(rows);
-      const ws=normalized.length?XLSX.utils.json_to_sheet(normalized):XLSX.utils.aoa_to_sheet([["No records found for selected period"]]);
-      const keys=Object.keys(normalized[0]||{"Report":""});
-      ws["!cols"]=keys.map(k=>({wch:Math.min(38,Math.max(14,k.length+4))}));
-      ws["!autofilter"]={ref:ws["!ref"]};
+      const ws=makeWorksheet(XLSX,rows);
       XLSX.utils.book_append_sheet(wb,ws,name);
     });
     const now=new Date(), date=now.toISOString().slice(0,10), time=now.toTimeString().slice(0,8).replace(/:/g,"-");
@@ -200,7 +207,8 @@ async function exportReport(type){
       :type==="jobs"?`Sandeep_HR_Jobs_${date}_${time}.xlsx`
       :`Sandeep_HR_Complete_Report_${date}_${time}.xlsx`;
     XLSX.writeFile(wb,filename);
-    status.textContent="Excel report downloaded successfully.";
+    const totalRows=Object.values(dataMap).reduce((n,items)=>n+items.length,0);
+    status.textContent=`Excel report downloaded successfully — ${totalRows} record${totalRows===1?"":"s"}.`;
   }catch(err){
     console.error(err);
     status.textContent="Could not generate the report. Please check your connection and try again.";
@@ -212,7 +220,12 @@ document.getElementById("exportJobs").onclick=()=>exportReport("jobs");
 document.getElementById("exportAll").onclick=()=>exportReport("all");
 
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));t.classList.add("active");filter=t.dataset.filter;render();});
-document.getElementById("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html";};
+document.getElementById("refresh").onclick=async()=>{
+  const b=document.getElementById("refresh");
+  b.disabled=true;b.textContent="Refreshing…";
+  try{await loadDashboard();}finally{b.disabled=false;b.textContent="↻ Refresh";}
+};
+document.getElementById("logout").onclick=async()=>{try{await signOut(auth);}finally{location.href="admin-login.html";}};
 function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
 </script>
 </body>
