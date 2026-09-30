@@ -166,7 +166,7 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
     <div class="view-item"><small>Professional Summary</small><b id="viewSummary">Not added</b></div>
   </div>
 
-  <div class="actions"><button class="btn primary" id="openFullEdit" type="button">✎ Edit Profile</button><button class="btn secondary" id="goResume" type="button">📄 Manage Resume / CV</button></div>
+  <div class="actions"><button class="btn primary" id="openFullEdit" type="button">✎ Edit Profile</button><button class="btn secondary" id="goResume" type="button">📄 Manage Resume / CV</button><button class="btn secondary" id="refreshProfile" type="button">↻ Refresh Profile</button></div>
 </div>
 </section>
 
@@ -272,9 +272,21 @@ function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&l
 function val(id){return clean($(id)?.value);}
 function setVal(id,v){if($(id)) $(id).value=v??"";}
 
+function getStoredResumeUrl(profile){
+ const candidates=[
+  profile?.resumeUrl, profile?.resumeURL, profile?.resumeLink, profile?.resumeLinkUrl,
+  profile?.cvUrl, profile?.cvURL, profile?.cvLink, profile?.fileUrl,
+  profile?.resume, profile?.cv
+ ];
+ for(const value of candidates){
+  if(typeof value==="string" && /^https?:\/\//i.test(value.trim())) return value.trim();
+ }
+ return "";
+}
+
 function populateEditors(){
  profileFields.forEach(k=>setVal(k,currentProfile[k]));
- setVal("email",currentUser?.email||"");
+ setVal("email",currentUser?.email||currentProfile.email||"");
 }
 
 function updateProfileView(){
@@ -325,6 +337,16 @@ document.querySelectorAll("[data-edit]").forEach(b=>b.addEventListener("click",(
 document.querySelectorAll(".cancel-edit").forEach(b=>b.addEventListener("click",()=>closeEditor(b.dataset.editor)));
 $("openFullEdit").onclick=()=>{openEditor("personalEditor");openEditor("professionalEditor");};
 $("goResume").onclick=()=>setSection("resume");
+$("refreshProfile").onclick=async()=>{
+ if(!currentUser){show("Please login again.","error");return;}
+ const btn=$("refreshProfile");
+ btn.disabled=true; btn.textContent="Refreshing…";
+ try{
+   await loadCandidateProfile(currentUser);
+   notify("✓ Profile and Resume status refreshed.","success");
+ }catch(err){console.error(err);show("Could not refresh profile.");}
+ finally{btn.disabled=false;btn.textContent="↻ Refresh Profile";}
+};
 
 document.querySelectorAll(".save-section").forEach(b=>b.addEventListener("click",async()=>{
  if(!currentUser)return;
@@ -423,7 +445,13 @@ function bindPreviewButtons(root=document){
 function renderSummaryResume(){
  const box=$("summaryResumePreview");
  $("summaryResume").textContent=resumeUrl?"Uploaded":"Not uploaded";
- box.innerHTML=resumeUrl?buildPreviewMarkup("summary"):"";
+ if(resumeUrl){
+   box.innerHTML=buildPreviewMarkup("summary");
+ }else if(currentProfile.resumeFileName){
+   box.innerHTML='<div class="empty-inline">Resume file record found: <b>'+esc(currentProfile.resumeFileName)+'</b>, but its saved preview link is missing. Please open Resume / CV and upload again.</div>';
+ }else{
+   box.innerHTML="";
+ }
  bindPreviewButtons(box);
 }
 
@@ -500,8 +528,16 @@ $("uploadResume").onclick=async()=>{
     updatedAt:serverTimestamp()
   },{merge:true});
   resumeUrl=url;
-  currentProfile={...currentProfile,resumeUrl:url,resumeFileName:file.name,resumeFileType:metadata.contentType,resumeFileSize:file.size};
-  renderResume();renderSummaryResume();updateProfileView();
+  currentProfile={...currentProfile,
+    resumeUrl:url,
+    resumeFileName:file.name,
+    resumeFileType:metadata.contentType,
+    resumeFileSize:file.size
+  };
+  resumeUrl=url;
+  renderResume();
+  renderSummaryResume();
+  updateProfileView();
   $("resumeFile").value="";
   show("Resume/CV saved successfully.","success");
   notify("✓ Resume/CV saved successfully.");
@@ -596,7 +632,7 @@ async function loadCandidateProfile(user){
   const snap=await getDoc(doc(db,"candidates",user.uid));
   currentProfile=snap.exists()?snap.data():{};
   experiences=Array.isArray(currentProfile.experiences)?currentProfile.experiences:[];
-  resumeUrl=clean(currentProfile.resumeUrl);
+  resumeUrl=getStoredResumeUrl(currentProfile);
   populateEditors();
   updateProfileView();
   renderExperiences();
