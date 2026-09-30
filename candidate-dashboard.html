@@ -18,6 +18,7 @@ main{padding:22px 0 55px}.layout{display:grid;grid-template-columns:245px 1fr;ga
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:3px}.field.full{grid-column:1/-1}.field label{display:block;font-size:11px;font-weight:850;margin-bottom:6px;color:#334155}.field input,.field textarea,.field select{width:100%;border:1px solid #d7e0e9;border-radius:10px;background:#fbfcfe;padding:11px 12px;font:inherit;font-size:13px;outline:none}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#4d86b8;box-shadow:0 0 0 3px #4d86b81a;background:#fff}.field input:disabled{background:#f1f4f7;color:#657386}
 .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border:0;border-radius:10px;padding:0 16px;font-weight:850;cursor:pointer;font-size:12px}.primary{background:var(--gold);color:var(--navy)}.secondary{background:#edf3f8;color:var(--navy)}.danger{background:#feecec;color:var(--red)}.success-btn{background:#e9f8ef;color:var(--green)}.btn:disabled{opacity:.55;cursor:wait}
 .notice{display:none;margin-bottom:15px;padding:11px 13px;border-radius:10px;font-size:12px;line-height:1.5}.notice.show{display:block}.notice.error{background:#fff0f0;color:var(--red);border:1px solid #f2cccc}.notice.success{background:#eefaf1;color:var(--green);border:1px solid #ccebd5}
+.toast{position:fixed;top:86px;right:18px;z-index:200;max-width:360px;padding:12px 15px;border-radius:12px;background:#176b38;color:#fff;box-shadow:0 12px 30px #071b3430;font-size:12px;font-weight:800;display:none}.toast.show{display:block}.toast.error{background:#a52828}.toast.info{background:#123f68}@media(max-width:600px){.toast{left:14px;right:14px;top:78px;max-width:none}}
 .profile-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}.summary{padding:13px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe}.summary b{display:block;font-size:17px;color:var(--navy)}.summary small{font-size:10px;color:var(--muted)}
 .resume-box{border:1px solid var(--line);background:#fbfcfe;border-radius:14px;padding:16px}.resume-current{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:12px;padding:12px;background:#fff;border:1px solid #e6ebf1;border-radius:10px}.resume-name{font-size:12px;font-weight:850;word-break:break-word}.resume-meta{font-size:10px;color:var(--muted);margin-top:3px}.hint{font-size:10px;color:var(--muted);line-height:1.5;margin-top:7px}
 .job-list{display:grid;gap:12px}.job-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fbfcfe}.job-head{display:flex;justify-content:space-between;gap:12px}.job-title{font-size:16px;font-weight:900;color:var(--navy)}.job-company{font-size:11px;color:var(--muted);margin-top:3px}.job-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.job-item{font-size:11px;color:#5e6c7e}.job-item b{display:block;color:#26354b;font-size:10px;margin-bottom:2px}.job-desc{margin-top:12px;padding:11px;background:#fff;border:1px solid #e8edf3;border-radius:10px;white-space:pre-wrap;line-height:1.5;font-size:11px;color:#4c5b6e}.job-actions{margin-top:13px;display:flex;gap:8px;flex-wrap:wrap}
@@ -57,6 +58,7 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 </style>
 </head>
 <body>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 <header class="top"><div class="wrap nav">
 <a class="brand" href="index.html"><img src="Logo.png" alt="Sandeep HR Solutions logo"><span><strong>Sandeep HR Solutions</strong><small>HR • RECRUITMENT • CONSULTING</small></span></a>
 <nav class="nav-links" aria-label="Candidate navigation"><a href="index.html">Home</a><a class="active" href="candidate-dashboard.html">Candidate Portal</a><a href="#" id="logout">Logout</a></nav>
@@ -241,6 +243,16 @@ function showJob(msg,type="error"){
  if(!el)return;
  el.textContent=msg;
  el.className="notice show "+type;
+}
+
+let toastTimer=null;
+function notify(msg,type="success") {
+ const el=$("toast");
+ if(!el)return;
+ el.textContent=msg;
+ el.className="toast show "+type;
+ clearTimeout(toastTimer);
+ toastTimer=setTimeout(()=>{el.className="toast";},3500);
 }
 
 function setSection(name){
@@ -454,27 +466,58 @@ $("fullPreviewOverlay").addEventListener("click",e=>{
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("fullPreviewOverlay").classList.contains("show"))$("closeFullPreview").click();});
 
 $("uploadResume").onclick=async()=>{
- if(!currentUser)return;
+ if(!currentUser){
+   show("Your candidate session is not ready. Please refresh the page and login again.");
+   notify("Please login again before uploading your resume.","error");
+   return;
+ }
  const file=$("resumeFile").files[0];
  if(!file){show("Please select a resume/CV file first.");return;}
- const allowed=["application/pdf","image/jpeg","application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
  const ext=(file.name.split(".").pop()||"").toLowerCase();
- if(!allowed.includes(file.type)&&!["pdf","jpg","jpeg","doc","docx"].includes(ext)){show("Only PDF, JPEG/JPG, DOC and DOCX files are allowed.");return;}
- if(file.size>5*1024*1024){show("File is too large. Maximum allowed size is 5 MB.");return;}
- const btn=$("uploadResume");btn.disabled=true;btn.textContent="Uploading…";
+ const allowedExt=["pdf","jpg","jpeg","doc","docx"];
+ if(!allowedExt.includes(ext)){show("Only PDF, JPEG/JPG, DOC and DOCX files are allowed.");notify("Unsupported resume format.","error");return;}
+ if(file.size>5*1024*1024){show("File is too large. Maximum allowed size is 5 MB.");notify("Maximum resume size is 5 MB.","error");return;}
+ const btn=$("uploadResume");
+ const originalText=btn.textContent;
+ btn.disabled=true;btn.textContent="Uploading…";
+ show("Uploading your Resume/CV…","success");
+ notify("Resume upload started…","info");
  try{
-  const apps=getApps();if(!apps.length)throw new Error("Firebase is not initialized.");
+  const apps=getApps();
+  if(!apps.length)throw new Error("Firebase app is not initialized.");
   const {getStorage,ref,uploadBytes,getDownloadURL}=await import("https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js");
   const storage=getStorage(apps[0]);
   const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
   const storageRef=ref(storage,`candidate-resumes/${currentUser.uid}/${Date.now()}_${safeName}`);
-  const snap=await uploadBytes(storageRef,file,{contentType:file.type||undefined});
+  const metadata={contentType:file.type||({pdf:"application/pdf",jpg:"image/jpeg",jpeg:"image/jpeg",doc:"application/msword",docx:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"}[ext]||"application/octet-stream"),cacheControl:"public,max-age=3600"};
+  const snap=await uploadBytes(storageRef,file,metadata);
   const url=await getDownloadURL(snap.ref);
-  await setDoc(doc(db,"candidates",currentUser.uid),{resumeUrl:url,resumeFileName:file.name,resumeFileType:file.type||ext,resumeFileSize:file.size,updatedAt:serverTimestamp()},{merge:true});
-  resumeUrl=url;currentProfile.resumeUrl=url;renderResume();renderSummaryResume();updateProfileView();$("resumeFile").value="";
-  show("Resume/CV uploaded successfully.","success");
- }catch(err){console.error(err);show("Resume upload failed. If this is your first upload, Firebase Storage may need to be enabled and secured.");}
- finally{btn.disabled=false;btn.textContent="Upload / Replace Resume";}
+  await setDoc(doc(db,"candidates",currentUser.uid),{
+    resumeUrl:url,
+    resumeFileName:file.name,
+    resumeFileType:metadata.contentType,
+    resumeFileSize:file.size,
+    updatedAt:serverTimestamp()
+  },{merge:true});
+  resumeUrl=url;
+  currentProfile={...currentProfile,resumeUrl:url,resumeFileName:file.name,resumeFileType:metadata.contentType,resumeFileSize:file.size};
+  renderResume();renderSummaryResume();updateProfileView();
+  $("resumeFile").value="";
+  show("Resume/CV saved successfully.","success");
+  notify("✓ Resume/CV saved successfully.");
+ }catch(err){
+  console.error("Resume upload error:",err);
+  let message="Resume upload failed.";
+  if(err?.code==="storage/unauthorized") message="Upload blocked by Firebase Storage Rules. Please check Storage Rules for candidate-resumes/{uid}/...";
+  else if(err?.code==="storage/quota-exceeded") message="Firebase Storage quota has been exceeded.";
+  else if(err?.code==="storage/unauthenticated") message="Your login session expired. Please login again.";
+  else if(err?.code==="storage/retry-limit-exceeded") message="Upload timed out. Please try again.";
+  else message="Resume upload failed. Please make sure Firebase Storage is enabled and its rules allow the signed-in candidate to upload to candidate-resumes/UID/.";
+  show(message);
+  notify("Resume could not be saved.","error");
+ }finally{
+  btn.disabled=false;btn.textContent=originalText;
+ }
 };
 
 function jobValue(j,...keys){for(const k of keys){if(j[k]!==undefined&&j[k]!==null&&String(j[k]).trim()!=="")return j[k];}return "Not specified";}
@@ -547,6 +590,42 @@ async function applyToJob(jobId){
  }catch(err){console.error(err);showJob("Could not submit application. Please try again.");}
  finally{if(btn){btn.disabled=false;btn.textContent="Apply for this Job";}}
 }
+
+async function loadCandidateProfile(user){
+ try{
+  const snap=await getDoc(doc(db,"candidates",user.uid));
+  currentProfile=snap.exists()?snap.data():{};
+  experiences=Array.isArray(currentProfile.experiences)?currentProfile.experiences:[];
+  resumeUrl=clean(currentProfile.resumeUrl);
+  populateEditors();
+  updateProfileView();
+  renderExperiences();
+  renderResume();
+  renderSummaryResume();
+  $("heroEmail").textContent=user.email||"";
+  $("heroTitle").textContent=currentProfile.fullName?"Hello, "+currentProfile.fullName:"Candidate Portal";
+ }catch(err){
+  console.error("Profile load error:",err);
+  show("Could not load your profile. Please refresh the page.");
+ }
+}
+
+onAuthStateChanged(auth,async(user)=>{
+ if(!user){
+  currentUser=null;
+  $("heroEmail").textContent="Not signed in";
+  setTimeout(()=>{window.location.href="candidate-login.html";},700);
+  return;
+ }
+ currentUser=user;
+ $("heroEmail").textContent=user.email||"";
+ await loadCandidateProfile(user);
+});
+
+$("logout").onclick=async(e)=>{
+ e.preventDefault();
+ try{await signOut(auth);}catch(err){console.error(err);}finally{window.location.href="candidate-login.html";}
+};
 </script>
 </body>
 </html>
