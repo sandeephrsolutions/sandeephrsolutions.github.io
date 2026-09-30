@@ -115,6 +115,21 @@ nav a{transition:.18s}
  ]
 }
 </script>
+
+<style>
+.portal-panel{background:#ffffff10;border:1px solid #ffffff25;border-radius:24px;padding:26px;box-shadow:0 20px 55px #0004;backdrop-filter:blur(12px)}
+.portal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.portal-head b{font-size:19px}.portal-badge{font-size:9px;padding:6px 9px;border-radius:20px;background:var(--gold);color:#071b34;font-weight:850;white-space:nowrap}
+.portal-intro{margin:0 0 16px;color:#d8e5f3;font-size:13px;line-height:1.55}
+.portal-card{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;border-top:1px solid #ffffff18}
+.portal-card:first-of-type{border-top:0}
+.portal-card h3{margin:0 0 4px;font-size:15px}.portal-card p{margin:0;color:#c5d5e5;font-size:12px;line-height:1.45}
+.portal-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 13px;border-radius:10px;font-size:12px;font-weight:850;white-space:nowrap}
+.portal-btn.candidate{background:#fff;color:#123f70}.portal-btn.admin{background:var(--gold);color:#071b34}
+.portal-udyam{border-top:1px solid #ffffff18;margin-top:16px;padding-top:14px;color:#bfcfe0;font-size:11px;line-height:1.5}
+@media(max-width:700px){.portal-card{align-items:flex-start;flex-direction:column}.portal-btn{width:100%}}
+</style>
+
 </head>
 <body>
 
@@ -122,7 +137,7 @@ nav a{transition:.18s}
 <a class="brand" href="index.html"><img src="Logo.png" alt="Sandeep HR Solutions logo"><span><strong>Sandeep HR Solutions</strong><small>HR • RECRUITMENT • CONSULTING</small></span></a>
 <button class="mobile-menu" type="button" aria-label="Open navigation" aria-controls="siteNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
 <nav id="siteNav">
-<a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a class="nav-login" href="candidate-login.html">Candidate Login</a>
+<a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a>
 </nav></div></header>
 
 <section class="hero" id="home"><div class="container hero-grid">
@@ -133,10 +148,18 @@ nav a{transition:.18s}
 <div class="actions"><a class="btn primary" href="employers.html">Hire Talent</a><a class="btn secondary" href="jobs.html">Find Opportunities</a></div>
 <div class="trust"><span>Recruitment Support</span><span>Payroll & HR Support</span><span>Compliance Support</span></div>
 </div>
-<div class="hero-panel">
-<div class="panel-top"><b>What We Support</b><span class="msme">UDYAM REGISTERED</span></div>
-<ul class="panel-list"><li>✓ End-to-End Recruitment</li><li>✓ Bulk & Niche Hiring</li><li>✓ Payroll Management</li><li>✓ PF / ESIC & Compliance Support</li><li>✓ HR Policies & Documentation</li><li>✓ Startup HR Consulting</li></ul>
-<div class="panel-foot">Udyam Registration No.: <strong>UDYAM-KR-03-0669511</strong></div>
+<div class="portal-panel">
+<div class="portal-head"><b>Quick Access</b><span class="portal-badge">SECURE PORTAL</span></div>
+<p class="portal-intro">Access the right portal directly from here.</p>
+<div class="portal-card">
+<div><h3>Candidate Portal</h3><p>Login to manage your profile and professional details.</p></div>
+<a class="portal-btn candidate" href="candidate-login.html">Candidate Login →</a>
+</div>
+<div class="portal-card">
+<div><h3>Admin Portal</h3><p>Manage jobs, vacancies, candidates and applications.</p></div>
+<a class="portal-btn admin" href="admin-login.html">Admin Login →</a>
+</div>
+<div class="portal-udyam">Sandeep HR Solutions · Udyam Registered<br>Registration No.: <strong>UDYAM-KR-03-0669511</strong></div>
 </div>
 </div></section>
 
