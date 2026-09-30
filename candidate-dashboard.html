@@ -80,7 +80,7 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 <div id="notice" class="notice" aria-live="polite"></div>
 
 <section class="section active" id="profile">
-<div class="section-head"><div><h2>My Profile</h2><div class="muted">Your saved information is shown below. Use Edit on any section to update it later.</div></div><span class="pill">PRIVATE</span></div>
+<div class="section-head"><div><h2>My Profile</h2><div class="muted">Your saved information is shown below. Each field can be edited separately, and partial profile details can be saved anytime.</div></div><span class="pill">PRIVATE</span></div>
 
 <div id="profileView" class="profile-view">
   <div class="profile-summary">
@@ -346,13 +346,46 @@ $("saveExperience")?.addEventListener("click",async()=>{
 });
 async function deleteExperience(id){if(!confirm("Delete this experience record?"))return;const next=experiences.filter(x=>x.id!==id);try{await setDoc(doc(db,"candidates",currentUser.uid),{experiences:next,updatedAt:serverTimestamp()},{merge:true});experiences=next;currentProfile.experiences=next;renderExperiences();renderResumeSummary();show("Experience record deleted.","success");}catch(err){console.error(err);show("Could not delete this experience.");}}
 
+function firebaseSaveMessage(err){
+  const code=String(err?.code||"");
+  if(code.includes("permission-denied")) return "Firebase permission denied. Please make sure you are logged in with your candidate account and Firestore rules allow your UID to update candidates.";
+  if(code.includes("unauthenticated")) return "Your login session expired. Please login again.";
+  if(code.includes("unavailable")) return "Firebase is temporarily unavailable. Please check your internet connection and try again.";
+  return "Could not save your profile. Please try again. "+(err?.message||"");
+}
+
 document.querySelectorAll(".save-section").forEach(b=>b.addEventListener("click",async()=>{
- if(!currentUser)return;const type=b.dataset.sectionSave;
- if(type==="personal"&&(!val("fullName")||!val("mobile"))){show("Please complete Full Name and Mobile Number.");return;}
- if(type==="professional"&&(!val("qualification")||!val("experience"))){show("Please complete Qualification and Total Experience.");return;}
+ if(!currentUser){show("Your login session is not ready. Please login again.");return;}
+ const type=b.dataset.sectionSave;
+ // Every profile field is optional here. A candidate can save partial information and
+ // complete the profile later. Required-field checks are enforced only when applying to a job.
  const keys=type==="personal"?["fullName","mobile","location"]:["qualification","experience","designation","company","currentSalary","expectedSalary","noticePeriod","skills","summary"];
- const data={};keys.forEach(k=>data[k]=val(k));data.email=currentUser.email||"";data.updatedAt=serverTimestamp();b.disabled=true;b.textContent="Saving…";
- try{await setDoc(doc(db,"candidates",currentUser.uid),data,{merge:true});currentProfile={...currentProfile,...data};populateEditors();updateProfileView();show(type==="personal"?"Personal details updated successfully.":"Professional details updated successfully.","success");notify("Profile updated successfully.");closeEditor(type==="personal"?"personalEditor":"professionalEditor");}catch(err){console.error(err);show("Could not save your profile. Please try again.");}finally{b.disabled=false;b.textContent=type==="personal"?"Save Personal Details":"Save Professional Details";}
+ const data={};
+ keys.forEach(k=>data[k]=val(k));
+ data.email=currentUser.email||"";
+ data.updatedAt=serverTimestamp();
+ const original=b.textContent;
+ b.disabled=true;
+ b.textContent="Saving…";
+ show("Saving your profile…","success");
+ try{
+   await setDoc(doc(db,"candidates",currentUser.uid),data,{merge:true});
+   currentProfile={...currentProfile,...data};
+   populateEditors();
+   updateProfileView();
+   renderExperiences();
+   renderResumeSummary();
+   notify(type==="personal"?"Personal details saved.":"Professional details saved.");
+   show(type==="personal"?"Personal details saved successfully.":"Professional details saved successfully.","success");
+   closeEditor(type==="personal"?"personalEditor":"professionalEditor");
+ }catch(err){
+   console.error("Profile save failed:",err);
+   show(firebaseSaveMessage(err),"error");
+   notify("Profile could not be saved.","error");
+ }finally{
+   b.disabled=false;
+   b.textContent=original;
+ }
 }));
 
 // -------- Resume processing: no Firebase Storage --------
