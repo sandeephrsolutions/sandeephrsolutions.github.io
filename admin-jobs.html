@@ -2,46 +2,37 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Manage Jobs | Sandeep HR Solutions</title>
+<title>Job & Employer Requests | Sandeep HR Solutions</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f8fc;color:#172033}
-.top{background:#071b34;color:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px}.top a{color:#fff;text-decoration:none}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:800;cursor:pointer}.light{background:#fff;color:#123f70}.gold{background:#f4b83f;color:#071b34}
-main{width:min(1050px,92%);margin:30px auto}.head h1{margin:0 0 7px}.muted{color:#68758a;margin:0 0 22px;font-size:14px}
-.panel{background:#fff;border:1px solid #e0e7ef;border-radius:20px;padding:24px;margin-bottom:20px;box-shadow:0 10px 25px #071b3408}.panel h2{margin:0 0 8px;color:#071b34}.panel-sub{color:#68758a;font-size:13px;margin:0 0 18px}
-.count{display:inline-block;background:#f4b83f;color:#071b34;border-radius:20px;padding:5px 9px;font-size:11px;font-weight:900;margin-left:6px}
-.request{border:1px solid #e0e7ef;border-radius:15px;padding:18px;margin-top:13px;background:#fbfcfe}.request-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.request h3{margin:0;color:#071b34;font-size:17px}.badge{font-size:9px;font-weight:900;padding:6px 9px;border-radius:20px;background:#fff0c8;color:#7a5400;text-transform:uppercase}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-top:13px}.item{font-size:12px;color:#5e6c7e}.item b{color:#26354b}.desc{grid-column:1/-1;background:#fff;border:1px solid #edf0f4;border-radius:10px;padding:10px;margin-top:4px;white-space:pre-wrap}
-.request-actions{display:flex;gap:9px;margin-top:15px}.approve,.reject{border:0;border-radius:9px;padding:10px 14px;font-weight:900;cursor:pointer}.approve{background:#f4b83f;color:#071b34}.reject{background:#eef2f6;color:#26354b}
-.empty{color:#68758a;font-size:13px;padding:14px 0}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}label{font-weight:700;font-size:12px;display:block;margin-bottom:6px}input,textarea,select{width:100%;padding:12px;border:1px solid #d7e0ea;border-radius:10px;font:inherit}textarea{min-height:120px;resize:vertical}.full{grid-column:1/-1}
-.publish{margin-top:17px;border:0;border-radius:10px;padding:13px 17px;background:#f4b83f;color:#071b34;font-weight:900;cursor:pointer}.msg{margin-top:10px;font-size:13px}.ok{color:#176b38}.err{color:#a32929}
-@media(max-width:700px){.top{align-items:flex-start;flex-direction:column}.grid,.form-grid{grid-template-columns:1fr}.full,.desc{grid-column:auto}.request-top{flex-direction:column}.request-actions{flex-direction:column}.request-actions button{width:100%}}
+.top{background:#071b34;color:#fff;padding:15px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:20}.top a{color:#fff;text-decoration:none}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:9px;padding:9px 12px;text-decoration:none;font-weight:800;cursor:pointer;font-size:12px}.light{background:#fff;color:#123f70}.gold{background:#f4b83f;color:#071b34}
+main{width:min(1120px,92%);margin:28px auto}.head h1{margin:0 0 6px}.muted{color:#68758a;margin:0 0 20px;font-size:13px}
+.panel{background:#fff;border:1px solid #e0e7ef;border-radius:18px;padding:21px;margin-bottom:18px;box-shadow:0 8px 22px #071b3407}.panel h2{margin:0 0 7px;color:#071b34}.sub{color:#68758a;font-size:12px;margin:0 0 16px}.count{background:#f4b83f;color:#071b34;border-radius:20px;padding:4px 8px;font-size:10px;font-weight:900;margin-left:5px}
+.request{border:1px solid #e0e7ef;border-radius:14px;padding:16px;margin-top:11px;background:#fbfcfe}.request-top{display:flex;justify-content:space-between;gap:10px}.request h3{margin:0;font-size:16px;color:#071b34}.small{font-size:11px;color:#68758a;margin-top:3px}.pill{font-size:9px;font-weight:900;padding:6px 9px;border-radius:20px;background:#eef2f6;color:#42536a;text-transform:uppercase}.new{background:#ffe7e6;color:#a12c2c}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 17px;margin-top:12px}.item{font-size:12px;color:#5e6c7e}.item b{color:#26354b}.full{grid-column:1/-1}.desc{background:#fff;border:1px solid #edf0f4;border-radius:9px;padding:10px;white-space:pre-wrap;line-height:1.5}.actions-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.action{border:0;border-radius:8px;padding:9px 11px;font-size:11px;font-weight:850;cursor:pointer;text-decoration:none}.approve{background:#f4b83f;color:#071b34}.reject{background:#eef2f6;color:#26354b}.mail{background:#eaf3ff;color:#164c7d}.wa{background:#e9f8ef;color:#176b38}.empty{color:#68758a;font-size:13px;padding:12px 0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{font-weight:700;font-size:12px;display:block;margin-bottom:5px}input,textarea,select{width:100%;padding:11px;border:1px solid #d7e0ea;border-radius:9px;font:inherit}textarea{min-height:115px;resize:vertical}.full2{grid-column:1/-1}.publish{margin-top:16px;border:0;border-radius:9px;padding:12px 16px;background:#f4b83f;color:#071b34;font-weight:900;cursor:pointer}.msg{font-size:12px;margin-top:8px}.ok{color:#176b38}.err{color:#a32929}
+@media(max-width:700px){.top{align-items:flex-start;flex-direction:column}.grid,.form-grid{grid-template-columns:1fr}.full,.full2{grid-column:auto}.request-top{flex-direction:column}}
 </style>
 </head>
 <body>
-<header class="top"><a href="admin-dashboard.html">← Admin Dashboard</a><div>Job Management</div><div class="actions"><a class="btn light" href="index.html">Website</a><button class="btn light" id="logout">Logout</button></div></header>
-
+<header class="top"><a href="admin-dashboard.html">← Admin Dashboard</a><strong>Job Management</strong><div class="actions"><a class="btn light" href="index.html">Website</a><button class="btn light" id="logout">Logout</button></div></header>
 <main>
-<section class="head"><h1>Job Management</h1><p class="muted">Employer requirements arrive here privately. Review them, then publish only the job details candidates should see.</p></section>
+<section class="head"><h1>Employer Requests & Job Management</h1><p class="muted">All employer enquiries are private. Publish only candidate-safe recruitment details.</p></section>
 
 <section class="panel">
-<h2>Employer Job Requests <span class="count" id="requestCount">0</span></h2>
-<p class="panel-sub">Company name, contact person, mobile and email are visible only inside this admin area. They are <b>not copied to the public job post</b>.</p>
-<div id="requests"><div class="empty">Loading employer requests…</div></div>
+<h2>📥 Employer Enquiries <span class="count" id="requestCount">0</span></h2>
+<p class="sub">Recruitment requests can be approved into public jobs. Other HR service enquiries stay private and can be answered by email/WhatsApp.</p>
+<div id="requests"><div class="empty">Loading…</div></div>
 </section>
 
 <section class="panel">
-<h2>Add Job Manually</h2><p class="panel-sub">Use this when you want to publish a vacancy directly without an employer request.</p>
+<h2>➕ Add Job Manually</h2><p class="sub">Create a public vacancy without an employer enquiry.</p>
 <form id="jobForm"><div class="form-grid">
-<div><label>Job Position *</label><input id="position" required placeholder="e.g. HR Executive"></div>
-<div><label>Location *</label><input id="location" required placeholder="e.g. Bangalore"></div>
-<div><label>Salary *</label><input id="salary" required placeholder="e.g. ₹25,000–₹35,000/month"></div>
-<div><label>Working Days *</label><input id="workingDays" required placeholder="e.g. Monday–Saturday"></div>
-<div><label>Vacancies *</label><input id="vacancies" type="number" min="1" required placeholder="e.g. 2"></div>
-<div><label>Experience</label><input id="experience" placeholder="e.g. 1–3 years"></div>
-<div><label>Qualification</label><input id="qualification" placeholder="e.g. Graduate"></div>
-<div><label>Status</label><select id="status"><option value="active">Active</option><option value="closed">Closed</option></select></div>
-<div class="full"><label>Job Description *</label><textarea id="description" required placeholder="Responsibilities, skills, qualifications and other public job details…"></textarea></div>
-</div><button class="publish" type="submit">Publish Job →</button></form><div id="msg" class="msg"></div>
+<div><label>Job Position *</label><input id="position" required></div><div><label>Location *</label><input id="location" required></div>
+<div><label>Salary *</label><input id="salary" required></div><div><label>Working Days *</label><input id="workingDays" required></div>
+<div><label>Vacancies *</label><input id="vacancies" type="number" min="1" required></div><div><label>Experience</label><input id="experience"></div>
+<div><label>Qualification</label><input id="qualification"></div><div><label>Status</label><select id="status"><option value="active">Active</option><option value="closed">Closed</option></select></div>
+<div class="full2"><label>Job Description *</label><textarea id="description" required></textarea></div>
+</div><button class="publish">Publish Job →</button></form><div id="msg" class="msg"></div>
 </section>
 </main>
 
@@ -49,103 +40,57 @@ main{width:min(1050px,92%);margin:30px auto}.head h1{margin:0 0 7px}.muted{color
 import {auth,db} from "./firebase-config.js";
 import {onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import {collection,getDocs,addDoc,doc,updateDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-
-const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
-const requestsEl=document.getElementById("requests");
-const countEl=document.getElementById("requestCount");
-let allowed=false;
-
-onAuthStateChanged(auth,async u=>{
- if(!u||u.email!==ADMIN_EMAIL){location.href="admin-login.html";return;}
- allowed=true;
- await loadRequests();
-});
-
-async function loadRequests(){
- requestsEl.innerHTML='<div class="empty">Loading employer requests…</div>';
+const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";let allowed=false,rows=[];
+const el=document.getElementById("requests");
+onAuthStateChanged(auth,async u=>{if(!u||u.email!==ADMIN_EMAIL){location.href="admin-login.html";return;}allowed=true;await load();});
+async function load(){
  try{
-  const snap=await getDocs(collection(db,"jobRequests"));
-  const rows=[];
-  snap.forEach(d=>rows.push({id:d.id,...d.data()}));
-  rows.sort((a,b)=>{
-    const ta=a.createdAt?.seconds||0,tb=b.createdAt?.seconds||0;
-    return tb-ta;
-  });
-  const pending=rows.filter(r=>r.status==="pending");
-  countEl.textContent=pending.length;
-  if(!rows.length){requestsEl.innerHTML='<div class="empty">No employer requests yet.</div>';return;}
-  requestsEl.innerHTML=rows.map(r=>`
-    <article class="request">
-      <div class="request-top"><div><h3>${esc(r.position||"Untitled Position")}</h3><div class="item">${esc(r.location||"Location not specified")} · ${esc(r.experience||"Experience not specified")}</div></div><span class="badge">${esc(r.status||"pending")}</span></div>
-      <div class="grid">
-        <div class="item"><b>Company:</b> ${esc(r.companyName||"")}</div>
-        <div class="item"><b>Contact Person:</b> ${esc(r.contactPerson||"")}</div>
-        <div class="item"><b>Mobile:</b> ${esc(r.mobile||"")}</div>
-        <div class="item"><b>Email:</b> ${esc(r.email||"Not provided")}</div>
-        <div class="item"><b>Vacancies:</b> ${esc(String(r.vacancies||"Not specified"))}</div>
-        <div class="item"><b>Salary:</b> ${esc(r.salary||"Not specified")}</div>
-        <div class="item"><b>Qualification:</b> ${esc(r.qualification||"Not specified")}</div>
-        <div class="item"><b>Working Days:</b> ${esc(r.workingDays||"Not specified")}</div>
-        <div class="item desc"><b>Job Description:</b><br>${esc(r.description||"Not provided")}</div>
-      </div>
-      ${r.status==="pending"?`<div class="request-actions"><button class="approve" data-id="${r.id}">Approve & Publish Job →</button><button class="reject" data-id="${r.id}">Reject Request</button></div>`:""}
-    </article>`).join("");
-  requestsEl.querySelectorAll(".approve").forEach(b=>b.onclick=()=>approve(b.dataset.id,rows.find(r=>r.id===b.dataset.id)));
-  requestsEl.querySelectorAll(".reject").forEach(b=>b.onclick=()=>reject(b.dataset.id));
- }catch(err){
-  console.error(err);
-  requestsEl.innerHTML='<div class="empty">Could not load requests. Check the Firestore rules for jobRequests.</div>';
- }
+  const snap=await getDocs(collection(db,"jobRequests"));rows=[];snap.forEach(d=>rows.push({id:d.id,...d.data()}));
+  rows.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
+  document.getElementById("requestCount").textContent=rows.filter(r=>(r.status||"new").toLowerCase()==="new").length;
+  if(!rows.length){el.innerHTML='<div class="empty">No employer enquiries yet.</div>';return;}
+  el.innerHTML=rows.map(r=>{
+   const recruit=(r.service||"").toLowerCase().includes("recruit");
+   const status=(r.status||"New").toLowerCase();
+   const email=r.email||"";const mobile=(r.mobile||"").replace(/\D/g,"");
+   const subject=encodeURIComponent("Re: "+(r.service||"Employer enquiry")+" - "+(r.companyName||""));
+   return `<article class="request">
+    <div class="request-top"><div><h3>${esc(r.companyName||"Company not provided")}</h3><div class="small">${esc(r.service||"Recruitment & Staffing")}</div></div><span class="pill ${status==="new"?"new":""}">${esc(status)}</span></div>
+    <div class="grid">
+     <div class="item"><b>Contact Person:</b> ${esc(r.contactPerson||"")}</div><div class="item"><b>Mobile:</b> ${esc(r.mobile||"")}</div>
+     <div class="item"><b>Email:</b> ${esc(email||"")}</div><div class="item"><b>Employee Count:</b> ${esc(r.employeeCount||"Not provided")}</div>
+     ${recruit?`
+     <div class="item"><b>Job Position:</b> ${esc(r.jobTitle||r.position||"Not provided")}</div><div class="item"><b>Vacancies:</b> ${esc(r.vacancies||"Not specified")}</div>
+     <div class="item"><b>Location:</b> ${esc(r.location||"Not specified")}</div><div class="item"><b>Experience:</b> ${esc(r.experience||"Not specified")}</div>
+     <div class="item"><b>Salary:</b> ${esc(r.salary||"Not specified")}</div><div class="item"><b>Qualification:</b> ${esc(r.qualification||"Not specified")}</div>
+     <div class="item"><b>Working Days:</b> ${esc(r.workingDays||"Not specified")}</div>
+     `:""}
+     <div class="item"><b>Timeline:</b> ${esc(r.timeline||"Not provided")}</div>
+     <div class="item full desc"><b>Requirement:</b><br>${esc(r.description||"")}</div>
+    </div>
+    <div class="actions-row">
+     ${email?`<a class="action mail" href="mailto:${encodeURIComponent(email)}?subject=${subject}">✉ Reply by Email</a>`:""}
+     ${mobile?`<a class="action wa" target="_blank" rel="noopener" href="https://wa.me/${mobile}">💬 WhatsApp</a>`:""}
+     ${recruit&&status==="new"?`<button class="action approve" data-approve="${r.id}">Approve & Publish Job →</button>`:""}
+     ${status==="new"?`<button class="action reject" data-reject="${r.id}">Mark Reviewed</button>`:""}
+    </div>
+   </article>`;
+  }).join("");
+  el.querySelectorAll("[data-approve]").forEach(b=>b.onclick=()=>approve(b.dataset.approve));
+  el.querySelectorAll("[data-reject]").forEach(b=>b.onclick=()=>review(b.dataset.reject));
+ }catch(e){console.error(e);el.innerHTML='<div class="empty">Could not load enquiries. Check Firestore jobRequests rules.</div>';}
 }
-
-async function approve(id,r){
- if(!allowed||!r)return;
- if(!confirm("Publish this vacancy? Company contact details will NOT be added to the public job post."))return;
+async function approve(id){
+ const r=rows.find(x=>x.id===id);if(!r||!allowed)return;
+ if(!confirm("Publish this recruitment request? Employer contact details will stay private."))return;
  try{
-  await addDoc(collection(db,"jobs"),{
-    position:r.position||"",
-    description:r.description||"",
-    location:r.location||"",
-    salary:r.salary||"",
-    workingDays:r.workingDays||"",
-    vacancies:Number(r.vacancies)||0,
-    experience:r.experience||"",
-    qualification:r.qualification||"",
-    status:"active",
-    source:"employer-request",
-    requestId:id,
-    createdAt:serverTimestamp()
-  });
-  await updateDoc(doc(db,"jobRequests",id),{status:"approved",approvedAt:serverTimestamp()});
-  await loadRequests();
- }catch(err){alert("Could not publish the job. Please check Firestore rules.");console.error(err);}
+  await addDoc(collection(db,"jobs"),{position:r.jobTitle||r.position||"",description:r.description||"",location:r.location||"",salary:r.salary||"",workingDays:r.workingDays||"",vacancies:Number(r.vacancies)||0,experience:r.experience||"",qualification:r.qualification||"",status:"active",source:"employer-request",requestId:id,createdAt:serverTimestamp()});
+  await updateDoc(doc(db,"jobRequests",id),{status:"Approved",approvedAt:serverTimestamp()});await load();
+ }catch(e){alert("Could not publish job. Check admin Firestore rules.");}
 }
-
-async function reject(id){
- if(!allowed)return;
- if(!confirm("Reject this employer request?"))return;
- try{await updateDoc(doc(db,"jobRequests",id),{status:"rejected",rejectedAt:serverTimestamp()});await loadRequests();}
- catch(err){alert("Could not update the request.");}
-}
-
-function esc(value){
- return String(value??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-}
-
-document.getElementById("jobForm").addEventListener("submit",async e=>{
- e.preventDefault(); if(!allowed)return;
- const msg=document.getElementById("msg");msg.textContent="Publishing…";msg.className="msg";
- try{
-  await addDoc(collection(db,"jobs"),{
-   position:position.value.trim(),description:description.value.trim(),location:location.value.trim(),
-   salary:salary.value.trim(),workingDays:workingDays.value.trim(),vacancies:Number(vacancies.value),
-   experience:experience.value.trim(),qualification:qualification.value.trim(),status:status.value,
-   source:"admin-manual",createdAt:serverTimestamp()
-  });
-  msg.textContent="Job published successfully.";msg.className="msg ok";e.target.reset();
- }catch(err){msg.textContent="Could not publish. Check Firestore admin rules.";msg.className="msg err";}
-});
+async function review(id){try{await updateDoc(doc(db,"jobRequests",id),{status:"Viewed",viewedAt:serverTimestamp()});await load();}catch(e){alert("Could not update enquiry.");}}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+document.getElementById("jobForm").onsubmit=async e=>{e.preventDefault();try{await addDoc(collection(db,"jobs"),{position:position.value.trim(),description:description.value.trim(),location:location.value.trim(),salary:salary.value.trim(),workingDays:workingDays.value.trim(),vacancies:Number(vacancies.value),experience:experience.value.trim(),qualification:qualification.value.trim(),status:status.value,source:"admin-manual",createdAt:serverTimestamp()});msg.textContent="Job published successfully.";msg.className="msg ok";e.target.reset();}catch(x){msg.textContent="Could not publish job.";msg.className="msg err";}};
 document.getElementById("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html";};
 </script>
-</body>
-</html>
+</body></html>
