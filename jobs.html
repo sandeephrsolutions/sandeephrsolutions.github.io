@@ -38,6 +38,27 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:30px 18px}.foo
 .wa{position:fixed;right:18px;bottom:18px;z-index:200;background:#25d366;color:#fff;border-radius:50px;padding:14px 18px;font-weight:800;box-shadow:0 7px 22px #0004}
 @media(max-width:900px){.mobile-menu{display:block}nav{display:none}nav.open{display:flex;position:absolute;left:12px;right:12px;top:72px;background:#071b34;border:1px solid #ffffff18;border-radius:12px;padding:10px;flex-direction:column;gap:2px;box-shadow:0 12px 30px #0004}nav.open a{padding:10px 8px}.hero-grid,.about,.split{grid-template-columns:1fr}.services{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.step:not(:last-child):after{display:none}.contact,.socials{grid-template-columns:1fr 1fr}.hero{padding:60px 0}}
 @media(max-width:600px){.container{padding:0 16px}h1{font-size:37px}.hero p{font-size:16px}.trust-strip{margin-top:0;padding-top:14px}.trust-grid{grid-template-columns:1fr 1fr}.services,.process,.contact,.socials{grid-template-columns:1fr}section{padding:56px 0}.heading h2{font-size:30px}.wa{right:12px;bottom:12px;padding:12px 15px;font-size:13px}}
+
+.form-wrap{max-width:980px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:0 18px 50px #071b3410}
+.form-intro{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;margin-bottom:24px;background:linear-gradient(135deg,#f7fbff,#eef5fb);border:1px solid #dce8f3;border-radius:16px}
+.form-intro strong{display:block;color:var(--navy);font-size:16px}.form-intro span{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+.form-badge{background:var(--navy);color:#fff;border-radius:30px;padding:8px 12px;font-size:11px;font-weight:800;white-space:nowrap}
+.form-section{margin-top:24px}.form-section:first-of-type{margin-top:0}
+.form-section-title{display:flex;align-items:center;gap:10px;color:var(--navy);font-size:15px;font-weight:800;margin-bottom:14px}
+.form-section-title .section-no{width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:12px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{min-width:0}.field.full{grid-column:1/-1}
+.field label{display:block;color:#334155;font-size:12px;font-weight:800;margin:0 0 7px}
+.field label .req{color:#c53030}
+.field input,.field select,.field textarea{width:100%;border:1px solid #d9e1ea;background:#fbfcfe;border-radius:11px;padding:12px 13px;font:inherit;font-size:14px;color:var(--ink);outline:none;transition:.18s}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#4d86b8;box-shadow:0 0 0 3px #4d86b81a;background:#fff}
+.field input::placeholder,.field textarea::placeholder{color:#9aa6b5}
+.form-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.form-note{font-size:12px;color:var(--muted);line-height:1.5}.form-note strong{color:#16803c}
+.submit-btn{border:0;cursor:pointer;font:inherit}
+@media(max-width:600px){.form-wrap{padding:20px 16px;border-radius:18px}.fields{grid-template-columns:1fr;gap:14px}.field.full{grid-column:auto}.form-intro{align-items:flex-start;flex-direction:column}.form-bottom{align-items:stretch;flex-direction:column}.submit-btn{width:100%}}
+
 </style><script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Sandeep HR Solutions","url":"https://sandeephrsolutions.github.io/","logo":"https://sandeephrsolutions.github.io/Logo.png","email":"sandeep.hr.solutions.shr@gmail.com","telephone":"+91-7978259944","sameAs":["https://www.linkedin.com/company/sandeep-hr-solutions/","https://www.instagram.com/sandeep_hr_solutions?stkn=MXd6aW4wdnhsZTNkMA==","https://www.facebook.com/share/18W9KU7tyC/"]}</script></head><body>
 <header><div class="container nav">
@@ -48,16 +69,29 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:30px 18px}.foo
 
 <section class="hero"><div class="container hero-grid"><div><div class="eyebrow"><span class="dot"></span> For Candidates</div><h1>Your next opportunity starts with your profile.</h1><p>Register your experience, skills and preferences with Sandeep HR Solutions.</p></div>
 <div class="hero-panel"><div class="panel-top"><b>Profile Information</b></div><ul class="panel-list"><li>✓ Qualification & Experience</li><li>✓ Current & Expected Salary</li><li>✓ Preferred Location</li><li>✓ Notice Period</li><li>✓ Key Skills</li></ul></div></div></section>
-<section class="white"><div class="container"><div class="heading"><span class="kicker">Candidate Registration</span><h2>Register Your Profile</h2><p>Your submission opens WhatsApp with the information entered in the form.</p></div>
-<div class="form-wrap"><form onsubmit="sendCandidate(event)"><div class="fields">
-<div class="field"><label>Full Name *</label><input id="cn" required></div><div class="field"><label>Mobile Number *</label><input id="cmo" required></div>
-<div class="field"><label>Email</label><input id="cem" type="email"></div><div class="field"><label>Qualification</label><input id="cq"></div>
-<div class="field"><label>Total Experience</label><input id="ctx"></div><div class="field"><label>Current Designation</label><input id="cd"></div>
-<div class="field"><label>Current Company</label><input id="cc"></div><div class="field"><label>Current Salary</label><input id="ccs"></div>
-<div class="field"><label>Expected Salary</label><input id="ces"></div><div class="field"><label>Preferred Location</label><input id="cpl"></div>
-<div class="field"><label>Notice Period</label><input id="cnp"></div><div class="field"><label>Key Skills</label><input id="cks"></div>
-<div class="field full"><label>Resume / LinkedIn Profile (optional)</label><input id="cr"></div>
-</div><button class="btn primary" style="border:0;margin-top:18px;cursor:pointer" type="submit">Register on WhatsApp</button></form></div></div></section>
+<section class="white"><div class="container"><div class="heading"><span class="kicker">Candidate Registration</span><h2>Register Your Profile</h2><p>Share your professional details so we can consider your profile for suitable opportunities.</p></div>
+<div class="form-wrap">
+<div class="form-intro"><div><strong>Candidate Profile</strong><span>Fields marked with * are required.</span></div><div class="form-badge">PRIVATE PROFILE</div></div>
+<form onsubmit="sendCandidate(event)">
+<div class="form-section"><div class="form-section-title"><span class="section-no">1</span>Personal Details</div><div class="fields">
+<div class="field"><label>Full Name <span class="req">*</span></label><input id="cn" required placeholder="Your full name"></div>
+<div class="field"><label>Mobile Number <span class="req">*</span></label><input id="cmo" required inputmode="tel" placeholder="10-digit mobile number"></div>
+<div class="field"><label>Email</label><input id="cem" type="email" placeholder="name@email.com"></div>
+<div class="field"><label>Preferred Location</label><input id="cpl" placeholder="e.g. Bengaluru / Remote"></div>
+</div></div>
+<div class="form-section"><div class="form-section-title"><span class="section-no">2</span>Professional Details</div><div class="fields">
+<div class="field"><label>Qualification</label><input id="cq" placeholder="Degree / certification"></div>
+<div class="field"><label>Total Experience</label><input id="ctx" placeholder="e.g. 5 years"></div>
+<div class="field"><label>Current Designation</label><input id="cd" placeholder="Current job title"></div>
+<div class="field"><label>Current Company</label><input id="cc" placeholder="Current organization"></div>
+<div class="field"><label>Current Salary</label><input id="ccs" placeholder="e.g. ₹6 LPA"></div>
+<div class="field"><label>Expected Salary</label><input id="ces" placeholder="e.g. ₹8 LPA"></div>
+<div class="field"><label>Notice Period</label><input id="cnp" placeholder="e.g. Immediate / 30 days"></div>
+<div class="field"><label>Key Skills</label><input id="cks" placeholder="e.g. Recruitment, Payroll, Excel"></div>
+<div class="field full"><label>Resume / LinkedIn Profile <span style="font-weight:600;color:#8a94a3">(optional)</span></label><input id="cr" placeholder="Paste Google Drive / LinkedIn / resume link"></div>
+</div></div>
+<div class="form-bottom"><div class="form-note"><strong>✓ Quick registration via WhatsApp</strong><br>Your entered details will be prepared as a WhatsApp message.</div><button class="btn primary submit-btn" type="submit">Submit Profile →</button></div>
+</form></div></div></section>
 <section><div class="container"><div class="heading"><span class="kicker">Candidate Note</span><h2>Keep Your Profile Updated</h2><p>Provide accurate experience, skills, salary and notice-period information so your profile can be reviewed against suitable requirements.</p></div></div></section>
 <script>
 function sendCandidate(e){e.preventDefault();const g=id=>document.getElementById(id).value.trim();const msg=`Hello Sandeep HR Solutions, I would like to register as a job seeker.
