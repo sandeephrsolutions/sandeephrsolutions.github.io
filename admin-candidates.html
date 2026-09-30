@@ -21,7 +21,8 @@ main{width:min(1180px,92%);margin:28px auto 50px}.head h1{margin:0 0 5px;font-si
 <header class="top">
 <div class="brand">SANDEEP HR SOLUTIONS · ADMIN</div>
 <div class="actions">
-<a class="btn gold" href="admin-dashboard.html">Employer Enquiries</a>
+<a class="btn gold" href="admin-dashboard.html">← Admin Dashboard</a>
+<a class="btn light" href="admin-jobs.html">Job Management</a>
 <a class="btn light" href="index.html">Website</a>
 </div>
 </header>
@@ -36,7 +37,7 @@ main{width:min(1180px,92%);margin:28px auto 50px}.head h1{margin:0 0 5px;font-si
 <script type="module">
 import {auth,db} from "./firebase-config.js";
 import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import {collection,getDocs} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import {collection,getDocs,deleteDoc,doc} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
 const list=document.getElementById("list");
@@ -54,6 +55,12 @@ onAuthStateChanged(auth,async user=>{
    <article class="card">
     <h3>${esc(r.fullName||"Candidate")}</h3>
     <div class="meta">${esc(r.email||"No email")} · ${esc(r.mobile||"No mobile")}</div>
+    <div style="margin:10px 0 14px">
+      <button class="delete-btn" data-delete="${r.id}" type="button"
+        style="border:0;border-radius:8px;padding:9px 12px;background:#feecec;color:#a52828;font-weight:800;cursor:pointer">
+        🗑 Delete Candidate
+      </button>
+    </div>
     <div class="grid">
      <div class="item"><b>Qualification:</b> ${esc(r.qualification||"Not provided")}</div>
      <div class="item"><b>Experience:</b> ${esc(r.experience||"Not provided")}</div>
@@ -72,6 +79,21 @@ onAuthStateChanged(auth,async user=>{
   list.innerHTML='<div class="empty">Could not load candidate profiles. Please check Firestore rules.</div>';
  }
 });
+list.querySelectorAll("[data-delete]").forEach(btn=>{
+ btn.onclick=async()=>{
+   const id=btn.dataset.delete;
+   if(!confirm("Delete this candidate profile permanently? This cannot be undone.")) return;
+   try{
+     await deleteDoc(doc(db,"candidates",id));
+     alert("Candidate deleted successfully.");
+     location.reload();
+   }catch(err){
+     console.error(err);
+     alert("Could not delete candidate. Please check Firestore rules.");
+   }
+ };
+});
+
 function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
 </script>
 </body>
