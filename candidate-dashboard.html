@@ -1,74 +1,266 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Candidate Dashboard | Sandeep HR Solutions</title>
-<link rel="icon" href="Logo.png" type="image/png"><style>
-:root{--navy:#071b34;--blue:#123f68;--gold:#f4b83f;--ink:#162536;--muted:#6b7785;--line:#e4e9ef;--bg:#f5f8fc}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
-a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff}.wrap{max-width:1050px;margin:auto;padding:0 18px}
-.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:46px;height:46px;border-radius:10px;background:#fff}.brand strong{display:block;font-size:14px}.brand small{display:block;color:#f4b83f;font-size:8px;letter-spacing:1px;margin-top:3px}
-.nav-links{display:flex;gap:8px;align-items:center}.nav-links a{color:#fff;font-size:12px;font-weight:700;padding:10px 11px;border-radius:9px}.nav-links a:hover{background:#ffffff12}.nav-links .active{background:#f4b83f;color:#071b34}
-.hero{padding:54px 0 34px;background:linear-gradient(135deg,#071b34,#123f68);color:#fff}.hero h1{font-size:40px;margin:0 0 12px}.hero p{color:#d9e3ed;max-width:650px;line-height:1.7;margin:0}
-.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 16px 42px #071b3410;padding:26px}
-.panel{max-width:720px;margin:-20px auto 55px;position:relative}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{margin-bottom:14px}.field.full{grid-column:1/-1}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px;color:#334155}.field input,.field textarea,.field select{width:100%;border:1px solid #d7e0e9;border-radius:11px;background:#fbfcfe;padding:12px 13px;font:inherit;outline:none}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#4d86b8;box-shadow:0 0 0 3px #4d86b81a;background:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:0;border-radius:11px;padding:0 18px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:var(--navy)}.secondary{background:#edf3f8;color:var(--navy)}.danger{background:#feecec;color:#a52828}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-.notice{display:none;margin-bottom:16px;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.5}.notice.show{display:block}.notice.error{background:#fff0f0;color:#a52828;border:1px solid #f2cccc}.notice.success{background:#eefaf1;color:#23723b;border:1px solid #ccebd5}
-.small{font-size:12px;color:var(--muted);line-height:1.5}.center{text-align:center}.link{color:#145b91;font-weight:700}.divider{height:1px;background:var(--line);margin:20px 0}
-footer{padding:30px 0;text-align:center;color:#6b7785;font-size:12px}.profile-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}.profile-head h2{margin:0}.pill{display:inline-flex;padding:7px 10px;border-radius:30px;background:#eef6ff;color:#155a91;font-size:11px;font-weight:800}
-@media(max-width:700px){.nav-links{display:none}.nav{min-height:66px}.hero{padding:44px 0 28px}.hero h1{font-size:34px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{margin:-10px 0 35px}.card{padding:20px}.profile-head{align-items:flex-start;flex-direction:column}.actions .btn{width:100%}}
-</style></head>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Candidate Portal | Sandeep HR Solutions</title>
+<link rel="icon" href="Logo.png" type="image/png">
+<style>
+:root{--navy:#071b34;--blue:#123f68;--gold:#f4b83f;--ink:#162536;--muted:#6b7785;--line:#e2e8f0;--bg:#f5f8fc;--green:#176b38;--red:#a52828}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:20}.wrap{max-width:1180px;margin:auto;padding:0 18px}
+.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:45px;height:45px;border-radius:10px;background:#fff}.brand strong{display:block;font-size:14px}.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:1px;margin-top:3px}
+.nav-links{display:flex;gap:7px;align-items:center}.nav-links a{color:#fff;font-size:12px;font-weight:800;padding:9px 11px;border-radius:9px}.nav-links a:hover{background:#ffffff12}.nav-links .active{background:var(--gold);color:var(--navy)}
+.hero{padding:38px 0;background:linear-gradient(135deg,#071b34,#123f68);color:#fff}.hero-row{display:flex;justify-content:space-between;gap:20px;align-items:end}.hero h1{font-size:36px;margin:0 0 8px}.hero p{color:#d9e3ed;max-width:700px;line-height:1.6;margin:0}.hero-user{background:#ffffff12;border:1px solid #ffffff20;border-radius:14px;padding:12px 15px;font-size:11px;min-width:230px}
+main{padding:22px 0 55px}.layout{display:grid;grid-template-columns:245px 1fr;gap:18px}.side,.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 32px #071b3410}.side{padding:12px;height:max-content;position:sticky;top:90px}.side button{width:100%;text-align:left;border:0;background:transparent;padding:12px;border-radius:10px;font-weight:850;font-size:12px;color:#344256;cursor:pointer}.side button.active{background:#071b34;color:#fff}.side .side-note{margin:12px 4px 2px;padding:10px;background:#f6f9fc;border:1px solid #e8edf3;border-radius:10px;font-size:10px;line-height:1.5;color:#6b7785}
+.card{padding:23px}.section{display:none}.section.active{display:block}.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}.section-head h2{margin:0;font-size:21px}.muted{font-size:12px;color:var(--muted);line-height:1.5}.pill{display:inline-flex;padding:6px 10px;border-radius:30px;background:#eef6ff;color:#155a91;font-size:10px;font-weight:900;white-space:nowrap}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:3px}.field.full{grid-column:1/-1}.field label{display:block;font-size:11px;font-weight:850;margin-bottom:6px;color:#334155}.field input,.field textarea,.field select{width:100%;border:1px solid #d7e0e9;border-radius:10px;background:#fbfcfe;padding:11px 12px;font:inherit;font-size:13px;outline:none}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#4d86b8;box-shadow:0 0 0 3px #4d86b81a;background:#fff}.field input:disabled{background:#f1f4f7;color:#657386}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border:0;border-radius:10px;padding:0 16px;font-weight:850;cursor:pointer;font-size:12px}.primary{background:var(--gold);color:var(--navy)}.secondary{background:#edf3f8;color:var(--navy)}.danger{background:#feecec;color:var(--red)}.success-btn{background:#e9f8ef;color:var(--green)}.btn:disabled{opacity:.55;cursor:wait}
+.notice{display:none;margin-bottom:15px;padding:11px 13px;border-radius:10px;font-size:12px;line-height:1.5}.notice.show{display:block}.notice.error{background:#fff0f0;color:var(--red);border:1px solid #f2cccc}.notice.success{background:#eefaf1;color:var(--green);border:1px solid #ccebd5}
+.profile-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}.summary{padding:13px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe}.summary b{display:block;font-size:17px;color:var(--navy)}.summary small{font-size:10px;color:var(--muted)}
+.resume-box{border:1px solid var(--line);background:#fbfcfe;border-radius:14px;padding:16px}.resume-current{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:12px;padding:12px;background:#fff;border:1px solid #e6ebf1;border-radius:10px}.resume-name{font-size:12px;font-weight:850;word-break:break-word}.resume-meta{font-size:10px;color:var(--muted);margin-top:3px}.hint{font-size:10px;color:var(--muted);line-height:1.5;margin-top:7px}
+.job-list{display:grid;gap:12px}.job-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fbfcfe}.job-head{display:flex;justify-content:space-between;gap:12px}.job-title{font-size:16px;font-weight:900;color:var(--navy)}.job-company{font-size:11px;color:var(--muted);margin-top:3px}.job-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.job-item{font-size:11px;color:#5e6c7e}.job-item b{display:block;color:#26354b;font-size:10px;margin-bottom:2px}.job-desc{margin-top:12px;padding:11px;background:#fff;border:1px solid #e8edf3;border-radius:10px;white-space:pre-wrap;line-height:1.5;font-size:11px;color:#4c5b6e}.job-actions{margin-top:13px;display:flex;gap:8px;flex-wrap:wrap}
+.empty{padding:22px;text-align:center;color:var(--muted);font-size:12px;border:1px dashed #d8e0e8;border-radius:12px;background:#fbfcfe}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.info{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfcfe}.info small{display:block;color:var(--muted);font-size:10px}.info b{display:block;margin-top:4px;font-size:12px;word-break:break-word}
+footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.side .side-note{display:none}.side button{text-align:center;font-size:10px;padding:10px 5px}.profile-summary{grid-template-columns:repeat(2,1fr)}.hero-row{align-items:flex-start;flex-direction:column}.hero-user{width:100%}}
+@media(max-width:600px){.nav-links a:not(.active){display:none}.hero h1{font-size:29px}.grid,.info-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.job-grid{grid-template-columns:1fr 1fr}.job-head{flex-direction:column}.resume-current{align-items:flex-start;flex-direction:column}.side{grid-template-columns:repeat(2,1fr)}.card{padding:17px}}
+</style>
+</head>
 <body>
 <header class="top"><div class="wrap nav">
 <a class="brand" href="index.html"><img src="Logo.png" alt="Sandeep HR Solutions logo"><span><strong>Sandeep HR Solutions</strong><small>HR • RECRUITMENT • CONSULTING</small></span></a>
-<div class="nav-links"><a href="index.html">Home</a><a href="#" id="logout">Logout</a></div>
+<nav class="nav-links" aria-label="Candidate navigation"><a href="index.html">Home</a><a class="active" href="candidate-dashboard.html">Candidate Portal</a><a href="#" id="logout">Logout</a></nav>
 </div></header>
-<section class="hero"><div class="wrap"><h1>Candidate Dashboard</h1><p>Keep your profile updated so your professional information stays current.</p></div></section>
-<main class="wrap"><div class="card">
-<div class="profile-head"><div><h2 id="welcome">Your Profile</h2><span class="pill">PRIVATE CANDIDATE PROFILE</span></div></div>
-<div id="notice" class="notice"></div>
+
+<section class="hero"><div class="wrap hero-row"><div><h1 id="heroTitle">Candidate Portal</h1><p>Manage your professional profile, resume and applications, and view vacancies approved by Sandeep HR Solutions.</p></div><div class="hero-user"><b>Signed in as</b><br><span id="heroEmail">Loading…</span></div></div></section>
+
+<main class="wrap"><div class="layout">
+<aside class="side">
+<button class="side-tab active" data-section="profile">👤 Profile</button>
+<button class="side-tab" data-section="resume">📄 Resume / CV</button>
+<button class="side-tab" data-section="jobs">💼 Job Vacancies</button>
+<button class="side-tab" data-section="applications">📩 My Applications</button>
+<div class="side-note">🔒 Your candidate information is private. Public job listings do not display your personal profile details.</div>
+</aside>
+
+<section class="card">
+<div id="notice" class="notice" aria-live="polite"></div>
+
+<section class="section active" id="profile">
+<div class="section-head"><div><h2>Professional Profile</h2><div class="muted">Keep your qualification, experience and career details updated.</div></div><span class="pill">PRIVATE</span></div>
+<div class="profile-summary">
+<div class="summary"><b id="summaryQualification">—</b><small>Qualification</small></div>
+<div class="summary"><b id="summaryExperience">—</b><small>Experience</small></div>
+<div class="summary"><b id="summaryLocation">—</b><small>Preferred Location</small></div>
+<div class="summary"><b id="summaryResume">Not uploaded</b><small>Resume / CV</small></div>
+</div>
 <form id="profileForm">
 <div class="grid">
-<div class="field"><label>Full Name *</label><input id="fullName" required></div>
-<div class="field"><label>Mobile Number *</label><input id="mobile" required inputmode="tel"></div>
-<div class="field"><label>Email</label><input id="email" type="email" disabled></div>
-<div class="field"><label>Qualification</label><input id="qualification"></div>
-<div class="field"><label>Total Experience</label><input id="experience"></div>
-<div class="field"><label>Current Designation</label><input id="designation"></div>
-<div class="field"><label>Current Company</label><input id="company"></div>
-<div class="field"><label>Current Salary</label><input id="currentSalary"></div>
-<div class="field"><label>Expected Salary</label><input id="expectedSalary"></div>
-<div class="field"><label>Preferred Location</label><input id="location"></div>
-<div class="field"><label>Notice Period</label><input id="noticePeriod"></div>
-<div class="field"><label>Key Skills</label><input id="skills"></div>
-<div class="field full"><label>Resume / LinkedIn Profile</label><input id="resumeUrl" type="url"></div>
+<div class="field"><label for="fullName">Full Name *</label><input id="fullName" required maxlength="100" autocomplete="name"></div>
+<div class="field"><label for="mobile">Mobile Number *</label><input id="mobile" required maxlength="15" inputmode="tel" autocomplete="tel"></div>
+<div class="field"><label for="email">Email</label><input id="email" type="email" disabled></div>
+<div class="field"><label for="qualification">Highest Qualification *</label><input id="qualification" required maxlength="120" placeholder="e.g. MBA HR, B.Tech, B.Com"></div>
+<div class="field"><label for="experience">Total Experience *</label><input id="experience" required maxlength="60" placeholder="e.g. 3 Years / Fresher"></div>
+<div class="field"><label for="designation">Current / Last Designation</label><input id="designation" maxlength="100"></div>
+<div class="field"><label for="company">Current / Last Company</label><input id="company" maxlength="120"></div>
+<div class="field"><label for="currentSalary">Current Salary</label><input id="currentSalary" maxlength="60" placeholder="e.g. ₹5 LPA"></div>
+<div class="field"><label for="expectedSalary">Expected Salary</label><input id="expectedSalary" maxlength="60" placeholder="e.g. ₹7 LPA"></div>
+<div class="field"><label for="location">Preferred Job Location</label><input id="location" maxlength="120" placeholder="e.g. Bengaluru"></div>
+<div class="field"><label for="noticePeriod">Notice Period</label><input id="noticePeriod" maxlength="60" placeholder="e.g. Immediate / 30 Days"></div>
+<div class="field"><label for="skills">Key Skills</label><input id="skills" maxlength="300" placeholder="e.g. Recruitment, Payroll, Excel"></div>
+<div class="field full"><label for="summary">Professional Summary</label><textarea id="summary" maxlength="1200" placeholder="Briefly describe your experience and career profile"></textarea></div>
 </div>
-<div class="actions"><button class="btn primary" type="submit">Save Changes</button><button class="btn danger" type="button" id="logout2">Logout</button></div>
+<div class="actions"><button class="btn primary" type="submit" id="saveProfile">Save Profile</button></div>
 </form>
-</div></main>
-<footer>Sandeep HR Solutions • Candidate Portal</footer>
+</section>
+
+<section class="section" id="resume">
+<div class="section-head"><div><h2>Resume / CV</h2><div class="muted">Upload your latest resume for employers and job applications.</div></div><span class="pill">JPEG · PDF · WORD</span></div>
+<div class="resume-box">
+<div class="field"><label for="resumeFile">Choose Resume / CV</label><input id="resumeFile" type="file" accept=".pdf,.doc,.docx,.jpeg,.jpg,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg"></div>
+<div class="hint">Accepted formats: PDF, JPEG/JPG, DOC and DOCX. Maximum size: 5 MB. Only upload a professional resume/CV.</div>
+<div class="actions"><button class="btn primary" id="uploadResume" type="button">Upload / Replace Resume</button><button class="btn secondary" id="openResume" type="button" disabled>View Current Resume</button></div>
+<div id="currentResume"></div>
+</div>
+</section>
+
+<section class="section" id="jobs">
+<div class="section-head"><div><h2>Approved Job Vacancies</h2><div class="muted">Only vacancies published/approved by the admin are shown here.</div></div><button class="btn secondary" id="refreshJobs" type="button">↻ Refresh</button></div>
+<div id="jobNotice" class="notice"></div><div id="jobList" class="job-list"><div class="empty">Loading approved vacancies…</div></div>
+</section>
+
+<section class="section" id="applications">
+<div class="section-head"><div><h2>My Applications</h2><div class="muted">Applications submitted from this candidate portal.</div></div><span class="pill">PRIVATE</span></div>
+<div class="empty">Application history is recorded securely. If you need an application-status update, please contact Sandeep HR Solutions.</div>
+<div class="info-grid" style="margin-top:12px"><div class="info"><small>Candidate</small><b id="appCandidate">—</b></div><div class="info"><small>Email</small><b id="appEmail">—</b></div></div>
+</section>
+</section></div></main>
+
+<footer>Sandeep HR Solutions • Candidate Portal • Recruitment • HR Consulting</footer>
+
 <script type="module">
-import { auth, db } from "./firebase-config.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import { doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-const $=id=>document.getElementById(id), notice=$("notice");
-const show=(msg,type="error")=>{notice.textContent=msg;notice.className="notice show "+type;};
-const fields=["fullName","mobile","qualification","experience","designation","company","currentSalary","expectedSalary","location","noticePeriod","skills","resumeUrl"];
-async function logout(){await signOut(auth);location.href="candidate-login.html";}
-$("logout").addEventListener("click",e=>{e.preventDefault();logout();});$("logout2").addEventListener("click",logout);
+import {auth,db} from "./firebase-config.js";
+import {onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {doc,getDoc,setDoc,serverTimestamp,collection,getDocs,query,where,addDoc} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import {getApps} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import {getStorage,ref,uploadBytes,getDownloadURL} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js";
+
+const $=id=>document.getElementById(id);
+const notice=$("notice"), jobNotice=$("jobNotice");
+let currentUser=null,currentProfile={},resumeUrl="",jobsCache=[];
+const profileFields=["fullName","mobile","qualification","experience","designation","company","currentSalary","expectedSalary","location","noticePeriod","skills","summary"];
+
+function show(msg,type="error"){notice.textContent=msg;notice.className="notice show "+type;window.scrollTo({top:0,behavior:"smooth"});}
+function showJob(msg,type="error"){jobNotice.textContent=msg;jobNotice.className="notice show "+type;}
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function clean(v){return String(v??"").trim();}
+function fileSize(bytes){return (bytes/1024/1024).toFixed(2)+" MB";}
+
+function setSection(name){
+ document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===name));
+ document.querySelectorAll(".side-tab").forEach(x=>x.classList.toggle("active",x.dataset.section===name));
+ if(name==="jobs")loadJobs();
+}
+
+document.querySelectorAll(".side-tab").forEach(b=>b.addEventListener("click",()=>setSection(b.dataset.section)));
+
+async function logout(){try{await signOut(auth);}finally{location.href="candidate-login.html";}}
+$("logout").onclick=e=>{e.preventDefault();logout();};
+
 onAuthStateChanged(auth,async user=>{
- if(!user) return location.href="candidate-login.html";
+ if(!user){location.href="candidate-login.html";return;}
+ currentUser=user;
  $("email").value=user.email||"";
+ $("heroEmail").textContent=user.email||"";
+ $("appEmail").textContent=user.email||"";
  try{
   const snap=await getDoc(doc(db,"candidates",user.uid));
   if(snap.exists()){
-   const data=snap.data(); fields.forEach(k=>$(k).value=data[k]||""); $("welcome").textContent="Hello, "+(data.fullName||"Candidate");
+   currentProfile=snap.data();
+   profileFields.forEach(k=>$(k).value=currentProfile[k]??"");
+   resumeUrl=currentProfile.resumeUrl||"";
+   if(currentProfile.fullName) $("heroTitle").textContent="Hello, "+currentProfile.fullName;
   }
- }catch(err){show("Could not load your profile: "+err.message);}
+  $("appCandidate").textContent=currentProfile.fullName||"Candidate";
+  updateSummary();
+  renderResume();
+ }catch(err){show("Could not load your profile. Please try again.");console.error(err);}
+ loadJobs();
 });
-$("profileForm").addEventListener("submit",async e=>{
- e.preventDefault(); const user=auth.currentUser; if(!user) return location.href="candidate-login.html";
- const data={}; fields.forEach(k=>data[k]=$(k).value.trim()); data.email=user.email||""; data.updatedAt=serverTimestamp();
- try{await setDoc(doc(db,"candidates",user.uid),data,{merge:true});show("Profile updated successfully.","success");}
- catch(err){show("Could not save your profile: "+err.message);}
-});
-</script></body></html>
+
+function updateSummary(){
+ $("summaryQualification").textContent=currentProfile.qualification||"Not added";
+ $("summaryExperience").textContent=currentProfile.experience||"Not added";
+ $("summaryLocation").textContent=currentProfile.location||"Not added";
+ $("summaryResume").textContent=resumeUrl?"Uploaded":"Not uploaded";
+ $("appCandidate").textContent=currentProfile.fullName||"Candidate";
+}
+
+$("profileForm").onsubmit=async e=>{
+ e.preventDefault();if(!currentUser)return;
+ const required=["fullName","mobile","qualification","experience"];
+ if(required.some(k=>!clean($(k).value))){show("Please complete Full Name, Mobile, Qualification and Experience.");return;}
+ const data={};profileFields.forEach(k=>data[k]=clean($(k).value));
+ data.email=currentUser.email||"";data.resumeUrl=resumeUrl||"";data.updatedAt=serverTimestamp();
+ try{
+  $("saveProfile").disabled=true;$("saveProfile").textContent="Saving…";
+  await setDoc(doc(db,"candidates",currentUser.uid),data,{merge:true});
+  currentProfile={...currentProfile,...data};updateSummary();
+  show("Profile updated successfully.","success");
+ }catch(err){console.error(err);show("Could not save your profile. Please try again.");}
+ finally{$("saveProfile").disabled=false;$("saveProfile").textContent="Save Profile";}
+};
+
+function renderResume(){
+ const box=$("currentResume");
+ if(!resumeUrl){box.innerHTML='<div class="empty" style="margin-top:12px">No resume/CV uploaded yet.</div>';$("openResume").disabled=true;return;}
+ $("openResume").disabled=false;
+ box.innerHTML='<div class="resume-current"><div><div class="resume-name">📄 Current Resume / CV</div><div class="resume-meta">Stored securely with your candidate profile.</div></div><a class="btn secondary" target="_blank" rel="noopener" href="'+esc(resumeUrl)+'">Open</a></div>';
+}
+$("openResume").onclick=()=>{if(resumeUrl)window.open(resumeUrl,"_blank","noopener");};
+
+$("uploadResume").onclick=async()=>{
+ if(!currentUser)return;
+ const file=$("resumeFile").files[0];
+ if(!file){show("Please select a resume/CV file first.");return;}
+ const allowed=["application/pdf","image/jpeg","application/msword","application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+ const ext=(file.name.split(".").pop()||"").toLowerCase();
+ if(!allowed.includes(file.type)&&!["pdf","jpg","jpeg","doc","docx"].includes(ext)){show("Only PDF, JPEG/JPG, DOC and DOCX files are allowed.");return;}
+ if(file.size>5*1024*1024){show("File is too large. Maximum allowed size is 5 MB.");return;}
+ const btn=$("uploadResume");btn.disabled=true;btn.textContent="Uploading…";
+ try{
+  const apps=getApps();if(!apps.length)throw new Error("Firebase is not initialized.");
+  const storage=getStorage(apps[0]);
+  const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+  const storageRef=ref(storage,`candidate-resumes/${currentUser.uid}/${Date.now()}_${safeName}`);
+  const snap=await uploadBytes(storageRef,file,{contentType:file.type||undefined});
+  const url=await getDownloadURL(snap.ref);
+  await setDoc(doc(db,"candidates",currentUser.uid),{resumeUrl:url,resumeFileName:file.name,resumeFileType:file.type||ext,resumeFileSize:file.size,updatedAt:serverTimestamp()},{merge:true});
+  resumeUrl=url;currentProfile.resumeUrl=url;renderResume();updateSummary();$("resumeFile").value="";
+  show("Resume/CV uploaded successfully.","success");
+ }catch(err){console.error(err);show("Resume upload failed. If this is your first upload, Firebase Storage may need to be enabled and secured.");}
+ finally{btn.disabled=false;btn.textContent="Upload / Replace Resume";}
+};
+
+function jobValue(j,...keys){for(const k of keys){if(j[k]!==undefined&&j[k]!==null&&String(j[k]).trim()!=="")return j[k];}return "Not specified";}
+async function loadJobs(){
+ const list=$("jobList");list.innerHTML='<div class="empty">Loading approved vacancies…</div>';
+ try{
+  const snap=await getDocs(query(collection(db,"jobs"),where("status","==","active")));
+  jobsCache=[];snap.forEach(d=>jobsCache.push({id:d.id,...d.data()}));
+  jobsCache.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
+  if(!jobsCache.length){list.innerHTML='<div class="empty">No approved active vacancies are available right now.</div>';return;}
+  list.innerHTML=jobsCache.map(j=>{
+   const title=jobValue(j,"jobTitle","position","title");
+   const desc=jobValue(j,"jobDescription","description");
+   return `<article class="job-card">
+    <div class="job-head"><div><div class="job-title">${esc(title)}</div><div class="job-company">Sandeep HR Solutions · Approved Vacancy</div></div><span class="pill">ACTIVE</span></div>
+    <div class="job-grid">
+      <div class="job-item"><b>📍 Location</b>${esc(jobValue(j,"location","jobLocation"))}</div>
+      <div class="job-item"><b>💰 Salary</b>${esc(jobValue(j,"salary","salaryRange"))}</div>
+      <div class="job-item"><b>👥 Vacancies</b>${esc(jobValue(j,"vacancies","noOfVacancies"))}</div>
+      <div class="job-item"><b>🎓 Qualification</b>${esc(jobValue(j,"qualification"))}</div>
+      <div class="job-item"><b>💼 Experience</b>${esc(jobValue(j,"experience"))}</div>
+      <div class="job-item"><b>📅 Working Days</b>${esc(jobValue(j,"workingDays","workPattern"))}</div>
+    </div>
+    <div class="job-desc"><b>Job Description</b><br>${esc(desc)}</div>
+    <div class="job-actions"><button class="btn primary apply-btn" data-job="${esc(j.id)}">Apply for this Job</button></div>
+   </article>`;
+  }).join("");
+  list.querySelectorAll(".apply-btn").forEach(b=>b.onclick=()=>applyToJob(b.dataset.job));
+ }catch(err){console.error(err);list.innerHTML='<div class="empty">Could not load approved vacancies. Please try again later.</div>';}
+}
+$("refreshJobs").onclick=loadJobs;
+
+async function applyToJob(jobId){
+ const job=jobsCache.find(x=>x.id===jobId);if(!job||!currentUser)return;
+ if(!clean(currentProfile.fullName)||!clean(currentProfile.mobile)||!clean(currentProfile.qualification)||!clean(currentProfile.experience)){
+  showJob("Please complete your Profile (Name, Mobile, Qualification and Experience) before applying.");setSection("profile");return;
+ }
+ if(!resumeUrl){showJob("Please upload your Resume/CV before applying.");setSection("resume");return;}
+ const btn=[...document.querySelectorAll(".apply-btn")].find(x=>x.dataset.job===jobId);
+ if(btn){btn.disabled=true;btn.textContent="Submitting…";}
+ try{
+  await addDoc(collection(db,"applications"),{
+   candidateId:currentUser.uid,
+   candidateName:currentProfile.fullName,
+   candidateEmail:currentUser.email||"",
+   candidateMobile:currentProfile.mobile,
+   qualification:currentProfile.qualification,
+   experience:currentProfile.experience,
+   resumeUrl,
+   jobId,
+   jobTitle:jobValue(job,"jobTitle","position","title"),
+   location:jobValue(job,"location","jobLocation"),
+   appliedAt:serverTimestamp(),
+   status:"Applied"
+  });
+  showJob("Application submitted successfully.","success");setSection("applications");
+ }catch(err){console.error(err);showJob("Could not submit application. Please try again.");}
+ finally{if(btn){btn.disabled=false;btn.textContent="Apply for this Job";}}
+}
+</script>
+</body>
+</html>
