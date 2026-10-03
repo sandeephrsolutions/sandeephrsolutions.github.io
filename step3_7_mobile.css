@@ -1,0 +1,47 @@
+/* Step 3.7 — Mobile navigation consistency
+   Add after the existing site styles. Do not remove Firebase or page-specific CSS. */
+
+html, body { max-width:100%; overflow-x:hidden; }
+img, video, iframe { max-width:100%; }
+*, *::before, *::after { box-sizing:border-box; }
+
+.site-nav {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+}
+
+.site-nav a {
+  min-height:40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 11px;
+}
+
+.nav-toggle {
+  min-width:44px;
+  min-height:44px;
+  display:none;
+}
+
+@media (max-width:760px) {
+  .site-header-inner { position:relative; }
+  .nav-toggle { display:inline-flex; align-items:center; justify-content:center; }
+  .site-nav {
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    gap:4px;
+  }
+  .site-nav a {
+    width:100%;
+    min-height:44px;
+    justify-content:flex-start;
+  }
+  .site-nav.is-collapsed { display:none; }
+  .site-nav.is-open { display:flex; }
+  button, input, select, textarea { max-width:100%; }
+  .btn, a.btn { min-height:44px; }
+}

@@ -1,43 +1,59 @@
-Sandeep HR Solutions — Step 3.6 Contact & Employer UX
-======================================================
+Sandeep HR Solutions — Step 3.7 Mobile UX & Navigation
+==========================================================
 
-This is a focused manual patch. GitHub API write access is still blocked, so it
-has NOT been published automatically.
+GitHub API write access remains blocked, so this package is for manual application.
 
 CURRENT CHECK
 -------------
-contact.html:
-- already has WhatsApp and email contact actions
-- already uses Pan-India / All India wording
-- no Firebase form logic was detected
+Main pages generally use:
+Home About Services Employers Jobs Contact Admin
 
-employers.html:
-- has an existing Firebase-backed employer requirement form
-- already has a post-submit process section
-- does not currently contain the Pan-India / All India coverage wording consistently
+Two consistency gaps were found:
+1. employers.html does not currently include the Admin tab.
+2. disclaimer.html does not currently contain the standardized site navigation.
+
+Jobs has more overflow-sensitive CSS than most other pages.
 
 PATCH
 -----
-1. Add contact-routing-section.html to contact.html before the main contact details/form.
-2. Add employer-process-section.html ONLY if the existing employer process section is absent.
-   The current repository already appears to contain a process section, so do not duplicate it.
-3. Apply step3_6.css to the existing stylesheet if desired.
-4. Apply coverage-consistency.txt to employers.html footer/service-coverage wording.
+A) employers-nav.html
+   Replace only the existing Employers page navigation with this standardized nav,
+   preserving the page's existing header/brand wrapper and CSS classes where possible.
 
-DO NOT
-------
-- replace contact.html or employers.html wholesale
-- alter Firebase imports, Firestore collection names, addDoc logic, or submit handlers
-- remove existing WhatsApp/email actions
-- move Candidate Login into the global navigation
-- describe Bengaluru/Electronic City as service coverage
-- invent response times, fees, SLAs, licences, guarantees, or client claims
+B) disclaimer-header.html
+   Add/replace the Disclaimer page's header/navigation with the standardized shell.
+   Preserve the existing disclaimer content.
 
-USER-FACING ROUTING
+C) step3_7_mobile.css
+   Add after existing CSS. It:
+   - prevents horizontal page overflow
+   - keeps images/media within viewport
+   - gives navigation links 44px mobile tap height
+   - stacks navigation on small screens
+   - keeps buttons usable on touch screens
+
+D) step3_7_mobile_nav.js
+   OPTIONAL. Only use if a page does not already have a working mobile nav toggle.
+   Do not add a second toggle script to a page that already has one.
+
+IMPORTANT
+---------
+- Candidate Login remains only on jobs.html.
+- Admin remains a normal navigation link to admin-login.html.
+- Do not add Candidate Login to global navigation.
+- Do not alter Firebase/Auth/Firestore code.
+- Do not change employer form fields or submit handlers.
+- Do not change individual job locations.
+- Do not remove existing SEO metadata/schema.
+- Do not replace complete pages unless necessary.
+
+FINAL MOBILE CHECK
 ------------------
-Employer -> Employer Enquiry
-Candidate -> Jobs & Candidate Registration
-General enquiry -> existing contact options
-
-The candidate path is intentionally linked to jobs.html because Candidate Login
-is intended to remain inside the Jobs page.
+After applying:
+1. Test Home, About, Services, Employers, Jobs, Contact, Privacy, Terms and Disclaimer
+   at a narrow mobile viewport.
+2. Confirm no horizontal scrolling.
+3. Confirm all navigation links are tappable.
+4. Confirm Admin is present on Employers and Disclaimer.
+5. Confirm Candidate Login appears only inside Jobs.
+6. Confirm existing Firebase forms still submit normally.
