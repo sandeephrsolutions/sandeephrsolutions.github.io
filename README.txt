@@ -1,45 +1,42 @@
-Sandeep HR Solutions — Step 3.4 Employer & Contact UX
-========================================================
+Sandeep HR Solutions — Step 3.5 Jobs UX
+==========================================
 
 STATUS
 ------
-GitHub write access is currently returning HTTP 403, so these are implementation
+GitHub write access remains blocked by HTTP 403, so these are manual-application
 snippets and have NOT been published automatically.
 
-EMPLOYERS PAGE
---------------
-Add employer-process-snippet.html immediately before the employer service form.
+CURRENT REPOSITORY CHECK
+------------------------
+The readable Jobs page currently:
+- has Candidate Login on the Jobs page
+- contains the candidate consent check
+- does not use the old "secure profile" wording
+- does not currently contain a visible no-candidate-fee notice
+- does not currently contain an explicit current-openings status block
+- still has a footer saying "Service Area: Bengaluru • Electronic City"
 
-Add the form-note text immediately before the submit button.
-
-Keep the existing:
-- Firebase Firestore submission
-- WhatsApp handoff
-- service selection
-- recruitment conditional fields
-- existing validation
-- Admin navigation
-
-CONTACT PAGE
-------------
-Add contact-cta-snippet.html in the main content area after the primary contact
-information and before the footer/legal section.
-
-The CTA goes to employers.html so business requirements remain separate from
-candidate registration.
-
-STYLING
---------
-Add step3_4.css to the existing page stylesheet, or copy its rules into the
-existing <style> block.
+PATCHES
+-------
+1. Add candidate-policy-notice.html near the top of the candidate section.
+2. Add candidate-flow-note.html near the Candidate Portal/registration heading.
+3. Add opening-status.html to clarify that verified openings are published when available.
+4. Add step3_5.css to the existing stylesheet.
+5. Change the Jobs footer only:
+   "Service Area" -> "Service Coverage"
+   "Bengaluru • Electronic City" -> "Pan-India / All India"
 
 IMPORTANT
 ---------
-Do not add:
-- guaranteed response times
-- guaranteed placement/hiring claims
-- invented office hours
-- a private exact address
-- candidate registration into the employer form
+Do NOT:
+- replace jobs.html wholesale
+- alter Firebase/Auth/Firestore code
+- remove Candidate Login from Jobs
+- add Candidate Login to Home or the global navigation
+- invent current vacancies
+- add JobPosting schema without a specific verified job opening
+- change a real job's location field
+- change the existing candidate consent logic
 
-The approved service coverage remains Pan-India / All India.
+The "verified openings" wording is intentionally neutral and does not claim that
+openings currently exist.
