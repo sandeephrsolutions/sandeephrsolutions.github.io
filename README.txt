@@ -1,41 +1,38 @@
-Sandeep HR Solutions — Step 4.2 Accessibility
-=============================================
+Sandeep HR Solutions — Step 4.3 Security Package
+================================================
 
-Basis:
-Step 4 of the Website Review is the technical/accessibility/legal phase.
-This package focuses on practical accessibility improvements without changing
-business logic.
+WHAT CHANGED
+------------
+The package contains a strengthened firestore.rules file and a review/checklist.
 
-FILES
------
-1. accessibility.css
-   Add after existing site CSS.
+The main concrete rule improvement is the applications collection:
+- create is restricted to the authenticated candidate's own UID;
+- read is restricted to that candidate's own applications or the admin UID;
+- update/delete remain admin-only.
 
-2. accessible-page-pattern.html
-   Reference pattern for the skip link and main-content landmark.
+WHY
+---
+The candidate dashboard already creates application documents using the signed-in
+user's UID and reads applications filtered by that UID. The previous rule did not
+enforce the candidateId relationship on create and did not grant candidates read
+access to their own applications.
 
-3. form-accessibility-pattern.html
-   Reference pattern for labelled fields and accessible status messages.
+HOW TO APPLY
+------------
+1. Open Firebase Console for the production Firebase project.
+2. Open Firestore Database -> Rules.
+3. Review the supplied firestore.rules carefully.
+4. Publish the rules.
+5. Test candidate A / candidate B isolation and admin access using test accounts.
 
-4. accessibility-checklist.txt
-   Page-by-page testing checklist.
-
-IMPLEMENTATION ORDER
---------------------
-A. Add accessibility.css to the public pages.
-B. Add the skip link as the first focusable element in the body.
-C. Give each public page's <main> element id="main-content".
-D. Review headings so each page has a clear H1 and logical H2/H3 structure.
-E. Review image alt text.
-F. Review Jobs and Employers form labels/required states.
-G. Ensure dynamic status/error messages are announced.
-H. Test keyboard focus and mobile navigation.
+Do not assume that uploading firestore.rules to GitHub automatically deploys it.
+The repository currently does not contain firebase.json, so a Firebase CLI deploy
+pipeline was not verified.
 
 IMPORTANT
 ---------
-- Do NOT replace existing Firebase/Auth/Firestore code.
-- Do NOT replace existing WhatsApp submission handlers.
-- Do NOT remove candidate consent.
-- Do NOT change the Jobs-only candidate login requirement.
-- Do NOT add unsupported accessibility certification claims.
-- The package is an implementation aid, not a WCAG compliance certificate.
+- Do not expose service-account credentials.
+- Do not weaken rules to "allow read, write: if true".
+- Public employer/job enquiry creation is intentionally preserved.
+- This package is not a penetration test or security certification.
+- Firebase Console settings must be verified separately.

@@ -1,0 +1,90 @@
+Sandeep HR Solutions — Step 4.3 Security & Privacy Review
+=========================================================
+
+SOURCE REVIEW
+-------------
+The repository currently contains:
+- Firebase Authentication for candidate and admin login.
+- Firestore for candidates, applications, jobs and employer enquiries.
+- Admin pages that redirect unauthenticated/unauthorized users.
+- A Firestore rules file using one configured administrator UID.
+- A client-side Firebase web configuration.
+
+FINDING 1 — FIREBASE WEB CONFIG
+--------------------------------
+The Firebase web configuration is present in frontend JavaScript. This is normal
+for Firebase web applications: the configuration values identify the Firebase
+project and are not equivalent to a server password.
+
+Security must therefore come from Authentication, Firestore rules, and Firebase
+project settings. Do not put service-account private keys, API secrets or other
+server credentials into frontend files.
+
+FINDING 2 — APPLICATION CREATE RULE
+------------------------------------
+The previous rules allowed any authenticated user to create an application
+document, even if the submitted candidateId belonged to another user.
+
+The supplied replacement rules bind application creation to:
+request.resource.data.candidateId == request.auth.uid
+
+This matches the existing candidate-dashboard behavior, which writes the signed-in
+candidate's UID.
+
+FINDING 3 — APPLICATION READ
+-----------------------------
+The candidate dashboard queries applications for its own UID. The supplied rules
+allow a candidate to read only applications whose candidateId is their own UID,
+while the configured admin UID retains access.
+
+FINDING 4 — ADMIN AUTHORIZATION
+--------------------------------
+The site checks the administrator email in frontend code and the Firestore rules
+use the configured administrator UID. The UID-based Firestore rule is the actual
+database authorization boundary.
+
+Keep the administrator email and UID synchronized. If the administrator Firebase
+account is replaced, update both the site authorization check and Firestore rule.
+
+FINDING 5 — PUBLIC FORM SUBMISSIONS
+------------------------------------
+jobRequests and employers remain publicly creatable because the public employer
+form is designed to accept enquiries without requiring an employer account.
+
+This creates an unavoidable abuse/spam surface. Do not make these collections
+publicly readable. The current rules keep read/update/delete restricted to admin.
+
+For stronger anti-abuse protection, consider Firebase App Check and/or an
+appropriate server-side validation/rate-limiting layer. Those are separate
+Firebase/project configuration tasks and are not claimed as implemented here.
+
+FINDING 6 — CANDIDATE PROFILE DATA
+-----------------------------------
+Candidate profiles contain personal/professional information. Access should
+remain UID-restricted as in the rules. Do not expose candidate collection data
+through public pages, public JSON, sitemap entries, or client-side static lists.
+
+FINDING 7 — ADMIN PAGES
+------------------------
+Admin pages are already marked noindex/nofollow and redirect unauthorized users.
+This is useful for discovery reduction, but it is not a security boundary.
+Firestore rules must continue to enforce authorization.
+
+FINDING 8 — PASSWORDS
+---------------------
+Passwords are handled by Firebase Authentication. The website should not store
+plain-text passwords in Firestore or custom fields.
+
+FINDING 9 — PRIVACY ALIGNMENT
+-----------------------------
+The privacy wording should continue to reflect the actual Firebase Auth/Firestore
+data flow, employer enquiries, candidate profiles/applications, and external
+communication channels. Do not promise that data is never shared if candidate
+information may be considered for relevant employer opportunities.
+
+IMPORTANT
+---------
+This is a source-code/configuration review, not a penetration test or security
+certification. It does not verify Firebase Console settings, deployed Firestore
+rules, authorized domains, App Check, email/password policies, or account recovery
+configuration.

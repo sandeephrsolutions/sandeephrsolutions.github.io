@@ -1,0 +1,35 @@
+Step 4.3 — Firebase Console Verification
+==========================================
+
+These settings cannot be verified from the public repository alone.
+
+1. Authentication
+- Confirm Email/Password sign-in is enabled if that is the intended login method.
+- Review authorized domains and keep only domains required by the website.
+- Confirm the administrator account is the intended account.
+- Review password-reset configuration and email templates.
+
+2. Firestore
+- Publish the supplied firestore.rules after reviewing them.
+- Verify the deployed rules are actually the rules used by the production project.
+- Test:
+  a) candidate A can read/update candidate A only;
+  b) candidate A cannot read/update candidate B;
+  c) candidate A can create an application only with candidateId=A;
+  d) candidate A can read only application records for A;
+  e) an unauthenticated visitor cannot read candidates/applications/jobRequests;
+  f) the configured admin can access admin data.
+
+3. App Check
+- Consider enabling Firebase App Check for the production web application after
+  testing, especially for publicly creatable collections.
+- Roll out carefully because enforcement can block legitimate traffic if configured
+  incorrectly.
+
+4. Monitoring
+- Review Firebase Authentication and Firestore usage/errors.
+- Watch for unexpected spikes in public jobRequests/employer submissions.
+
+5. Credentials
+- Never upload Firebase service-account JSON/private keys to this repository.
+- Do not put server credentials into frontend JavaScript.
