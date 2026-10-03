@@ -1,0 +1,89 @@
+Sandeep HR Solutions — Step 3.1 SEO package
+================================================
+
+STATUS
+------
+GitHub write access is currently returning HTTP 403 ("Resource not accessible by integration"),
+so these changes have NOT been published automatically.
+
+FILES TO UPLOAD
+---------------
+1. robots.txt
+2. sitemap.xml
+
+HTML METADATA PATCH
+-------------------
+The current repository already has good SEO metadata on index.html, about.html,
+services.html, contact.html and terms.html.
+
+Standardize the remaining pages as follows.
+
+jobs.html
+- Canonical:
+  https://sandeephrsolutions.github.io/jobs.html
+- Title:
+  Jobs & Candidate Registration | Sandeep HR Solutions
+- Description:
+  Candidate registration and job opportunities with Sandeep HR Solutions. No candidate fee.
+- robots:
+  index,follow
+- author:
+  Sandeep HR Solutions
+- og:type: website
+- og:locale: en_IN
+- og:title: same as title
+- og:description: same as description
+- og:url: https://sandeephrsolutions.github.io/jobs.html
+- og:image:
+  https://sandeephrsolutions.github.io/Logo.png
+- twitter:card: summary
+- twitter:title: same as title
+- twitter:description: same as description
+
+privacy.html
+- Canonical:
+  https://sandeephrsolutions.github.io/privacy.html
+- Keep existing title and description.
+- Add robots=index,follow and author=Sandeep HR Solutions.
+- Add og:type=website, og:locale=en_IN, og:title, og:description,
+  og:url and og:image.
+- Add twitter:card=summary, twitter:title and twitter:description.
+
+disclaimer.html
+- Canonical:
+  https://sandeephrsolutions.github.io/disclaimer.html
+- Title:
+  Disclaimer | Sandeep HR Solutions
+- Description:
+  Disclaimer for the Sandeep HR Solutions website and HR, recruitment and consulting information.
+- Add robots=index,follow and author=Sandeep HR Solutions.
+- Add the same Open Graph/Twitter fields using the page title/description.
+
+employers.html
+- Canonical:
+  https://sandeephrsolutions.github.io/employers.html
+- Keep its current title/description.
+- Add robots=index,follow and author=Sandeep HR Solutions.
+- Add og:type=website, og:locale=en_IN, og:title, og:description,
+  og:url and og:image.
+- Add twitter:card=summary, twitter:title and twitter:description.
+
+IMPORTANT
+---------
+Do NOT alter:
+- Firebase configuration
+- Candidate registration/login
+- Candidate dashboard
+- Admin login
+- Admin tab
+- Jobs-page-only Candidate Login
+- existing page content
+- Pan-India service coverage
+- founder profile
+- legal wording already approved
+
+WHY THIS STEP
+-------------
+Google documents that clear page titles, canonicalization, sitemaps and structured
+data help Google understand and crawl site content. This package intentionally keeps
+the first SEO step limited to metadata, robots.txt and sitemap.xml.
