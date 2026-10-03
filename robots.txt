@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin-login.html
+Disallow: /admin-dashboard.html
 
 Sitemap: https://sandeephrsolutions.github.io/sitemap.xml

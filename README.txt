@@ -1,65 +1,41 @@
-Sandeep HR Solutions — Step 3.9 Accessibility & SEO Final Pass
+Sandeep HR Solutions — Step 3.10 Technical & Performance Final Pass
 =================================================================
 
-GitHub API write access is still blocked, so this package is for manual application.
+GitHub write access is still blocked by the integration's 403 response, so these
+files must be applied manually.
 
-CURRENT FINDINGS
-----------------
-Jobs:
-- title, description and canonical already present
-- robots directive was missing
-- OG metadata was incomplete
+WHAT WAS VERIFIED
+-----------------
+All local references discovered in the checked HTML resolve to files that exist
+in the repository, including:
+- Logo.png
+- candidate-login.html
+- candidate-register.html
+- admin-dashboard.html
 
-Employers:
-- title, description and canonical already present
-- robots directive was missing
-- OG metadata was incomplete
+No localhost/127.0.0.1 or http:// resource references were found in the checked
+HTML/JS. The http:// URL inside sitemap.xml is only the standard XML namespace.
 
-Privacy:
-- title/description present
-- canonical and robots were missing
+PATCH
+-----
+Replace the repository robots.txt and sitemap.xml with the supplied versions.
 
-Disclaimer:
-- title/description present
-- canonical and robots were missing
-- standardized navigation was addressed separately in Step 3.7
+WHY
+---
+The admin login/dashboard are administrative interfaces and should not be listed
+as public search URLs. The public sitemap should contain public website pages.
 
-Admin Login:
-- title present
-- canonical, description and robots were missing
-- recommended robots directive is noindex,nofollow,noarchive because this is an
-  administrative login page, not public search content
+DO NOT
+------
+- block candidate-login.html or candidate-register.html; they are part of the Jobs flow
+- alter Firebase configuration
+- remove Firebase/Auth/Firestore scripts
+- expose credentials
+- add unnecessary JavaScript libraries
+- change the sitemap to include admin-dashboard.html
 
-Images:
-- main-page logo images already have alt text
-- the small decorative Admin logo uses alt="", which is acceptable for decorative imagery
-
-STRUCTURED DATA
----------------
-A ProfilePage/Person schema is supplied for About.
-A WebSite schema is supplied as a fallback for Home.
-
-IMPORTANT:
-- Do not duplicate an identical WebSite schema if it is already present.
-- Do not create fake reviews, ratings, certifications, licences, clients or JobPosting data.
-- Keep the existing Organization schema where already present.
-- If a structured-data block already exists, merge carefully rather than adding duplicates.
-
-CANONICAL URLS
---------------
-Use the existing GitHub Pages domain:
-https://sandeephrsolutions.github.io/
-
-This package intentionally does not modify sitemap.xml or robots.txt because those
-files already exist and should be changed only if their contents are actually wrong.
-
-AFTER APPLYING
---------------
-Validate:
-- page source contains exactly one canonical URL on each public page
-- no accidental duplicate robots meta
-- Admin Login is noindex
-- JSON-LD parses without errors
-- each main content page has one H1
-- all meaningful images have alt text
-- forms retain native labels/required validation
+PERFORMANCE
+-----------
+No source-only change can honestly certify PageSpeed/Lighthouse performance.
+The final performance verification should be done against the live GitHub Pages
+site after upload.

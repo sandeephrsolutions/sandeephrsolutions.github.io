@@ -1,0 +1,46 @@
+Step 3.10 — Technical & Performance Final Pass
+
+Repository checks completed:
+- Local page references were checked.
+- Logo.png exists.
+- candidate-login.html exists.
+- candidate-register.html exists.
+- admin-dashboard.html exists.
+- No localhost/127.0.0.1 references were found in the checked HTML/JS.
+- No http:// resource references were found in the checked HTML/JS.
+- Firebase configuration uses HTTPS module imports.
+- Firebase configuration is separated into firebase-config.js.
+- Existing inline module scripts are not automatically render-blocking in the same
+  way as classic synchronous scripts; do not add unnecessary defer changes to them.
+- The sitemap namespace uses http://www.sitemaps.org/... as its XML namespace.
+  That is the standard XML namespace and is not a mixed-content resource.
+
+Changes in this package:
+1. robots.txt excludes admin-login.html and admin-dashboard.html from crawlers.
+2. sitemap.xml removes admin-login.html.
+3. Public candidate pages remain available and are not blocked.
+
+IMPORTANT SECURITY NOTE
+-----------------------
+The Firebase web configuration contains a Firebase API key. Firebase web API keys
+are commonly included in client-side applications; the key itself should not be
+treated as a secret. Security depends on Firebase Authentication, authorized
+domains, Firestore/Storage security rules, and other Firebase configuration.
+
+Do not expose:
+- admin passwords
+- service-account credentials
+- private API secrets
+- server-side credentials
+
+MANUAL PERFORMANCE TEST
+-----------------------
+The source inspection cannot substitute for real browser performance testing.
+After the changes are uploaded, run:
+- Google PageSpeed Insights on the live homepage and Jobs page
+- Lighthouse/mobile test
+- Google Search Console URL inspection
+- Check browser console for runtime errors
+- Test candidate login/register and employer submission
+
+Record the results before making any further performance changes.
