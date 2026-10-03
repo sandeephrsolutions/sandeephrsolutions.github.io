@@ -187,7 +187,7 @@ nav a{transition:.18s}
     <div class="heading">
       <span class="kicker">Candidate Portal</span>
       <h2>Manage Your Candidate Profile</h2>
-      <p>Create your secure profile once, then login anytime to update your professional details.</p>
+      <p>Create your candidate profile once, then login anytime to update your professional details.</p>
     </div>
     <div class="portal-grid">
       <div class="portal-card login">
@@ -199,7 +199,7 @@ nav a{transition:.18s}
       </div>
       <div class="portal-card">
         <h3>New Candidate?</h3>
-        <p>Create your candidate account and save your professional information securely.</p>
+        <p>Create your candidate account and save your professional information.</p>
         <div class="portal-actions">
           <a class="btn primary" href="candidate-register.html">Create Your Profile →</a>
         </div>
@@ -229,11 +229,15 @@ nav a{transition:.18s}
 <div class="field"><label>Key Skills</label><input id="cks" placeholder="e.g. Recruitment, Payroll, Excel"></div>
 <div class="field full"><label>Resume / LinkedIn Profile <span style="font-weight:600;color:#8a94a3">(optional)</span></label><input id="cr" placeholder="Paste Google Drive / LinkedIn / resume link"></div>
 </div></div>
-<div class="form-bottom"><div class="form-note"><strong>✓ Quick registration via WhatsApp</strong><br>Your entered details will be prepared as a WhatsApp message.</div><button class="btn primary submit-btn" type="submit">Submit Profile →</button></div>
+<div class="form-bottom"><div class="form-note"><strong>✓ Quick registration via WhatsApp</strong><br>Your entered details will be prepared as a WhatsApp message.
+<label style="display:flex;gap:8px;align-items:flex-start;margin-top:12px;color:#334155;font-size:12px;line-height:1.45;font-weight:600">
+<input id="candidateConsent" type="checkbox" required style="margin-top:3px">
+<span>I consent to Sandeep HR Solutions using the information I submit for recruitment-related communication and sharing relevant details with prospective employers where appropriate. I understand that this submission opens WhatsApp for sending the information.</span>
+</label></div><button class="btn primary submit-btn" type="submit">Submit Profile →</button></div>
 </form></div></div></section>
 <section><div class="container"><div class="heading"><span class="kicker">Candidate Note</span><h2>Keep Your Profile Updated</h2><p>Provide accurate experience, skills, salary and notice-period information so your profile can be reviewed against suitable requirements.</p></div></div></section>
 <script>
-function sendCandidate(e){e.preventDefault();const g=id=>document.getElementById(id).value.trim();const msg=`Hello Sandeep HR Solutions, I would like to register as a job seeker.
+function sendCandidate(e){e.preventDefault();const consent=document.getElementById("candidateConsent");if(consent && !consent.checked){alert("Please provide your consent before submitting your profile.");return;}const g=id=>document.getElementById(id).value.trim();const msg=`Hello Sandeep HR Solutions, I would like to register as a job seeker.
 
 Full Name: ${g("cn")}
 Mobile: ${g("cmo")}
