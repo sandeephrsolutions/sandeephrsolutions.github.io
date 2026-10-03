@@ -1,42 +1,43 @@
-Sandeep HR Solutions — Step 3.5 Jobs UX
-==========================================
+Sandeep HR Solutions — Step 3.6 Contact & Employer UX
+======================================================
 
-STATUS
+This is a focused manual patch. GitHub API write access is still blocked, so it
+has NOT been published automatically.
+
+CURRENT CHECK
+-------------
+contact.html:
+- already has WhatsApp and email contact actions
+- already uses Pan-India / All India wording
+- no Firebase form logic was detected
+
+employers.html:
+- has an existing Firebase-backed employer requirement form
+- already has a post-submit process section
+- does not currently contain the Pan-India / All India coverage wording consistently
+
+PATCH
+-----
+1. Add contact-routing-section.html to contact.html before the main contact details/form.
+2. Add employer-process-section.html ONLY if the existing employer process section is absent.
+   The current repository already appears to contain a process section, so do not duplicate it.
+3. Apply step3_6.css to the existing stylesheet if desired.
+4. Apply coverage-consistency.txt to employers.html footer/service-coverage wording.
+
+DO NOT
 ------
-GitHub write access remains blocked by HTTP 403, so these are manual-application
-snippets and have NOT been published automatically.
+- replace contact.html or employers.html wholesale
+- alter Firebase imports, Firestore collection names, addDoc logic, or submit handlers
+- remove existing WhatsApp/email actions
+- move Candidate Login into the global navigation
+- describe Bengaluru/Electronic City as service coverage
+- invent response times, fees, SLAs, licences, guarantees, or client claims
 
-CURRENT REPOSITORY CHECK
-------------------------
-The readable Jobs page currently:
-- has Candidate Login on the Jobs page
-- contains the candidate consent check
-- does not use the old "secure profile" wording
-- does not currently contain a visible no-candidate-fee notice
-- does not currently contain an explicit current-openings status block
-- still has a footer saying "Service Area: Bengaluru • Electronic City"
+USER-FACING ROUTING
+------------------
+Employer -> Employer Enquiry
+Candidate -> Jobs & Candidate Registration
+General enquiry -> existing contact options
 
-PATCHES
--------
-1. Add candidate-policy-notice.html near the top of the candidate section.
-2. Add candidate-flow-note.html near the Candidate Portal/registration heading.
-3. Add opening-status.html to clarify that verified openings are published when available.
-4. Add step3_5.css to the existing stylesheet.
-5. Change the Jobs footer only:
-   "Service Area" -> "Service Coverage"
-   "Bengaluru • Electronic City" -> "Pan-India / All India"
-
-IMPORTANT
----------
-Do NOT:
-- replace jobs.html wholesale
-- alter Firebase/Auth/Firestore code
-- remove Candidate Login from Jobs
-- add Candidate Login to Home or the global navigation
-- invent current vacancies
-- add JobPosting schema without a specific verified job opening
-- change a real job's location field
-- change the existing candidate consent logic
-
-The "verified openings" wording is intentionally neutral and does not claim that
-openings currently exist.
+The candidate path is intentionally linked to jobs.html because Candidate Login
+is intended to remain inside the Jobs page.

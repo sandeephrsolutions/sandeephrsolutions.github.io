@@ -1,0 +1,12 @@
+Step 3.6 coverage correction
+
+On employers.html, update any footer/service-area wording that presents Bengaluru or
+Electronic City as the service coverage.
+
+Use:
+Service Coverage: Pan-India / All India
+
+Bengaluru / Electronic City may remain only where it describes the business location
+or contact context, not the geographic service coverage.
+
+Do not change individual job locations or employer requirement fields.

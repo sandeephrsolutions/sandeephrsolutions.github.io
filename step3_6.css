@@ -1,0 +1,13 @@
+/* Step 3.6 optional styling */
+.contact-routing{margin:30px 0;padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff}
+.contact-routing h2,.employer-next-steps h2{margin:5px 0 18px}
+.contact-routing-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.routing-card{padding:20px;border:1px solid var(--line);border-radius:14px;background:#f8fafc}
+.routing-card h3{margin-top:0}
+.routing-card p{color:var(--muted);line-height:1.6}
+.routing-card .btn{display:inline-block;margin-top:8px}
+.employer-next-steps{margin:30px 0;padding:26px;border:1px solid var(--line);border-radius:18px;background:#fff}
+.employer-next-steps li{margin:12px 0;line-height:1.6}
+@media (max-width:760px){
+  .contact-routing-grid{grid-template-columns:1fr}
+}
