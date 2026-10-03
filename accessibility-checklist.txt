@@ -1,19 +1,71 @@
-Step 3.9 accessibility verification
+Sandeep HR Solutions — Step 4.2 Accessibility Checklist
+========================================================
 
-Verified in current repository:
-- Main content pages have one H1.
-- Logo images on the main pages have descriptive alt text.
-- Jobs and Employers form controls have visible label elements.
-- Admin Login has visible labels.
-- Do not change the empty alt="" on the small decorative Admin logo unless it is
-  actually meaningful content; empty alt is appropriate for decorative imagery.
+Apply to public pages:
+index.html
+about.html
+services.html
+jobs.html
+employers.html
+contact.html
+privacy.html
+terms.html
+disclaimer.html
 
-Recommended manual checks after upload:
-1. Tab through each page without using a mouse.
-2. Confirm visible focus is present.
-3. Submit an empty required form and verify browser validation identifies the field.
-4. Test at mobile width for no horizontal scrolling.
-5. Use a screen reader or accessibility checker to confirm navigation landmarks
-   and form labels.
+1. PAGE STRUCTURE
+- One clear H1 per page.
+- H2 headings for major sections.
+- H3 only beneath an appropriate H2.
+- Do not choose heading levels merely for visual size.
 
-Do not add ARIA attributes where native HTML already provides the required semantics.
+2. NAVIGATION
+- Add a "Skip to main content" link.
+- Give <main> an id such as main-content.
+- Keyboard users must be able to reach every navigation link.
+- Keep a clearly visible :focus-visible indicator.
+- Do not rely only on hover or color to identify focus/active state.
+- Preserve the existing mobile navigation behavior.
+
+3. IMAGES
+- Meaningful images need concise, descriptive alt text.
+- Decorative images should use alt="".
+- Do not put important text only inside an image.
+- Keep the existing logo branding; do not invent descriptive claims.
+
+4. FORMS
+- Every input/select/textarea needs a programmatically associated <label>.
+- Required fields should use required and aria-required="true" where appropriate.
+- Instructions and errors should be associated with the relevant field.
+- Status messages should be announced with aria-live/role="status" when dynamic.
+- Preserve the current Firebase/Firestore and WhatsApp submit handlers.
+- Preserve the candidate consent checkbox before WhatsApp submission.
+
+5. BUTTONS/LINKS
+- Use <button> for actions and <a> for navigation.
+- Link text should describe destination/action.
+- Avoid vague links such as "click here" where a descriptive label is possible.
+
+6. TOUCH/MOBILE
+- Keep interactive controls around 44px minimum touch target.
+- Avoid horizontal overflow.
+- Test the navigation and forms at narrow mobile widths.
+
+7. MOTION
+- Respect prefers-reduced-motion for animations/transitions.
+
+8. COLOR/CONTRAST
+- Do not communicate information by color alone.
+- Check text and controls with a contrast checker after final visual styling.
+- Do not make broad contrast claims without testing the rendered pages.
+
+9. TESTING
+- Keyboard-only: Tab / Shift+Tab / Enter / Space / Escape as applicable.
+- Browser zoom: test at 200%.
+- Mobile viewport: test navigation and forms.
+- Screen-reader smoke test where available.
+- Run Lighthouse Accessibility after upload.
+
+10. SCOPE
+This package provides implementation patterns and a checklist. It does not
+certify WCAG compliance. Actual compliance requires testing the rendered
+site and, for a formal claim, appropriate accessibility review.

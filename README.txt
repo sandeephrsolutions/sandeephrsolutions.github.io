@@ -1,39 +1,41 @@
-Sandeep HR Solutions — Step 4.1 Technical Implementation
-=========================================================
+Sandeep HR Solutions — Step 4.2 Accessibility
+=============================================
 
 Basis:
-The Website Review Report lists technical/performance items 33–38:
-33 PageSpeed Insights
-34 image/logo WebP + dimensions + lazy loading
-35 favicon, apple-touch-icon, custom 404
-36 analytics + cookie notice if tracking is used
-37 enforce HTTPS in GitHub Pages
-38 consistent internal link format and canonicals
+Step 4 of the Website Review is the technical/accessibility/legal phase.
+This package focuses on practical accessibility improvements without changing
+business logic.
 
-PACKAGE CHANGES
----------------
-1. Add 404.html to the repository.
-2. Add the favicon/apple-touch-icon snippet where needed. Existing favicon links
-   already exist on many pages; do not duplicate them.
-3. Follow image-optimization-guide.txt for Logo.webp conversion. Do not invent
-   image dimensions.
-4. Keep .html internal link format consistent.
-5. Use https-analytics-checklist.txt for the GitHub Pages and analytics checks.
+FILES
+-----
+1. accessibility.css
+   Add after existing site CSS.
+
+2. accessible-page-pattern.html
+   Reference pattern for the skip link and main-content landmark.
+
+3. form-accessibility-pattern.html
+   Reference pattern for labelled fields and accessible status messages.
+
+4. accessibility-checklist.txt
+   Page-by-page testing checklist.
+
+IMPLEMENTATION ORDER
+--------------------
+A. Add accessibility.css to the public pages.
+B. Add the skip link as the first focusable element in the body.
+C. Give each public page's <main> element id="main-content".
+D. Review headings so each page has a clear H1 and logical H2/H3 structure.
+E. Review image alt text.
+F. Review Jobs and Employers form labels/required states.
+G. Ensure dynamic status/error messages are announced.
+H. Test keyboard focus and mobile navigation.
 
 IMPORTANT
 ---------
-- HTTPS enforcement is a GitHub Pages setting, not an HTML change.
-- PageSpeed results cannot be honestly generated from source inspection alone.
-- Analytics should not be installed without an intentional decision because it
-  changes the site's privacy/tracking obligations.
-- Do not add a cookie banner unless non-essential tracking/cookies are actually used.
-- Do not change Firebase/Auth/Firestore implementation.
-
-AFTER UPLOAD
-------------
-Verify:
-- a deliberately invalid URL displays the custom 404 page
-- favicon appears
-- mobile/desktop PageSpeed results are recorded
-- GitHub Pages HTTPS enforcement is enabled
-- no canonical/internal-link mismatch exists
+- Do NOT replace existing Firebase/Auth/Firestore code.
+- Do NOT replace existing WhatsApp submission handlers.
+- Do NOT remove candidate consent.
+- Do NOT change the Jobs-only candidate login requirement.
+- Do NOT add unsupported accessibility certification claims.
+- The package is an implementation aid, not a WCAG compliance certificate.
