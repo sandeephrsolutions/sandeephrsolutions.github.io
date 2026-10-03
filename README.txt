@@ -1,61 +1,65 @@
-Sandeep HR Solutions — Step 3.8 Forms, Validation & User Feedback
-================================================================
+Sandeep HR Solutions — Step 3.9 Accessibility & SEO Final Pass
+=================================================================
 
-GitHub write access remains blocked, so this is a manual patch.
+GitHub API write access is still blocked, so this package is for manual application.
 
-CURRENT CHECK
--------------
-jobs.html:
-- 1 form
-- native required validation present
-- existing submit handling with preventDefault
-- Firebase-related candidate operation present
-- WhatsApp workflow present
+CURRENT FINDINGS
+----------------
+Jobs:
+- title, description and canonical already present
+- robots directive was missing
+- OG metadata was incomplete
 
-employers.html:
-- 1 form
-- native required validation present
-- existing submit handling with preventDefault
-- Firestore jobRequests-related logic present
-- WhatsApp workflow present
-- existing alert feedback present
+Employers:
+- title, description and canonical already present
+- robots directive was missing
+- OG metadata was incomplete
 
-contact.html:
-- no HTML form was detected
-- Firebase/WhatsApp references are present, so preserve its current implementation
+Privacy:
+- title/description present
+- canonical and robots were missing
 
-PATCH
------
-1. Add validation-ux.css to the existing stylesheet.
-2. Add one status-markup.html block immediately before the submit button in
-   jobs.html and employers.html, if a status element is not already present.
-3. Use safe-submit-pattern.js as a pattern for the EXISTING async submit handlers.
+Disclaimer:
+- title/description present
+- canonical and robots were missing
+- standardized navigation was addressed separately in Step 3.7
 
-IMPORTANT
----------
-Do NOT:
-- replace sendCandidate() or the employer submit handler wholesale
-- change Firebase Auth, Firestore collection names, security rules, or imports
-- change WhatsApp destinations
-- remove the candidate consent checkbox
-- remove native required validation
-- add fake success messages before Firebase has actually succeeded
-- add invented response times or guarantees
-- add a contact form if the current contact page intentionally uses direct contact actions
+Admin Login:
+- title present
+- canonical, description and robots were missing
+- recommended robots directive is noindex,nofollow,noarchive because this is an
+  administrative login page, not public search content
 
-SAFE USER FEEDBACK
-------------------
-For candidate submission:
-- Validate normally.
-- Disable the submit button while the existing async action is running.
-- Show success only after the existing operation succeeds.
-- Restore the button if an error occurs.
+Images:
+- main-page logo images already have alt text
+- the small decorative Admin logo uses alt="", which is acceptable for decorative imagery
 
-For employer submission:
-- Same pattern around the existing Firestore + WhatsApp flow.
-- Do not create a duplicate Firestore record on double-click.
+STRUCTURED DATA
+---------------
+A ProfilePage/Person schema is supplied for About.
+A WebSite schema is supplied as a fallback for Home.
 
-ACCESSIBILITY
--------------
-Keep visible labels, native validation, keyboard focus, and aria-live status.
-Do not rely only on color to communicate errors.
+IMPORTANT:
+- Do not duplicate an identical WebSite schema if it is already present.
+- Do not create fake reviews, ratings, certifications, licences, clients or JobPosting data.
+- Keep the existing Organization schema where already present.
+- If a structured-data block already exists, merge carefully rather than adding duplicates.
+
+CANONICAL URLS
+--------------
+Use the existing GitHub Pages domain:
+https://sandeephrsolutions.github.io/
+
+This package intentionally does not modify sitemap.xml or robots.txt because those
+files already exist and should be changed only if their contents are actually wrong.
+
+AFTER APPLYING
+--------------
+Validate:
+- page source contains exactly one canonical URL on each public page
+- no accidental duplicate robots meta
+- Admin Login is noindex
+- JSON-LD parses without errors
+- each main content page has one H1
+- all meaningful images have alt text
+- forms retain native labels/required validation

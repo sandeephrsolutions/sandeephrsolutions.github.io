@@ -1,0 +1,19 @@
+Step 3.9 accessibility verification
+
+Verified in current repository:
+- Main content pages have one H1.
+- Logo images on the main pages have descriptive alt text.
+- Jobs and Employers form controls have visible label elements.
+- Admin Login has visible labels.
+- Do not change the empty alt="" on the small decorative Admin logo unless it is
+  actually meaningful content; empty alt is appropriate for decorative imagery.
+
+Recommended manual checks after upload:
+1. Tab through each page without using a mouse.
+2. Confirm visible focus is present.
+3. Submit an empty required form and verify browser validation identifies the field.
+4. Test at mobile width for no horizontal scrolling.
+5. Use a screen reader or accessibility checker to confirm navigation landmarks
+   and form labels.
+
+Do not add ARIA attributes where native HTML already provides the required semantics.
