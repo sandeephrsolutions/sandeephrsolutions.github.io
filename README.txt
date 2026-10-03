@@ -1,44 +1,45 @@
-Sandeep HR Solutions — Step 3.3 FAQ & Content UX
-===================================================
+Sandeep HR Solutions — Step 3.4 Employer & Contact UX
+========================================================
 
 STATUS
 ------
-GitHub writes are currently blocked by the integration's HTTP 403 response.
-No existing page was overwritten.
+GitHub write access is currently returning HTTP 403, so these are implementation
+snippets and have NOT been published automatically.
 
-CURRENT REVIEW
+EMPLOYERS PAGE
 --------------
-- services.html already has FAQ content and FAQPage schema.
-- jobs.html has a working candidate form and Firebase/Candidate Portal flow.
-- employers.html has a working Firebase employer request form and WhatsApp handoff.
-- contact.html already presents Pan-India coverage.
-- No internal-draft wording was detected on these pages.
+Add employer-process-snippet.html immediately before the employer service form.
 
-RECOMMENDED CONTENT CHANGES
----------------------------
-1. Keep the existing Services FAQ. Do not create duplicate FAQ blocks.
-2. Add a short visible FAQ section to Jobs only if desired, covering:
-   - Is candidate registration free?
-   - How does candidate registration work?
-   - Where should candidates log in?
-   Answers must match the site's actual workflow.
-3. Add a short Employer FAQ covering:
-   - What services can employers request?
-   - Can employers submit recruitment requirements online?
-   - How is the submitted information handled?
-   Avoid promising turnaround times or outcomes that are not documented.
-4. Keep the existing forms and Firebase functionality unchanged.
-5. Do not add fake job vacancies or JobPosting schema.
-6. Do not claim guaranteed placement, guaranteed interviews, guaranteed hiring,
-   or guaranteed compliance outcomes.
+Add the form-note text immediately before the submit button.
 
-IMPORTANT CURRENT ISSUE
------------------------
-jobs.html still visibly contains "Service Area: Bengaluru • Electronic City"
-in its footer. The project's approved service coverage is Pan-India / All India.
-Before publishing any Step 3.3 content package, update that footer wording to:
-"Service Coverage: Pan-India / All India"
-while preserving any job-specific location fields.
+Keep the existing:
+- Firebase Firestore submission
+- WhatsApp handoff
+- service selection
+- recruitment conditional fields
+- existing validation
+- Admin navigation
 
-This note is intentionally an implementation guide rather than a blind full-page
-replacement, so your latest manually uploaded Firebase code is not overwritten.
+CONTACT PAGE
+------------
+Add contact-cta-snippet.html in the main content area after the primary contact
+information and before the footer/legal section.
+
+The CTA goes to employers.html so business requirements remain separate from
+candidate registration.
+
+STYLING
+--------
+Add step3_4.css to the existing page stylesheet, or copy its rules into the
+existing <style> block.
+
+IMPORTANT
+---------
+Do not add:
+- guaranteed response times
+- guaranteed placement/hiring claims
+- invented office hours
+- a private exact address
+- candidate registration into the employer form
+
+The approved service coverage remains Pan-India / All India.
