@@ -1,0 +1,19 @@
+/* Step 3.8 — Form validation & feedback UX */
+.form-status{
+  margin:12px 0;
+  padding:12px 14px;
+  border-radius:10px;
+  font-size:14px;
+  line-height:1.5;
+}
+.form-status[hidden]{display:none}
+.form-status.is-success{border:1px solid #b7dfc8;background:#f1fbf5}
+.form-status.is-error{border:1px solid #e3b7b7;background:#fff5f5}
+input:focus,select:focus,textarea:focus,button:focus,a:focus{
+  outline:2px solid currentColor;
+  outline-offset:2px;
+}
+input:invalid:not(:placeholder-shown),select:invalid,textarea:invalid{
+  /* Do not force a red border before the user interacts with the field. */
+}
+.form-submit[disabled]{opacity:.65;cursor:not-allowed}

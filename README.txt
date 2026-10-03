@@ -1,59 +1,61 @@
-Sandeep HR Solutions — Step 3.7 Mobile UX & Navigation
-==========================================================
+Sandeep HR Solutions — Step 3.8 Forms, Validation & User Feedback
+================================================================
 
-GitHub API write access remains blocked, so this package is for manual application.
+GitHub write access remains blocked, so this is a manual patch.
 
 CURRENT CHECK
 -------------
-Main pages generally use:
-Home About Services Employers Jobs Contact Admin
+jobs.html:
+- 1 form
+- native required validation present
+- existing submit handling with preventDefault
+- Firebase-related candidate operation present
+- WhatsApp workflow present
 
-Two consistency gaps were found:
-1. employers.html does not currently include the Admin tab.
-2. disclaimer.html does not currently contain the standardized site navigation.
+employers.html:
+- 1 form
+- native required validation present
+- existing submit handling with preventDefault
+- Firestore jobRequests-related logic present
+- WhatsApp workflow present
+- existing alert feedback present
 
-Jobs has more overflow-sensitive CSS than most other pages.
+contact.html:
+- no HTML form was detected
+- Firebase/WhatsApp references are present, so preserve its current implementation
 
 PATCH
 -----
-A) employers-nav.html
-   Replace only the existing Employers page navigation with this standardized nav,
-   preserving the page's existing header/brand wrapper and CSS classes where possible.
-
-B) disclaimer-header.html
-   Add/replace the Disclaimer page's header/navigation with the standardized shell.
-   Preserve the existing disclaimer content.
-
-C) step3_7_mobile.css
-   Add after existing CSS. It:
-   - prevents horizontal page overflow
-   - keeps images/media within viewport
-   - gives navigation links 44px mobile tap height
-   - stacks navigation on small screens
-   - keeps buttons usable on touch screens
-
-D) step3_7_mobile_nav.js
-   OPTIONAL. Only use if a page does not already have a working mobile nav toggle.
-   Do not add a second toggle script to a page that already has one.
+1. Add validation-ux.css to the existing stylesheet.
+2. Add one status-markup.html block immediately before the submit button in
+   jobs.html and employers.html, if a status element is not already present.
+3. Use safe-submit-pattern.js as a pattern for the EXISTING async submit handlers.
 
 IMPORTANT
 ---------
-- Candidate Login remains only on jobs.html.
-- Admin remains a normal navigation link to admin-login.html.
-- Do not add Candidate Login to global navigation.
-- Do not alter Firebase/Auth/Firestore code.
-- Do not change employer form fields or submit handlers.
-- Do not change individual job locations.
-- Do not remove existing SEO metadata/schema.
-- Do not replace complete pages unless necessary.
+Do NOT:
+- replace sendCandidate() or the employer submit handler wholesale
+- change Firebase Auth, Firestore collection names, security rules, or imports
+- change WhatsApp destinations
+- remove the candidate consent checkbox
+- remove native required validation
+- add fake success messages before Firebase has actually succeeded
+- add invented response times or guarantees
+- add a contact form if the current contact page intentionally uses direct contact actions
 
-FINAL MOBILE CHECK
+SAFE USER FEEDBACK
 ------------------
-After applying:
-1. Test Home, About, Services, Employers, Jobs, Contact, Privacy, Terms and Disclaimer
-   at a narrow mobile viewport.
-2. Confirm no horizontal scrolling.
-3. Confirm all navigation links are tappable.
-4. Confirm Admin is present on Employers and Disclaimer.
-5. Confirm Candidate Login appears only inside Jobs.
-6. Confirm existing Firebase forms still submit normally.
+For candidate submission:
+- Validate normally.
+- Disable the submit button while the existing async action is running.
+- Show success only after the existing operation succeeds.
+- Restore the button if an error occurs.
+
+For employer submission:
+- Same pattern around the existing Firestore + WhatsApp flow.
+- Do not create a duplicate Firestore record on double-click.
+
+ACCESSIBILITY
+-------------
+Keep visible labels, native validation, keyboard focus, and aria-live status.
+Do not rely only on color to communicate errors.
