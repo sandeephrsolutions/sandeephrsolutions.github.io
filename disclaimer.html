@@ -15,9 +15,27 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.7;background:
 h1{color:#071b34}h2{color:#245a9c;margin-top:30px}a{color:#145db2}
 .notice{background:#f7f9fc;border:1px solid #e5ebf2;border-left:4px solid #f4b83f;border-radius:10px;padding:13px 15px;margin:18px 0}
 footer{text-align:center;margin-top:35px;color:#666;font-size:12px}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:12px;top:12px;width:auto;height:auto;padding:10px 14px;background:#f4b83f;color:#071b34;border-radius:8px;z-index:2000;font-weight:800}
+.site-header{background:#071b34;color:#fff;border-bottom:1px solid #ffffff18}
+.site-container{max-width:1180px;margin:0 auto;padding:0 20px}
+.site-nav-wrap{min-height:76px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.site-brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none}
+.site-brand img{width:50px;height:50px;object-fit:contain;background:#fff;border-radius:11px}
+.site-brand strong{display:block;font-size:15px}.site-brand small{display:block;color:#f4b83f;font-size:8px;letter-spacing:1.2px}
+.site-nav{display:flex;gap:4px;font-size:13px;font-weight:800}.site-nav a{padding:10px 12px;border-radius:8px;color:#fff;text-decoration:none}
+.site-nav a:hover{color:#f4b83f;background:#ffffff0d}.site-mobile-menu{display:none;width:44px;height:44px;border:1px solid #ffffff35;background:#ffffff08;color:#fff;border-radius:10px;font-size:20px}
+@media(max-width:1000px){.site-mobile-menu{display:flex;align-items:center;justify-content:center}.site-nav{display:none}.site-nav.open{display:flex;position:absolute;left:12px;right:12px;top:70px;flex-direction:column;background:#071b34;border:1px solid #ffffff20;border-radius:14px;padding:8px}.site-nav.open a{padding:12px}.site-container{padding:0 16px}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header"><div class="site-container site-nav-wrap"><a class="site-brand" href="index.html"><img src="Logo.png" alt="Sandeep HR Solutions logo"><span><strong>Sandeep HR Solutions</strong><small>HR • RECRUITMENT • CONSULTING</small></span></a>
+<button class="site-mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+<nav id="siteNav" class="site-nav" aria-label="Primary navigation">
+<a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a>
+</nav></div></header>
+<main id="main-content">
 <div class="container">
 <a href="index.html">← Back to Sandeep HR Solutions</a>
 <h1>Disclaimer</h1>
@@ -63,5 +81,7 @@ Email: <a href="mailto:sandeep.hr.solutions.shr@gmail.com">sandeep.hr.solutions.
 © 2026 Sandeep HR Solutions. All Rights Reserved.
 </footer>
 </div>
+</main>
+<script>function toggleMenu(){const n=document.getElementById("siteNav"),b=document.querySelector(".site-mobile-menu");if(!n||!b)return;const o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");b.setAttribute("aria-label",o?"Close navigation menu":"Open navigation menu");}</script>
 </body>
 </html>

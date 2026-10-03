@@ -5,6 +5,17 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="Logo.png" type="image/png">
 <meta name="theme-color" content="#071b34">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Sandeep HR Solutions">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jobs & Candidate Registration | Sandeep HR Solutions">
+<meta property="og:description" content="Register your candidate profile with Sandeep HR Solutions for suitable opportunities across India.">
+<meta property="og:url" content="https://sandeephrsolutions.github.io/jobs.html">
+<meta property="og:image" content="https://sandeephrsolutions.github.io/Logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jobs & Candidate Registration | Sandeep HR Solutions">
+<meta name="twitter:description" content="Register your candidate profile with Sandeep HR Solutions for suitable opportunities across India.">
+<meta name="twitter:image" content="https://sandeephrsolutions.github.io/Logo.png">
 <link rel="canonical" href="https://sandeephrsolutions.github.io/jobs.html">
 <meta name="description" content="Register your candidate profile with Sandeep HR Solutions.">
 <title>Jobs & Candidate Registration | Sandeep HR Solutions</title><style>
@@ -108,7 +119,6 @@ nav a{transition:.18s}
 .nav-login{color:#071b34!important;background:#f4b83f!important;border-radius:8px;padding:9px 10px!important;font-weight:800!important}
 @media(max-width:600px){nav.open .nav-login{background:#f4b83f!important;color:#071b34!important}}
 
-<style>
 .portal-access{padding:34px 0;background:#fff}
 .portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .portal-card{border:1px solid #dfe7f0;border-radius:20px;padding:25px;background:linear-gradient(135deg,#f8fbff,#eef5fb);box-shadow:0 10px 28px #071b340c}
@@ -124,9 +134,8 @@ nav a{transition:.18s}
   .portal-grid{grid-template-columns:1fr}
   .portal-card .btn{width:100%}
 }
-</style>
 </style><script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Sandeep HR Solutions","url":"https://sandeephrsolutions.github.io/","logo":"https://sandeephrsolutions.github.io/Logo.png","email":"sandeep.hr.solutions.shr@gmail.com","telephone":"+91-7978259944","sameAs":["https://www.linkedin.com/company/sandeep-hr-solutions/","https://www.instagram.com/sandeep_hr_solutions?stkn=MXd6aW4wdnhsZTNkMA==","https://www.facebook.com/share/18W9KU7tyC/"]}</script><style>
+{"@context":"https://schema.org","@type":"Organization","name":"Sandeep HR Solutions","url":"https://sandeephrsolutions.github.io/","logo":"https://sandeephrsolutions.github.io/Logo.png","email":"sandeep.hr.solutions.shr@gmail.com","telephone":"+91-7978259944","sameAs":["https://www.linkedin.com/company/sandeep-hr-solutions/","https://www.instagram.com/sandeep_hr_solutions/","https://www.facebook.com/share/18W9KU7tyC/"]}</script><style>
 
 /* Standard site-wide shell */
 .site-header{position:sticky!important;top:0!important;z-index:1000!important;background:#071b34f5!important;backdrop-filter:blur(12px)!important;color:#fff!important;border-bottom:1px solid #ffffff18!important}
@@ -169,6 +178,7 @@ nav a{transition:.18s}
 
 </style>
 </head><body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
 <div class="site-container site-nav-wrap">
 <a class="site-brand" href="index.html">
@@ -179,6 +189,7 @@ nav a{transition:.18s}
 <nav id="siteNav" class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html" class="active" aria-current="page">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a></nav>
 </div>
 </header>
+<main id="main-content">
 <section class="hero"><div class="container hero-grid"><div><div class="eyebrow"><span class="dot"></span> For Candidates</div><h1>Your next opportunity starts with your profile.</h1><p>Register your experience, skills and preferences with Sandeep HR Solutions.</p></div>
 <div class="hero-panel"><div class="panel-top"><b>Profile Information</b></div><ul class="panel-list"><li>✓ Qualification & Experience</li><li>✓ Current & Expected Salary</li><li>✓ Preferred Location</li><li>✓ Notice Period</li><li>✓ Key Skills</li></ul></div></div></section>
 
@@ -256,24 +267,25 @@ Resume/LinkedIn: ${g("cr")}`;window.open("https://wa.me/917978259944?text="+enco
 <script>
 function toggleMenu(){
   const nav=document.getElementById('siteNav');
-  const btn=document.querySelector('.mobile-menu');
+  const btn=document.querySelector('.site-mobile-menu');
   const open=nav.classList.toggle('open');
   btn.setAttribute('aria-expanded',open?'true':'false');
   btn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
 }
 document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>{
-  const nav=document.getElementById('siteNav'), btn=document.querySelector('.mobile-menu');
+  const nav=document.getElementById('siteNav'), btn=document.querySelector('.site-mobile-menu');
   nav.classList.remove('open');
   if(btn){btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open navigation');}
 }));
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
-    const nav=document.getElementById('siteNav'), btn=document.querySelector('.mobile-menu');
+    const nav=document.getElementById('siteNav'), btn=document.querySelector('.site-mobile-menu');
     nav.classList.remove('open');
     if(btn){btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open navigation');}
   }
 });
 </script>
+</main>
 <div class="site-legal">
 <a href="privacy.html">Privacy Policy</a>
 <a href="terms.html">Terms &amp; Conditions</a>
@@ -283,7 +295,7 @@ document.addEventListener('keydown',e=>{
 <div class="site-container site-footer-grid">
 <div><h3>Sandeep HR Solutions</h3><p>Founder / Owner: <strong>Sandeep Kumar Samal</strong><br>Recruitment • Payroll • Compliance • HR Consulting</p></div>
 <div><h3>Experience</h3><p>11+ years<br>2014 – Present</p></div>
-<div><h3>Service Area</h3><p>Bengaluru • Electronic City</p></div>
+<div><h3>Service Area</h3><p>Pan-India / All India</p></div>
 </div>
 <div class="site-copy">© 2026 Sandeep HR Solutions. All rights reserved. <span>•</span> Udyam Registered MSME: UDYAM-KR-03-0669511</div>
 </footer>
