@@ -1,0 +1,36 @@
+STEP 4.4 FINAL LEGAL/COMPLIANCE CHECKLIST
+
+[ ] Privacy Policy date is current.
+[ ] Privacy Policy accurately describes Firebase Authentication and Cloud Firestore.
+[ ] Privacy Policy accurately describes WhatsApp/email/third-party communication.
+[ ] Privacy Policy does not promise absolute security.
+[ ] Access/correction/deletion wording remains subject to applicable legal/record-keeping requirements.
+[ ] DPDP Act, 2023 wording is limited to “to the extent applicable”; do not claim certification/compliance status without verification.
+[ ] Terms contain NO CANDIDATE FEE wording.
+[ ] Terms do not promise placement, employment, interview, salary or hiring outcomes.
+[ ] Employer fees are not invented; commercial terms are agreed separately.
+[ ] Disclaimer contains NO CANDIDATE FEE wording.
+[ ] Disclaimer does not present HR/compliance information as legal advice.
+[ ] No unsupported “placement agency licence” claim or licence number appears anywhere.
+[ ] Udyam number is presented only as MSME registration.
+[ ] Candidate consent remains before WhatsApp submission.
+[ ] Candidate-facing forms link to Privacy Policy/Terms.
+[ ] Employer form disclosure matches actual Firestore storage.
+[ ] Admin/candidate private areas remain protected by Firebase Auth + Firestore rules.
+[ ] Service coverage is Pan-India / All India.
+[ ] Bengaluru/Electronic City is not described as service coverage.
+[ ] No exact office address is published.
+[ ] Contact/grievance email and phone are consistent across legal pages.
+[ ] Final legal wording is reviewed by a qualified professional if required for the business model.
+
+After uploading:
+1. Open privacy.html
+2. Open terms.html
+3. Open disclaimer.html
+4. Open jobs.html
+5. Open employers.html
+6. Check all legal links.
+7. Submit a test employer enquiry.
+8. Test candidate consent + submission flow.
+9. Re-test admin access.
+10. Continue to final live-site/PageSpeed/Search Console verification.

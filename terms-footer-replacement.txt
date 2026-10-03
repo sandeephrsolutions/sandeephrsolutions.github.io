@@ -1,0 +1,11 @@
+Replace the current Terms footer block:
+
+Service Area
+Bengaluru • Electronic City
+
+WITH:
+
+Service Coverage
+Pan-India / All India
+
+Keep Bengaluru / Electronic City only where it is explicitly described as business-location context, not service coverage.
