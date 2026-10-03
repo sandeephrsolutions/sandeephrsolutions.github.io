@@ -1,0 +1,17 @@
+Step 4.1 external checks
+
+HTTPS — GitHub Pages:
+- In repository Settings -> Pages, verify HTTPS enforcement is enabled.
+- The live site should load at https://sandeephrsolutions.github.io/
+- Do not claim this is verified from source code alone.
+
+Analytics:
+- The current technical review does not justify adding analytics automatically.
+- If GA4/Plausible is intentionally added later, update the Privacy Policy and
+  provide the appropriate cookie/tracking notice where required.
+- Do not add tracking merely to satisfy the report item.
+
+PageSpeed:
+- Run Google PageSpeed Insights against the live homepage and Jobs page on both
+  mobile and desktop.
+- Record the actual results and address concrete findings rather than guessing.

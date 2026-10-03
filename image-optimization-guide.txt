@@ -1,0 +1,17 @@
+Step 4.1 image optimization
+
+The report recommends converting the logo/images to WebP, setting width/height,
+and using loading="lazy" where appropriate.
+
+Safe implementation:
+1. Create Logo.webp from the existing Logo.png.
+2. Upload Logo.webp to the repository.
+3. For non-critical below-the-fold images, use:
+   <img src="Logo.webp" width="..." height="..." loading="lazy" alt="...">
+4. Do NOT lazy-load the main above-the-fold brand/logo if it is part of the
+   first visible render.
+5. Keep explicit width/height values matching the actual image dimensions to
+   reduce layout shift.
+6. Keep Logo.png as a fallback until all pages are verified.
+
+Do not invent dimensions. Use the actual image dimensions after conversion.

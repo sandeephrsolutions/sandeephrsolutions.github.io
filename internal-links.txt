@@ -1,0 +1,10 @@
+Step 4.1 internal link consistency
+
+Current site uses .html paths in navigation and canonical URLs. Keep one convention:
+- Home: index.html
+- Other pages: page-name.html
+
+Do not mix equivalent forms such as /about and about.html unless the hosting setup
+is intentionally changed and canonical URLs are updated consistently.
+
+The existing internal .html references should therefore be retained.

@@ -1,41 +1,39 @@
-Sandeep HR Solutions — Step 3.10 Technical & Performance Final Pass
-=================================================================
+Sandeep HR Solutions — Step 4.1 Technical Implementation
+=========================================================
 
-GitHub write access is still blocked by the integration's 403 response, so these
-files must be applied manually.
+Basis:
+The Website Review Report lists technical/performance items 33–38:
+33 PageSpeed Insights
+34 image/logo WebP + dimensions + lazy loading
+35 favicon, apple-touch-icon, custom 404
+36 analytics + cookie notice if tracking is used
+37 enforce HTTPS in GitHub Pages
+38 consistent internal link format and canonicals
 
-WHAT WAS VERIFIED
------------------
-All local references discovered in the checked HTML resolve to files that exist
-in the repository, including:
-- Logo.png
-- candidate-login.html
-- candidate-register.html
-- admin-dashboard.html
+PACKAGE CHANGES
+---------------
+1. Add 404.html to the repository.
+2. Add the favicon/apple-touch-icon snippet where needed. Existing favicon links
+   already exist on many pages; do not duplicate them.
+3. Follow image-optimization-guide.txt for Logo.webp conversion. Do not invent
+   image dimensions.
+4. Keep .html internal link format consistent.
+5. Use https-analytics-checklist.txt for the GitHub Pages and analytics checks.
 
-No localhost/127.0.0.1 or http:// resource references were found in the checked
-HTML/JS. The http:// URL inside sitemap.xml is only the standard XML namespace.
+IMPORTANT
+---------
+- HTTPS enforcement is a GitHub Pages setting, not an HTML change.
+- PageSpeed results cannot be honestly generated from source inspection alone.
+- Analytics should not be installed without an intentional decision because it
+  changes the site's privacy/tracking obligations.
+- Do not add a cookie banner unless non-essential tracking/cookies are actually used.
+- Do not change Firebase/Auth/Firestore implementation.
 
-PATCH
------
-Replace the repository robots.txt and sitemap.xml with the supplied versions.
-
-WHY
----
-The admin login/dashboard are administrative interfaces and should not be listed
-as public search URLs. The public sitemap should contain public website pages.
-
-DO NOT
-------
-- block candidate-login.html or candidate-register.html; they are part of the Jobs flow
-- alter Firebase configuration
-- remove Firebase/Auth/Firestore scripts
-- expose credentials
-- add unnecessary JavaScript libraries
-- change the sitemap to include admin-dashboard.html
-
-PERFORMANCE
------------
-No source-only change can honestly certify PageSpeed/Lighthouse performance.
-The final performance verification should be done against the live GitHub Pages
-site after upload.
+AFTER UPLOAD
+------------
+Verify:
+- a deliberately invalid URL displays the custom 404 page
+- favicon appears
+- mobile/desktop PageSpeed results are recorded
+- GitHub Pages HTTPS enforcement is enabled
+- no canonical/internal-link mismatch exists
