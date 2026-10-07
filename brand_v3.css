@@ -129,3 +129,16 @@ main{background:var(--ss-grey)!important}
   .actions{gap:10px!important}
   .trust-grid{grid-template-columns:1fr 1fr!important}
 }
+
+/* Contrast correction — Brand Book V3 dark sections */
+.hero h1,.hero h2,.hero h3,.hero h4,
+.simple-cta h1,.simple-cta h2,.simple-cta h3,.simple-cta h4,
+.philosophy h1,.philosophy h2,.philosophy h3,.philosophy h4,
+.contact-strip h1,.contact-strip h2,.contact-strip h3,.contact-strip h4,
+.cta:not(.gold) h1,.cta:not(.gold) h2,.cta:not(.gold) h3,.cta:not(.gold) h4{
+  color:#FFFFFF!important;
+}
+.simple-cta p,.philosophy p,.contact-strip p,.cta:not(.gold) p{color:#F2F6FA!important;}
+.simple-cta .kicker,.philosophy .kicker,.contact-strip .kicker,.cta:not(.gold) .kicker{color:var(--ss-gold-light)!important;}
+.cta.gold h1,.cta.gold h2,.cta.gold h3,.cta.gold h4,.cta.gold p{color:var(--ss-navy)!important;}
+.cta.gold .btn{background:var(--ss-navy)!important;color:#FFFFFF!important;border-color:var(--ss-navy)!important;}
