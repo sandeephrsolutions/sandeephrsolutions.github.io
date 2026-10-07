@@ -2,52 +2,25 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-
     match /candidates/{userId} {
-      allow read, create, update, delete:
-        if request.auth != null
-        && (
-          request.auth.uid == userId
-          || request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2"
-        );
+      allow read, create, update, delete: if request.auth != null && (request.auth.uid == userId || request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2");
     }
-
     match /jobs/{jobId} {
       allow read: if true;
-      allow create, update, delete:
-        if request.auth != null
-        && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow create, update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
     }
-
     match /applications/{applicationId} {
-      allow create:
-        if request.auth != null
-        && request.resource.data.candidateId == request.auth.uid;
-
-      allow read:
-        if request.auth != null
-        && (
-          resource.data.candidateId == request.auth.uid
-          || request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2"
-        );
-
-      allow update, delete:
-        if request.auth != null
-        && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow create: if request.auth != null && request.resource.data.candidateId == request.auth.uid;
+      allow read: if request.auth != null && (resource.data.candidateId == request.auth.uid || request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2");
+      allow update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
     }
-
     match /jobRequests/{requestId} {
       allow create: if true;
-      allow read, update, delete:
-        if request.auth != null
-        && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow read, update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
     }
-
     match /employers/{employerId} {
       allow create: if true;
-      allow read, update, delete:
-        if request.auth != null
-        && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow read, update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
     }
   }
 }

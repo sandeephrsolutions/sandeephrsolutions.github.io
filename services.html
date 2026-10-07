@@ -102,6 +102,8 @@ section{padding:68px 0}.white{background:#fff}.page-path{font-size:11px;color:#7
 }
 
 </style>
+<link rel="stylesheet" href="brand_v3.css">
+
 <style id="visibility-fix-v2">
 /* High-contrast brand visibility fix */
 .hero h1,.hero h2,.hero h3,.hero-panel h2,.hero-panel h3,.hero-panel b,.hero-panel li,.hero-panel p,.hero-panel span{color:#fff;}
@@ -160,18 +162,13 @@ section{padding:68px 0}.white{background:#fff}.page-path{font-size:11px;color:#7
 }
 </style>
 
-<link rel="stylesheet" href="brand_v3.css">
 </head>
 <body>
 <header class="site-header">
 <div class="site-container site-nav-wrap">
-<a class="site-brand" href="index.html" aria-label="Sandeep Solutions home">
-<img class="header-logo" src="header-logo.png" alt="Sandeep Solutions">
-</a>
-<button class="site-mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false">☰</button>
-<nav id="siteNav" class="site-nav" aria-label="Primary navigation">
-<a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active" aria-current="page">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a>
-</nav>
+<a class="site-brand" href="index.html"><img class="header-logo" src="header-logo.png" alt="Sandeep Solutions"></a>
+<button class="site-mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+<nav id="siteNav" class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active" aria-current="page">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a></nav>
 </div>
 </header>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -216,6 +213,11 @@ section{padding:68px 0}.white{background:#fff}.page-path{font-size:11px;color:#7
 
 </main>
 
+<script>
+function toggleMenu(){const nav=document.getElementById('siteNav');const btn=document.querySelector('.mobile-menu');const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu')}
+document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>{const nav=document.getElementById('siteNav'),btn=document.querySelector('.mobile-menu');nav.classList.remove('open');if(btn){btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open navigation menu')}}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const nav=document.getElementById('siteNav'),btn=document.querySelector('.mobile-menu');nav.classList.remove('open');if(btn){btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open navigation menu')}}});
+</script>
 <div class="site-legal">
 <a href="privacy.html">Privacy Policy</a>
 <a href="terms.html">Terms &amp; Conditions</a>
@@ -223,36 +225,25 @@ section{padding:68px 0}.white{background:#fff}.page-path{font-size:11px;color:#7
 </div>
 <footer class="site-footer">
 <div class="site-container site-footer-grid">
-<div>
-<h3>Sandeep Solutions</h3>
-<p>Founder / Owner: <strong>Sandeep Kumar Samal</strong><br>
-HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p>
-</div>
-<div>
-<h3>Experience</h3>
-<p>11+ years<br>Experience since 2014</p>
-</div>
-<div>
-<h3>Service Area</h3>
-<p>Pan-India / All India</p>
-</div>
-</div>
-<div class="site-copy">© 2026 Sandeep Solutions. All rights reserved.</div>
+<div><h3>Sandeep Solutions</h3><p>Founder / Owner: <strong>Sandeep Kumar Samal</strong><br>HR & Recruitment • Business Consultancy • Restaurant Solutions • Documentation & Setup</p></div>
+<div><h3>Experience</h3><p>11+ years<br>Experience since 2014</p></div>
+<div><h3>Service Area</h3><p>Pan-India / All India</p></div>
+</div><div class="site-copy">© 2026 Sandeep Solutions. All rights reserved.</div>
 </footer>
 <a class="site-wa" href="https://wa.me/917978259944" target="_blank" rel="noopener" aria-label="Chat with Sandeep Solutions on WhatsApp">💬 WhatsApp</a>
+<script>
+function toggleMenu(){
+ const nav=document.getElementById('siteNav');
+ const btn=document.querySelector('.site-mobile-menu');
+ if(!nav || !btn) return;
+ const open=nav.classList.toggle('open');
+ btn.setAttribute('aria-expanded',open?'true':'false');
+}
+</script>
+
 <script id="ss-mobile-nav-standard">
-document.addEventListener("DOMContentLoaded",function(){
-  const nav=document.getElementById("siteNav");
-  const btn=document.querySelector(".site-mobile-menu");
-  if(!nav||!btn)return;
-  function setNav(open){
-    nav.classList.toggle("open",open);
-    btn.setAttribute("aria-expanded",open?"true":"false");
-    btn.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
-  }
-  btn.addEventListener("click",function(){setNav(!nav.classList.contains("open"));});
-  nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){setNav(false);});});
-  document.addEventListener("keydown",function(e){if(e.key==="Escape")setNav(false);});
-});
+function ssSetNav(open){const nav=document.getElementById('siteNav');const btn=document.querySelector('.site-mobile-menu');if(!nav||!btn)return;nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
+function toggleMenu(){const nav=document.getElementById('siteNav');if(!nav)return;ssSetNav(!nav.classList.contains('open'));}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>ssSetNav(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')ssSetNav(false);});});
 </script>
 </body></html>

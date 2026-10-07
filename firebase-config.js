@@ -16,57 +16,21 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-/*
- * Sandeep Solutions private-portal brand consistency layer.
- * This runs from the shared Firebase module so existing Admin/Candidate
- * dashboards can be rebranded without changing their application logic.
- */
 (() => {
   const privatePage = /^(admin-|candidate-)/i.test(location.pathname.split("/").pop() || "");
-  const privateMeta = () => {
-    if (!privatePage) return;
-    let m = document.querySelector('meta[name="robots"]');
-    if (!m) {
-      m = document.createElement("meta");
-      m.name = "robots";
-      document.head.appendChild(m);
-    }
-    m.content = "noindex,nofollow";
-  };
-  const replaceBrandText = () => {
-    const root = document.body;
-    if (!root) return;
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const nodes = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(node => {
-      if (!node.nodeValue) return;
-      node.nodeValue = node.nodeValue
-        .replaceAll("Sandeep HR Solutions", "Sandeep Solutions")
-        .replaceAll("SANDEEP HR SOLUTIONS", "SANDEEP SOLUTIONS")
-        .replaceAll("HR · RECRUITMENT · CONSULTING", "BUSINESS SOLUTIONS · HR · RECRUITMENT");
-    });
-    root.querySelectorAll("img[alt*='Sandeep HR Solutions']").forEach(img => {
-      img.alt = img.alt.replaceAll("Sandeep HR Solutions", "Sandeep Solutions");
-    });
-  };
-  const updatePrivateTitle = () => {
-    if (!privatePage) return;
-    document.title = document.title
-      .replaceAll("Sandeep HR Solutions", "Sandeep Solutions")
-      .replaceAll("SANDEEP HR SOLUTIONS", "SANDEEP SOLUTIONS");
-  };
   const run = () => {
-    privateMeta();
-    updatePrivateTitle();
-    replaceBrandText();
+    if (privatePage) {
+      let m = document.querySelector('meta[name="robots"]');
+      if (!m) { m = document.createElement("meta"); m.name = "robots"; document.head.appendChild(m); }
+      m.content = "noindex,nofollow";
+      document.title = document.title.replaceAll("Sandeep HR Solutions", "Sandeep Solutions").replaceAll("SANDEEP HR SOLUTIONS", "SANDEEP SOLUTIONS");
+    }
+    const root = document.body; if (!root) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => { if(n.nodeValue) n.nodeValue=n.nodeValue.replaceAll("Sandeep HR Solutions","Sandeep Solutions").replaceAll("SANDEEP HR SOLUTIONS","SANDEEP SOLUTIONS").replaceAll("HR · RECRUITMENT · CONSULTING","BUSINESS SOLUTIONS · HR · RECRUITMENT"); });
+    root.querySelectorAll("img[alt*='Sandeep HR Solutions']").forEach(img=>img.alt=img.alt.replaceAll("Sandeep HR Solutions","Sandeep Solutions"));
   };
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", run, {once:true});
-  } else {
-    run();
-  }
-  if (privatePage) {
-    new MutationObserver(() => replaceBrandText()).observe(document.documentElement, {subtree:true, childList:true});
-  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",run,{once:true}); else run();
+  if(privatePage) new MutationObserver(run).observe(document.documentElement,{subtree:true,childList:true});
 })();
