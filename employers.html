@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="Logo.png" type="image/png">
 <link rel="canonical" href="https://sandeephrsolutions.github.io/employers.html">
-<meta name="description" content="Employer service requests — recruitment, payroll, compliance and HR consulting support from Sandeep HR Solutions.">
+<meta name="description" content="Employer service requests — recruitment, payroll, compliance and HR consulting support from Sandeep Solutions.">
 <meta name="robots" content="index,follow">
-<meta name="author" content="Sandeep HR Solutions">
+<meta name="author" content="Sandeep Solutions">
 <meta name="theme-color" content="#071b34">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Employer Solutions | Sandeep HR Solutions">
+<meta property="og:title" content="Employer Solutions | Sandeep Solutions">
 <meta property="og:description" content="Recruitment, payroll, compliance and HR consulting support for businesses across India.">
 <meta property="og:url" content="https://sandeephrsolutions.github.io/employers.html">
 <meta property="og:image" content="https://sandeephrsolutions.github.io/Logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Employer Solutions | Sandeep HR Solutions">
+<meta name="twitter:title" content="Employer Solutions | Sandeep Solutions">
 <meta name="twitter:description" content="Recruitment, payroll, compliance and HR consulting support for businesses across India.">
 <meta name="twitter:image" content="https://sandeephrsolutions.github.io/Logo.png">
-<title>Employer Solutions | Sandeep HR Solutions</title>
+<title>Employer Solutions | Sandeep Solutions</title>
 <style>
 :root{--navy:#071b34;--blue:#123f70;--gold:#f4b83f;--ink:#172033;--muted:#697588;--line:#e4eaf1;--bg:#f5f8fc}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}a{text-decoration:none;color:inherit}.container{max-width:1180px;margin:auto;padding:0 20px}
@@ -43,7 +43,7 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <header><div class="container nav">
-<a class="brand" href="index.html"><img src="Logo.png" alt="Sandeep HR Solutions logo"><span><strong>Sandeep HR Solutions</strong><small>HR • RECRUITMENT • CONSULTING</small></span></a>
+<a class="brand" href="index.html"><img src="Logo.png" alt="Sandeep Solutions logo"><span><strong>Sandeep Solutions</strong><small>HR • RECRUITMENT • BUSINESS SOLUTIONS</small></span></a>
 <button class="mobile-menu" type="button" aria-label="Open navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
 <nav id="siteNav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a></nav>
 </div></header>
@@ -53,7 +53,7 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 <div><span class="eyebrow"><span class="dot"></span> FOR EMPLOYERS</span>
 <h1>One place for your HR requirements.</h1>
 <p>Tell us what your business needs — recruitment, payroll, compliance, HR policies, virtual HR or any other HR support.</p>
-<div class="quote">“The right people. The right process. The right growth.”<small>— Sandeep HR Solutions</small></div>
+<div class="quote">“The right people. The right process. The right growth.”<small>— Sandeep Solutions</small></div>
 <div class="actions"><a class="btn primary" href="#request">Submit HR Requirement →</a><a class="btn outline" href="services.html">View Services</a></div></div>
 <div class="hero-card"><h2>Employer Support</h2><p>Choose the service you need and send your requirement directly to our private employer request system.</p>
 <ul class="hero-points"><li>Recruitment & Staffing</li><li>Payroll Management</li><li>Statutory & Labour Compliance</li><li>HR Policies & Documentation</li><li>Startup / SME HR Setup</li><li>Virtual HR / HR Outsourcing</li></ul></div>
@@ -123,7 +123,7 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 </main>
 
 <div class="legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="disclaimer.html">Disclaimer</a></div>
-<footer><div class="footer-name">Sandeep HR Solutions</div>Recruitment • Payroll • Compliance • HR Consulting<br>Service Coverage: Pan-India / All India<br>© 2026 Sandeep HR Solutions. All rights reserved.<div class="footer-udyam"><strong>Udyam Registered MSME</strong><br>Udyam Registration No.: <strong>UDYAM-KR-03-0669511</strong></div></footer>
+<footer><div class="footer-name">Sandeep Solutions</div>HR & Recruitment • Business Consultancy • Restaurant Solutions • Documentation & Setup<br>Service Coverage: Pan-India / All India<br>© 2026 Sandeep Solutions. All rights reserved.<div class="footer-udyam"><strong>Udyam Registration</strong><br>Udyam Registration No.: <strong>UDYAM-KR-03-0669511</strong></div></footer>
 <a class="wa" href="https://wa.me/917978259944" target="_blank" rel="noopener">💬 WhatsApp</a>
 
 <script>
@@ -154,7 +154,7 @@ document.getElementById('employerServiceForm').addEventListener('submit',async e
  if(isRecruitment) Object.assign(request,{jobTitle:val('jobTitle'),vacancies:val('vacancies'),location:val('location'),experience:val('experience'),salary:val('salary'),qualification:val('qualification'),workingDays:val('workingDays')});
  try{
   await addDoc(collection(db,'jobRequests'),request);
-  let message=`Hello Sandeep HR Solutions,\n\nI have submitted an employer service request.\n\nService: ${service}\nCompany: ${request.companyName}\nContact Person: ${request.contactPerson}\nMobile: ${request.mobile}\nEmail: ${request.email}\nEmployee Count: ${request.employeeCount||'Not provided'}\nExpected Timeline: ${request.timeline||'Not provided'}\n\nRequirement:\n${request.description}`;
+  let message=`Hello Sandeep Solutions,\n\nI have submitted an employer service request.\n\nService: ${service}\nCompany: ${request.companyName}\nContact Person: ${request.contactPerson}\nMobile: ${request.mobile}\nEmail: ${request.email}\nEmployee Count: ${request.employeeCount||'Not provided'}\nExpected Timeline: ${request.timeline||'Not provided'}\n\nRequirement:\n${request.description}`;
   if(isRecruitment) message+=`\n\nJob Position: ${request.jobTitle}\nVacancies: ${request.vacancies||'Not specified'}\nLocation: ${request.location||'Not specified'}\nExperience: ${request.experience||'Not specified'}\nSalary: ${request.salary||'Not specified'}\nQualification: ${request.qualification||'Not specified'}\nWorking Days: ${request.workingDays||'Not specified'}`;
   window.open('https://wa.me/917978259944?text='+encodeURIComponent(message),'_blank');
   alert('Your requirement has been submitted successfully.');e.target.reset();updateServiceFields();
