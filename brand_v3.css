@@ -150,3 +150,10 @@ main{background:var(--ss-grey)!important}
 .simple-cta h1,.simple-cta h2,.simple-cta h3,.simple-cta h4,.simple-cta p{color:var(--ss-navy)!important}
 .simple-cta .btn{background:var(--ss-navy)!important;color:#fff!important}
 @media(max-width:650px){.site-brand strong,.site-brand small{display:block!important}.site-brand img{width:46px!important;height:46px!important;max-width:46px!important}}
+
+
+/* Priority 3: mobile polish + keyboard focus */
+:focus-visible{outline:3px solid #D0AA57!important;outline-offset:3px!important}
+.site-mobile-menu{min-width:44px!important;min-height:44px!important}
+@media(max-width:420px){.site-brand small{font-size:6px!important;max-width:175px!important}.hero h1,.hero h2{font-size:31px!important}.site-nav{font-size:15px!important}.site-nav a{padding:11px 12px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important;transform:none!important}}

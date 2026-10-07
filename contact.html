@@ -91,11 +91,11 @@ section{padding:72px 0}.white{background:#fff}.heading{text-align:center;margin-
 <button class="site-mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
 <nav id="siteNav" class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html" class="active" aria-current="page">Contact</a><a href="admin-login.html">Admin</a></nav>
 </div></header>
-<section class="hero"><div class="container hero-grid"><div><div class="eyebrow"><span class="dot"></span> PAN-INDIA HR SUPPORT</div><h1>Let's discuss your business requirement.</h1><p>Connect with Sandeep Solutions for recruitment, payroll, compliance or HR consulting support across India.</p><div class="actions"><a class="btn primary" href="https://wa.me/917978259944" target="_blank" rel="noopener">WhatsApp Us</a><a class="btn secondary" href="mailto:sandeep.hr.solutions.shr@gmail.com">Email Us</a></div></div>
+<section class="hero"><div class="container hero-grid"><div><div class="eyebrow"><span class="dot"></span> PAN-INDIA BUSINESS SUPPORT</div><h1>Let's discuss your business requirement.</h1><p>Connect with Sandeep Solutions for HR & recruitment, business consultancy, restaurant solutions, or documentation & setup support across India.</p><div class="actions"><a class="btn primary" href="https://wa.me/917978259944" target="_blank" rel="noopener">WhatsApp Us</a><a class="btn secondary" href="mailto:sandeep.hr.solutions.shr@gmail.com">Email Us</a></div></div>
 <div class="hero-panel"><strong>Get in Touch</strong><ul class="panel-list"><li>📞 7978259944</li><li>✉️ sandeep.hr.solutions.shr@gmail.com</li><li>💬 WhatsApp available</li><li>🇮🇳 Service coverage: All India</li></ul><div class="panel-foot">Business location: Bengaluru / Karnataka</div></div></div></section>
 
 <section class="white"><div class="container"><div class="heading"><span class="kicker">Service Coverage</span><h2>Supporting businesses across India</h2><p>Our public service coverage is presented as Pan-India / All India. Bengaluru / Karnataka is shown only as business-location context.</p></div>
-<div class="coverage"><div class="card"><h3>Pan-India Service Coverage</h3><p>Sandeep Solutions can be approached for recruitment, payroll, compliance and HR consulting requirements from businesses and candidates across India.</p><p>For a specific requirement, service scope, availability and commercial terms can be discussed directly with the business before an engagement begins.</p></div><div class="coverage-badge"><strong>All India</strong><span>Pan-India service coverage</span></div></div></div></section>
+<div class="coverage"><div class="card"><h3>Pan-India Service Coverage</h3><p>Sandeep Solutions can be approached for HR & recruitment, business consultancy, restaurant solutions, and documentation & setup requirements from businesses across India.</p><p>For a specific requirement, service scope, availability and commercial terms can be discussed directly with the business before an engagement begins.</p></div><div class="coverage-badge"><strong>All India</strong><span>Pan-India service coverage</span></div></div></div></section>
 
 <section><div class="container"><div class="heading"><span class="kicker">Contact</span><h2>Choose Your Preferred Channel</h2></div><div class="contact">
 <div class="contact-card"><h3>📞 Phone</h3><p><a href="tel:+917978259944">7978259944</a></p></div>
@@ -116,4 +116,10 @@ section{padding:72px 0}.white{background:#fff}.heading{text-align:center;margin-
 <script>
 function toggleMenu(){const nav=document.getElementById('siteNav'),btn=document.querySelector('.site-mobile-menu');if(!nav||!btn)return;const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>{const nav=document.getElementById('siteNav'),btn=document.querySelector('.site-mobile-menu');nav.classList.remove('open');if(btn)btn.setAttribute('aria-expanded','false');}));
-</script></body></html>
+</script>
+<script id="ss-mobile-nav-standard">
+function ssSetNav(open){const nav=document.getElementById('siteNav');const btn=document.querySelector('.site-mobile-menu');if(!nav||!btn)return;nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
+function toggleMenu(){const nav=document.getElementById('siteNav');if(!nav)return;ssSetNav(!nav.classList.contains('open'));}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>ssSetNav(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')ssSetNav(false);});});
+</script>
+</body></html>

@@ -191,10 +191,10 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:28px 18px;font
 <div class="actions"><a class="btn primary" href="employers.html">Hire Talent →</a><a class="btn secondary" href="jobs.html">Find Opportunities →</a></div>
 </div>
 <div class="quick">
-<div class="quick-head"><h2>Built for Growing Businesses</h2><span class="secure">HR SUPPORT</span></div>
-<p>Practical people solutions designed to help your business hire, organise and grow with confidence.</p>
-<div class="portal"><div><h3>Hire the Right Talent</h3><p>Recruitment support from requirement understanding to candidate coordination.</p></div><a class="btn primary" href="employers.html">Hire Talent →</a></div>
-<div class="portal"><div><h3>Strengthen HR Operations</h3><p>Support across payroll, compliance, HR processes and employee lifecycle needs.</p></div><a class="btn secondary" href="services.html">Explore Services →</a></div>
+<div class="quick-head"><h2>Explore Our Solutions</h2><span class="secure">4 CORE AREAS</span></div>
+<p>Practical support across people, business operations, restaurant needs and documentation — designed for growing businesses.</p>
+<div class="portal"><div><h3>HR &amp; Recruitment</h3><p>Hiring, candidate coordination and practical HR support.</p></div><a class="btn primary" href="employers.html">Discuss Need →</a></div>
+<div class="portal"><div><h3>Business &amp; Operational Support</h3><p>Consultancy, restaurant solutions and documentation &amp; setup support.</p></div><a class="btn secondary" href="services.html">Explore Services →</a></div>
 </div></div>
 </div></section>
 
@@ -208,8 +208,8 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:28px 18px;font
 <section class="white"><div class="container">
 <div class="heading"><span class="kicker">Company Overview</span><h2>About Sandeep Solutions</h2><p>Business Solutions & HR Support Services for Startups, SMEs & Growing Businesses.</p></div>
 <div class="company">
-<div class="card"><h3>Your HR Partner for Business Growth</h3>
-<p>Sandeep Solutions supports businesses with recruitment, payroll, compliance and practical HR consulting. We focus on clear processes, dependable support and solutions that fit the needs of growing organisations.</p>
+<div class="card"><h3>Your Practical Business Support Partner</h3>
+<p>Sandeep Solutions supports businesses through HR &amp; recruitment, business consultancy, restaurant solutions and documentation &amp; setup. We focus on clear processes, dependable support and solutions that fit practical business needs.</p>
 <div class="facts">
 <div class="fact"><b>Business Focus</b><span>Startups, SMEs & Growing Businesses</span></div>
 <div class="fact"><b>Core Areas</b><span>HR & Recruitment • Business Consultancy • Restaurant Solutions • Documentation & Setup</span></div>
@@ -231,7 +231,7 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:28px 18px;font
 </div></div></div></section>
 
 <section><div class="container">
-<div class="heading"><span class="kicker">Our Focus</span><h2>Simple. Practical. Business-Focused.</h2><p>Explore our HR services, recruitment support and business-focused solutions on the Services page.</p></div>
+<div class="heading"><span class="kicker">Our Focus</span><h2>Simple. Practical. Business-Focused.</h2><p>Explore practical support across HR &amp; recruitment, business consultancy, restaurant solutions and documentation &amp; setup.</p></div>
 <div class="focus">
 <div class="focus-card"><div class="focus-icon">👥</div><h3>People</h3><p>Helping businesses find, onboard, support and retain the right people.</p></div>
 <div class="focus-card"><div class="focus-icon">⚙️</div><h3>Process</h3><p>Building practical HR processes for smooth and organised operations.</p></div>
@@ -239,8 +239,8 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:28px 18px;font
 </div></div></section>
 
 <section class="white"><div class="container"><div class="simple-cta">
-<div class="kicker" style="color:#f4c45e">Your HR Partner</div><h2>“Good people build great businesses.”</h2>
-<p>Whether you are hiring, setting up HR or strengthening your existing processes, let's connect.</p>
+<div class="kicker" style="color:#f4c45e">Sandeep Solutions</div><h2>“Good people build great businesses.”</h2>
+<p>Whether you are hiring, improving operations, setting up a restaurant or organising documentation, let's connect.</p>
 <a class="btn primary" href="contact.html">Let's Connect →</a>
 </div></div></section>
 
@@ -291,5 +291,11 @@ function toggleMenu(){
  const open=nav.classList.toggle('open');
  btn.setAttribute('aria-expanded',open?'true':'false');
 }
+</script>
+
+<script id="ss-mobile-nav-standard">
+function ssSetNav(open){const nav=document.getElementById('siteNav');const btn=document.querySelector('.site-mobile-menu');if(!nav||!btn)return;nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
+function toggleMenu(){const nav=document.getElementById('siteNav');if(!nav)return;ssSetNav(!nav.classList.contains('open'));}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>ssSetNav(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')ssSetNav(false);});});
 </script>
 </body></html>

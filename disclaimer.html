@@ -119,5 +119,11 @@ Email: <a href="mailto:sandeep.hr.solutions.shr@gmail.com">sandeep.hr.solutions.
 </div>
 </main>
 <script>function toggleMenu(){const n=document.getElementById("siteNav"),b=document.querySelector(".site-mobile-menu");if(!n||!b)return;const o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");b.setAttribute("aria-label",o?"Close navigation menu":"Open navigation menu");}</script>
+
+<script id="ss-mobile-nav-standard">
+function ssSetNav(open){const nav=document.getElementById('siteNav');const btn=document.querySelector('.site-mobile-menu');if(!nav||!btn)return;nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
+function toggleMenu(){const nav=document.getElementById('siteNav');if(!nav)return;ssSetNav(!nav.classList.contains('open'));}
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>ssSetNav(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')ssSetNav(false);});});
+</script>
 </body>
 </html>
