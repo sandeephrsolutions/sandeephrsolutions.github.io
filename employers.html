@@ -17,11 +17,11 @@
 <meta property="og:title" content="Employer Solutions | Sandeep Solutions">
 <meta property="og:description" content="Recruitment, payroll, compliance and HR consulting support for businesses across India.">
 <meta property="og:url" content="https://sandeephrsolutions.github.io/employers.html">
-<meta property="og:image" content="https://sandeephrsolutions.github.io/header-logo.png">
+<meta property="og:image" content="https://sandeephrsolutions.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Employer Solutions | Sandeep Solutions">
 <meta name="twitter:description" content="Recruitment, payroll, compliance and HR consulting support for businesses across India.">
-<meta name="twitter:image" content="https://sandeephrsolutions.github.io/header-logo.png">
+<meta name="twitter:image" content="https://sandeephrsolutions.github.io/og-image.png">
 <title>Employer Solutions | Sandeep Solutions</title>
 <style>
 :root{--navy:#071b34;--blue:#123f70;--gold:#f4b83f;--ink:#172033;--muted:#697588;--line:#e4eaf1;--bg:#f5f8fc}
@@ -79,6 +79,30 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 .hero h1,.hero h2,.hero h3,.hero p,.hero .quote,.hero .quote small{color:#fff!important}
 @media(max-width:650px){.site-brand{gap:9px!important}.site-brand img{width:46px!important;height:46px!important;max-width:46px!important}.site-brand strong{display:block!important;font-size:14px!important;line-height:1.1!important}.site-brand small{display:block!important;font-size:6.5px!important;line-height:1.25!important;max-width:205px!important}.site-nav-wrap{min-height:68px!important}.hero{padding:58px 0!important}.simple-cta{padding:28px 18px!important}.simple-cta h2{font-size:25px!important}}
 </style>
+
+<style id="ss-final-logo-fix">
+/* Final brand header: use the complete horizontal Sandeep Solutions logo. */
+.site-brand img.header-logo{
+  width:180px!important;
+  height:auto!important;
+  max-width:180px!important;
+  object-fit:contain!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  display:block!important;
+}
+.site-brand{align-items:center!important}
+@media(max-width:650px){
+  .site-brand img.header-logo{
+    width:150px!important;
+    max-width:150px!important;
+    height:auto!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -107,9 +131,9 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 <section class="hero"><div class="container hero-grid">
 <div><span class="eyebrow"><span class="dot"></span> FOR EMPLOYERS</span>
 <h1>One place for your business requirements.</h1>
-<p>Tell us what your business needs — recruitment, payroll, compliance, HR policies, virtual HR or any other HR support.</p>
+<p>Tell us what your business needs — HR & recruitment, business consultancy, restaurant solutions, documentation & setup, or another business requirement.</p>
 <div class="quote">“The right people. The right process. The right growth.”<small>— Sandeep Solutions</small></div>
-<div class="actions"><a class="btn primary" href="#request">Submit HR Requirement →</a><a class="btn outline" href="services.html">View Services</a></div></div>
+<div class="actions"><a class="btn primary" href="#request">Submit Business Requirement →</a><a class="btn outline" href="services.html">View Services</a></div></div>
 <div class="hero-card"><h2>Employer Support</h2><p>Choose the service you need and send your requirement directly to our private employer request system.</p>
 <ul class="hero-points"><li>Recruitment & Staffing</li><li>Payroll Management</li><li>Statutory & Labour Compliance</li><li>HR Policies & Documentation</li><li>Startup / SME HR Setup</li><li>Virtual HR / HR Outsourcing</li></ul></div>
 </div></section>
@@ -155,14 +179,14 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 <div class="field"><label for="email">Email *</label><input id="email" type="email" required></div>
 </div></div>
 
-<div class="form-section" id="recruitmentSection"><div class="section-title"><span class="num">3</span> Recruitment Details</div><div class="fields">
-<div class="field"><label for="jobTitle">Job Position *</label><input id="jobTitle"></div>
-<div class="field"><label for="vacancies">No. of Vacancies</label><input id="vacancies"></div>
-<div class="field"><label for="location">Job Location</label><input id="location"></div>
+<div class="form-section" id="recruitmentSection"><div class="section-title"><span class="num">3</span> Requirement Details</div><div class="fields">
+<div class="field"><label for="jobTitle">Primary Requirement *</label><input id="jobTitle"></div>
+<div class="field"><label for="vacancies">Quantity / Team Size</label><input id="vacancies"></div>
+<div class="field"><label for="location">Location / City</label><input id="location"></div>
 <div class="field"><label for="experience">Experience</label><input id="experience"></div>
 <div class="field"><label for="salary">Salary Range</label><input id="salary"></div>
 <div class="field"><label for="qualification">Qualification</label><input id="qualification"></div>
-<div class="field full"><label for="workingDays">Working Days / Work Pattern</label><input id="workingDays"></div>
+<div class="field full"><label for="workingDays">Timeline / Working Pattern</label><input id="workingDays"></div>
 </div></div>
 
 <div class="form-section"><div class="section-title"><span class="num">4</span> Requirement Details</div><div class="fields">
@@ -171,7 +195,7 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 <div class="field full"><label for="description">Requirement / Description *</label><textarea id="description" required></textarea></div>
 </div><div class="notice">🔒 Privacy: Company name, contact person, mobile and email are stored in the private employer request record. They are not copied into public job listings.</div></div>
 
-<div class="form-bottom"><div class="response"><strong>✓ Private admin request</strong>Your request will be saved for admin review and a WhatsApp message will also open for quick coordination.</div><button class="submit" type="submit">Submit HR Requirement →</button></div>
+<div class="form-bottom"><div class="response"><strong>✓ Private admin request</strong>Your request will be saved for admin review and a WhatsApp message will also open for quick coordination.</div><button class="submit" type="submit">Submit Business Requirement →</button></div>
 </form></div></div></section>
 
 <section class="white"><div class="container"><div class="contact-strip"><h2>Need help choosing a service?</h2><p>Send your requirement in your own words. We can review it and coordinate the appropriate business or HR support.</p><a class="btn" href="https://wa.me/917978259944" target="_blank" rel="noopener">Chat on WhatsApp →</a></div></div></section>
@@ -188,7 +212,7 @@ const recruitmentIds=['jobTitle','vacancies','location','experience','salary','q
 const recruitmentSection=document.getElementById('recruitmentSection');
 function updateServiceFields(){
  const selected=document.querySelector('input[name="service"]:checked');
- const recruitment=selected && selected.value==='Recruitment & Staffing';
+ const recruitment=selected && selected.value==='HR & Recruitment';
  recruitmentSection.classList.toggle('hidden',!recruitment);
  document.getElementById('jobTitle').required=!!recruitment;
 }
@@ -204,17 +228,17 @@ document.getElementById('employerServiceForm').addEventListener('submit',async e
  const btn=e.target.querySelector('.submit');btn.disabled=true;btn.textContent='Saving Request…';
  const val=id=>document.getElementById(id).value.trim();
  const service=document.querySelector('input[name="service"]:checked').value;
- const isRecruitment=service==='Recruitment & Staffing';
+ const isRecruitment=service==='HR & Recruitment';
  const request={service,companyName:val('companyName'),contactPerson:val('contactPerson'),mobile:val('mobile'),email:val('email'),employeeCount:val('employeeCount'),timeline:val('timeline'),description:val('description'),createdAt:serverTimestamp(),status:'New'};
  if(isRecruitment) Object.assign(request,{jobTitle:val('jobTitle'),vacancies:val('vacancies'),location:val('location'),experience:val('experience'),salary:val('salary'),qualification:val('qualification'),workingDays:val('workingDays')});
  try{
   await addDoc(collection(db,'jobRequests'),request);
-  let message=`Hello Sandeep Solutions,\n\nI have submitted an employer service request.\n\nService: ${service}\nCompany: ${request.companyName}\nContact Person: ${request.contactPerson}\nMobile: ${request.mobile}\nEmail: ${request.email}\nEmployee Count: ${request.employeeCount||'Not provided'}\nExpected Timeline: ${request.timeline||'Not provided'}\n\nRequirement:\n${request.description}`;
+  let message=`Hello Sandeep Solutions,\n\nI have submitted an business requirement request.\n\nService: ${service}\nCompany: ${request.companyName}\nContact Person: ${request.contactPerson}\nMobile: ${request.mobile}\nEmail: ${request.email}\nEmployee Count: ${request.employeeCount||'Not provided'}\nExpected Timeline: ${request.timeline||'Not provided'}\n\nRequirement:\n${request.description}`;
   if(isRecruitment) message+=`\n\nJob Position: ${request.jobTitle}\nVacancies: ${request.vacancies||'Not specified'}\nLocation: ${request.location||'Not specified'}\nExperience: ${request.experience||'Not specified'}\nSalary: ${request.salary||'Not specified'}\nQualification: ${request.qualification||'Not specified'}\nWorking Days: ${request.workingDays||'Not specified'}`;
   window.open('https://wa.me/917978259944?text='+encodeURIComponent(message),'_blank');
   alert('Your requirement has been submitted successfully.');e.target.reset();updateServiceFields();
  }catch(err){console.error(err);alert('Request could not be saved. Please try again.')}
- finally{btn.disabled=false;btn.textContent='Submit HR Requirement →'}
+ finally{btn.disabled=false;btn.textContent='Submit Business Requirement →'}
 });
 </script>
 
