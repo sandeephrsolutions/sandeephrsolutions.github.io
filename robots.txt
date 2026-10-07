@@ -2,5 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /admin-login.html
 Disallow: /admin-dashboard.html
+Disallow: /admin-candidates.html
+Disallow: /admin-jobs.html
+Disallow: /candidate-login.html
+Disallow: /candidate-register.html
+Disallow: /candidate-dashboard.html
 
 Sitemap: https://sandeephrsolutions.github.io/sitemap.xml

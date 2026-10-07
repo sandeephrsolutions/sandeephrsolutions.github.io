@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin Login | Sandeep HR Solutions</title>
+<meta name="robots" content="noindex,nofollow">
+<title>Admin Login | Sandeep Solutions</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f3f6fa;color:#172033}
 .page{min-height:100vh;display:grid;grid-template-columns:58% 42%}
@@ -26,8 +27,8 @@ button{width:100%;border:0;border-radius:11px;padding:14px;margin-top:21px;backg
 <body>
 <div class="page">
 <section class="left"><div class="left-inner">
-<img class="logo" src="Logo.png" alt="Sandeep HR Solutions">
-<div class="kicker">Sandeep HR Solutions · Private Admin</div>
+<img class="logo" src="brand-mark.png" alt="Sandeep Solutions">
+<div class="kicker">Sandeep Solutions · Private Admin</div>
 <h1>One workspace for your hiring operations.</h1>
 <p class="lead">Manage vacancies, candidate activity, employer requirements and applications from one secure admin workspace.</p>
 <div class="preview"><div style="font-weight:900;margin-bottom:14px">Admin Overview · Secure Workspace</div>
@@ -39,7 +40,7 @@ button{width:100%;border:0;border-radius:11px;padding:14px;margin-top:21px;backg
 </div></div>
 </div></section>
 <section class="right"><div class="card">
-<div class="brand"><img class="mini" src="Logo.png" alt=""><div><b>SANDEEP HR SOLUTIONS</b><small>HR · RECRUITMENT · CONSULTING</small></div></div>
+<div class="brand"><img class="mini" src="brand-mark.png" alt=""><div><b>SANDEEP SOLUTIONS</b><small>BUSINESS SOLUTIONS · HR · RECRUITMENT</small></div></div>
 <h2>Admin Login</h2><p class="sub">Sign in with your authorized administrator account to manage the hiring workspace.</p>
 <form id="loginForm" novalidate>
 <label for="email">Email Address</label>
@@ -57,52 +58,12 @@ button{width:100%;border:0;border-radius:11px;padding:14px;margin-top:21px;backg
 import {auth} from "./firebase-config.js";
 import {signInWithEmailAndPassword,sendPasswordResetEmail,signOut}
 from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-
 const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
-const form=document.getElementById("loginForm");
-const email=document.getElementById("email");
-const password=document.getElementById("password");
-const button=document.getElementById("loginButton");
-const msg=document.getElementById("msg");
-
+const form=document.getElementById("loginForm"),email=document.getElementById("email"),password=document.getElementById("password"),button=document.getElementById("loginButton"),msg=document.getElementById("msg");
 await signOut(auth);
-
-function show(text,ok=false){
-  msg.textContent=text;
-  msg.className="msg "+(ok?"ok":"err");
-  msg.style.display="block";
-}
-
-form.addEventListener("submit",async e=>{
-  e.preventDefault();
-  if(!email.value.trim()||!password.value){show("Please enter your email and password.");return;}
-  button.disabled=true;button.textContent="Signing in…";show("Signing in…",true);
-  try{
-    const cred=await signInWithEmailAndPassword(auth,email.value.trim(),password.value);
-    if((cred.user.email||"").toLowerCase()!==ADMIN_EMAIL.toLowerCase()){
-      await signOut(auth);
-      show("This account is not authorized for admin access.");
-      button.disabled=false;button.textContent="Login to Admin Dashboard →";
-      return;
-    }
-    location.href="admin-dashboard.html";
-  }catch(err){
-    console.error(err);
-    show("Login failed. Please check your email and password.");
-    button.disabled=false;button.textContent="Login to Admin Dashboard →";
-  }
-});
-
-document.getElementById("forgot").onclick=async e=>{
-  e.preventDefault();
-  const address=email.value.trim().toLowerCase();
-  if(!address){show("Enter your admin email first.");return;}
-  if(address!==ADMIN_EMAIL.toLowerCase()){show("Password reset is available only for the authorized admin email.");return;}
-  try{
-    await sendPasswordResetEmail(auth,address);
-    show("Password reset email sent. Check your inbox.",true);
-  }catch(err){show("Unable to send the reset email. Check the email address.");}
-};
+function show(text,ok=false){msg.textContent=text;msg.className="msg "+(ok?"ok":"err");msg.style.display="block";}
+form.addEventListener("submit",async e=>{e.preventDefault();if(!email.value.trim()||!password.value){show("Please enter your email and password.");return;}button.disabled=true;button.textContent="Signing in…";show("Signing in…",true);try{const cred=await signInWithEmailAndPassword(auth,email.value.trim(),password.value);if((cred.user.email||"").toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await signOut(auth);show("This account is not authorized for admin access.");button.disabled=false;button.textContent="Login to Admin Dashboard →";return;}location.href="admin-dashboard.html";}catch(err){console.error(err);show("Login failed. Please check your email and password.");button.disabled=false;button.textContent="Login to Admin Dashboard →";}});
+document.getElementById("forgot").onclick=async e=>{e.preventDefault();const address=email.value.trim().toLowerCase();if(!address){show("Enter your admin email first.");return;}if(address!==ADMIN_EMAIL.toLowerCase()){show("Password reset is available only for the authorized admin email.");return;}try{await sendPasswordResetEmail(auth,address);show("Password reset email sent. Check your inbox.",true);}catch(err){show("Unable to send the reset email. Check the email address.");}};
 </script>
 </body>
 </html>
