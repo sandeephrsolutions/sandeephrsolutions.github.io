@@ -4,108 +4,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sandeep Solutions | HR & Business Solutions</title>
-<meta name="description" content="Sandeep Solutions - HR, recruitment, business consultancy and process support.">
+<meta name="description" content="Sandeep Solutions provides HR, recruitment, business consultancy, restaurant solutions, documentation and compliance support.">
 <link rel="icon" href="assets/logo.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#062b57;--navy2:#031c3b;--gold:#fbb718;--white:#fff;--muted:#dce8f5}
-body{font-family:Arial,Helvetica,sans-serif;color:#142238;background:#fff}
-a{text-decoration:none;color:inherit}
-.header{height:116px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4.2%;box-shadow:0 2px 12px rgba(0,0,0,.08);position:relative;z-index:5}
-.logo{width:155px;height:auto;object-fit:contain}
-.nav{display:flex;align-items:center;gap:38px;font-weight:700;font-size:18px}
-.nav a{padding:12px 0}
-.nav a:first-child{color:#1260ad}
-.quote{background:var(--gold);padding:20px 31px!important;border-radius:15px;box-shadow:0 7px 20px rgba(251,183,24,.25)}
-.hero{position:relative;min-height:525px;overflow:hidden;background:var(--navy2)}
-.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(3,26,56,.98) 0%,rgba(4,38,77,.94) 29%,rgba(4,38,77,.72) 48%,rgba(4,38,77,.18) 73%,rgba(4,38,77,.06) 100%),url('assets/home-hero-hd.jpg');background-size:cover;background-position:center}
-.hero-inner{position:relative;z-index:2;min-height:525px;padding:42px 5.3% 30px;display:flex;align-items:center}
-.hero-copy{width:51%;max-width:690px}
-.badge{display:inline-flex;align-items:center;gap:11px;border:1px solid rgba(251,183,24,.75);border-radius:22px;padding:9px 18px;color:#fff;font-size:14px;font-weight:800;letter-spacing:2px;margin-bottom:28px}
-.badge i{width:9px;height:9px;background:var(--gold);border-radius:50%;display:block}
-h1{font-size:66px;line-height:.98;color:#fff;letter-spacing:-2px;margin-bottom:24px}
-h1 span{color:var(--gold)}
-.sub{font-size:25px;line-height:1.35;color:#f2f6fb;max-width:650px;margin-bottom:25px}
-.buttons{display:flex;gap:18px;margin-bottom:25px}
-.btn{display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;border-radius:12px;padding:18px 28px}
-.btn-primary{background:var(--gold);color:#071d39}
-.btn-outline{border:2px solid #c8d6e6;color:#fff;background:rgba(0,0,0,.08)}
-.chips{display:flex;gap:20px;flex-wrap:wrap}
-.chip{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:16px;padding:10px 4px}
-.chip i{width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 4px rgba(251,183,24,.08)}
-.cards{position:relative;z-index:3;background:linear-gradient(180deg,#062b57,#05264e);padding:0 1.6% 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:-1px}
-.card{height:206px;border:1px solid rgba(218,231,245,.7);border-radius:16px;overflow:hidden;position:relative;background:#082b52;box-shadow:0 8px 22px rgba(0,0,0,.18)}
-.card img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
-.card:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,rgba(3,24,49,.98))}
-.card-content{position:absolute;z-index:2;left:22px;right:15px;bottom:17px;color:#fff}
-.card-icon{position:absolute;left:18px;bottom:58px;width:43px;height:43px;border-radius:50%;background:var(--gold);color:#082b52;display:grid;place-items:center;font-size:21px;font-weight:900}
-.card h3{margin-left:61px;font-size:17px;margin-bottom:5px}
-.card p{margin-left:61px;font-size:12.5px;line-height:1.35;color:#e7eef7;max-width:245px}
-.card-arrow{position:absolute;right:0;bottom:0;width:31px;height:31px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:900}
-@media(max-width:900px){
- .header{height:86px;padding:0 20px}.logo{width:125px}.nav{gap:14px;font-size:14px}.quote{padding:12px 15px!important}
- .hero-bg{background-position:65% center}.hero-inner{min-height:650px;padding:38px 25px 30px;align-items:flex-start}.hero-copy{width:100%;padding-top:10px}
- h1{font-size:49px}.sub{font-size:20px}.cards{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:600px){
- .header{height:76px}.nav a:not(.quote){display:none}.nav{gap:0}.quote{font-size:14px;padding:12px 16px!important}
- .hero{min-height:700px}.hero-bg{background-position:67% center;opacity:.95}.hero-inner{min-height:700px;padding:28px 20px}
- h1{font-size:43px;letter-spacing:-1px}.sub{font-size:18px}.badge{font-size:11px;letter-spacing:1.3px}.buttons{gap:10px}.btn{font-size:15px;padding:15px 18px}
- .chips{gap:5px 13px}.chip{font-size:13px}
- .cards{grid-template-columns:1fr;padding:12px}.card{height:190px}
-}
+:root{--navy:#062b57;--deep:#031d3d;--blue:#1264b3;--gold:#fbb718;--light:#f5f9fd;--text:#172b46}
+html{scroll-behavior:smooth} body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.5} a{text-decoration:none;color:inherit}
+.header{height:116px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4.4%;box-shadow:0 2px 12px rgba(0,0,0,.08);position:relative;z-index:10}
+.logo{width:155px;height:auto}.nav{display:flex;align-items:center;gap:34px;font-size:17px;font-weight:700}.nav a:first-child{color:#1264b3}.quote{background:var(--gold);padding:19px 29px;border-radius:14px;box-shadow:0 8px 22px rgba(251,183,24,.25)}
+.hero{min-height:525px;background:var(--deep);position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,27,57,.99) 0%,rgba(4,40,80,.94) 32%,rgba(4,40,80,.65) 52%,rgba(4,40,80,.12) 78%),url("assets/home-hero-hd.jpg") center/cover no-repeat}
+.hero-inner{position:relative;z-index:2;min-height:525px;padding:43px 5.3%;display:flex;align-items:center}.hero-copy{width:54%;max-width:730px}.badge{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(251,183,24,.75);border-radius:24px;padding:9px 18px;color:#fff;font-size:14px;font-weight:800;letter-spacing:1.8px;margin-bottom:26px}.badge i,.chip i{width:9px;height:9px;border-radius:50%;background:var(--gold);display:inline-block}
+h1{font-size:64px;line-height:1;letter-spacing:-2px;color:#fff;margin-bottom:24px}h1 span{color:var(--gold)}.sub{font-size:24px;color:#edf5fc;max-width:680px;margin-bottom:26px}.buttons{display:flex;gap:17px;margin-bottom:25px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:17px 27px;border-radius:12px;font-size:18px;font-weight:800}.primary{background:var(--gold);color:#08213e}.outline{border:2px solid #c7d6e6;color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px 22px}.chip{display:flex;align-items:center;gap:9px;color:#fff;font-weight:700;font-size:15px;padding:7px 2px}
+.stats{background:#fff;display:grid;grid-template-columns:repeat(4,1fr);padding:20px 5%;border-bottom:1px solid #e6edf4}.stat{text-align:center;border-right:1px solid #d9e2eb}.stat:last-child{border-right:0}.stat strong{display:block;font-size:32px;color:#1264b3}.stat span{font-size:14px;color:#42546a}
+.section{padding:42px 5%}.section-head{text-align:center;margin-bottom:25px}.eyebrow{color:#e5a300;font-size:14px;font-weight:800;letter-spacing:1.5px}.section h2{font-size:34px;color:#102c50;margin:4px 0}.section-head p{color:#61748a;font-size:16px}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service{border:1px solid #d8e3ee;border-radius:15px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(9,42,76,.08);transition:.2s}.service:hover{transform:translateY(-3px)}.service img{width:100%;height:155px;object-fit:cover;display:block}.service-body{padding:14px 16px 17px}.service h3{font-size:18px;color:#082c56;margin-bottom:6px}.service p{font-size:13px;color:#61748a;line-height:1.45}.more{display:inline-block;color:#1264b3;font-size:13px;font-weight:800;margin-top:10px}
+.industries-wrap{background:#eef6fd;padding:28px 5%;display:grid;grid-template-columns:1.45fr .95fr;gap:22px;align-items:stretch}.industries h2{font-size:22px;color:#123c6d;margin-bottom:13px}.industry-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.industry{background:#fff;border:1px solid #e2ebf3;border-radius:9px;text-align:center;padding:12px 5px;font-size:12px;color:#314a65}.industry b{display:block;font-size:19px;color:#1264b3;margin-bottom:3px}
+.cta{border-radius:13px;background:#fff;border:1px solid #d8e5ef;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}.cta h3{font-size:21px;color:#0a315d}.cta p{font-size:13px;color:#5d7085;margin:3px 0 10px}.cta .btn{font-size:14px;padding:12px 18px}.cta-img{width:180px;height:100px;object-fit:cover;border-radius:9px}
+.footer{background:#031f42;color:#e6eef7;padding:38px 5% 14px}.footer-grid{display:grid;grid-template-columns:1.35fr .8fr 1fr 1.15fr;gap:38px}.footer-logo{width:150px;margin-bottom:10px}.footer h3{color:#fff;font-size:15px;margin-bottom:10px}.footer p,.footer li{font-size:12px;color:#c9d7e5}.footer ul{list-style:none}.footer li{margin:6px 0}.footer .brandline{color:var(--gold);font-weight:800;font-size:12px}.social{display:flex;gap:8px;margin-top:12px}.social a{width:30px;height:30px;border-radius:7px;background:#fff;color:#0a315d;display:grid;place-items:center;font-weight:800}.subscribe{display:flex;margin-top:8px}.subscribe input{width:100%;border:0;border-radius:8px 0 0 8px;padding:12px}.subscribe button{border:0;background:var(--gold);padding:0 17px;border-radius:0 8px 8px 0;font-weight:800}.footer-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:25px;padding-top:12px;display:flex;justify-content:space-between;font-size:11px;color:#9fb2c7}
+@media(max-width:950px){.header{height:88px;padding:0 20px}.logo{width:125px}.nav{gap:12px;font-size:13px}.quote{padding:12px 16px}.hero-inner{padding:38px 25px}.hero-copy{width:62%}h1{font-size:50px}.sub{font-size:19px}.services{grid-template-columns:repeat(2,1fr)}.industries-wrap{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.header{height:76px}.nav a:not(.quote){display:none}.nav{gap:0}.hero{min-height:650px}.hero:before{background:linear-gradient(90deg,rgba(3,27,57,.96),rgba(3,27,57,.75)),url("assets/home-hero-hd.jpg") center/cover}.hero-inner{min-height:650px;padding:28px 20px;align-items:flex-start}.hero-copy{width:100%}h1{font-size:43px}.sub{font-size:18px}.badge{font-size:11px;letter-spacing:1px}.btn{font-size:15px;padding:14px 18px}.stats{grid-template-columns:repeat(2,1fr);gap:15px}.stat{border-right:0}.stat strong{font-size:25px}.section{padding:34px 18px}.section h2{font-size:27px}.services{grid-template-columns:1fr}.industries-wrap{padding:25px 18px}.industry-grid{grid-template-columns:repeat(3,1fr)}.cta{flex-direction:column;align-items:flex-start}.cta-img{width:100%;height:130px}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:7px}}
 </style>
 </head>
 <body>
 <header class="header">
-  <a href="index.html"><img class="logo" src="assets/logo.png" alt="Sandeep Solutions"></a>
-  <nav class="nav">
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
-    <a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a>
-    <a class="quote" href="employers.html">Get a Quote</a>
-  </nav>
+<a href="index.html"><img class="logo" src="assets/logo.png" alt="Sandeep Solutions"></a>
+<nav class="nav">
+<a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a class="quote" href="employers.html">Get a Quote</a>
+</nav>
 </header>
 
-<main>
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="badge"><i></i> BUSINESS SOLUTIONS &amp; HR SUPPORT</div>
-      <h1>People. <span>Process.</span><br>Performance.</h1>
-      <p class="sub">Your Trusted HR &amp; Recruitment Partner for Business Growth</p>
-      <div class="buttons">
-        <a class="btn btn-primary" href="employers.html">Hire Talent →</a>
-        <a class="btn btn-outline" href="jobs.html">Find Jobs →</a>
-      </div>
-      <div class="chips">
-        <div class="chip"><i></i>HR Solutions</div>
-        <div class="chip"><i></i>Recruitment Support</div>
-        <div class="chip"><i></i>Business Consultancy</div>
-        <div class="chip"><i></i>Process &amp; Compliance</div>
-      </div>
-    </div>
-  </div>
+<section class="hero"><div class="hero-inner"><div class="hero-copy">
+<div class="badge"><i></i> BUSINESS SOLUTIONS &amp; HR SUPPORT</div>
+<h1>People. <span>Process.</span><br>Performance.</h1>
+<p class="sub">Your Trusted HR &amp; Recruitment Partner for Business Growth</p>
+<div class="buttons"><a class="btn primary" href="employers.html">Hire Talent →</a><a class="btn outline" href="jobs.html">Find Jobs →</a></div>
+<div class="chips"><div class="chip"><i></i>HR Solutions</div><div class="chip"><i></i>Recruitment Support</div><div class="chip"><i></i>Business Consultancy</div><div class="chip"><i></i>Process &amp; Compliance</div></div>
+</div></div></section>
+
+<section class="stats">
+<div class="stat"><strong>12+</strong><span>Years of Experience</span></div><div class="stat"><strong>500+</strong><span>Successful Hires</span></div><div class="stat"><strong>100+</strong><span>Happy Clients</span></div><div class="stat"><strong>Pan India</strong><span>Service Coverage</span></div>
 </section>
 
-<section class="cards">
-  <a class="card" href="services.html">
-    <img src="assets/hr-recruitment.jpg" alt="HR and Recruitment">
-    <div class="card-content"><div class="card-icon">👥</div><h3>HR &amp; Recruitment</h3><p>End-to-end hiring, HR operations and people support for growing businesses.</p><div class="card-arrow">→</div></div>
-  </a>
-  <a class="card" href="services.html">
-    <img src="assets/business-consultancy.jpg" alt="Business Consultancy">
-    <div class="card-content"><div class="card-icon">↗</div><h3>Business Consultancy</h3><p>Practical business support, process improvement and growth-focused solutions.</p><div class="card-arrow">→</div></div>
-  </a>
-  <a class="card" href="restaurant-solutions.html">
-    <img src="assets/restaurant-solutions.jpg" alt="Restaurant Solutions">
-    <div class="card-content"><div class="card-icon">🍴</div><h3>Restaurant Solutions</h3><p>Manpower and operational support for restaurants and hospitality businesses.</p><div class="card-arrow">→</div></div>
-  </a>
-  <a class="card" href="documentation-setup.html">
-    <img src="assets/documentation-setup.jpg" alt="Documentation and Setup">
-    <div class="card-content"><div class="card-icon">▤</div><h3>Documentation &amp; Setup</h3><p>Professional documentation, HR setup and essential business process support.</p><div class="card-arrow">→</div></div>
-  </a>
+<section class="section">
+<div class="section-head"><div class="eyebrow">OUR CORE SERVICES</div><h2>Business support built around people and process.</h2><p>Practical solutions for growing businesses across HR, recruitment, operations, hospitality and documentation.</p></div>
+<div class="services">
+<a class="service" href="services.html"><img src="assets/hr-recruitment.jpg" alt="HR & Recruitment"><div class="service-body"><h3>HR &amp; Recruitment</h3><p>End-to-end hiring, HR operations and people support for growing businesses.</p><span class="more">Know More →</span></div></a>
+<a class="service" href="services.html"><img src="assets/business-consultancy.jpg" alt="Business Consultancy"><div class="service-body"><h3>Business Consultancy</h3><p>Practical business support, process improvement and growth-focused solutions.</p><span class="more">Know More →</span></div></a>
+<a class="service" href="restaurant-solutions.html"><img src="assets/restaurant-solutions.jpg" alt="Restaurant Solutions"><div class="service-body"><h3>Restaurant Solutions</h3><p>Manpower and operational support for restaurants and hospitality businesses.</p><span class="more">Know More →</span></div></a>
+<a class="service" href="documentation-setup.html"><img src="assets/documentation-setup.jpg" alt="Documentation & Setup"><div class="service-body"><h3>Documentation &amp; Setup</h3><p>Professional documentation, HR setup and essential business process support.</p><span class="more">Know More →</span></div></a>
+</div>
 </section>
-</main>
+
+<section class="industries-wrap">
+<div class="industries"><h2>Trusted by Businesses Across Industries</h2><div class="industry-grid">
+<div class="industry"><b>🚀</b>Startups</div><div class="industry"><b>▣</b>Retail</div><div class="industry"><b>♙</b>Hospitality</div><div class="industry"><b>✂</b>F&amp;B</div><div class="industry"><b>▥</b>Manufacturing</div><div class="industry"><b>▣</b>IT &amp; ITES</div><div class="industry"><b>⌂</b>Education</div><div class="industry"><b>✚</b>Healthcare</div><div class="industry"><b>▤</b>Logistics</div><div class="industry"><b>+</b>More</div>
+</div></div>
+<div class="cta"><div><h3>Let’s Build a Stronger Workforce Together</h3><p>Get expert HR, recruitment and business support tailored to your needs.</p><a class="btn primary" href="employers.html">Get a Free Consultation →</a></div><img class="cta-img" src="assets/about-consulting-team.jpg" alt="Consulting team"></div>
+</section>
+
+<footer class="footer">
+<div class="footer-grid">
+<div><img class="footer-logo" src="assets/logo.png" alt="Sandeep Solutions"><div class="brandline">People | Process | Performance</div><p style="margin-top:7px">Your trusted partner for HR, recruitment, business consultancy, restaurant solutions and documentation support.</p><div class="social"><a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/sandeep_solutions/" aria-label="Instagram">ig</a><a href="https://www.facebook.com/" aria-label="Facebook">f</a><a href="https://www.youtube.com/" aria-label="YouTube">▶</a></div></div>
+<div><h3>Quick Links</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="employers.html">Employers</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+<div><h3>Our Services</h3><ul><li>HR &amp; Recruitment</li><li>Business Consultancy</li><li>Restaurant Solutions</li><li>Documentation &amp; Setup</li><li>Process &amp; Compliance</li><li>HR Outsourcing</li><li>Industry Specific Solutions</li></ul></div>
+<div><h3>Contact Info</h3><ul><li>📍 Bangalore, Karnataka, India</li><li>☎ +91 7978259944</li><li>✉ sandeep.hr.solutions.shr@gmail.com</li><li>◷ Mon - Sat: 10:00 AM - 6:00 PM<br>(Closed on Sunday)</li></ul><h3 style="margin-top:17px">Subscribe to Updates</h3><form class="subscribe" onsubmit="return false"><input type="email" placeholder="Enter your email address"><button>→</button></form></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Sandeep Solutions. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="disclaimer.html">Disclaimer</a></span></div>
+</footer>
 </body>
 </html>
