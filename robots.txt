@@ -7,5 +7,4 @@ Disallow: /admin-jobs.html
 Disallow: /candidate-login.html
 Disallow: /candidate-register.html
 Disallow: /candidate-dashboard.html
-
 Sitemap: https://sandeephrsolutions.github.io/sitemap.xml
