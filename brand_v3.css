@@ -142,3 +142,11 @@ main{background:var(--ss-grey)!important}
 .simple-cta .kicker,.philosophy .kicker,.contact-strip .kicker,.cta:not(.gold) .kicker{color:var(--ss-gold-light)!important;}
 .cta.gold h1,.cta.gold h2,.cta.gold h3,.cta.gold h4,.cta.gold p{color:var(--ss-navy)!important;}
 .cta.gold .btn{background:var(--ss-navy)!important;color:#FFFFFF!important;border-color:var(--ss-navy)!important;}
+
+/* V4 consistency overrides */
+.site-brand img{width:54px!important;height:54px!important;max-width:54px!important;border-radius:10px!important;padding:3px!important;border:1px solid var(--ss-border)!important}
+.site-brand small{color:var(--ss-blue)!important}
+.simple-cta{background:linear-gradient(135deg,#F0CF6A,#FFF3BF)!important;color:var(--ss-navy)!important;border:1px solid #D8B94E!important}
+.simple-cta h1,.simple-cta h2,.simple-cta h3,.simple-cta h4,.simple-cta p{color:var(--ss-navy)!important}
+.simple-cta .btn{background:var(--ss-navy)!important;color:#fff!important}
+@media(max-width:650px){.site-brand strong,.site-brand small{display:block!important}.site-brand img{width:46px!important;height:46px!important;max-width:46px!important}}
