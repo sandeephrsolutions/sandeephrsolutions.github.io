@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<head><meta name="theme-color" content="#071B34">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Job Management | Sandeep Solutions</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f8fc;color:#172033}.top{background:#071b34;color:#fff;padding:15px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:20}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:0;border-radius:9px;padding:9px 12px;text-decoration:none;font-weight:800;cursor:pointer;font-size:12px}.light{background:#fff;color:#123f70}.gold{background:#f4b83f;color:#071b34}main{width:min(1120px,92%);margin:28px auto}.head h1{margin:0 0 6px}.muted,.sub{color:#68758a;font-size:13px}.panel{background:#fff;border:1px solid #e0e7ef;border-radius:18px;padding:21px;margin-bottom:18px}.panel h2{margin:0 0 7px;color:#071b34}.count{background:#f4b83f;color:#071b34;border-radius:20px;padding:4px 8px;font-size:10px;font-weight:900}.request{border:1px solid #e0e7ef;border-radius:14px;padding:16px;margin-top:11px;background:#fbfcfe}.request-top{display:flex;justify-content:space-between;gap:10px}.request h3{margin:0;font-size:16px}.small{font-size:11px;color:#68758a;margin-top:3px}.pill{font-size:9px;font-weight:900;padding:6px 9px;border-radius:20px;background:#eef2f6;color:#42536a;text-transform:uppercase}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 17px;margin-top:12px}.item{font-size:12px;color:#5e6c7e}.item b{color:#26354b}.full{grid-column:1/-1}.desc{background:#fff;border:1px solid #edf0f4;border-radius:9px;padding:10px;white-space:pre-wrap;line-height:1.5}.actions-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.action{border:0;border-radius:8px;padding:9px 11px;font-size:11px;font-weight:850;cursor:pointer;text-decoration:none}.approve{background:#f4b83f;color:#071b34}.mail{background:#eaf3ff;color:#164c7d}.wa{background:#e9f8ef;color:#176b38}.review{background:#eef2f6;color:#26354b}.delete{background:#feecec;color:#a52828}.empty{color:#68758a;font-size:13px;padding:12px 0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{font-weight:700;font-size:12px;display:block;margin-bottom:5px}input,textarea,select{width:100%;padding:11px;border:1px solid #d7e0ea;border-radius:9px;font:inherit}textarea{min-height:115px;resize:vertical}.full2{grid-column:1/-1}.publish{margin-top:16px;border:0;border-radius:9px;padding:12px 16px;background:#f4b83f;color:#071b34;font-weight:900;cursor:pointer}.msg{font-size:12px;margin-top:8px}.ok{color:#176b38}.err{color:#a32929}@media(max-width:700px){.top{align-items:flex-start;flex-direction:column}.grid,.form-grid{grid-template-columns:1fr}.full,.full2{grid-column:auto}.request-top{flex-direction:column}}
@@ -23,4 +24,14 @@ async function approve(id){const r=rows.find(x=>x.id===id);if(!r)return;if(!conf
 async function review(id){try{await updateDoc(doc(db,"jobRequests",id),{status:"Viewed",viewedAt:serverTimestamp()});await load();}catch(e){alert("Could not update enquiry.");}}
 async function removeRequest(id){if(!confirm("Delete this employer enquiry permanently? This cannot be undone."))return;try{await deleteDoc(doc(db,"jobRequests",id));await load();}catch(e){alert("Delete failed. Please check admin Firestore rules.");}}
 document.getElementById("jobForm").onsubmit=async e=>{e.preventDefault();try{await addDoc(collection(db,"jobs"),{position:position.value.trim(),description:description.value.trim(),location:location.value.trim(),salary:salary.value.trim(),workingDays:workingDays.value.trim(),vacancies:Number(vacancies.value),experience:experience.value.trim(),qualification:qualification.value.trim(),status:status.value,source:"admin-manual",createdAt:serverTimestamp()});msg.textContent="Job published successfully.";msg.className="msg ok";e.target.reset();}catch(x){msg.textContent="Could not publish job.";msg.className="msg err";}};document.getElementById("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html";};function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
-</script></body></html>
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", {scope: "/"})
+      .catch(function (error) { console.warn("Sandeep Solutions PWA service worker:", error); });
+  });
+}
+</script>
+
+</body></html>

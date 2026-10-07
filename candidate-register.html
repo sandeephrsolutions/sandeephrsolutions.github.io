@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
+<meta name="theme-color" content="#071B34">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>Candidate Registration | Sandeep Solutions</title>
 <link rel="icon" href="brand-mark.png" type="image/png"><style>
@@ -12,4 +13,14 @@
 <script type="module">
 import { auth, db } from "./firebase-config.js";import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 const $=id=>document.getElementById(id),notice=$("notice");const show=(msg,type="error")=>{notice.textContent=msg;notice.className="notice show "+type;};$("registerForm").addEventListener("submit",async e=>{e.preventDefault();if($("password").value!==$("confirmPassword").value)return show("Passwords do not match.");show("Creating your account...","success");try{const cred=await createUserWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);const p={fullName:$("fullName").value.trim(),mobile:$("mobile").value.trim(),email:$("email").value.trim(),qualification:$("qualification").value.trim(),experience:$("experience").value.trim(),designation:$("designation").value.trim(),company:$("company").value.trim(),currentSalary:$("currentSalary").value.trim(),expectedSalary:$("expectedSalary").value.trim(),location:$("location").value.trim(),noticePeriod:$("noticePeriod").value.trim(),skills:$("skills").value.trim(),resumeUrl:$("resumeUrl").value.trim(),updatedAt:serverTimestamp()};await setDoc(doc(db,"candidates",cred.user.uid),p);location.href="candidate-dashboard.html";}catch(err){show(err.code==="auth/email-already-in-use"?"This email is already registered. Please login.":err.message);}});
-</script></body></html>
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", {scope: "/"})
+      .catch(function (error) { console.warn("Sandeep Solutions PWA service worker:", error); });
+  });
+}
+</script>
+
+</body></html>

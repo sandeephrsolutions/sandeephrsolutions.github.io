@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-IN">
 <head>
+<meta name="theme-color" content="#071B34">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -221,5 +222,15 @@ function ssSetNav(open){const nav=document.getElementById('siteNav');const btn=d
 function toggleMenu(){const nav=document.getElementById('siteNav');if(!nav)return;ssSetNav(!nav.classList.contains('open'));}
 document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>ssSetNav(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')ssSetNav(false);});});
 </script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", {scope: "/"})
+      .catch(function (error) { console.warn("Sandeep Solutions PWA service worker:", error); });
+  });
+}
+</script>
+
 </body>
 </html>

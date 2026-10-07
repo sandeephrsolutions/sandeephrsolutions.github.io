@@ -1,0 +1,70 @@
+const CACHE_NAME = "sandeep-solutions-v1";
+const APP_SHELL = [
+  "/",
+  "/index.html",
+  "/about.html",
+  "/services.html",
+  "/employers.html",
+  "/jobs.html",
+  "/contact.html",
+  "/privacy.html",
+  "/terms.html",
+  "/disclaimer.html",
+  "/brand_v3.css",
+  "/header-logo.png",
+  "/brand-mark.png",
+  "/favicon.ico",
+  "/favicon-16.png",
+  "/favicon-32.png",
+  "/favicon-192.png",
+  "/favicon-512.png",
+  "/apple-touch-icon.png",
+  "/site.webmanifest",
+  "/offline.html"
+];
+
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+    )).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener("fetch", event => {
+  const request = event.request;
+  if (request.method !== "GET") return;
+
+  const url = new URL(request.url);
+
+  // Keep Firebase, authentication, CDN and external services network-driven.
+  if (url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith("/firebase")) return;
+
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request).then(response => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+        return response;
+      }).catch(() => caches.match(request).then(cached => cached || caches.match("/offline.html")))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(request).then(cached =>
+      cached || fetch(request).then(response => {
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+        return response;
+      })
+    )
+  );
+});

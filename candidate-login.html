@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head>
+<meta name="theme-color" content="#071B34">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>Candidate Login | Sandeep Solutions</title>
 <link rel="icon" href="brand-mark.png" type="image/png"><style>
@@ -12,4 +13,14 @@
 <script type="module">
 import { auth } from "./firebase-config.js";import { signInWithEmailAndPassword, sendPasswordResetEmail, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 const $=id=>document.getElementById(id),notice=$("notice");const show=(msg,type="error")=>{notice.textContent=msg;notice.className="notice show "+type;};onAuthStateChanged(auth,user=>{if(user) location.href="candidate-dashboard.html";});$("loginForm").addEventListener("submit",async e=>{e.preventDefault();show("Signing in...","success");try{await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);location.href="candidate-dashboard.html";}catch(err){show(err.code==="auth/invalid-credential"?"Email or password is incorrect.":err.message);}});$("resetBtn").addEventListener("click",async()=>{const email=$("email").value.trim();if(!email)return show("Enter your email address first.");try{await sendPasswordResetEmail(auth,email);show("Password reset email sent. Check your inbox.","success");}catch(err){show(err.message);}});
-</script></body></html>
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", {scope: "/"})
+      .catch(function (error) { console.warn("Sandeep Solutions PWA service worker:", error); });
+  });
+}
+</script>
+
+</body></html>

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="theme-color" content="#071B34">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -65,5 +66,15 @@ function show(text,ok=false){msg.textContent=text;msg.className="msg "+(ok?"ok":
 form.addEventListener("submit",async e=>{e.preventDefault();if(!email.value.trim()||!password.value){show("Please enter your email and password.");return;}button.disabled=true;button.textContent="Signing in…";show("Signing in…",true);try{const cred=await signInWithEmailAndPassword(auth,email.value.trim(),password.value);if((cred.user.email||"").toLowerCase()!==ADMIN_EMAIL.toLowerCase()){await signOut(auth);show("This account is not authorized for admin access.");button.disabled=false;button.textContent="Login to Admin Dashboard →";return;}location.href="admin-dashboard.html";}catch(err){console.error(err);show("Login failed. Please check your email and password.");button.disabled=false;button.textContent="Login to Admin Dashboard →";}});
 document.getElementById("forgot").onclick=async e=>{e.preventDefault();const address=email.value.trim().toLowerCase();if(!address){show("Enter your admin email first.");return;}if(address!==ADMIN_EMAIL.toLowerCase()){show("Password reset is available only for the authorized admin email.");return;}try{await sendPasswordResetEmail(auth,address);show("Password reset email sent. Check your inbox.",true);}catch(err){show("Unable to send the reset email. Check the email address.");}};
 </script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", {scope: "/"})
+      .catch(function (error) { console.warn("Sandeep Solutions PWA service worker:", error); });
+  });
+}
+</script>
+
 </body>
 </html>
