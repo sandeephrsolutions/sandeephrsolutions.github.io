@@ -1,4 +1,4 @@
-const CACHE_NAME = "sandeep-solutions-v2";
+const CACHE_NAME = "sandeep-solutions-v3";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -42,8 +42,6 @@ self.addEventListener("fetch", event => {
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
-
-  // Keep Firebase, authentication, CDN and external services network-driven.
   if (url.origin !== self.location.origin) return;
   if (url.pathname.startsWith("/firebase")) return;
 
