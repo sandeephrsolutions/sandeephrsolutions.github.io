@@ -31,8 +31,6 @@ footer{text-align:center;margin-top:35px;color:#666;font-size:12px}
 .site-nav a:hover{color:#f4b83f;background:#ffffff0d}.site-mobile-menu{display:none;width:44px;height:44px;border:1px solid #ffffff35;background:#ffffff08;color:#fff;border-radius:10px;font-size:20px}
 @media(max-width:1000px){.site-mobile-menu{display:flex;align-items:center;justify-content:center}.site-nav{display:none}.site-nav.open{display:flex;position:absolute;left:12px;right:12px;top:70px;flex-direction:column;background:#071b34;border:1px solid #ffffff20;border-radius:14px;padding:8px}.site-nav.open a{padding:12px}.site-container{padding:0 16px}}
 </style>
-<link rel="stylesheet" href="brand_v3.css">
-
 <style id="visibility-fix-v2">
 /* High-contrast brand visibility fix */
 .hero h1,.hero h2,.hero h3,.hero-panel h2,.hero-panel h3,.hero-panel b,.hero-panel li,.hero-panel p,.hero-panel span{color:#fff;}
@@ -91,14 +89,21 @@ footer{text-align:center;margin-top:35px;color:#666;font-size:12px}
 }
 </style>
 
+<link rel="stylesheet" href="brand_v3.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<header class="site-header"><div class="site-container site-nav-wrap"><a class="site-brand" href="index.html"><img class="header-logo" src="header-logo.png" alt="Sandeep Solutions"></a>
-<button class="site-mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+<header class="site-header">
+<div class="site-container site-nav-wrap">
+<a class="site-brand" href="index.html" aria-label="Sandeep Solutions home">
+<img class="header-logo" src="header-logo.png?v=full-logo-20261007" alt="Sandeep Solutions">
+</a>
+<button class="site-mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false">☰</button>
 <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
 <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a>
-</nav></div></header>
+</nav>
+</div>
+</header>
 <main id="main-content">
 <div class="container">
 <a href="index.html">← Back to Sandeep Solutions</a>
@@ -138,20 +143,47 @@ Email: <a href="mailto:sandeep.hr.solutions.shr@gmail.com">sandeep.hr.solutions.
 
 <div class="notice"><strong>Legal review note:</strong> This page is website wording based on the current website/report requirements. It is not legal advice or legal certification. Regulatory, liability, jurisdiction and service-specific compliance wording should be reviewed by a qualified professional where appropriate.</div>
 
-<footer>
-<a href="privacy.html">Privacy Policy</a> •
-<a href="terms.html">Terms &amp; Conditions</a> •
-<a href="index.html">Home</a><br><br>
-© 2026 Sandeep Solutions. All Rights Reserved.
-</footer>
 </div>
 </main>
-<script>function toggleMenu(){const n=document.getElementById("siteNav"),b=document.querySelector(".site-mobile-menu");if(!n||!b)return;const o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false");b.setAttribute("aria-label",o?"Close navigation menu":"Open navigation menu");}</script>
 
+<div class="site-legal">
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms &amp; Conditions</a>
+<a href="disclaimer.html">Disclaimer</a>
+</div>
+<footer class="site-footer">
+<div class="site-container site-footer-grid">
+<div>
+<h3>Sandeep Solutions</h3>
+<p>Founder / Owner: <strong>Sandeep Kumar Samal</strong><br>
+HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p>
+</div>
+<div>
+<h3>Experience</h3>
+<p>11+ years<br>Experience since 2014</p>
+</div>
+<div>
+<h3>Service Area</h3>
+<p>Pan-India / All India</p>
+</div>
+</div>
+<div class="site-copy">© 2026 Sandeep Solutions. All rights reserved.</div>
+</footer>
+<a class="site-wa" href="https://wa.me/917978259944" target="_blank" rel="noopener" aria-label="Chat with Sandeep Solutions on WhatsApp">💬 WhatsApp</a>
 <script id="ss-mobile-nav-standard">
-function ssSetNav(open){const nav=document.getElementById('siteNav');const btn=document.querySelector('.site-mobile-menu');if(!nav||!btn)return;nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
-function toggleMenu(){const nav=document.getElementById('siteNav');if(!nav)return;ssSetNav(!nav.classList.contains('open'));}
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>ssSetNav(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')ssSetNav(false);});});
+document.addEventListener("DOMContentLoaded",function(){
+  const nav=document.getElementById("siteNav");
+  const btn=document.querySelector(".site-mobile-menu");
+  if(!nav||!btn)return;
+  function setNav(open){
+    nav.classList.toggle("open",open);
+    btn.setAttribute("aria-expanded",open?"true":"false");
+    btn.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+  }
+  btn.addEventListener("click",function(){setNav(!nav.classList.contains("open"));});
+  nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){setNav(false);});});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")setNav(false);});
+});
 </script>
 </body>
 </html>
