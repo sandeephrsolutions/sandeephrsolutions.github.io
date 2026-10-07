@@ -29,6 +29,31 @@
 .service-card img{height:170px}
 }
 </style>
+
+<style>
+/* HD full-background hero */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(4,25,55,.98) 0%,rgba(4,25,55,.93) 34%,rgba(4,25,55,.62) 58%,rgba(4,25,55,.18) 100%),
+    url('assets/home-hero-hd.jpg?v=20261008') center right/cover no-repeat;
+  min-height:620px;
+}
+.hero-grid{grid-template-columns:minmax(0,1fr);position:relative;z-index:2;min-height:620px;align-items:center}
+.hero-grid>div:first-child{max-width:720px}
+.home-hero-photo{display:none!important}
+@media(max-width:700px){
+  .hero{
+    min-height:auto;
+    background:
+      linear-gradient(90deg,rgba(4,25,55,.94),rgba(4,25,55,.72)),
+      url('assets/home-hero-hd.jpg?v=20261008') 62% center/cover no-repeat;
+  }
+  .hero-grid{min-height:650px}
+}
+</style>
+
 </head>
 <body>
 
