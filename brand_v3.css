@@ -1,56 +1,48 @@
-/* Sandeep Solutions — Existing Website Final Header / Navigation Fix */
-:root{
-  --ss-navy:#071b34;
-  --ss-blue:#123f70;
-  --ss-gold:#d9ad3f;
-  --ss-gold-light:#f4d77c;
-}
+/* Sandeep Solutions — Mobile Header + Logo Spacing Fix */
 .site-header, header.site-header{
-  position:sticky!important;
-  top:0!important;
-  z-index:1000!important;
-  background:rgba(7,27,52,.97)!important;
-  color:#fff!important;
-  border-bottom:1px solid rgba(255,255,255,.10)!important;
-  box-shadow:0 6px 24px rgba(3,15,30,.12)!important;
-  backdrop-filter:blur(14px)!important;
+  min-height:0!important;
 }
-.site-container{max-width:1180px!important;margin:0 auto!important;padding:0 20px!important}
-.site-nav-wrap{min-height:82px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;position:relative!important}
-.site-brand{display:flex!important;align-items:center!important;flex:0 0 auto!important;min-width:0!important;color:#fff!important;text-decoration:none!important}
-.site-brand .header-logo{display:block!important;width:180px!important;height:auto!important;max-width:180px!important;max-height:none!important;object-fit:contain!important;object-position:center!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important}
-.site-brand strong,.site-brand small{display:none!important}
-.site-nav{display:flex!important;align-items:center!important;gap:3px!important;margin-left:auto!important;font-size:13px!important;font-weight:800!important}
-.site-nav a{padding:10px 12px!important;border-radius:8px!important;color:#fff!important;text-decoration:none!important}
-.site-nav a:hover,.site-nav a.active{background:rgba(255,255,255,.08)!important;color:var(--ss-gold-light)!important}
-.site-mobile-menu{display:none!important;width:44px!important;height:44px!important;align-items:center!important;justify-content:center!important;border:1px solid rgba(255,255,255,.22)!important;background:rgba(255,255,255,.05)!important;color:#fff!important;border-radius:10px!important;font-size:20px!important;cursor:pointer!important}
-.site-legal{text-align:center;background:#fff;border-top:1px solid #e4eaf1;padding:16px 10px 5px;font-size:12px;color:#657286}
-.site-legal a{margin:0 8px}
-.site-footer{background:#051225!important;color:#aebed0!important;padding:30px 0 16px!important}
-.site-footer-grid{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:28px}
-.site-footer h3{color:#fff;margin:0 0 7px}
-.site-footer p{margin:0;line-height:1.6}
-.site-copy{max-width:1180px;margin:16px auto 0;padding:14px 20px 0;border-top:1px solid rgba(255,255,255,.10);text-align:center}
-.site-wa{position:fixed!important;right:16px!important;bottom:16px!important;z-index:1100!important;background:#25d366!important;color:#fff!important;border-radius:50px!important;padding:13px 17px!important;font-weight:900!important;font-size:12px!important;box-shadow:0 8px 24px rgba(0,0,0,.22)!important}
-
-/* Audit Fix #1 — keep the private Admin page out of the public navigation. */
-.site-nav a[href="admin-login.html"]{display:none!important}
-
-@media(max-width:1000px){
-  .site-nav{display:none!important}
-  .site-mobile-menu{display:flex!important}
-  .site-nav.open{display:flex!important;position:absolute!important;left:12px!important;right:12px!important;top:74px!important;flex-direction:column!important;align-items:stretch!important;background:#071b34!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:14px!important;padding:8px!important;box-shadow:0 18px 40px rgba(0,0,0,.28)!important}
-  .site-nav.open a{padding:12px!important}
-  .site-nav-wrap{min-height:74px!important}
-  .site-brand .header-logo{width:155px!important;max-width:155px!important}
-  .site-footer-grid{grid-template-columns:1fr 1fr}
+.site-nav-wrap{
+  min-height:68px!important;
 }
-@media(max-width:640px){
-  .site-container{padding:0 16px!important}
-  .site-nav-wrap{min-height:68px!important}
-  .site-brand .header-logo{width:145px!important;max-width:145px!important}
-  .site-nav.open{top:68px!important}
-  .site-footer-grid{grid-template-columns:1fr;padding:0 16px}
-  .site-copy{padding-left:16px;padding-right:16px}
-  .site-wa{right:12px!important;bottom:12px!important}
+.site-brand .header-logo{
+  width:170px!important;
+  max-width:170px!important;
+  height:52px!important;
+  max-height:52px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  mix-blend-mode:multiply!important;
+}
+@media(max-width:650px){
+  .site-nav-wrap{
+    min-height:58px!important;
+  }
+  .site-brand .header-logo{
+    width:128px!important;
+    max-width:128px!important;
+    height:44px!important;
+    max-height:44px!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+  /* Reduce the large visual gap between the header and hero content. */
+  .hero{
+    padding-top:30px!important;
+  }
+}
+@media(max-width:400px){
+  .site-brand .header-logo{
+    width:120px!important;
+    max-width:120px!important;
+    height:42px!important;
+    max-height:42px!important;
+  }
+  .hero{
+    padding-top:26px!important;
+  }
 }
