@@ -43,8 +43,6 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 @media(max-width:650px){.container{padding:0 16px}.nav{min-height:67px}.brand img{width:45px;height:45px}.brand strong{font-size:14px}.brand small{font-size:8px}.hero{padding:47px 0}.hero h1{font-size:38px}.hero p{font-size:15px}.hero-card{padding:21px}.services,.service-choice{grid-template-columns:1fr}section{padding:52px 0}.heading h2{font-size:28px}.form-top{padding:19px;align-items:flex-start;flex-direction:column}form{padding:20px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.form-bottom{align-items:stretch;flex-direction:column}.submit{width:100%}.contact-strip{padding:28px 20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<link rel="stylesheet" href="brand_v3.css">
-
 <style id="visibility-fix-v2">
 /* High-contrast brand visibility fix */
 .hero h1,.hero h2,.hero h3,.hero-panel h2,.hero-panel h3,.hero-panel b,.hero-panel li,.hero-panel p,.hero-panel span{color:#fff;}
@@ -103,14 +101,21 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 }
 </style>
 
+<link rel="stylesheet" href="brand_v3.css">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<header><div class="container nav">
-<a class="brand" href="index.html"><img class="header-logo" src="header-logo.png" alt="Sandeep Solutions"></a>
-<button class="mobile-menu" type="button" aria-label="Open navigation" aria-controls="siteNav" aria-expanded="false">☰</button>
-<nav id="siteNav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a></nav>
-</div></header>
+<header class="site-header">
+<div class="site-container site-nav-wrap">
+<a class="site-brand" href="index.html" aria-label="Sandeep Solutions home">
+<img class="header-logo" src="header-logo.png" alt="Sandeep Solutions">
+</a>
+<button class="site-mobile-menu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false">☰</button>
+<nav id="siteNav" class="site-nav" aria-label="Primary navigation">
+<a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html" class="active" aria-current="page">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a href="admin-login.html">Admin</a>
+</nav>
+</div>
+</header>
 
 <main id="main-content">
 <section class="white" aria-labelledby="coverage-title">
@@ -202,23 +207,7 @@ form{padding:25px 26px}.form-section{margin-bottom:25px}.section-title{display:f
 </main>
 
 <div class="legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="disclaimer.html">Disclaimer</a></div>
-<footer><div class="footer-name">Sandeep Solutions</div>HR & Recruitment • Business Consultancy • Restaurant Solutions • Documentation & Setup<br>Service Coverage: Pan-India / All India<br>© 2026 Sandeep Solutions. All rights reserved.</footer>
 <a class="wa" href="https://wa.me/917978259944" target="_blank" rel="noopener">💬 WhatsApp</a>
-
-<script>
-const nav=document.getElementById('siteNav'), menu=document.querySelector('.mobile-menu');
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open?'true':'false')});
-const recruitmentIds=['jobTitle','vacancies','location','experience','salary','qualification','workingDays'];
-const recruitmentSection=document.getElementById('recruitmentSection');
-function updateServiceFields(){
- const selected=document.querySelector('input[name="service"]:checked');
- const recruitment=selected && selected.value==='HR & Recruitment';
- recruitmentSection.classList.toggle('hidden',!recruitment);
- document.getElementById('jobTitle').required=!!recruitment;
-}
-document.querySelectorAll('input[name="service"]').forEach(r=>r.addEventListener('change',updateServiceFields));
-updateServiceFields();
-</script>
 
 <script type="module">
 import { db } from "./firebase-config.js";
@@ -242,10 +231,44 @@ document.getElementById('employerServiceForm').addEventListener('submit',async e
 });
 </script>
 
+<div class="site-legal">
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms &amp; Conditions</a>
+<a href="disclaimer.html">Disclaimer</a>
+</div>
+<footer class="site-footer">
+<div class="site-container site-footer-grid">
+<div>
+<h3>Sandeep Solutions</h3>
+<p>Founder / Owner: <strong>Sandeep Kumar Samal</strong><br>
+HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p>
+</div>
+<div>
+<h3>Experience</h3>
+<p>11+ years<br>Experience since 2014</p>
+</div>
+<div>
+<h3>Service Area</h3>
+<p>Pan-India / All India</p>
+</div>
+</div>
+<div class="site-copy">© 2026 Sandeep Solutions. All rights reserved.</div>
+</footer>
+<a class="site-wa" href="https://wa.me/917978259944" target="_blank" rel="noopener" aria-label="Chat with Sandeep Solutions on WhatsApp">💬 WhatsApp</a>
 <script id="ss-mobile-nav-standard">
-function ssSetNav(open){const nav=document.getElementById('siteNav');const btn=document.querySelector('.site-mobile-menu');if(!nav||!btn)return;nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');btn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');}
-function toggleMenu(){const nav=document.getElementById('siteNav');if(!nav)return;ssSetNav(!nav.classList.contains('open'));}
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#siteNav a').forEach(a=>a.addEventListener('click',()=>ssSetNav(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')ssSetNav(false);});});
+document.addEventListener("DOMContentLoaded",function(){
+  const nav=document.getElementById("siteNav");
+  const btn=document.querySelector(".site-mobile-menu");
+  if(!nav||!btn)return;
+  function setNav(open){
+    nav.classList.toggle("open",open);
+    btn.setAttribute("aria-expanded",open?"true":"false");
+    btn.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");
+  }
+  btn.addEventListener("click",function(){setNav(!nav.classList.contains("open"));});
+  nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){setNav(false);});});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")setNav(false);});
+});
 </script>
 </body>
 </html>
