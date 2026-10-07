@@ -68,6 +68,19 @@ section{padding:64px 0}.white{background:#fff}.heading{text-align:center;margin-
 .company{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 9px 28px #071b3408}.card h3{margin:0 0 10px;color:var(--navy);font-size:20px}.card p{font-size:14px;color:#5e6b7d}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:19px}.fact{background:#f7f9fc;border:1px solid #e9edf2;border-radius:12px;padding:12px}.fact b{display:block;font-size:11px;color:var(--navy)}.fact span{font-size:10px;color:var(--muted)}
 .udyam{background:linear-gradient(145deg,#071b34,#123f70);color:#fff;border-radius:20px;padding:27px}.udyam h3{color:#fff;font-size:20px}.udyam p{color:#d4e1ed;font-size:13px}.reg{color:var(--gold);font-size:17px;font-weight:900}
+
+.why-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;box-shadow:0 9px 28px #071b3408;position:relative;overflow:hidden}
+.why-card:before{content:"";position:absolute;left:0;top:0;width:6px;height:100%;background:linear-gradient(180deg,var(--gold),var(--blue))}
+.why-kicker{color:#a06e10;font-size:10px;letter-spacing:1.6px;font-weight:900}
+.why-card h3{margin:8px 0 8px;color:var(--navy);font-size:22px;line-height:1.25}
+.why-intro{margin:0 0 17px;color:var(--muted);font-size:13px}
+.why-list{display:grid;gap:10px;margin:0 0 20px}
+.why-item{display:flex;gap:11px;align-items:flex-start;background:#f7f9fc;border:1px solid #e9edf2;border-radius:12px;padding:11px}
+.why-icon{flex:0 0 23px;width:23px;height:23px;border-radius:50%;background:#062B5F;color:#F0CF6A;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px}
+.why-item b{display:block;color:var(--navy);font-size:12px;margin-bottom:2px}
+.why-item small{display:block;color:var(--muted);font-size:10px;line-height:1.45}
+@media(max-width:620px){.why-card{padding:22px}.why-card h3{font-size:20px}}
+
 .focus{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.focus-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:23px}.focus-icon{width:45px;height:45px;border-radius:12px;background:#edf4fb;display:flex;align-items:center;justify-content:center;font-size:21px}.focus-card h3{color:var(--navy);font-size:16px;margin:12px 0 5px}.focus-card p{color:var(--muted);font-size:12px;margin:0}
 .simple-cta{background:linear-gradient(135deg,#071b34,#123f70);border-radius:22px;padding:40px;text-align:center;color:#fff}.simple-cta h2{font-size:30px;margin:0 0 7px}.simple-cta p{color:#d7e4ef;font-size:14px;margin:0 0 20px}
 .contact{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.contact-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center}.contact-card h3{margin:0 0 5px;color:var(--navy);font-size:15px}.contact-card p{margin:0;color:var(--muted);font-size:12px}.contact-card a{color:#0d477d;font-weight:800}
@@ -174,12 +187,17 @@ footer{background:#051225;color:#aebdce;text-align:center;padding:28px 18px;font
 </div>
 <div style="margin-top:20px"><a class="btn primary" href="about.html">Know More About Us →</a></div>
 </div>
-<div class="udyam"><div style="font-size:10px;letter-spacing:1.4px;color:#a9bfd3;font-weight:800">REGISTERED ENTERPRISE</div>
-<h3>Udyam Registration Reference</h3><p>Udyam Registration No. UDYAM-KR-03-0669511. The public website currently uses the Sandeep Solutions brand while the official registration-name update remains a separate administrative matter.</p>
-<div style="font-size:10px;color:#a9bfd3;text-transform:uppercase;letter-spacing:1px">Registration Number</div>
-<div class="reg">UDYAM-KR-03-0669511</div>
-<p>Major activity: Services. Business activities include employment placement, management consultancy, business support and human resources services.</p>
-<a class="btn primary" href="https://udyamregistration.gov.in/" target="_blank" rel="noopener">Official Udyam Portal →</a>
+<div class="why-card">
+<div class="why-kicker">WHY BUSINESSES CHOOSE US</div>
+<h3>Practical support. Clear processes. Real business focus.</h3>
+<p class="why-intro">We bring people, process and business support together so owners can focus on growth.</p>
+<div class="why-list">
+<div class="why-item"><span class="why-icon">✓</span><div><b>People-first approach</b><small>Respectful candidate and employee support.</small></div></div>
+<div class="why-item"><span class="why-icon">✓</span><div><b>Practical solutions</b><small>Simple processes designed for day-to-day business needs.</small></div></div>
+<div class="why-item"><span class="why-icon">✓</span><div><b>Four service pillars</b><small>HR, business consultancy, restaurant solutions and documentation.</small></div></div>
+<div class="why-item"><span class="why-icon">✓</span><div><b>Pan-India support</b><small>Services available for businesses across India.</small></div></div>
+</div>
+<a class="btn primary" href="services.html">Explore Our Services →</a>
 </div></div></div></section>
 
 <section><div class="container">
