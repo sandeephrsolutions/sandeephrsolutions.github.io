@@ -1,214 +1,111 @@
-<!doctype html>
-<html lang="en-IN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#061b3a">
-<meta name="description" content="Sandeep Solutions provides professional HR, recruitment, business consultancy, restaurant solutions and documentation support for growing businesses across India.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://sandeephrsolutions.github.io/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sandeep Solutions | HR & Business Solutions">
-<meta property="og:description" content="Your trusted HR, recruitment and business solutions partner for business growth.">
-<meta property="og:url" content="https://sandeephrsolutions.github.io/">
-<meta property="og:image" content="https://sandeephrsolutions.github.io/assets/home-hero-hd.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sandeep Solutions | HR & Business Solutions</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Sandeep Solutions - HR, recruitment, business consultancy and process support.">
+<link rel="icon" href="assets/logo.png">
 <style>
-/* Home-page refinements */
-.home-hero-photo{position:relative;min-height:420px;overflow:hidden;border-radius:24px}
-.home-hero-photo img{width:100%;height:420px;object-fit:cover;display:block}
-.home-hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,27,58,.10),rgba(6,27,58,.02));pointer-events:none}
-.service-card img{width:100%;height:190px;object-fit:cover;display:block}
-.service-card{overflow:hidden}
-.home-mini-services{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.home-mini-services span{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;background:rgba(255,255,255,.06);font-size:13px;font-weight:700}
-.home-mini-services i{width:8px;height:8px;border-radius:50%;background:#f5b91d;display:inline-block}
-@media(max-width:700px){
-.home-hero-photo,.home-hero-photo img{min-height:300px;height:300px}
-.service-card img{height:170px}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#062b57;--navy2:#031c3b;--gold:#fbb718;--white:#fff;--muted:#dce8f5}
+body{font-family:Arial,Helvetica,sans-serif;color:#142238;background:#fff}
+a{text-decoration:none;color:inherit}
+.header{height:116px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4.2%;box-shadow:0 2px 12px rgba(0,0,0,.08);position:relative;z-index:5}
+.logo{width:155px;height:auto;object-fit:contain}
+.nav{display:flex;align-items:center;gap:38px;font-weight:700;font-size:18px}
+.nav a{padding:12px 0}
+.nav a:first-child{color:#1260ad}
+.quote{background:var(--gold);padding:20px 31px!important;border-radius:15px;box-shadow:0 7px 20px rgba(251,183,24,.25)}
+.hero{position:relative;min-height:525px;overflow:hidden;background:var(--navy2)}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(3,26,56,.98) 0%,rgba(4,38,77,.94) 29%,rgba(4,38,77,.72) 48%,rgba(4,38,77,.18) 73%,rgba(4,38,77,.06) 100%),url('assets/home-hero-hd.jpg');background-size:cover;background-position:center}
+.hero-inner{position:relative;z-index:2;min-height:525px;padding:42px 5.3% 30px;display:flex;align-items:center}
+.hero-copy{width:51%;max-width:690px}
+.badge{display:inline-flex;align-items:center;gap:11px;border:1px solid rgba(251,183,24,.75);border-radius:22px;padding:9px 18px;color:#fff;font-size:14px;font-weight:800;letter-spacing:2px;margin-bottom:28px}
+.badge i{width:9px;height:9px;background:var(--gold);border-radius:50%;display:block}
+h1{font-size:66px;line-height:.98;color:#fff;letter-spacing:-2px;margin-bottom:24px}
+h1 span{color:var(--gold)}
+.sub{font-size:25px;line-height:1.35;color:#f2f6fb;max-width:650px;margin-bottom:25px}
+.buttons{display:flex;gap:18px;margin-bottom:25px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;border-radius:12px;padding:18px 28px}
+.btn-primary{background:var(--gold);color:#071d39}
+.btn-outline{border:2px solid #c8d6e6;color:#fff;background:rgba(0,0,0,.08)}
+.chips{display:flex;gap:20px;flex-wrap:wrap}
+.chip{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:16px;padding:10px 4px}
+.chip i{width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 4px rgba(251,183,24,.08)}
+.cards{position:relative;z-index:3;background:linear-gradient(180deg,#062b57,#05264e);padding:0 1.6% 18px;display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:-1px}
+.card{height:206px;border:1px solid rgba(218,231,245,.7);border-radius:16px;overflow:hidden;position:relative;background:#082b52;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.card img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9}
+.card:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,rgba(3,24,49,.98))}
+.card-content{position:absolute;z-index:2;left:22px;right:15px;bottom:17px;color:#fff}
+.card-icon{position:absolute;left:18px;bottom:58px;width:43px;height:43px;border-radius:50%;background:var(--gold);color:#082b52;display:grid;place-items:center;font-size:21px;font-weight:900}
+.card h3{margin-left:61px;font-size:17px;margin-bottom:5px}
+.card p{margin-left:61px;font-size:12.5px;line-height:1.35;color:#e7eef7;max-width:245px}
+.card-arrow{position:absolute;right:0;bottom:0;width:31px;height:31px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:900}
+@media(max-width:900px){
+ .header{height:86px;padding:0 20px}.logo{width:125px}.nav{gap:14px;font-size:14px}.quote{padding:12px 15px!important}
+ .hero-bg{background-position:65% center}.hero-inner{min-height:650px;padding:38px 25px 30px;align-items:flex-start}.hero-copy{width:100%;padding-top:10px}
+ h1{font-size:49px}.sub{font-size:20px}.cards{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ .header{height:76px}.nav a:not(.quote){display:none}.nav{gap:0}.quote{font-size:14px;padding:12px 16px!important}
+ .hero{min-height:700px}.hero-bg{background-position:67% center;opacity:.95}.hero-inner{min-height:700px;padding:28px 20px}
+ h1{font-size:43px;letter-spacing:-1px}.sub{font-size:18px}.badge{font-size:11px;letter-spacing:1.3px}.buttons{gap:10px}.btn{font-size:15px;padding:15px 18px}
+ .chips{gap:5px 13px}.chip{font-size:13px}
+ .cards{grid-template-columns:1fr;padding:12px}.card{height:190px}
 }
 </style>
 </head>
 <body>
-
-<header class="site-header">
-<div class="container nav">
-<a class="brand" href="index.html" aria-label="Sandeep Solutions Home">
-<img src="assets/logo.png?v=20261008" alt="Sandeep Solutions logo" width="180" height="127" style="height:70px;width:auto;object-fit:contain">
-</a>
-<button class="menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
-<nav class="navlinks" id="main-navigation" aria-label="Main navigation">
-<a class="active" href="index.html" aria-current="page">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="employers.html">Employers</a>
-<a href="jobs.html">Jobs</a>
-<a href="contact.html">Contact</a>
-</nav>
-<a class="quote" href="employers.html">Get a Quote</a>
-</div>
+<header class="header">
+  <a href="index.html"><img class="logo" src="assets/logo.png" alt="Sandeep Solutions"></a>
+  <nav class="nav">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+    <a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a>
+    <a class="quote" href="employers.html">Get a Quote</a>
+  </nav>
 </header>
 
 <main>
-
 <section class="hero">
-<div class="container hero-grid">
-<div>
-<div class="eyebrow"><span class="dot"></span> Business Solutions &amp; HR Support</div>
-<h1>People. <span>Process.</span><br>Performance.</h1>
-<p>Your Trusted HR &amp; Recruitment Partner for Business Growth</p>
-<div class="actions">
-<a class="btn gold" href="employers.html">Hire Talent →</a>
-<a class="btn outline" href="jobs.html">Find Jobs →</a>
-</div>
-<div class="home-mini-services">
-<span><i></i> HR Solutions</span>
-<span><i></i> Recruitment Support</span>
-<span><i></i> Business Consultancy</span>
-<span><i></i> Process &amp; Compliance</span>
-</div>
-</div>
-
-<div class="home-hero-photo">
-<img src="assets/business-consultancy.jpg?v=20261008" alt="Professional business consultancy meeting" width="900" height="600" loading="eager">
-</div>
-</div>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="badge"><i></i> BUSINESS SOLUTIONS &amp; HR SUPPORT</div>
+      <h1>People. <span>Process.</span><br>Performance.</h1>
+      <p class="sub">Your Trusted HR &amp; Recruitment Partner for Business Growth</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="employers.html">Hire Talent →</a>
+        <a class="btn btn-outline" href="jobs.html">Find Jobs →</a>
+      </div>
+      <div class="chips">
+        <div class="chip"><i></i>HR Solutions</div>
+        <div class="chip"><i></i>Recruitment Support</div>
+        <div class="chip"><i></i>Business Consultancy</div>
+        <div class="chip"><i></i>Process &amp; Compliance</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="stats" aria-label="Company highlights">
-<div class="container stats-grid">
-<div class="stat"><strong>12+</strong><span>Years of Experience</span></div>
-<div class="stat"><strong>500+</strong><span>Successful Hires</span></div>
-<div class="stat"><strong>100+</strong><span>Happy Clients</span></div>
-<div class="stat"><strong>Pan India</strong><span>Service Coverage</span></div>
-</div>
+<section class="cards">
+  <a class="card" href="services.html">
+    <img src="assets/hr-recruitment.jpg" alt="HR and Recruitment">
+    <div class="card-content"><div class="card-icon">👥</div><h3>HR &amp; Recruitment</h3><p>End-to-end hiring, HR operations and people support for growing businesses.</p><div class="card-arrow">→</div></div>
+  </a>
+  <a class="card" href="services.html">
+    <img src="assets/business-consultancy.jpg" alt="Business Consultancy">
+    <div class="card-content"><div class="card-icon">↗</div><h3>Business Consultancy</h3><p>Practical business support, process improvement and growth-focused solutions.</p><div class="card-arrow">→</div></div>
+  </a>
+  <a class="card" href="restaurant-solutions.html">
+    <img src="assets/restaurant-solutions.jpg" alt="Restaurant Solutions">
+    <div class="card-content"><div class="card-icon">🍴</div><h3>Restaurant Solutions</h3><p>Manpower and operational support for restaurants and hospitality businesses.</p><div class="card-arrow">→</div></div>
+  </a>
+  <a class="card" href="documentation-setup.html">
+    <img src="assets/documentation-setup.jpg" alt="Documentation and Setup">
+    <div class="card-content"><div class="card-icon">▤</div><h3>Documentation &amp; Setup</h3><p>Professional documentation, HR setup and essential business process support.</p><div class="card-arrow">→</div></div>
+  </a>
 </section>
-
-<section class="section">
-<div class="container">
-<div class="section-head">
-<div class="kicker">Our Core Services</div>
-<h2>Business support built around people and process.</h2>
-<p>Practical solutions for growing businesses across HR, recruitment, operations, hospitality and documentation.</p>
-</div>
-
-<div class="service-grid">
-
-<article class="card service-card">
-<img src="assets/hr-recruitment.jpg?v=20261008" alt="HR and recruitment services" width="900" height="600" loading="lazy">
-<div class="service-body">
-<h3>HR &amp; Recruitment</h3>
-<p>End-to-end hiring, HR operations and people support for growing businesses.</p>
-<a class="link" href="services.html">Know More →</a>
-</div>
-</article>
-
-<article class="card service-card">
-<img src="assets/business-consultancy.jpg?v=20261008" alt="Business consultancy services" width="900" height="600" loading="lazy">
-<div class="service-body">
-<h3>Business Consultancy</h3>
-<p>Practical business support, process improvement and growth-focused solutions.</p>
-<a class="link" href="services.html">Know More →</a>
-</div>
-</article>
-
-<article class="card service-card">
-<img src="assets/restaurant-solutions.jpg?v=20261008" alt="Restaurant and hospitality solutions" width="900" height="600" loading="lazy">
-<div class="service-body">
-<h3>Restaurant Solutions</h3>
-<p>Manpower and operational support for restaurants and hospitality businesses.</p>
-<a class="link" href="restaurant-solutions.html">Know More →</a>
-</div>
-</article>
-
-<article class="card service-card">
-<img src="assets/documentation-setup.jpg?v=20261008" alt="Documentation and business setup services" width="900" height="600" loading="lazy">
-<div class="service-body">
-<h3>Documentation &amp; Setup</h3>
-<p>Professional documentation, HR setup and essential business process support.</p>
-<a class="link" href="documentation-setup.html">Know More →</a>
-</div>
-</article>
-
-</div>
-
-<div class="feature-banner">
-<div>
-<h3>Let’s Build a Stronger Workforce Together</h3>
-<p>Talk to Sandeep Solutions about your next hiring or business requirement.</p>
-</div>
-<a class="btn gold" href="contact.html">Get a Free Consultation →</a>
-</div>
-</div>
-</section>
-
-<section class="section light">
-<div class="container">
-<div class="section-head">
-<div class="kicker">Industries We Support</div>
-<h2>Solutions for different business environments.</h2>
-</div>
-<div class="industries">
-<div class="industry"><div class="icon">S</div>Startups</div>
-<div class="industry"><div class="icon">R</div>Retail</div>
-<div class="industry"><div class="icon">H</div>Hospitality</div>
-<div class="industry"><div class="icon">F</div>F&amp;B</div>
-<div class="industry"><div class="icon">M</div>Manufacturing</div>
-<div class="industry"><div class="icon">IT</div>IT &amp; ITES</div>
-</div>
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-<div class="section-head">
-<div class="kicker">Why Work With Sandeep Solutions</div>
-<h2>Practical solutions. Real business value.</h2>
-</div>
-<div class="mission">
-<div class="mini-card"><h3>Industry Experience</h3><p>12+ years of HR and recruitment experience across diverse business environments.</p></div>
-<div class="mini-card"><h3>Customized Solutions</h3><p>Support tailored to your workforce, business process and operational requirements.</p></div>
-<div class="mini-card"><h3>End-to-End Support</h3><p>From hiring and HR operations to documentation and compliance support.</p></div>
-</div>
-</div>
-</section>
-
-<section class="section dark">
-<div class="container">
-<div class="section-head">
-<div class="kicker">Ready to Grow?</div>
-<h2>Let’s discuss your business requirement.</h2>
-<p>Whether you need talent, HR support, consultancy or operational assistance, we are ready to help.</p>
-<a class="btn gold" href="employers.html">Start a Conversation →</a>
-</div>
-</div>
-</section>
-
 </main>
-
-<div class="legal">
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Terms &amp; Conditions</a>
-<a href="disclaimer.html">Disclaimer</a>
-</div>
-
-<footer class="footer">
-<div class="container footer-grid">
-<div><h3>Sandeep Solutions</h3><p>HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p><p>Founder: Sandeep Kumar Samal</p></div>
-<div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="jobs.html">Jobs</a></div>
-<div><h3>Our Services</h3><a href="services.html">HR &amp; Recruitment</a><a href="services.html">Business Consultancy</a><a href="restaurant-solutions.html">Restaurant Solutions</a><a href="documentation-setup.html">Documentation &amp; Setup</a></div>
-<div><h3>Contact Info</h3><p>+91 7978259944<br>sandeep.hrsolutions.shr@gmail.com<br>Bangalore, Karnataka, India</p><div class="social"><a href="https://www.instagram.com/sandeep_solutions/" target="_blank" rel="noopener noreferrer">IG</a><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">FB</a><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YT</a></div></div>
-</div>
-<div class="container footer-bottom">© 2026 Sandeep Solutions. All rights reserved.</div>
-</footer>
-
-<script src="app.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded",function(){
-const menu=document.querySelector(".menu"),nav=document.querySelector(".navlinks");
-if(menu&&nav){menu.addEventListener("click",function(){const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));});}
-});
-</script>
 </body>
 </html>
