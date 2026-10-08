@@ -1,11 +1,5 @@
 <!doctype html>
-<html lang="en-IN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071b3a">
-<meta name="description" content="Find current job opportunities with Sandeep Solutions.">
-<title>Jobs | Sandeep Solutions</title>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071b3a"><meta name="description" content="Find current job opportunities with Sandeep Solutions."><title>Jobs | Sandeep Solutions</title>
 <style>
 :root{--navy:#071b3a;--navy2:#0d2a55;--gold:#caa44d;--gold2:#e1c878;--ink:#17243a;--muted:#64748b;--soft:#f5f7fb;--line:#e5e9f0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.6;background:#fff}a{text-decoration:none;color:inherit}.container{width:min(1160px,92%);margin:auto}
@@ -20,82 +14,21 @@ header{height:116px;background:#fff;border-bottom:1px solid var(--line);position
 @media(max-width:950px){header{height:88px}.brand img{width:125px}.navlinks{gap:12px}.navlinks a{font-size:13px}.quote{padding:12px 16px}.search-grid{grid-template-columns:1fr 1fr}.search-btn{min-height:48px}.layout{grid-template-columns:210px 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:820px){header{height:78px}.brand img{width:126px}.menu-toggle{display:block;margin-left:auto}.navlinks{position:absolute;top:78px;right:18px;display:none!important;flex-direction:column;align-items:stretch;gap:0;width:220px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 35px rgba(3,29,61,.18);padding:8px}.navlinks.open{display:flex!important}.navlinks a{padding:12px 14px;font-size:15px}.quote{display:none}.layout{grid-template-columns:1fr}.filters{position:static}.search-grid{grid-template-columns:1fr}.search-btn{height:48px}.section{padding:58px 0}}
 @media(max-width:600px){header{height:76px}.brand img{width:112px}.menu-toggle{font-size:26px}.hero{min-height:430px}.hero-inner{padding:55px 0}.hero p{font-size:16px}.search-wrap{margin-top:-35px}.section{padding:50px 0}.section-head{align-items:start;flex-direction:column}.job-head{flex-direction:column}.apply{width:100%;text-align:center}.footer-grid{grid-template-columns:1fr}.cta-inner{flex-direction:column;align-items:flex-start}}
-</style>
-</head>
-<body>
-<header><div class="container nav">
-<a class="brand" href="index.html"><img src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a>
-<button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
-<nav class="navlinks" id="navlinks"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a class="active" href="jobs.html">Jobs</a><a href="contact.html">Contact</a></nav>
-<a class="quote" href="employers.html">Get a Quote</a>
-</div></header>
-
-<main>
-<section class="hero"><div class="container hero-inner">
-<div class="eyebrow"><span class="dot"></span> Career Opportunities</div>
-<h1>Find your next<br><span style="color:var(--gold2)">opportunity.</span></h1>
-<p>Explore current openings across IT, hospitality, retail, F&amp;B, sales, HR and operations. Find the role that matches your skills and career goals.</p>
-<div class="hero-badges"><span class="badge">Verified Opportunities</span><span class="badge">Multiple Industries</span><span class="badge">No Candidate Fee</span></div>
-</div></section>
-
-<section class="search-wrap"><div class="container"><div class="search-card">
-<div class="search-grid"><div class="field"><input id="kw" placeholder="Job title or keyword"></div><div class="field"><input id="loc" placeholder="Location"></div><div class="field"><input id="exp" placeholder="Experience"></div><button class="search-btn" type="button" onclick="renderJobs()">Search Jobs</button></div>
-</div></div></section>
-
-<section class="section soft"><div class="container">
-<div class="tabs" id="tabs"><button class="tab active" data-cat="">All</button><button class="tab" data-cat="IT">IT &amp; ITES</button><button class="tab" data-cat="Hospitality">Hospitality</button><button class="tab" data-cat="Retail">Retail</button><button class="tab" data-cat="F&B">F&amp;B</button><button class="tab" data-cat="Sales">Sales</button><button class="tab" data-cat="HR">HR</button><button class="tab" data-cat="Operations">Operations</button></div>
-<div class="layout">
-<aside class="filters"><h3>Job Filters</h3><div class="filter-group"><b>Job Type</b><label class="check"><input class="type-filter" value="Full Time" type="checkbox"> Full Time</label><label class="check"><input class="type-filter" value="Part Time" type="checkbox"> Part Time</label><label class="check"><input class="type-filter" value="Contract" type="checkbox"> Contract</label><label class="check"><input class="type-filter" value="Work From Home" type="checkbox"> Work From Home</label></div>
-<div class="filter-group"><b>Experience</b><label class="check"><input class="exp-filter" value="0-1" type="checkbox"> 0–1 Years</label><label class="check"><input class="exp-filter" value="1-3" type="checkbox"> 1–3 Years</label><label class="check"><input class="exp-filter" value="3-5" type="checkbox"> 3–5 Years</label><label class="check"><input class="exp-filter" value="5+" type="checkbox"> 5+ Years</label></div>
-<a class="login" href="candidate-login.html">Candidate Login</a><div class="candidate-note">✓ Candidate registration / placement fee: NO FEE</div></aside>
-<section><div class="section-head"><div><div class="kicker">Latest Openings</div><h2>Current jobs</h2></div><span class="count" id="jobCount">Loading…</span></div><div class="job-list" id="jobList"><div class="empty">Loading active vacancies…</div></div></section>
-</div></div></section>
-
-<section class="cta"><div class="container cta-inner"><div><div class="kicker">Looking for the right role?</div><h2>Register your profile with us.</h2><p>Our recruitment team can connect suitable opportunities with your profile.</p></div><a class="btn" href="candidate-register.html">Register as Candidate</a></div></section>
-</main>
-
-<footer class="footer"><div class="container footer-grid">
-<div><img class="footer-logo" src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"><p>HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p></div>
-<div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a></div>
-<div><h3>Candidate</h3><a href="candidate-register.html">Register</a><a href="candidate-login.html">Candidate Login</a><a href="contact.html">Contact</a></div>
-<div><h3>Contact</h3><p>+91 7978259944<br>sandeep.hr.solutions.shr@gmail.com<br>Bangalore, Karnataka, India</p><div class="social"><a href="https://www.linkedin.com/company/sandeep-hr-solutions/" target="_blank">in</a><a href="https://www.instagram.com/sandeep_hr_solutions/" target="_blank">ig</a><a href="https://www.facebook.com/search/pages?q=Sandeep%20Hr%20Solutions" target="_blank">f</a></div></div>
-</div><div class="legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="disclaimer.html">Disclaimer</a></div><div class="bottom">© 2026 Sandeep Solutions. All rights reserved.</div></footer>
-
-<script>
-function toggleMenu(){const n=document.getElementById('navlinks'),b=document.querySelector('.menu-toggle');n.classList.toggle('open');b.setAttribute('aria-expanded',n.classList.contains('open'))}
-</script>
+</style></head><body>
+<header><div class="container nav"><a class="brand" href="index.html"><img src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button><nav class="navlinks" id="navlinks"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a class="active" href="jobs.html">Jobs</a><a href="contact.html">Contact</a></nav><a class="quote" href="employers.html">Get a Quote</a></div></header>
+<main><section class="hero"><div class="container hero-inner"><div class="eyebrow"><span class="dot"></span> Career Opportunities</div><h1>Find your next<br><span style="color:var(--gold2)">opportunity.</span></h1><p>Explore current openings across IT, hospitality, retail, F&amp;B, sales, HR and operations. Find the role that matches your skills and career goals.</p><div class="hero-badges"><span class="badge">Verified Opportunities</span><span class="badge">Multiple Industries</span><span class="badge">No Candidate Fee</span></div></div></section>
+<section class="search-wrap"><div class="container"><div class="search-card"><div class="search-grid"><div class="field"><input id="kw" placeholder="Job title or keyword"></div><div class="field"><input id="loc" placeholder="Location"></div><div class="field"><input id="exp" placeholder="Experience"></div><button class="search-btn" type="button" onclick="renderJobs()">Search Jobs</button></div></div></div></section>
+<section class="section soft"><div class="container"><div class="tabs" id="tabs"><button class="tab active" data-cat="">All</button><button class="tab" data-cat="IT">IT &amp; ITES</button><button class="tab" data-cat="Hospitality">Hospitality</button><button class="tab" data-cat="Retail">Retail</button><button class="tab" data-cat="F&B">F&amp;B</button><button class="tab" data-cat="Sales">Sales</button><button class="tab" data-cat="HR">HR</button><button class="tab" data-cat="Operations">Operations</button></div>
+<div class="layout"><aside class="filters"><h3>Job Filters</h3><div class="filter-group"><b>Job Type</b><label class="check"><input class="type-filter" value="Full Time" type="checkbox"> Full Time</label><label class="check"><input class="type-filter" value="Part Time" type="checkbox"> Part Time</label><label class="check"><input class="type-filter" value="Contract" type="checkbox"> Contract</label><label class="check"><input class="type-filter" value="Work From Home" type="checkbox"> Work From Home</label></div><div class="filter-group"><b>Experience</b><label class="check"><input class="exp-filter" value="0-1" type="checkbox"> 0–1 Years</label><label class="check"><input class="exp-filter" value="1-3" type="checkbox"> 1–3 Years</label><label class="check"><input class="exp-filter" value="3-5" type="checkbox"> 3–5 Years</label><label class="check"><input class="exp-filter" value="5+" type="checkbox"> 5+ Years</label></div><a class="login" href="candidate-login.html">Candidate Login</a><div class="candidate-note">✓ Candidate registration / placement fee: NO FEE</div></aside>
+<section><div class="section-head"><div><div class="kicker">Latest Openings</div><h2>Current jobs</h2></div><span class="count" id="jobCount">Loading…</span></div><div class="job-list" id="jobList"><div class="empty">Loading active vacancies…</div></div></section></div></div></section>
+<section class="cta"><div class="container cta-inner"><div><div class="kicker">Looking for the right role?</div><h2>Register your profile with us.</h2><p>Our recruitment team can connect suitable opportunities with your profile.</p></div><a class="btn" href="candidate-register.html">Register as Candidate</a></div></section></main>
+<footer class="footer"><div class="container footer-grid"><div><img class="footer-logo" src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"><p>HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="admin-login.html" aria-label="Admin Login">🔐 Admin Login</a></div><div><h3>Candidate</h3><a href="candidate-register.html">Register</a><a href="candidate-login.html">Candidate Login</a><a href="contact.html">Contact</a></div><div><h3>Contact</h3><p>+91 7978259944<br>sandeep.hr.solutions.shr@gmail.com<br>Bangalore, Karnataka, India</p><div class="social"><a href="https://www.linkedin.com/company/sandeep-hr-solutions/" target="_blank">in</a><a href="https://www.instagram.com/sandeep_hr_solutions/" target="_blank">ig</a><a href="https://www.facebook.com/search/pages?q=Sandeep%20Hr%20Solutions" target="_blank">f</a></div></div></div><div class="legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="disclaimer.html">Disclaimer</a></div><div class="bottom">© 2026 Sandeep Solutions. All rights reserved.</div></footer>
+<script>function toggleMenu(){const n=document.getElementById('navlinks'),b=document.querySelector('.menu-toggle');n.classList.toggle('open');b.setAttribute('aria-expanded',n.classList.contains('open'))}</script>
 <script type="module">
-import {db} from "./firebase-config.js";
-import {collection,getDocs,query,where} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-let jobs=[],category="";
-const val=(j,...keys)=>{for(const k of keys){if(j[k]!=null&&String(j[k]).trim())return String(j[k]);}return "Not specified"};
-const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function renderJobs(){
- const kw=(document.getElementById("kw").value||"").toLowerCase(),loc=(document.getElementById("loc").value||"").toLowerCase(),exp=(document.getElementById("exp").value||"").toLowerCase();
- const types=[...document.querySelectorAll(".type-filter:checked")].map(x=>x.value.toLowerCase());
- const exps=[...document.querySelectorAll(".exp-filter:checked")].map(x=>x.value.toLowerCase());
- const out=jobs.filter(j=>{
-  const text=(val(j,"jobTitle","position","title")+" "+val(j,"description","jobDescription")).toLowerCase();
-  const jl=val(j,"location","jobLocation").toLowerCase(), je=val(j,"experience").toLowerCase(), jt=val(j,"jobType","employmentType","workingDays").toLowerCase(), jc=val(j,"category","department").toLowerCase();
-  return (!kw||text.includes(kw))&&(!loc||jl.includes(loc))&&(!exp||je.includes(exp))&&(!category||jc.includes(category.toLowerCase()))&&(!types.length||types.some(t=>jt.includes(t)))&&(!exps.length||exps.some(e=>je.includes(e)));
- });
- document.getElementById("jobCount").textContent=`Showing ${out.length} Job${out.length===1?"":"s"}`;
- document.getElementById("jobList").innerHTML=out.length?out.map(j=>`<article class="job-card"><div class="job-head"><div><div class="job-title">${esc(val(j,"jobTitle","position","title"))}</div><div class="job-meta">${esc(val(j,"location","jobLocation"))} &nbsp;•&nbsp; ${esc(val(j,"salary","salaryRange"))} &nbsp;•&nbsp; ${esc(val(j,"jobType","employmentType","workingDays"))}</div></div><button class="apply apply-job-btn" type="button" data-job-id="${esc(j.id)}">Apply Now</button></div><div class="tags"><span class="tag">${esc(val(j,"category","department"))}</span><span class="tag">${esc(val(j,"experience"))}</span><span class="tag">${esc(val(j,"qualification"))}</span></div></article>`).join(""):'<div class="empty"><b>No current openings found.</b><br>Please check again later or register your profile with us.</div>';
-}
-async function loadJobs(){try{const s=await getDocs(query(collection(db,"jobs"),where("status","==","active")));jobs=[];s.forEach(d=>jobs.push({id:d.id,...d.data()}));renderJobs()}catch(e){document.getElementById("jobList").innerHTML='<div class="empty"><b>Jobs could not be loaded.</b><br>Please refresh or contact us.</div>';document.getElementById("jobCount").textContent="Unable to load";}}
-document.querySelectorAll("#kw,#loc,#exp").forEach(x=>x.addEventListener("input",renderJobs));
-document.querySelectorAll(".type-filter,.exp-filter").forEach(x=>x.addEventListener("change",renderJobs));
-document.querySelectorAll(".tab").forEach(x=>x.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));x.classList.add("active");category=x.dataset.cat||"";renderJobs()}));
-function startApplication(jobId){
- if(!jobId)return;
- try{sessionStorage.setItem("selectedJobId",jobId);}catch(e){}
- window.location.href="candidate-login.html";
-}
-function bindApplyButtons(){
- document.querySelectorAll(".apply-job-btn").forEach(btn=>btn.addEventListener("click",()=>startApplication(btn.dataset.jobId)));
-}
-const _renderJobs=renderJobs;
-renderJobs=function(){_renderJobs();bindApplyButtons();};
-loadJobs();
-</script>
-</body></html>
+import {db} from "./firebase-config.js";import {collection,getDocs,query,where} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+let jobs=[],category="";const val=(j,...keys)=>{for(const k of keys){if(j[k]!=null&&String(j[k]).trim())return String(j[k]);}return "Not specified"};const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function renderJobs(){const kw=(document.getElementById("kw").value||"").toLowerCase(),loc=(document.getElementById("loc").value||"").toLowerCase(),exp=(document.getElementById("exp").value||"").toLowerCase();const types=[...document.querySelectorAll(".type-filter:checked")].map(x=>x.value.toLowerCase());const exps=[...document.querySelectorAll(".exp-filter:checked")].map(x=>x.value.toLowerCase());const out=jobs.filter(j=>{const text=(val(j,"jobTitle","position","title")+" "+val(j,"description","jobDescription")).toLowerCase();const jl=val(j,"location","jobLocation").toLowerCase(),je=val(j,"experience").toLowerCase(),jt=val(j,"jobType","employmentType","workingDays").toLowerCase(),jc=val(j,"category","department").toLowerCase();return (!kw||text.includes(kw))&&(!loc||jl.includes(loc))&&(!exp||je.includes(exp))&&(!category||jc.includes(category.toLowerCase()))&&(!types.length||types.some(t=>jt.includes(t)))&&(!exps.length||exps.some(e=>je.includes(e)))});document.getElementById("jobCount").textContent=`Showing ${out.length} Job${out.length===1?"":"s"}`;document.getElementById("jobList").innerHTML=out.length?out.map(j=>`<article class="job-card"><div class="job-head"><div><div class="job-title">${esc(val(j,"jobTitle","position","title"))}</div><div class="job-meta">${esc(val(j,"location","jobLocation"))} &nbsp;•&nbsp; ${esc(val(j,"salary","salaryRange"))} &nbsp;•&nbsp; ${esc(val(j,"jobType","employmentType","workingDays"))}</div></div><button class="apply apply-job-btn" type="button" data-job-id="${esc(j.id)}">Apply Now</button></div><div class="tags"><span class="tag">${esc(val(j,"category","department"))}</span><span class="tag">${esc(val(j,"experience"))}</span><span class="tag">${esc(val(j,"qualification"))}</span></div></article>`).join(""):'<div class="empty"><b>No current openings found.</b><br>Please check again later or register your profile with us.</div>'}
+async function loadJobs(){try{const s=await getDocs(query(collection(db,"jobs"),where("status","==","active")));jobs=[];s.forEach(d=>jobs.push({id:d.id,...d.data()}));renderJobs()}catch(e){document.getElementById("jobList").innerHTML='<div class="empty"><b>Jobs could not be loaded.</b><br>Please refresh or contact us.</div>';document.getElementById("jobCount").textContent="Unable to load"}}
+document.querySelectorAll("#kw,#loc,#exp").forEach(x=>x.addEventListener("input",renderJobs));document.querySelectorAll(".type-filter,.exp-filter").forEach(x=>x.addEventListener("change",renderJobs));document.querySelectorAll(".tab").forEach(x=>x.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));x.classList.add("active");category=x.dataset.cat||"";renderJobs()}));
+function startApplication(jobId){if(!jobId)return;try{sessionStorage.setItem("selectedJobId",jobId)}catch(e){}window.location.href="candidate-login.html"}function bindApplyButtons(){document.querySelectorAll(".apply-job-btn").forEach(btn=>btn.addEventListener("click",()=>startApplication(btn.dataset.jobId)))}const _renderJobs=renderJobs;renderJobs=function(){_renderJobs();bindApplyButtons()};loadJobs();
+</script></body></html>
