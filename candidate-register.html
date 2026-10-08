@@ -1,26 +1,126 @@
 <!doctype html>
-<html lang="en"><head>
-<meta name="theme-color" content="#071B34">
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<html lang="en-IN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071b34"><meta name="robots" content="noindex,nofollow">
 <title>Candidate Registration | Sandeep Solutions</title>
-<link rel="icon" href="brand-mark.png" type="image/png"><style>
-:root{--navy:#071b34;--blue:#123f68;--gold:#f4b83f;--ink:#162536;--muted:#6b7785;--line:#e4e9ef;--bg:#f5f8fc}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}a{text-decoration:none;color:inherit}.top{background:var(--navy);color:#fff}.wrap{max-width:1050px;margin:auto;padding:0 18px}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:46px;height:46px;border-radius:10px;background:#fff}.brand strong{display:block;font-size:14px}.brand small{display:block;color:#f4b83f;font-size:8px;letter-spacing:1px;margin-top:3px}.nav-links{display:flex;gap:8px;align-items:center}.nav-links a{color:#fff;font-size:12px;font-weight:700;padding:10px 11px;border-radius:9px}.nav-links a:hover{background:#ffffff12}.nav-links .active{background:#f4b83f;color:#071b34}.hero{padding:54px 0 34px;background:linear-gradient(135deg,#071b34,#123f68);color:#fff}.hero h1{font-size:40px;margin:0 0 12px}.hero p{color:#d9e3ed;max-width:650px;line-height:1.7;margin:0}.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 16px 42px #071b3410;padding:26px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{margin-bottom:14px}.field.full{grid-column:1/-1}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px;color:#334155}.field input,.field textarea,.field select{width:100%;border:1px solid #d7e0e9;border-radius:11px;background:#fbfcfe;padding:12px 13px;font:inherit;outline:none}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#4d86b8;box-shadow:0 0 0 3px #4d86b81a;background:#fff}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;border:0;border-radius:11px;padding:0 18px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:var(--navy)}.secondary{background:#edf3f8;color:var(--navy)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}.notice{display:none;margin-bottom:16px;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.5}.notice.show{display:block}.notice.error{background:#fff0f0;color:#a52828;border:1px solid #f2cccc}.notice.success{background:#eefaf1;color:#23723b;border:1px solid #ccebd5}footer{padding:30px 0;text-align:center;color:#6b7785;font-size:12px}@media(max-width:700px){.nav-links{display:none}.nav{min-height:66px}.hero{padding:44px 0 28px}.hero h1{font-size:34px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:20px}.actions .btn{width:100%}}
-</style></head><body>
-<header class="top"><div class="wrap nav"><a class="brand" href="index.html"><img src="brand-mark.png" alt="Sandeep Solutions logo"><span><strong>Sandeep Solutions</strong><small>HR &amp; RECRUITMENT • BUSINESS SUPPORT</small></span></a><div class="nav-links"><a href="index.html">Home</a><a class="active" href="candidate-register.html">Register</a><a href="candidate-login.html">Login</a></div></div></header>
-<section class="hero"><div class="wrap"><h1>Create Your Candidate Profile</h1><p>Create an account once. You can login later and edit your professional details whenever you need.</p></div></section>
-<main class="wrap"><div class="card"><div id="notice" class="notice"></div><form id="registerForm"><div class="grid"><div class="field"><label>Full Name *</label><input id="fullName" required autocomplete="name" placeholder="Your full name"></div><div class="field"><label>Mobile Number *</label><input id="mobile" required inputmode="tel" placeholder="10-digit mobile number"></div><div class="field"><label>Email Address *</label><input id="email" type="email" required autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Password *</label><input id="password" type="password" required minlength="6" autocomplete="new-password" placeholder="Minimum 6 characters"></div><div class="field"><label>Confirm Password *</label><input id="confirmPassword" type="password" required minlength="6" autocomplete="new-password" placeholder="Re-enter password"></div><div class="field"><label>Qualification</label><input id="qualification" placeholder="Degree / certification"></div><div class="field"><label>Total Experience</label><input id="experience" placeholder="e.g. 3 years"></div><div class="field"><label>Current Designation</label><input id="designation" placeholder="Current job title"></div><div class="field"><label>Current Company</label><input id="company" placeholder="Current organization"></div><div class="field"><label>Current Salary</label><input id="currentSalary" placeholder="e.g. ₹5 LPA"></div><div class="field"><label>Expected Salary</label><input id="expectedSalary" placeholder="e.g. ₹7 LPA"></div><div class="field"><label>Preferred Location</label><input id="location" placeholder="e.g. Bengaluru / Remote"></div><div class="field"><label>Notice Period</label><input id="noticePeriod" placeholder="e.g. Immediate / 30 days"></div><div class="field"><label>Key Skills</label><input id="skills" placeholder="e.g. Recruitment, Excel, Payroll"></div><div class="field full"><label>Resume / LinkedIn Profile</label><input id="resumeUrl" type="url" placeholder="Optional public link"></div></div><div class="actions"><button class="btn primary" type="submit">Create Candidate Account</button><a class="btn secondary" href="candidate-login.html">Already have an account?</a></div></form></div></main>
-<footer>Sandeep Solutions • Candidate Portal</footer>
-<script type="module">
-import { auth, db } from "./firebase-config.js";import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-const $=id=>document.getElementById(id),notice=$("notice");const show=(msg,type="error")=>{notice.textContent=msg;notice.className="notice show "+type;};$("registerForm").addEventListener("submit",async e=>{e.preventDefault();if($("password").value!==$("confirmPassword").value)return show("Passwords do not match.");show("Creating your account...","success");try{const cred=await createUserWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);const p={fullName:$("fullName").value.trim(),mobile:$("mobile").value.trim(),email:$("email").value.trim(),qualification:$("qualification").value.trim(),experience:$("experience").value.trim(),designation:$("designation").value.trim(),company:$("company").value.trim(),currentSalary:$("currentSalary").value.trim(),expectedSalary:$("expectedSalary").value.trim(),location:$("location").value.trim(),noticePeriod:$("noticePeriod").value.trim(),skills:$("skills").value.trim(),resumeUrl:$("resumeUrl").value.trim(),updatedAt:serverTimestamp()};await setDoc(doc(db,"candidates",cred.user.uid),p);location.href="candidate-dashboard.html";}catch(err){show(err.code==="auth/email-already-in-use"?"This email is already registered. Please login.":err.message);}});
-</script>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("/sw.js", {scope: "/"})
-      .catch(function (error) { console.warn("Sandeep Solutions PWA service worker:", error); });
-  });
+<link rel="icon" href="brand-mark.png" type="image/png">
+<style>
+:root{
+ --navy:#071b34;--blue:#123f68;--gold:#f4b83f;--gold2:#d89b28;
+ --ink:#162536;--muted:#68778a;--line:#e2e8f0;--bg:#f5f8fc;--white:#fff;
 }
-</script>
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,92%);margin:auto}
+.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:30;box-shadow:0 5px 22px #071b3418}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:54px;height:54px;object-fit:contain;border-radius:12px;background:#fff;padding:3px}
+.brand strong{display:block;font-size:16px;letter-spacing:.1px}
+.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:1.2px;margin-top:4px;font-weight:800}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-links a{color:#fff;font-size:12px;font-weight:800;padding:10px 13px;border-radius:9px}
+.nav-links a:hover{background:#ffffff12}
+.nav-links .active{background:var(--gold);color:var(--navy)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(110deg,#071b34 0%,#0c2c4d 55%,#123f68 100%);color:#fff}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff18;border-radius:50%;right:-150px;top:-190px}
+.hero-inner{position:relative;z-index:1;padding:64px 0 56px}
+.kicker{display:inline-block;color:var(--gold);font-size:10px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:10px}
+.hero h1{font-size:44px;line-height:1.1;margin:0 0 13px;letter-spacing:-.8px}
+.hero p{max-width:700px;color:#dce7f1;line-height:1.7;font-size:14px;margin:0}
+main{padding:30px 0 60px}
+.portal-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;align-items:start}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 16px 42px #071b3410;padding:28px}
+.side-card{background:linear-gradient(145deg,#071b34,#123f68);color:#fff;border-radius:20px;padding:25px;box-shadow:0 16px 42px #071b3418}
+.side-card h3{margin:0 0 10px;font-size:20px}.side-card p{color:#d9e5ef;font-size:12px;line-height:1.7}
+.side-list{display:grid;gap:10px;margin-top:18px}.side-item{display:flex;gap:9px;align-items:flex-start;font-size:11px;color:#edf4fa}.side-dot{width:22px;height:22px;border-radius:50%;background:#f4b83f;color:#071b34;display:grid;place-items:center;font-weight:900;flex:0 0 22px}
+.form-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:22px}
+.form-head h2{margin:0;color:var(--navy);font-size:23px}.form-head p{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+.badge{background:#eef6ff;color:#145b91;border-radius:30px;padding:7px 10px;font-size:9px;font-weight:900;white-space:nowrap}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{margin-bottom:0}.field.full{grid-column:1/-1}
+.field label{display:block;font-size:11px;font-weight:850;margin-bottom:7px;color:#334155}
+.field input,.field textarea,.field select{width:100%;border:1px solid #d7e0e9;border-radius:11px;background:#fbfcfe;padding:12px 13px;font:inherit;font-size:13px;outline:none;color:var(--ink)}
+.field textarea{min-height:100px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#4d86b8;box-shadow:0 0 0 3px #4d86b81a;background:#fff}
+.hint{font-size:10px;color:var(--muted);line-height:1.5;margin-top:6px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:45px;border:0;border-radius:11px;padding:0 18px;font-weight:850;cursor:pointer;font-size:12px}
+.primary{background:var(--gold);color:var(--navy)}.secondary{background:#edf3f8;color:var(--navy)}
+.notice{display:none;margin-bottom:16px;padding:12px 14px;border-radius:11px;font-size:12px;line-height:1.5}
+.notice.show{display:block}.notice.error{background:#fff0f0;color:#a52828;border:1px solid #f2cccc}.notice.success{background:#eefaf1;color:#23723b;border:1px solid #ccebd5}
+.divider{height:1px;background:var(--line);margin:22px 0}
+.mini-links{display:flex;justify-content:space-between;gap:10px;font-size:11px;font-weight:800}.mini-links a{color:#145b91}.mini-links a:hover{text-decoration:underline}
+.info-box{background:#f7f9fc;border:1px solid #e7edf3;border-radius:12px;padding:13px;font-size:10px;color:var(--muted);line-height:1.6}
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:11px}
+@media(max-width:850px){.portal-layout{grid-template-columns:1fr}.side-card{order:2}.hero-inner{padding:52px 0 44px}}
+@media(max-width:650px){.nav{min-height:70px}.brand img{width:48px;height:48px}.brand strong{font-size:14px}.brand small{font-size:7px}.nav-links a{font-size:10px;padding:8px 9px}.hero h1{font-size:34px}.hero p{font-size:13px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:21px}.form-head{flex-direction:column}.actions .btn{width:100%}.mini-links{flex-direction:column}.wrap{width:min(94%,1180px)}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav">
+<a class="brand" href="index.html"><img src="brand-mark.png" alt="Sandeep Solutions logo"><span><strong>Sandeep Solutions</strong><small>HR &amp; RECRUITMENT • BUSINESS SUPPORT</small></span></a>
+<nav class="nav-links"><a href="index.html">Home</a><a class="active" href="candidate-register.html">Register</a><a href="candidate-login.html">Login</a></nav>
+</div></header>
 
+<section class="hero"><div class="wrap hero-inner">
+<span class="kicker">Candidate Portal</span><h1>Build your professional profile.</h1>
+<p>Create your candidate account once and keep your career information ready for relevant opportunities from Sandeep Solutions.</p>
+</div></section>
+
+<main><div class="wrap portal-layout">
+<section class="card">
+<div class="form-head"><div><h2>Create Candidate Account</h2><p>Complete the details below. You can update your profile later after login.</p></div><span class="badge">FREE REGISTRATION</span></div>
+<div id="notice" class="notice"></div>
+<form id="registerForm"><div class="grid">
+<div class="field"><label>Full Name *</label><input id="fullName" required autocomplete="name" placeholder="Your full name"></div>
+<div class="field"><label>Mobile Number *</label><input id="mobile" required inputmode="tel" placeholder="10-digit mobile number"></div>
+<div class="field"><label>Email Address *</label><input id="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+<div class="field"><label>Password *</label><input id="password" type="password" required minlength="6" autocomplete="new-password" placeholder="Minimum 6 characters"></div>
+<div class="field"><label>Confirm Password *</label><input id="confirmPassword" type="password" required minlength="6" autocomplete="new-password" placeholder="Re-enter password"></div>
+<div class="field"><label>Qualification</label><input id="qualification" placeholder="Degree / certification"></div>
+<div class="field"><label>Total Experience</label><input id="experience" placeholder="e.g. 3 years"></div>
+<div class="field"><label>Current Designation</label><input id="designation" placeholder="Current job title"></div>
+<div class="field"><label>Current Company</label><input id="company" placeholder="Current organization"></div>
+<div class="field"><label>Current Salary</label><input id="currentSalary" placeholder="e.g. ₹5 LPA"></div>
+<div class="field"><label>Expected Salary</label><input id="expectedSalary" placeholder="e.g. ₹7 LPA"></div>
+<div class="field"><label>Preferred Location</label><input id="location" placeholder="e.g. Bengaluru / Remote"></div>
+<div class="field"><label>Notice Period</label><input id="noticePeriod" placeholder="e.g. Immediate / 30 days"></div>
+<div class="field"><label>Key Skills</label><input id="skills" placeholder="e.g. Recruitment, Excel, Payroll"></div>
+<div class="field full"><label>Resume / LinkedIn Profile</label><input id="resumeUrl" type="url" placeholder="Optional public link"><div class="hint">You can add or update your professional profile after registration.</div></div>
+</div>
+<div class="actions"><button class="btn primary" type="submit">Create Candidate Account →</button><a class="btn secondary" href="candidate-login.html">Already have an account? Login</a></div>
+</form>
+</section>
+<aside class="side-card"><h3>Why create a profile?</h3><p>Keep your professional information ready so you can apply faster when suitable vacancies are available.</p>
+<div class="side-list">
+<div class="side-item"><span class="side-dot">1</span><span>Create one secure candidate account.</span></div>
+<div class="side-item"><span class="side-dot">2</span><span>Maintain your experience, skills and salary preferences.</span></div>
+<div class="side-item"><span class="side-dot">3</span><span>View approved vacancies and apply from your dashboard.</span></div>
+<div class="side-item"><span class="side-dot">4</span><span>Track submitted applications in one place.</span></div>
+</div></aside>
+</div></main>
+<footer>Sandeep Solutions • Candidate Portal</footer>
+
+<script type="module">
+import { auth, db } from "./firebase-config.js";
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+const $=id=>document.getElementById(id),notice=$("notice");
+const show=(msg,type="error")=>{notice.textContent=msg;notice.className="notice show "+type;};
+$("registerForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if($("password").value!==$("confirmPassword").value)return show("Passwords do not match.");
+ show("Creating your candidate account…","success");
+ try{
+  const cred=await createUserWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);
+  const p={fullName:$("fullName").value.trim(),mobile:$("mobile").value.trim(),email:$("email").value.trim(),qualification:$("qualification").value.trim(),experience:$("experience").value.trim(),designation:$("designation").value.trim(),company:$("company").value.trim(),currentSalary:$("currentSalary").value.trim(),expectedSalary:$("expectedSalary").value.trim(),location:$("location").value.trim(),noticePeriod:$("noticePeriod").value.trim(),skills:$("skills").value.trim(),resumeUrl:$("resumeUrl").value.trim(),updatedAt:serverTimestamp()};
+  await setDoc(doc(db,"candidates",cred.user.uid),p);
+  location.href="candidate-dashboard.html";
+ }catch(err){
+  show(err.code==="auth/email-already-in-use"?"This email is already registered. Please login.":err.message);
+ });
+});
+</script>
 </body></html>
