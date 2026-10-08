@@ -11,6 +11,12 @@
 .app-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.app-title{font-size:16px;font-weight:950;color:#071b34}.app-candidate{font-size:13px;font-weight:900;margin-top:4px}.app-meta{font-size:10px;color:#68758a;margin-top:4px}.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}.app-item{background:#f7f9fc;border:1px solid #e7edf3;border-radius:10px;padding:10px;font-size:10px;color:#59687b}.app-item b{display:block;color:#26354b;font-size:9px;margin-bottom:3px}.app-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:13px;border-top:1px solid #edf1f5}.status-select{border:1px solid #d4deea;border-radius:8px;padding:9px 10px;font-size:11px;font-weight:800;background:#fff}.save-status{background:#0b63d9;color:#fff;border:0;border-radius:8px;padding:9px 13px;font-size:10px;font-weight:900;cursor:pointer}.save-status:disabled{opacity:.55;cursor:wait}.status-badge{padding:6px 9px;border-radius:20px;background:#e8f8ef;color:#147640;font-size:9px;font-weight:950}.empty{color:#68758a;font-size:12px;padding:20px;text-align:center;background:#fff;border:1px dashed #d6e0ea;border-radius:14px}
 @media(max-width:800px){.app-grid{grid-template-columns:1fr 1fr}}@media(max-width:550px){.app-top{flex-direction:column}.app-grid{grid-template-columns:1fr}}
 </style>
+
+<style id="sandeep-admin-shared-sidebar">
+.admin-layout{display:grid;grid-template-columns:205px 1fr;min-height:calc(100vh - 72px)}.admin-sidebar{background:#061f43;color:#c9d7e8;padding:15px 10px}.admin-side-title{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8ea7c4;padding:8px 10px 10px;font-weight:900}.admin-side-link{display:flex;align-items:center;gap:9px;width:100%;border:0;background:transparent;color:#d2deec;text-decoration:none;padding:10px;border-radius:8px;font-size:10px;font-weight:850;margin:2px 0;cursor:pointer;text-align:left}.admin-side-link:hover,.admin-side-link.active{background:#0b63d9;color:#fff}.admin-side-icon{width:16px;text-align:center;font-size:11px;flex:0 0 16px}.admin-overlay{display:none}
+@media(max-width:900px){.admin-layout{grid-template-columns:1fr}.admin-sidebar{position:fixed;left:-240px;top:72px;bottom:0;width:225px;z-index:1100;transition:left .2s;box-shadow:12px 0 30px rgba(0,0,0,.16)}.admin-sidebar.open{left:0}.admin-overlay.open{display:block;position:fixed;inset:72px 0 0;background:rgba(2,16,34,.38);z-index:1050}}
+@media(max-width:600px){.admin-layout{min-height:calc(100vh - 66px)}.admin-sidebar{top:66px}.admin-overlay.open{inset:66px 0 0}}
+</style>
 </head>
 <body class="admin">
 <header class="admin-top">
@@ -18,8 +24,14 @@
 <div class="admin-actions"><a class="btn gold" href="admin-dashboard.html">Dashboard</a><a class="btn outline" href="admin-candidates.html">Candidates</a><a class="btn outline" href="index.html">Website</a><button class="btn outline" id="logout">Logout</button></div>
 </header>
 <div class="admin-shell">
-<aside class="sidebar"><a href="admin-dashboard.html">Dashboard</a><a href="admin-jobs.html">Manage Jobs</a><a class="active" href="admin-applications.html">Applications</a><a href="admin-candidates.html">Candidates</a><a href="jobs.html">Job Portal</a><a href="employers.html">Employer Enquiries</a><a href="contact.html">Website Contact</a></aside>
-<main class="admin-main">
+<aside class="admin-sidebar" id="sidebar"><div class="admin-side-title">Admin Workspace</div>
+<a class="admin-side-link " href="admin-dashboard.html"><span class="admin-side-icon">⌂</span>Dashboard</a>
+<a class="admin-side-link " href="admin-jobs.html"><span class="admin-side-icon">▤</span>Manage Jobs</a>
+<a class="admin-side-link active" href="admin-applications.html"><span class="admin-side-icon">◫</span>Applications</a>
+<a class="admin-side-link " href="admin-candidates.html"><span class="admin-side-icon">♙</span>Candidates</a>
+<a class="admin-side-link" href="jobs.html"><span class="admin-side-icon">⌕</span>Job Portal</a>
+<a class="admin-side-link " href="admin-employers.html"><span class="admin-side-icon">▣</span>Employers</a>
+<button class="admin-side-link" id="logout"><span class="admin-side-icon">↪</span>Logout</button></aside><div class="admin-overlay" id="overlay"></div><main class="admin-main">
 <div class="kicker">Recruitment Pipeline</div>
 <h1 style="margin:4px 0">Application Management</h1>
 <p style="color:#64748b;font-size:12px">Review candidate applications and update their recruitment status. Changes are saved to Firestore and will appear in the candidate portal.</p>

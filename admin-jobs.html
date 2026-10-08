@@ -19,12 +19,24 @@ main{padding:25px 30px 45px;min-width:0}.inner{width:min(1180px,100%);margin:aut
 @media(max-width:900px){.public{display:none}.menu{display:block}.layout{grid-template-columns:1fr}aside{position:fixed;left:-240px;top:72px;bottom:0;width:225px;z-index:100;transition:.2s;box-shadow:12px 0 30px rgba(0,0,0,.16)}aside.open{left:0}.overlay.open{display:block;position:fixed;inset:72px 0 0;background:rgba(3,15,32,.35);z-index:90}main{padding:20px 14px 35px}}
 @media(max-width:650px){.details,.form{grid-template-columns:1fr}.full,.full2{grid-column:auto}.title h1{font-size:24px}.date{display:none}.panel{padding:14px}.toolbar{width:100%;flex-wrap:wrap}.search{width:100%;min-width:0}}
 </style>
+
+<style id="sandeep-admin-shared-sidebar">
+.admin-layout{display:grid;grid-template-columns:205px 1fr;min-height:calc(100vh - 72px)}.admin-sidebar{background:#061f43;color:#c9d7e8;padding:15px 10px}.admin-side-title{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8ea7c4;padding:8px 10px 10px;font-weight:900}.admin-side-link{display:flex;align-items:center;gap:9px;width:100%;border:0;background:transparent;color:#d2deec;text-decoration:none;padding:10px;border-radius:8px;font-size:10px;font-weight:850;margin:2px 0;cursor:pointer;text-align:left}.admin-side-link:hover,.admin-side-link.active{background:#0b63d9;color:#fff}.admin-side-icon{width:16px;text-align:center;font-size:11px;flex:0 0 16px}.admin-overlay{display:none}
+@media(max-width:900px){.admin-layout{grid-template-columns:1fr}.admin-sidebar{position:fixed;left:-240px;top:72px;bottom:0;width:225px;z-index:1100;transition:left .2s;box-shadow:12px 0 30px rgba(0,0,0,.16)}.admin-sidebar.open{left:0}.admin-overlay.open{display:block;position:fixed;inset:72px 0 0;background:rgba(2,16,34,.38);z-index:1050}}
+@media(max-width:600px){.admin-layout{min-height:calc(100vh - 66px)}.admin-sidebar{top:66px}.admin-overlay.open{inset:66px 0 0}}
+</style>
 </head>
 <body>
 <header class="top"><a href="index.html"><img class="logo" src="Logo.png" onerror="this.onerror=null;this.src='assets/logo.png'" alt="Sandeep Solutions"></a>
 <nav class="public"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a class="quote" href="contact.html">Get a Quote</a></nav><button class="menu" id="menu">☰</button></header>
-<div class="layout"><aside id="sidebar"><div class="side-title">Admin Workspace</div>
-<a class="side" href="admin-dashboard.html"><i>⌂</i>Dashboard</a><a class="side active" href="admin-jobs.html"><i>▣</i>Manage Jobs</a><a class="side" href="admin-applications.html"><i>▥</i>Applications</a><a class="side" href="admin-candidates.html"><i>♙</i>Candidates</a><a class="side" href="jobs.html"><i>⌕</i>Job Portal</a><a class="side" href="admin-employers.html"><i>▱</i>Employers</a><a class="side" href="contact.html"><i>✉</i>Website Contact</a><a class="side" href="index.html"><i>↗</i>View Website</a><button class="side" id="logout"><i>↪</i>Logout</button></aside><div class="overlay" id="overlay"></div>
+<div class="layout"><aside class="admin-sidebar" id="sidebar"><div class="admin-side-title">Admin Workspace</div>
+<a class="admin-side-link " href="admin-dashboard.html"><span class="admin-side-icon">⌂</span>Dashboard</a>
+<a class="admin-side-link active" href="admin-jobs.html"><span class="admin-side-icon">▤</span>Manage Jobs</a>
+<a class="admin-side-link " href="admin-applications.html"><span class="admin-side-icon">◫</span>Applications</a>
+<a class="admin-side-link " href="admin-candidates.html"><span class="admin-side-icon">♙</span>Candidates</a>
+<a class="admin-side-link" href="jobs.html"><span class="admin-side-icon">⌕</span>Job Portal</a>
+<a class="admin-side-link " href="admin-employers.html"><span class="admin-side-icon">▣</span>Employers</a>
+<button class="admin-side-link" id="logout"><span class="admin-side-icon">↪</span>Logout</button></aside><div class="admin-overlay" id="overlay"></div>
 <main><div class="inner"><div class="title"><div><div class="kicker">Recruitment Operations</div><h1>Manage Jobs</h1><p>Create, publish, edit and close candidate-facing vacancies.</p></div><div class="date" id="today"></div></div>
 <section class="stats"><div class="stat"><div class="icon">▣</div><div><b id="activeCount">0</b><span>Active Jobs</span></div></div><div class="stat"><div class="icon">◫</div><div><b id="vacancyCount">0</b><span>Total Vacancies</span></div></div><div class="stat"><div class="icon">◷</div><div><b id="closedCount">0</b><span>Closed Jobs</span></div></div><div class="stat"><div class="icon">!</div><div><b id="requestCount">0</b><span>New Enquiries</span></div></div></section>
 <div class="content"><div>
