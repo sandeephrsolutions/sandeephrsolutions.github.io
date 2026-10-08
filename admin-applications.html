@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Application Management | Sandeep Solutions</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.pipeline{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.pipeline button{border:1px solid #dbe3ed;background:#fff;border-radius:20px;padding:7px 11px;font-size:10px;font-weight:900;cursor:pointer}.pipeline button.active{background:#0b63d9;color:#fff;border-color:#0b63d9}
+.app-row{background:#fff;border:1px solid #e1e8f0;border-radius:16px;padding:18px;margin-top:12px;box-shadow:0 7px 20px rgba(6,27,58,.04)}
+.app-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.app-title{font-size:16px;font-weight:950;color:#071b34}.app-candidate{font-size:13px;font-weight:900;margin-top:4px}.app-meta{font-size:10px;color:#68758a;margin-top:4px}.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}.app-item{background:#f7f9fc;border:1px solid #e7edf3;border-radius:10px;padding:10px;font-size:10px;color:#59687b}.app-item b{display:block;color:#26354b;font-size:9px;margin-bottom:3px}.app-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:13px;border-top:1px solid #edf1f5}.status-select{border:1px solid #d4deea;border-radius:8px;padding:9px 10px;font-size:11px;font-weight:800;background:#fff}.save-status{background:#0b63d9;color:#fff;border:0;border-radius:8px;padding:9px 13px;font-size:10px;font-weight:900;cursor:pointer}.save-status:disabled{opacity:.55;cursor:wait}.status-badge{padding:6px 9px;border-radius:20px;background:#e8f8ef;color:#147640;font-size:9px;font-weight:950}.empty{color:#68758a;font-size:12px;padding:20px;text-align:center;background:#fff;border:1px dashed #d6e0ea;border-radius:14px}
+@media(max-width:800px){.app-grid{grid-template-columns:1fr 1fr}}@media(max-width:550px){.app-top{flex-direction:column}.app-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="admin">
+<header class="admin-top">
+<div class="admin-brand">SANDEEP SOLUTIONS · APPLICATIONS</div>
+<div class="admin-actions"><a class="btn gold" href="admin-dashboard.html">Dashboard</a><a class="btn outline" href="admin-candidates.html">Candidates</a><a class="btn outline" href="index.html">Website</a><button class="btn outline" id="logout">Logout</button></div>
+</header>
+<div class="admin-shell">
+<aside class="sidebar"><a href="admin-dashboard.html">Dashboard</a><a href="admin-jobs.html">Manage Jobs</a><a class="active" href="admin-applications.html">Applications</a><a href="admin-candidates.html">Candidates</a><a href="jobs.html">Job Portal</a><a href="employers.html">Employer Enquiries</a><a href="contact.html">Website Contact</a></aside>
+<main class="admin-main">
+<div class="kicker">Recruitment Pipeline</div>
+<h1 style="margin:4px 0">Application Management</h1>
+<p style="color:#64748b;font-size:12px">Review candidate applications and update their recruitment status. Changes are saved to Firestore and will appear in the candidate portal.</p>
+<div class="counter-grid">
+<div class="counter"><b id="totalCount">—</b><span>Total Applications</span></div>
+<div class="counter"><b id="appliedCount">—</b><span>Applied</span></div>
+<div class="counter"><b id="shortlistedCount">—</b><span>Shortlisted</span></div>
+<div class="counter"><b id="interviewCount">—</b><span>Interview</span></div>
+</div>
+<div class="pipeline" id="filters">
+<button class="active" data-filter="All">All</button><button data-filter="Applied">Applied</button><button data-filter="Shortlisted">Shortlisted</button><button data-filter="Interview">Interview</button><button data-filter="Selected">Selected</button><button data-filter="Rejected">Rejected</button>
+</div>
+<div id="notice" class="notice"></div>
+<div id="list"><div class="empty">Loading applications…</div></div>
+</main></div>
+<script type="module">
+import {auth,db} from "./firebase-config.js";
+import {onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import {collection,getDocs,updateDoc,doc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import {startAdminSessionTimeout} from "./admin-session.js";
+
+const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
+const STATUS=["Applied","Shortlisted","Interview","Selected","Rejected"];
+let all=[],filter="All";
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]||m));
+function show(msg,type="error"){const n=$("notice");n.textContent=msg;n.className="notice show "+type;}
+function dateText(v){if(!v)return "Not available";if(v.seconds){return new Date(v.seconds*1000).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"});}return "Not available";}
+function render(){
+ const rows=filter==="All"?all:all.filter(x=>(x.status||"Applied")===filter);
+ if(!rows.length){$("list").innerHTML='<div class="empty">No applications found for this status.</div>';return;}
+ $("list").innerHTML=rows.map(x=>`<article class="app-row">
+  <div class="app-top"><div><div class="app-title">${esc(x.jobTitle||"Job Application")}</div><div class="app-candidate">${esc(x.candidateName||"Candidate")}</div><div class="app-meta">${esc(x.candidateEmail||"No email")} · ${esc(x.candidateMobile||"No mobile")}</div></div><span class="status-badge">${esc(x.status||"Applied")}</span></div>
+  <div class="app-grid">
+   <div class="app-item"><b>Location</b>${esc(x.location||"Not specified")}</div>
+   <div class="app-item"><b>Qualification</b>${esc(x.qualification||"Not specified")}</div>
+   <div class="app-item"><b>Experience</b>${esc(x.experience||"Not specified")}</div>
+   <div class="app-item"><b>Applied</b>${dateText(x.appliedAt)}</div>
+  </div>
+  <div class="app-actions">
+   <label style="font-size:10px;font-weight:900">Update Status</label>
+   <select class="status-select" data-select="${esc(x.id)}">${STATUS.map(s=>`<option ${s===(x.status||"Applied")?"selected":""}>${s}</option>`).join("")}</select>
+   <button class="save-status" data-save="${esc(x.id)}">Save Status</button>
+   <a class="btn" style="background:#edf3f8;color:#071b34" href="admin-candidates.html">View Candidates</a>
+  </div>
+ </article>`).join("");
+ document.querySelectorAll("[data-save]").forEach(b=>b.onclick=async()=>{
+  const id=b.dataset.save, sel=document.querySelector(`[data-select="${CSS.escape(id)}"]`);
+  if(!sel)return;
+  const old=b.textContent;b.disabled=true;b.textContent="Saving…";
+  try{
+   await updateDoc(doc(db,"applications",id),{status:sel.value,statusUpdatedAt:serverTimestamp(),statusUpdatedBy:auth.currentUser?.email||ADMIN_EMAIL});
+   const row=all.find(x=>x.id===id);if(row){row.status=sel.value;row.statusUpdatedAt={};}
+   updateCounts();render();show("Application status updated successfully.","success");
+  }catch(e){console.error(e);show("Could not update application status. Please check Firestore rules.");b.disabled=false;b.textContent=old;}
+ });
+}
+function updateCounts(){
+ $("totalCount").textContent=all.length;
+ $("appliedCount").textContent=all.filter(x=>(x.status||"Applied")==="Applied").length;
+ $("shortlistedCount").textContent=all.filter(x=>x.status==="Shortlisted").length;
+ $("interviewCount").textContent=all.filter(x=>x.status==="Interview").length;
+}
+document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#filters button").forEach(x=>x.classList.remove("active"));b.classList.add("active");filter=b.dataset.filter;render();});
+onAuthStateChanged(auth,async u=>{
+ if(!u||u.email!==ADMIN_EMAIL){location.href="admin-login.html";return;}
+ startAdminSessionTimeout(auth);
+ try{
+  const snap=await getDocs(collection(db,"applications"));
+  all=[];snap.forEach(d=>all.push({id:d.id,...d.data()}));
+  all.sort((a,b)=>(b.appliedAt?.seconds||0)-(a.appliedAt?.seconds||0));
+  updateCounts();render();
+ }catch(e){console.error(e);$("list").innerHTML='<div class="empty">Could not load applications. Please check Firestore rules.</div>';}
+});
+$("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html";};
+</script>
+</body></html>
