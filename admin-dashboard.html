@@ -20,11 +20,16 @@
 @media(max-width:900px){.admin-public-links{display:none}.admin-menu{display:block}.admin-layout{grid-template-columns:1fr}.admin-sidebar{position:fixed;left:-240px;top:72px;bottom:0;width:225px;z-index:1100;transition:left .2s;box-shadow:12px 0 30px rgba(0,0,0,.16)}.admin-sidebar.open{left:0}.admin-overlay.open{display:block;position:fixed;inset:72px 0 0;background:rgba(2,16,34,.38);z-index:1050}.admin-main{padding:22px 18px 35px}.admin-stats{grid-template-columns:repeat(2,1fr)}.admin-quick{grid-template-columns:repeat(2,1fr)}.admin-grid-main{grid-template-columns:1fr}}
 @media(max-width:600px){.admin-nav{min-height:66px}.admin-logo{width:118px;height:55px}.admin-layout{min-height:calc(100vh - 66px)}.admin-sidebar{top:66px}.admin-overlay.open{inset:66px 0 0}.admin-title-row{align-items:flex-start;flex-direction:column}.admin-title-row h1{font-size:27px}.admin-date{display:none}.admin-stats{gap:8px}.admin-stat{padding:12px;gap:8px}.admin-stat-icon{width:32px;height:32px;flex-basis:32px;font-size:13px}.admin-stat b{font-size:19px}.admin-stat span{font-size:8px}.admin-panel{padding:13px}.admin-app-table{min-width:650px}.table-panel{overflow:auto}.admin-quick{grid-template-columns:1fr 1fr}.bottom-grid{grid-template-columns:1fr}.bottom-grid .mini-wide{grid-column:auto}}
 @media(max-width:390px){.admin-quick{grid-template-columns:1fr}}
+
+.admin-welcome{display:grid;grid-template-columns:1.5fr .85fr;gap:16px;margin:0 0 18px}.welcome-card{border-radius:17px;padding:21px 22px;background:linear-gradient(135deg,#061f43,#0b4779);color:#fff;position:relative;overflow:hidden;min-height:128px}.welcome-card:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-95px;top:-95px}.welcome-card .small{font-size:9px;letter-spacing:1.7px;text-transform:uppercase;color:#f4c84c;font-weight:950}.welcome-card h2{margin:7px 0 5px;font-size:21px;letter-spacing:-.4px}.welcome-card p{margin:0;max-width:560px;color:#c8d7e8;font-size:10px;line-height:1.55}.welcome-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.welcome-actions a{padding:8px 10px;border-radius:8px;text-decoration:none;font-size:9px;font-weight:900}.welcome-actions .primary{background:#f4b41f;color:#081b35}.welcome-actions .secondary{border:1px solid rgba(255,255,255,.25);color:#fff}.getting-started{background:#fff;border:1px solid #e1e8ef;border-radius:17px;padding:18px;box-shadow:0 7px 20px rgba(6,27,58,.04)}.getting-started h3{margin:0;color:#10213d;font-size:13px}.getting-started p{margin:4px 0 12px;color:#738095;font-size:9px;line-height:1.45}.start-list{display:grid;gap:8px}.start-item{display:flex;align-items:center;gap:8px;color:#455468;font-size:9px}.start-num{width:22px;height:22px;border-radius:7px;background:#edf5ff;color:#0b63d9;display:grid;place-items:center;font-size:8px;font-weight:950;flex:0 0 22px}.pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.pipe-card{border:1px solid #e1e8ef;border-radius:12px;padding:12px;background:#fff}.pipe-card .pipe-top{display:flex;justify-content:space-between;align-items:center;gap:6px}.pipe-card b{font-size:10px;color:#25354b}.pipe-card strong{font-size:16px;color:#10213d}.pipe-bar{height:6px;border-radius:20px;background:#edf1f6;margin-top:10px;overflow:hidden}.pipe-bar i{display:block;height:100%;width:0;border-radius:20px;background:#0b63d9}.pipe-card:nth-child(2) .pipe-bar i{background:#13b981}.pipe-card:nth-child(3) .pipe-bar i{background:#f4b41f}.pipe-card:nth-child(4) .pipe-bar i{background:#7657e8}.pipe-card:nth-child(5) .pipe-bar i{background:#ef5350}.dashboard-note{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 13px;border:1px dashed #cbd8e7;background:#f8fbff;border-radius:11px;color:#66758a;font-size:9px;margin-bottom:16px}.dashboard-note b{color:#25354b}.dashboard-note a{color:#0b63d9;text-decoration:none;font-weight:900;white-space:nowrap}
+@media(max-width:900px){.admin-welcome{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.welcome-card{padding:18px;min-height:145px}.pipeline{grid-template-columns:1fr 1fr}.dashboard-note{align-items:flex-start;flex-direction:column}}
+@media(max-width:390px){.pipeline{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="admin-page">
 <header class="admin-site-header"><div class="container admin-nav">
-<a href="index.html"><img class="admin-logo" src="Logo.png" alt="Sandeep Solutions"></a>
+<a href="index.html"><img class="admin-logo" src="Logo.png" alt="Sandeep Solutions" onerror="this.onerror=null;this.src='assets/logo.png'"></a>
 <nav class="admin-public-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a class="admin-quote" href="contact.html">Get a Quote</a></nav>
 <button class="admin-menu" id="menuBtn" aria-label="Open menu">☰</button></div></header>
 
@@ -45,6 +50,11 @@
 <div class="admin-kicker">Private Workspace</div>
 <div class="admin-title-row"><div><h1>Welcome, Admin <span aria-hidden="true">👋</span></h1><p>Manage your jobs, candidates, enquiries and recruitment pipeline.</p></div><div class="admin-date" id="today">—</div></div>
 
+<div class="admin-welcome">
+<section class="welcome-card"><div class="small">Recruitment Control Center</div><h2>Everything you need to manage hiring.</h2><p>Publish vacancies, review applications, move candidates through the hiring pipeline and respond to employer requirements.</p><div class="welcome-actions"><a class="primary" href="admin-jobs.html">+ Post a Job</a><a class="secondary" href="admin-applications.html">Review Applications →</a></div></section>
+<section class="getting-started"><h3>Getting Started</h3><p>Recommended first actions when the workspace has no activity.</p><div class="start-list"><div class="start-item"><span class="start-num">1</span>Publish your first active vacancy</div><div class="start-item"><span class="start-num">2</span>Review incoming applications</div><div class="start-item"><span class="start-num">3</span>Update candidate status</div><div class="start-item"><span class="start-num">4</span>Respond to employer enquiries</div></div></section>
+</div>
+
 <section class="admin-stats">
 <div class="admin-stat"><div class="admin-stat-icon">▤</div><div><b id="jobs">—</b><span>Active Job Postings</span></div></div>
 <div class="admin-stat"><div class="admin-stat-icon">◫</div><div><b id="apps">—</b><span>Applications</span></div></div>
@@ -52,10 +62,14 @@
 <div class="admin-stat"><div class="admin-stat-icon">♙</div><div><b id="cand">—</b><span>Candidates</span></div></div>
 </section>
 
+<div class="dashboard-note"><span><b>Admin tip:</b> Keep candidate statuses updated so the recruitment pipeline stays accurate.</span><a href="admin-applications.html">Open Application Management →</a></div>
+
 <div class="admin-grid-main">
 <section class="admin-panel table-panel"><div class="admin-panel-head"><h2>Recent Job Applications</h2><a href="admin-applications.html">View All Applications →</a></div><div id="tableWrap">Loading…</div></section>
 <section class="admin-panel"><div class="admin-panel-head"><h2>Application Status Overview</h2></div><div class="status-list" id="statusChart">Loading…</div></section>
 </div>
+
+<section class="admin-panel"><div class="admin-panel-head"><h2>Recruitment Pipeline</h2><a href="admin-applications.html">Manage Pipeline →</a></div><div class="pipeline" id="pipeline"><div class="pipe-card"><div class="pipe-top"><b>Applied</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Shortlisted</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Interview</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Selected</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Rejected</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div></div></section>
 
 <section class="admin-panel"><div class="admin-panel-head"><h2>Quick Actions</h2></div><div class="admin-quick">
 <a class="admin-quick-card" href="admin-jobs.html"><div class="admin-quick-icon">＋</div><b>Post / Manage Jobs</b><span>Create and manage active vacancies.</span></a>
@@ -99,7 +113,7 @@ onAuthStateChanged(auth,async u=>{
   $("tableWrap").innerHTML=apps.length?`<table class="admin-app-table"><thead><tr><th>Candidate</th><th>Job</th><th>Location</th><th>Date</th><th>Status</th></tr></thead><tbody>${apps.slice(0,8).map(r=>`<tr><td><strong>${esc(r.candidateName||"Candidate")}</strong></td><td>${esc(r.jobTitle||"Job")}</td><td>${esc(r.location||"—")}</td><td>${date(r.appliedAt)}</td><td><span class="admin-status">${esc(r.status||"Applied")}</span></td></tr>`).join("")}</tbody></table>`:"<div style='padding:18px 8px;color:#64748b;font-size:10px'>No applications yet.</div>";
 
   const counts=Object.fromEntries(STATUS.map(s=>[s,0]));apps.forEach(r=>counts[r.status||"Applied"]=(counts[r.status||"Applied"]||0)+1);const max=Math.max(1,...Object.values(counts));
-  $("statusChart").innerHTML=STATUS.map(s=>`<div class="status-row"><span>${s}</span><div class="bar"><i style="width:${Math.round(counts[s]/max*100)}%"></i></div><b>${counts[s]}</b></div>`).join("");
+  $("statusChart").innerHTML=STATUS.map(s=>`<div class="status-row"><span>${s}</span><div class="bar"><i style="width:${Math.round(counts[s]/max*100)}%"></i></div><b>${counts[s]}</b></div>`).join("");const pipes=[...document.querySelectorAll("#pipeline .pipe-card")];STATUS.forEach((s,i)=>{if(!pipes[i])return;pipes[i].querySelector("strong").textContent=counts[s];pipes[i].querySelector(".pipe-bar i").style.width=Math.round(counts[s]/max*100)+"%"});
 
   const enquiries=[];enqSnap.forEach(d=>enquiries.push({id:d.id,...d.data()}));enquiries.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
   $("enquiryList").innerHTML=enquiries.slice(0,4).map(r=>`<div class="mini-row"><div class="avatar">${initials(r.companyName||"E")}</div><div class="mini-copy"><b>${esc(r.companyName||"Employer")}</b><span>${esc(r.description||r.service||"Recruitment enquiry")}</span></div><div class="mini-date">${date(r.createdAt)}</div></div>`).join("")||"<div style='font-size:9px;color:#64748b;padding:10px 0'>No employer enquiries yet.</div>";
