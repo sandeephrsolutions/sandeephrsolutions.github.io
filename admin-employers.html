@@ -15,7 +15,7 @@ main{padding:25px 30px 45px;min-width:0}.inner{width:min(1180px,100%);margin:aut
 @media(max-width:1000px){.stats{grid-template-columns:repeat(2,1fr)}.details{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}
 .service-tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 0 13px;margin-bottom:4px;scrollbar-width:thin}.service-tab{border:1px solid #dbe3ec;background:#fff;color:#40516a;border-radius:9px;padding:8px 10px;font-size:9px;font-weight:900;white-space:nowrap;cursor:pointer}.service-tab span{display:inline-grid;place-items:center;min-width:18px;height:17px;padding:0 4px;margin-left:4px;border-radius:20px;background:#eef2f6;color:#607086;font-size:8px}.service-tab.active{background:#082b58;color:#fff;border-color:#082b58}.service-tab.active span{background:#f4b41f;color:#071b34}.service-label{display:inline-block;margin-top:7px;background:#edf5ff;color:#164c7d;border-radius:20px;padding:5px 8px;font-size:8px;font-weight:950}
 @media(max-width:900px){.public{display:none}.menu{display:block}.layout{grid-template-columns:1fr}aside{position:fixed;left:-240px;top:72px;bottom:0;width:225px;z-index:100;transition:.2s;box-shadow:12px 0 30px rgba(0,0,0,.16)}aside.open{left:0}.overlay.open{display:block;position:fixed;inset:72px 0 0;background:rgba(3,15,32,.35);z-index:90}main{padding:20px 14px 35px}}
-@media(max-width:650px){.details{grid-template-columns:1fr}.full{grid-column:auto}.title h1{font-size:24px}.date{display:none}.panel,.card{padding:14px}.search{width:100%;min-width:0}.tools{width:100%}}
+@media(max-width:650px){.service-select-wrap{align-items:flex-start;flex-direction:column}.service-select{max-width:none}.service-count{margin-left:0}.details{grid-template-columns:1fr}.full{grid-column:auto}.title h1{font-size:24px}.date{display:none}.panel,.card{padding:14px}.search{width:100%;min-width:0}.tools{width:100%}}
 </style>
 </head>
 <body>
@@ -27,16 +27,20 @@ main{padding:25px 30px 45px;min-width:0}.inner{width:min(1180px,100%);margin:aut
 <section class="stats"><div class="stat"><div class="icon">✉</div><div><b id="total">0</b><span>Total Enquiries</span></div></div><div class="stat"><div class="icon">!</div><div><b id="new">0</b><span>New Enquiries</span></div></div><div class="stat"><div class="icon">✓</div><div><b id="reviewed">0</b><span>Reviewed / Approved</span></div></div><div class="stat"><div class="icon">▣</div><div><b id="employers">0</b><span>Employer Records</span></div></div></section>
 <div class="grid"><div>
 <section class="panel"><div class="head"><div><h2>Employer Enquiries <span class="pill" id="badge">0</span></h2><p class="sub">Filter enquiries by service, status, company or requirement.</p></div><div class="tools"><input class="search" id="search" placeholder="Search company, contact, position…"><select class="filter" id="filter"><option value="all">All Status</option><option value="new">New</option><option value="viewed">Viewed</option><option value="approved">Approved</option></select></div></div>
-<div class="service-tabs" id="serviceTabs">
-<button class="service-tab active" data-service="all">All Services <span id="tabAll">0</span></button>
-<button class="service-tab" data-service="recruitment">Recruitment & Hiring <span id="tabRecruitment">0</span></button>
-<button class="service-tab" data-service="payroll">Payroll Management <span id="tabPayroll">0</span></button>
-<button class="service-tab" data-service="policy">HR Policy & Documentation <span id="tabPolicy">0</span></button>
-<button class="service-tab" data-service="compliance">Statutory Compliance <span id="tabCompliance">0</span></button>
-<button class="service-tab" data-service="consulting">HR Consulting <span id="tabConsulting">0</span></button>
-<button class="service-tab" data-service="engagement">Employee Engagement <span id="tabEngagement">0</span></button>
-<button class="service-tab" data-service="restaurant">Restaurant Services <span id="tabRestaurant">0</span></button>
-<button class="service-tab" data-service="other">Other <span id="tabOther">0</span></button>
+<div class="service-select-wrap">
+<label for="serviceFilter">View Enquiries By Service</label>
+<select class="service-select" id="serviceFilter">
+<option value="all">All Services</option>
+<option value="recruitment">Recruitment & Hiring</option>
+<option value="payroll">Payroll Management</option>
+<option value="policy">HR Policy & Documentation</option>
+<option value="compliance">Statutory Compliance</option>
+<option value="consulting">HR Consulting</option>
+<option value="engagement">Employee Engagement</option>
+<option value="restaurant">Restaurant Services</option>
+<option value="other">Other</option>
+</select>
+<span class="service-count" id="serviceCount">0 enquiries</span>
 </div>
 <div id="list"><div class="empty">Loading enquiries…</div></div></section>
 <section class="panel"><div class="head"><div><h2>Employer Records</h2><p class="sub">Registered employer records, if available.</p></div></div><div id="employerList"><div class="empty">Loading employer records…</div></div></section>
@@ -73,7 +77,8 @@ function serviceKey(r){
 function updateServiceCounts(){
   const counts={all:requests.length,recruitment:0,payroll:0,policy:0,compliance:0,consulting:0,engagement:0,restaurant:0,other:0};
   requests.forEach(r=>counts[serviceKey(r)]++);
-  Object.keys(counts).forEach(k=>{const el=$("tab"+k.charAt(0).toUpperCase()+k.slice(1));if(el)el.textContent=counts[k]});
+  const key=$("serviceFilter").value;
+  $("serviceCount").textContent=(counts[key]||0)+" enquiries";
 }
 function render(){
   let q=$("search").value.trim().toLowerCase(),f=$("filter").value;
@@ -81,7 +86,7 @@ function render(){
     let st=String(r.status||"new").toLowerCase(),sk=serviceKey(r);
     return (activeService==="all"||sk===activeService)&&(f==="all"||st===f)&&(!q||[r.companyName,r.contactPerson,r.email,r.mobile,r.jobTitle,r.position,r.location,r.service,r.serviceCategory,r.serviceType].some(v=>String(v||"").toLowerCase().includes(q)));
   });
-  $("badge").textContent=list.length;
+  $("badge").textContent=list.length;$("serviceCount").textContent=list.length+" enquiries";
   if(!list.length){$("list").innerHTML='<div class="empty"><strong>No matching enquiries.</strong>Try another service, search or status filter.</div>';return}
   $("list").innerHTML=list.map(r=>{
     let st=String(r.status||"new").toLowerCase(),email=r.email||"",mobile=String(r.mobile||"").replace(/\D/g,""),sk=serviceKey(r);
@@ -90,7 +95,7 @@ function render(){
   document.querySelectorAll("[data-review]").forEach(b=>b.onclick=()=>review(b.dataset.review));
   document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>remove(b.dataset.delete));
 }
-document.querySelectorAll(".service-tab").forEach(b=>b.onclick=()=>{activeService=b.dataset.service;document.querySelectorAll(".service-tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");render()});
+$("serviceFilter").onchange=()=>{activeService=$("serviceFilter").value;render()};
 $("search").oninput=render;$("filter").onchange=render;$("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html"};function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 </script>
 </body></html>
