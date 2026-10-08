@@ -1,25 +1,38 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /candidates/{userId} {
-      allow read, create, update, delete: if request.auth != null && (request.auth.uid == userId || request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2");
+    function isAdmin() {
+      return request.auth != null &&
+        (request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2" ||
+         request.auth.token.email == "sandeep.hr.solutions.shr@gmail.com");
     }
+
+    match /candidates/{userId} {
+      allow read, create, update, delete: if request.auth != null &&
+        (request.auth.uid == userId || isAdmin());
+    }
+
     match /jobs/{jobId} {
       allow read: if true;
-      allow create, update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow create, update, delete: if isAdmin();
     }
+
     match /applications/{applicationId} {
-      allow create: if request.auth != null && request.resource.data.candidateId == request.auth.uid;
-      allow read: if request.auth != null && (resource.data.candidateId == request.auth.uid || request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2");
-      allow update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow create: if request.auth != null &&
+        request.resource.data.candidateId == request.auth.uid;
+      allow read: if request.auth != null &&
+        (resource.data.candidateId == request.auth.uid || isAdmin());
+      allow update, delete: if isAdmin();
     }
+
     match /jobRequests/{requestId} {
       allow create: if true;
-      allow read, update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow read, update, delete: if isAdmin();
     }
+
     match /employers/{employerId} {
       allow create: if true;
-      allow read, update, delete: if request.auth != null && request.auth.uid == "A5y0cl3ZvRdlzFgDuQsYUjVCeNq2";
+      allow read, update, delete: if isAdmin();
     }
   }
 }
