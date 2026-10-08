@@ -57,6 +57,7 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 .full-preview-doc .file-icon{font-size:70px}
 @media(max-width:600px){.resume-preview-frame{height:200px}.resume-preview-actions .preview-btn{flex:1}.full-preview-overlay{padding:7px}.full-preview-box{width:100%;height:96vh;border-radius:10px}}
 </style>
+<!-- Candidate application duplicate protection: enabled -->
 </head>
 <body>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -668,7 +669,15 @@ async function applyToJob(jobId){
  if(!clean(currentProfile.fullName)||!clean(currentProfile.mobile)||!clean(currentProfile.qualification)||!clean(currentProfile.experience)){showJob("Please complete your Profile (Name, Mobile, Qualification and Experience) before applying.");setSection("profile");return;}
  if(!currentProfile.resumeProcessed){showJob("Please process your Resume/CV in the Resume tab before applying.");setSection("resume");return;}
  const btn=[...document.querySelectorAll(".apply-btn")].find(x=>x.dataset.job===jobId);if(btn){btn.disabled=true;btn.textContent="Submitting…";}
- try{await addDoc(collection(db,"applications"),{candidateId:currentUser.uid,candidateName:currentProfile.fullName,candidateEmail:currentUser.email||"",candidateMobile:currentProfile.mobile,qualification:currentProfile.qualification,experience:currentProfile.experience,jobId,jobTitle:jobValue(job,"jobTitle","position","title"),location:jobValue(job,"location","jobLocation"),appliedAt:serverTimestamp(),status:"Applied"});showJob("Application submitted successfully.","success");notify("Application submitted successfully.");setSection("applications");}catch(err){console.error(err);showJob("Could not submit application. Please try again.");}finally{if(btn){btn.disabled=false;btn.textContent="Apply for this Job";}}}
+ try{const existing=await getDocs(query(collection(db,"applications"),where("candidateId","==",currentUser.uid)));
+const alreadyApplied=existing.docs.some(d=>String(d.data()?.jobId||"")===String(jobId));
+if(alreadyApplied){
+  showJob("You have already applied for this position.","error");
+  notify("You have already applied for this position.","error");
+  setSection("applications");
+  return;
+}
+await addDoc(collection(db,"applications"),{candidateId:currentUser.uid,candidateName:currentProfile.fullName,candidateEmail:currentUser.email||"",candidateMobile:currentProfile.mobile,qualification:currentProfile.qualification,experience:currentProfile.experience,jobId,jobTitle:jobValue(job,"jobTitle","position","title"),location:jobValue(job,"location","jobLocation"),appliedAt:serverTimestamp(),status:"Applied"});showJob("Application submitted successfully.","success");notify("Application submitted successfully.");setSection("applications");}catch(err){console.error(err);showJob("Could not submit application. Please try again.");}finally{if(btn){btn.disabled=false;btn.textContent="Apply for this Job";}}}
 
 async function loadCandidateProfile(user){try{const snap=await getDoc(doc(db,"candidates",user.uid));currentProfile=snap.exists()?snap.data():{};experiences=Array.isArray(currentProfile.experiences)?currentProfile.experiences:[];populateEditors();updateProfileView();renderExperiences();renderResumeSummary();}catch(err){console.error("Profile load error:",err);show("Could not load your profile. Please refresh the page.");}}
 
