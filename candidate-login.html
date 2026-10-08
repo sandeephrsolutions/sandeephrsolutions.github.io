@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071b34"><meta name="robots" content="noindex,nofollow">
+<title>Candidate Login | Sandeep Solutions</title>
+<style>
+:root{--navy:#071b34;--blue:#123f68;--gold:#f4b83f;--ink:#162536;--muted:#6b7785;--line:#e2e8f0;--bg:#f5f8fc}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}a{text-decoration:none;color:inherit}
+.top{background:var(--navy);color:#fff}.wrap{max-width:1050px;margin:auto;padding:0 18px}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px}.brand img{width:46px;height:46px;border-radius:10px;background:#fff}.brand strong{display:block;font-size:14px}.brand small{display:block;color:var(--gold);font-size:8px;letter-spacing:1px;margin-top:3px}.nav-links{display:flex;gap:8px}.nav-links a{color:#fff;font-size:12px;font-weight:800;padding:10px 12px;border-radius:9px}.nav-links a:hover{background:#ffffff12}.nav-links .active{background:var(--gold);color:var(--navy)}
+.hero{padding:55px 0 38px;background:linear-gradient(135deg,#071b34,#123f68);color:#fff}.hero h1{font-size:40px;margin:0 0 10px}.hero p{color:#d9e3ed;margin:0;line-height:1.7;max-width:620px}
+main{min-height:530px;padding:28px 0 50px}.login-wrap{max-width:480px;margin:auto}.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 16px 42px #071b3410;padding:30px}.kicker{color:#c28f27;font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}.card h2{color:var(--navy);margin:6px 0 7px}.sub{color:var(--muted);font-size:12px;margin:0 0 20px}.notice{display:none;margin-bottom:15px;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5}.notice.show{display:block}.notice.error{background:#fff0f0;color:#a52828;border:1px solid #f2cccc}.notice.success{background:#eefaf1;color:#23723b;border:1px solid #ccebd5}.field{margin-bottom:14px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px;color:#334155}.field input{width:100%;border:1px solid #d7e0e9;border-radius:11px;background:#fbfcfe;padding:13px;font:inherit;outline:none}.field input:focus{border-color:#4d86b8;box-shadow:0 0 0 3px #4d86b81a;background:#fff}.btn{width:100%;min-height:46px;border:0;border-radius:11px;padding:0 18px;font-weight:850;cursor:pointer}.primary{background:var(--gold);color:var(--navy)}.primary:disabled{opacity:.6;cursor:wait}.links{display:flex;justify-content:space-between;gap:10px;margin-top:16px;font-size:12px;font-weight:800}.links a{color:#145b91}.links a:hover{text-decoration:underline}.divider{height:1px;background:var(--line);margin:22px 0}.info{background:#f7f9fc;border:1px solid #e7edf3;border-radius:11px;padding:12px;font-size:11px;color:var(--muted);line-height:1.6}footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
+@media(max-width:600px){.nav{min-height:66px}.nav-links a{padding:8px}.hero{padding:44px 0 30px}.hero h1{font-size:34px}.card{padding:22px}.links{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav">
+<a class="brand" href="index.html"><img src="brand-mark.png" alt="Sandeep Solutions logo"><span><strong>Sandeep Solutions</strong><small>HR &amp; RECRUITMENT • BUSINESS SUPPORT</small></span></a>
+<nav class="nav-links"><a href="index.html">Home</a><a href="candidate-register.html">Register</a><a class="active" href="candidate-login.html">Login</a></nav>
+</div></header>
+<section class="hero"><div class="wrap"><h1>Welcome back.</h1><p>Login to manage your candidate profile, view approved vacancies and track your job applications.</p></div></section>
+<main><div class="wrap login-wrap"><div class="card">
+<div class="kicker">Candidate Portal</div><h2>Sign in to your account</h2><p class="sub">Use the email address and password you used during registration.</p>
+<div id="notice" class="notice"></div>
+<form id="loginForm"><div class="field"><label>Email Address *</label><input id="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+<div class="field"><label>Password *</label><input id="password" type="password" required autocomplete="current-password" placeholder="Your password"></div>
+<button id="loginBtn" class="btn primary" type="submit">Login to Candidate Portal</button></form>
+<div class="links"><a href="#" id="forgot">Forgot password?</a><a href="candidate-register.html">Create new account</a></div>
+<div class="divider"></div><div class="info">Candidate registration and placement support are provided without a candidate/placement fee. Never share your password with anyone.</div>
+</div></div></main>
+<footer>Sandeep Solutions • Candidate Portal</footer>
+<script type="module">
+import {auth} from "./firebase-config.js";
+import {signInWithEmailAndPassword,sendPasswordResetEmail,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+const $=id=>document.getElementById(id),notice=$("notice"),btn=$("loginBtn");
+function show(msg,type="error"){notice.textContent=msg;notice.className="notice show "+type}
+onAuthStateChanged(auth,u=>{if(u) location.href="candidate-dashboard.html"});
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();btn.disabled=true;btn.textContent="Signing in…";show("Signing you in…","success");try{await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);location.href="candidate-dashboard.html"}catch(err){const code=err?.code||"";let msg="Login failed. Please check your email and password.";if(code==="auth/invalid-credential"||code==="auth/wrong-password"||code==="auth/user-not-found")msg="Incorrect email or password.";if(code==="auth/too-many-requests")msg="Too many attempts. Please wait and try again.";if(code==="auth/network-request-failed")msg="Network error. Please check your internet connection.";show(msg);btn.disabled=false;btn.textContent="Login to Candidate Portal"}});
+$("forgot").addEventListener("click",async e=>{e.preventDefault();const email=$("email").value.trim();if(!email)return show("Enter your email address first, then tap Forgot password again.");try{await sendPasswordResetEmail(auth,email);show("Password reset email sent. Please check your inbox.","success")}catch(err){show("Could not send the reset email. Please check that the email is registered.")}});
+</script>
+</body></html>
