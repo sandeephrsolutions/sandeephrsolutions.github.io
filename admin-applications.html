@@ -25,11 +25,10 @@
 </style>
 </head>
 <body class="admin">
-<script>document.getElementById("menu")?.addEventListener("click",()=>{document.getElementById("sidebar")?.classList.toggle("open");document.getElementById("overlay")?.classList.toggle("open")});document.getElementById("overlay")?.addEventListener("click",()=>{document.getElementById("sidebar")?.classList.remove("open");document.getElementById("overlay")?.classList.remove("open")});</script>
 <header class="admin-workspace-header">
   <div class="admin-workspace-brand"><a href="admin-dashboard.html" aria-label="Admin Dashboard"><img src="Logo.png" alt="Sandeep Solutions" onerror="this.onerror=null;this.src='assets/logo.png'"></a><span>Admin Workspace</span></div>
   <div class="admin-workspace-title">Sandeep Solutions · Private Administration</div>
-  <button class="admin-workspace-menu" id="menu" aria-label="Open admin menu">☰</button>
+  <button class="admin-workspace-menu" id="menu" aria-label="Open admin menu" aria-controls="sidebar" aria-expanded="false">☰</button>
 </header>
 <div class="admin-shell">
 <aside class="admin-sidebar" id="sidebar"><div class="admin-side-title">Admin Workspace</div>
@@ -52,7 +51,7 @@
 <div class="pipeline" id="filters">
 <button class="active" data-filter="All">All</button><button data-filter="Applied">Applied</button><button data-filter="Shortlisted">Shortlisted</button><button data-filter="Interview">Interview</button><button data-filter="Selected">Selected</button><button data-filter="Rejected">Rejected</button>
 </div>
-<div id="notice" class="notice"></div>
+<div id="notice" class="notice" role="status" aria-live="polite"></div>
 <div id="list"><div class="empty">Loading applications…</div></div>
 </main></div>
 <script type="module">
@@ -63,11 +62,13 @@ import {startAdminSessionTimeout} from "./admin-session.js";
 
 const ADMIN_EMAIL="sandeep.hr.solutions.shr@gmail.com";
 const STATUS=["Applied","Shortlisted","Interview","Selected","Rejected"];
-let all=[],filter="All";
+let all=[],filter="All",loading=false;
 const $=id=>document.getElementById(id);
-const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]||m));
+const esc=v=>String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]||m));
 function show(msg,type="error"){const n=$("notice");n.textContent=msg;n.className="notice show "+type;}
 function dateText(v){if(!v)return "Not available";if(v.seconds){return new Date(v.seconds*1000).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"});}return "Not available";}
+function closeMenu(){ $("sidebar")?.classList.remove("open"); $("overlay")?.classList.remove("open"); $("menu")?.setAttribute("aria-expanded","false"); }
+function toggleMenu(){const open=!$("sidebar")?.classList.contains("open");$("sidebar")?.classList.toggle("open",open);$("overlay")?.classList.toggle("open",open);$("menu")?.setAttribute("aria-expanded",String(open));}
 function render(){
  const rows=filter==="All"?all:all.filter(x=>(x.status||"Applied")===filter);
  if(!rows.length){$("list").innerHTML='<div class="empty">No applications found for this status.</div>';return;}
@@ -80,21 +81,24 @@ function render(){
    <div class="app-item"><b>Applied</b>${dateText(x.appliedAt)}</div>
   </div>
   <div class="app-actions">
-   <label style="font-size:10px;font-weight:900">Update Status</label>
-   <select class="status-select" data-select="${esc(x.id)}">${STATUS.map(s=>`<option ${s===(x.status||"Applied")?"selected":""}>${s}</option>`).join("")}</select>
+   <label style="font-size:10px;font-weight:900" for="status-${esc(x.id)}">Update Status</label>
+   <select class="status-select" id="status-${esc(x.id)}" data-select="${esc(x.id)}">${STATUS.map(s=>`<option value="${s}" ${s===(x.status||"Applied")?"selected":""}>${s}</option>`).join("")}</select>
    <button class="save-status" data-save="${esc(x.id)}">Save Status</button>
    <a class="btn" style="background:#edf3f8;color:#071b34" href="admin-candidates.html">View Candidates</a>
   </div>
  </article>`).join("");
  document.querySelectorAll("[data-save]").forEach(b=>b.onclick=async()=>{
   const id=b.dataset.save, sel=document.querySelector(`[data-select="${CSS.escape(id)}"]`);
-  if(!sel)return;
+  if(!sel||b.disabled)return;
+  const row=all.find(x=>x.id===id); if(!row)return;
+  const nextStatus=sel.value;
+  if(nextStatus===(row.status||"Applied")){show("No status change to save.","success");return;}
   const old=b.textContent;b.disabled=true;b.textContent="Saving…";
   try{
-   await updateDoc(doc(db,"applications",id),{status:sel.value,statusUpdatedAt:serverTimestamp(),statusUpdatedBy:auth.currentUser?.email||ADMIN_EMAIL});
-   const row=all.find(x=>x.id===id);if(row){row.status=sel.value;row.statusUpdatedAt={};}
+   await updateDoc(doc(db,"applications",id),{status:nextStatus,statusUpdatedAt:serverTimestamp(),statusUpdatedBy:auth.currentUser?.email||ADMIN_EMAIL});
+   row.status=nextStatus;row.statusUpdatedAt={};
    updateCounts();render();show("Application status updated successfully.","success");
-  }catch(e){console.error(e);show("Could not update application status. Please check Firestore rules.");b.disabled=false;b.textContent=old;}
+  }catch(e){console.error(e);show("Could not update application status. Please check your connection and Firestore rules.");b.disabled=false;b.textContent=old;}
  });
 }
 function updateCounts(){
@@ -107,13 +111,21 @@ document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{document.
 onAuthStateChanged(auth,async u=>{
  if(!u||u.email!==ADMIN_EMAIL){location.href="admin-login.html";return;}
  startAdminSessionTimeout(auth);
+ if(loading)return; loading=true;
  try{
   const snap=await getDocs(collection(db,"applications"));
   all=[];snap.forEach(d=>all.push({id:d.id,...d.data()}));
   all.sort((a,b)=>(b.appliedAt?.seconds||0)-(a.appliedAt?.seconds||0));
   updateCounts();render();
- }catch(e){console.error(e);$("list").innerHTML='<div class="empty">Could not load applications. Please check Firestore rules.</div>';}
+ }catch(e){console.error(e);$("list").innerHTML='<div class="empty">Could not load applications. Please check your connection and Firestore rules, then refresh.</div>';}
+ finally{loading=false;}
 });
-$("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html";};
+$("logout").onclick=async()=>{try{await signOut(auth);}finally{location.href="admin-login.html";}};
+$("menu")?.addEventListener("click",toggleMenu);
+$("overlay")?.addEventListener("click",closeMenu);
+document.querySelectorAll(".admin-sidebar a").forEach(a=>a.addEventListener("click",closeMenu));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu();});
+document.addEventListener("click",e=>{if(window.innerWidth<=900&&!$("sidebar")?.contains(e.target)&&!$("menu")?.contains(e.target)&&$("sidebar")?.classList.contains("open"))closeMenu();});
+window.addEventListener("resize",()=>{if(window.innerWidth>900)closeMenu();});
 </script>
 </body></html>
