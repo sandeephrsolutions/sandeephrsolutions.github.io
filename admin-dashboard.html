@@ -20,19 +20,16 @@
 @media(max-width:900px){.admin-public-links{display:none}.admin-menu{display:block}.admin-layout{grid-template-columns:1fr}.admin-sidebar{position:fixed;left:-240px;top:72px;bottom:0;width:225px;z-index:1100;transition:left .2s;box-shadow:12px 0 30px rgba(0,0,0,.16)}.admin-sidebar.open{left:0}.admin-overlay.open{display:block;position:fixed;inset:72px 0 0;background:rgba(2,16,34,.38);z-index:1050}.admin-main{padding:22px 18px 35px}.admin-stats{grid-template-columns:repeat(2,1fr)}.admin-quick{grid-template-columns:repeat(2,1fr)}.admin-grid-main{grid-template-columns:1fr}}
 @media(max-width:600px){.admin-nav{min-height:66px}.admin-logo{width:118px;height:55px}.admin-layout{min-height:calc(100vh - 66px)}.admin-sidebar{top:66px}.admin-overlay.open{inset:66px 0 0}.admin-title-row{align-items:flex-start;flex-direction:column}.admin-title-row h1{font-size:27px}.admin-date{display:none}.admin-stats{gap:8px}.admin-stat{padding:12px;gap:8px}.admin-stat-icon{width:32px;height:32px;flex-basis:32px;font-size:13px}.admin-stat b{font-size:19px}.admin-stat span{font-size:8px}.admin-panel{padding:13px}.admin-app-table{min-width:650px}.table-panel{overflow:auto}.admin-quick{grid-template-columns:1fr 1fr}.bottom-grid{grid-template-columns:1fr}.bottom-grid .mini-wide{grid-column:auto}}
 @media(max-width:390px){.admin-quick{grid-template-columns:1fr}}
-
 .admin-welcome{display:grid;grid-template-columns:1.5fr .85fr;gap:16px;margin:0 0 18px}.welcome-card{border-radius:17px;padding:21px 22px;background:linear-gradient(135deg,#061f43,#0b4779);color:#fff;position:relative;overflow:hidden;min-height:128px}.welcome-card:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-95px;top:-95px}.welcome-card .small{font-size:9px;letter-spacing:1.7px;text-transform:uppercase;color:#f4c84c;font-weight:950}.welcome-card h2{margin:7px 0 5px;font-size:21px;letter-spacing:-.4px}.welcome-card p{margin:0;max-width:560px;color:#c8d7e8;font-size:10px;line-height:1.55}.welcome-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.welcome-actions a{padding:8px 10px;border-radius:8px;text-decoration:none;font-size:9px;font-weight:900}.welcome-actions .primary{background:#f4b41f;color:#081b35}.welcome-actions .secondary{border:1px solid rgba(255,255,255,.25);color:#fff}.getting-started{background:#fff;border:1px solid #e1e8ef;border-radius:17px;padding:18px;box-shadow:0 7px 20px rgba(6,27,58,.04)}.getting-started h3{margin:0;color:#10213d;font-size:13px}.getting-started p{margin:4px 0 12px;color:#738095;font-size:9px;line-height:1.45}.start-list{display:grid;gap:8px}.start-item{display:flex;align-items:center;gap:8px;color:#455468;font-size:9px}.start-num{width:22px;height:22px;border-radius:7px;background:#edf5ff;color:#0b63d9;display:grid;place-items:center;font-size:8px;font-weight:950;flex:0 0 22px}.pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.pipe-card{border:1px solid #e1e8ef;border-radius:12px;padding:12px;background:#fff}.pipe-card .pipe-top{display:flex;justify-content:space-between;align-items:center;gap:6px}.pipe-card b{font-size:10px;color:#25354b}.pipe-card strong{font-size:16px;color:#10213d}.pipe-bar{height:6px;border-radius:20px;background:#edf1f6;margin-top:10px;overflow:hidden}.pipe-bar i{display:block;height:100%;width:0;border-radius:20px;background:#0b63d9}.pipe-card:nth-child(2) .pipe-bar i{background:#13b981}.pipe-card:nth-child(3) .pipe-bar i{background:#f4b41f}.pipe-card:nth-child(4) .pipe-bar i{background:#7657e8}.pipe-card:nth-child(5) .pipe-bar i{background:#ef5350}.dashboard-note{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 13px;border:1px dashed #cbd8e7;background:#f8fbff;border-radius:11px;color:#66758a;font-size:9px;margin-bottom:16px}.dashboard-note b{color:#25354b}.dashboard-note a{color:#0b63d9;text-decoration:none;font-weight:900;white-space:nowrap}
 @media(max-width:900px){.admin-welcome{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.welcome-card{padding:18px;min-height:145px}.pipeline{grid-template-columns:1fr 1fr}.dashboard-note{align-items:flex-start;flex-direction:column}}
 @media(max-width:390px){.pipeline{grid-template-columns:1fr}}
 </style>
-
 <style id="sandeep-admin-shared-sidebar">
 .admin-layout{display:grid;grid-template-columns:205px 1fr;min-height:calc(100vh - 72px)}.admin-sidebar{background:#061f43;color:#c9d7e8;padding:15px 10px}.admin-side-title{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:#8ea7c4;padding:8px 10px 10px;font-weight:900}.admin-side-link{display:flex;align-items:center;gap:9px;width:100%;border:0;background:transparent;color:#d2deec;text-decoration:none;padding:10px;border-radius:8px;font-size:10px;font-weight:850;margin:2px 0;cursor:pointer;text-align:left}.admin-side-link:hover,.admin-side-link.active{background:#0b63d9;color:#fff}.admin-side-icon{width:16px;text-align:center;font-size:11px;flex:0 0 16px}.admin-overlay{display:none}
 @media(max-width:900px){.admin-layout{grid-template-columns:1fr}.admin-sidebar{position:fixed;left:-240px;top:72px;bottom:0;width:225px;z-index:1100;transition:left .2s;box-shadow:12px 0 30px rgba(0,0,0,.16)}.admin-sidebar.open{left:0}.admin-overlay.open{display:block;position:fixed;inset:72px 0 0;background:rgba(2,16,34,.38);z-index:1050}}
 @media(max-width:600px){.admin-layout{min-height:calc(100vh - 66px)}.admin-sidebar{top:66px}.admin-overlay.open{inset:66px 0 0}}
 </style>
-
 <style id="sandeep-admin-unified-header">
 .admin-workspace-header{height:72px;background:#061b3a;color:#fff;display:flex;align-items:center;padding:0 28px;gap:18px;position:sticky;top:0;z-index:1200;box-shadow:0 5px 22px rgba(6,27,58,.18)}
 .admin-workspace-brand{display:flex;align-items:center;gap:12px;min-width:245px}.admin-workspace-brand img{width:112px;height:52px;object-fit:contain;background:#fff;border-radius:7px;padding:3px}.admin-workspace-brand span{font-size:9px;letter-spacing:1.8px;font-weight:900;color:#c8d8eb;text-transform:uppercase}.admin-workspace-title{margin-left:auto;font-size:12px;font-weight:900;letter-spacing:.4px;color:#fff}.admin-workspace-menu{display:none;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;border-radius:9px;padding:8px 11px;font-size:18px;cursor:pointer}
@@ -43,51 +40,42 @@
 <header class="admin-workspace-header">
   <div class="admin-workspace-brand"><a href="admin-dashboard.html" aria-label="Admin Dashboard"><img src="Logo.png" alt="Sandeep Solutions" onerror="this.onerror=null;this.src='assets/logo.png'"></a><span>Admin Workspace</span></div>
   <div class="admin-workspace-title">Sandeep Solutions · Private Administration</div>
-  <button class="admin-workspace-menu" id="menuBtn" aria-label="Open admin menu">☰</button>
+  <button class="admin-workspace-menu" id="menuBtn" aria-label="Open admin menu" aria-expanded="false" aria-controls="sidebar">☰</button>
 </header>
-
 <div class="admin-layout">
 <aside class="admin-sidebar" id="sidebar"><div class="admin-side-title">Admin Workspace</div>
 <a class="admin-side-link active" href="admin-dashboard.html"><span class="admin-side-icon">⌂</span>Dashboard</a>
-<a class="admin-side-link " href="admin-jobs.html"><span class="admin-side-icon">▤</span>Manage Jobs</a>
-<a class="admin-side-link " href="admin-applications.html"><span class="admin-side-icon">◫</span>Applications</a>
-<a class="admin-side-link " href="admin-candidates.html"><span class="admin-side-icon">♙</span>Candidates</a>
+<a class="admin-side-link" href="admin-jobs.html"><span class="admin-side-icon">▤</span>Manage Jobs</a>
+<a class="admin-side-link" href="admin-applications.html"><span class="admin-side-icon">◫</span>Applications</a>
+<a class="admin-side-link" href="admin-candidates.html"><span class="admin-side-icon">♙</span>Candidates</a>
 <a class="admin-side-link" href="jobs.html"><span class="admin-side-icon">⌕</span>Job Portal</a>
-<a class="admin-side-link " href="admin-employers.html"><span class="admin-side-icon">▣</span>Employers</a>
-<button class="admin-side-link" id="logout"><span class="admin-side-icon">↪</span>Logout</button></aside><div class="admin-overlay" id="overlay"></div>
-
+<a class="admin-side-link" href="admin-employers.html"><span class="admin-side-icon">▣</span>Employers</a>
+<button class="admin-side-link" id="logout" type="button"><span class="admin-side-icon">↪</span>Logout</button></aside><div class="admin-overlay" id="overlay"></div>
 <main class="admin-main"><div class="admin-main-inner">
 <div class="admin-kicker">Private Workspace</div>
 <div class="admin-title-row"><div><h1>Welcome, Admin <span aria-hidden="true">👋</span></h1><p>Manage your jobs, candidates, enquiries and recruitment pipeline.</p></div><div class="admin-date" id="today">—</div></div>
-
 <div class="admin-welcome">
 <section class="welcome-card"><div class="small">Recruitment Control Center</div><h2>Everything you need to manage hiring.</h2><p>Publish vacancies, review applications, move candidates through the hiring pipeline and respond to employer requirements.</p><div class="welcome-actions"><a class="primary" href="admin-jobs.html">+ Post a Job</a><a class="secondary" href="admin-applications.html">Review Applications →</a></div></section>
 <section class="getting-started"><h3>Getting Started</h3><p>Recommended first actions when the workspace has no activity.</p><div class="start-list"><div class="start-item"><span class="start-num">1</span>Publish your first active vacancy</div><div class="start-item"><span class="start-num">2</span>Review incoming applications</div><div class="start-item"><span class="start-num">3</span>Update candidate status</div><div class="start-item"><span class="start-num">4</span>Respond to employer enquiries</div></div></section>
 </div>
-
 <section class="admin-stats">
 <div class="admin-stat"><div class="admin-stat-icon">▤</div><div><b id="jobs">—</b><span>Active Job Postings</span></div></div>
 <div class="admin-stat"><div class="admin-stat-icon">◫</div><div><b id="apps">—</b><span>Applications</span></div></div>
 <div class="admin-stat"><div class="admin-stat-icon">✉</div><div><b id="enq">—</b><span>Employer Enquiries</span></div></div>
 <div class="admin-stat"><div class="admin-stat-icon">♙</div><div><b id="cand">—</b><span>Candidates</span></div></div>
 </section>
-
 <div class="dashboard-note"><span><b>Admin tip:</b> Keep candidate statuses updated so the recruitment pipeline stays accurate.</span><a href="admin-applications.html">Open Application Management →</a></div>
-
 <div class="admin-grid-main">
 <section class="admin-panel table-panel"><div class="admin-panel-head"><h2>Recent Job Applications</h2><a href="admin-applications.html">View All Applications →</a></div><div id="tableWrap">Loading…</div></section>
 <section class="admin-panel"><div class="admin-panel-head"><h2>Application Status Overview</h2></div><div class="status-list" id="statusChart">Loading…</div></section>
 </div>
-
 <section class="admin-panel"><div class="admin-panel-head"><h2>Recruitment Pipeline</h2><a href="admin-applications.html">Manage Pipeline →</a></div><div class="pipeline" id="pipeline"><div class="pipe-card"><div class="pipe-top"><b>Applied</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Shortlisted</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Interview</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Selected</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div><div class="pipe-card"><div class="pipe-top"><b>Rejected</b><strong>0</strong></div><div class="pipe-bar"><i></i></div></div></div></section>
-
 <section class="admin-panel"><div class="admin-panel-head"><h2>Quick Actions</h2></div><div class="admin-quick">
 <a class="admin-quick-card" href="admin-jobs.html"><div class="admin-quick-icon">＋</div><b>Post / Manage Jobs</b><span>Create and manage active vacancies.</span></a>
 <a class="admin-quick-card" href="admin-applications.html"><div class="admin-quick-icon">✓</div><b>Application Management</b><span>Review and update application status.</span></a>
 <a class="admin-quick-card" href="admin-candidates.html"><div class="admin-quick-icon">♙</div><b>Candidate Management</b><span>View candidate profiles and experience.</span></a>
 <a class="admin-quick-card" href="employers.html"><div class="admin-quick-icon">✉</div><b>Employer Enquiries</b><span>Review recruitment requirements.</span></a>
 </div></section>
-
 <div class="bottom-grid">
 <section class="admin-panel mini-wide"><div class="admin-panel-head"><h2>Recent Employer Enquiries</h2><a href="admin-jobs.html">View All →</a></div><div class="mini-list" id="enquiryList">Loading…</div></section>
 <section class="admin-panel"><div class="admin-panel-head"><h2>Jobs by Category</h2></div><div id="categoryList">Loading…</div></section>
@@ -95,21 +83,26 @@
 </div>
 </div></main></div>
 <footer class="admin-footer">© 2026 Sandeep Solutions. All rights reserved. <a href="index.html">Home</a> · <a href="jobs.html">Jobs</a> · <a href="contact.html">Contact</a></footer>
-
 <script type="module">
 import{auth,db}from"./firebase-config.js";
 import{onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-import{collection,getDocs,getCountFromServer,query,where}from"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-
+import{collection,getDocs,query,where}from"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 const ADMIN="sandeep.hr.solutions.shr@gmail.com",STATUS=["Applied","Shortlisted","Interview","Selected","Rejected"],$=id=>document.getElementById(id);
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]||m))}
 function initials(n){return String(n||"C").split(/\s+/).slice(0,2).map(x=>x[0]||"").join("").toUpperCase()}
-function date(v){return v?.seconds?new Date(v.seconds*1000).toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"}):"—"}
-
+function date(v){try{const d=v?.seconds?new Date(v.seconds*1000):v instanceof Date?v:null;return d&&!Number.isNaN(d.getTime())?d.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"}):"—"}catch{return"—"}}
+function timestamp(v){return v?.seconds||0}
+function setText(id,value){const el=$(id);if(el)el.textContent=String(value)}
+function showDashboardError(message){const target=$("tableWrap");if(target)target.innerHTML=`<div role="alert" style="padding:18px;color:#a52828;font-size:10px">${esc(message)}</div>`;["statusChart","enquiryList","categoryList","candidateList"].forEach(id=>{const el=$(id);if(el)el.innerHTML='<div style="font-size:9px;color:#64748b;padding:10px 0">Data unavailable.</div>'})}
 $("today").textContent=new Date().toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});
-
+const sidebar=$("sidebar"),overlay=$("overlay"),menu=$("menuBtn");
+function closeMenu(){sidebar?.classList.remove("open");overlay?.classList.remove("open");menu?.setAttribute("aria-expanded","false");menu?.setAttribute("aria-label","Open admin menu")}
+function toggleMenu(){const opening=!sidebar?.classList.contains("open");sidebar?.classList.toggle("open",opening);overlay?.classList.toggle("open",opening);menu?.setAttribute("aria-expanded",String(opening));menu?.setAttribute("aria-label",opening?"Close admin menu":"Open admin menu")}
+menu?.addEventListener("click",toggleMenu);overlay?.addEventListener("click",closeMenu);document.querySelectorAll(".admin-sidebar a").forEach(a=>a.addEventListener("click",closeMenu));document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});window.addEventListener("resize",()=>{if(window.innerWidth>900)closeMenu()});
+let loadStarted=false;
 onAuthStateChanged(auth,async u=>{
- if(!u||(u.email||"").toLowerCase()!==ADMIN){location.href="admin-login.html";return}
+ if(!u||(u.email||"").toLowerCase()!==ADMIN){if(u)await signOut(auth).catch(()=>{});location.replace("admin-login.html");return}
+ if(loadStarted)return;loadStarted=true;
  try{
   const [jobsSnap,appSnap,enqSnap,candSnap]=await Promise.all([
    getDocs(query(collection(db,"jobs"),where("status","==","active"))),
@@ -117,26 +110,20 @@ onAuthStateChanged(auth,async u=>{
    getDocs(collection(db,"jobRequests")),
    getDocs(collection(db,"candidates"))
   ]);
-  $("jobs").textContent=jobsSnap.size;$("apps").textContent=appSnap.size;$("enq").textContent=enqSnap.size;$("cand").textContent=candSnap.size;
-
-  const apps=[];appSnap.forEach(d=>apps.push({id:d.id,...d.data()}));apps.sort((a,b)=>(b.appliedAt?.seconds||0)-(a.appliedAt?.seconds||0));
+  setText("jobs",jobsSnap.size);setText("apps",appSnap.size);setText("enq",enqSnap.size);setText("cand",candSnap.size);
+  const apps=[];appSnap.forEach(d=>apps.push({id:d.id,...d.data()}));apps.sort((a,b)=>timestamp(b.appliedAt)-timestamp(a.appliedAt));
   $("tableWrap").innerHTML=apps.length?`<table class="admin-app-table"><thead><tr><th>Candidate</th><th>Job</th><th>Location</th><th>Date</th><th>Status</th></tr></thead><tbody>${apps.slice(0,8).map(r=>`<tr><td><strong>${esc(r.candidateName||"Candidate")}</strong></td><td>${esc(r.jobTitle||"Job")}</td><td>${esc(r.location||"—")}</td><td>${date(r.appliedAt)}</td><td><span class="admin-status">${esc(r.status||"Applied")}</span></td></tr>`).join("")}</tbody></table>`:"<div style='padding:18px 8px;color:#64748b;font-size:10px'>No applications yet.</div>";
-
-  const counts=Object.fromEntries(STATUS.map(s=>[s,0]));apps.forEach(r=>counts[r.status||"Applied"]=(counts[r.status||"Applied"]||0)+1);const max=Math.max(1,...Object.values(counts));
-  $("statusChart").innerHTML=STATUS.map(s=>`<div class="status-row"><span>${s}</span><div class="bar"><i style="width:${Math.round(counts[s]/max*100)}%"></i></div><b>${counts[s]}</b></div>`).join("");const pipes=[...document.querySelectorAll("#pipeline .pipe-card")];STATUS.forEach((s,i)=>{if(!pipes[i])return;pipes[i].querySelector("strong").textContent=counts[s];pipes[i].querySelector(".pipe-bar i").style.width=Math.round(counts[s]/max*100)+"%"});
-
-  const enquiries=[];enqSnap.forEach(d=>enquiries.push({id:d.id,...d.data()}));enquiries.sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
+  const counts=Object.fromEntries(STATUS.map(s=>[s,0]));apps.forEach(r=>{const status=STATUS.find(s=>s.toLowerCase()===String(r.status||"Applied").trim().toLowerCase())||"Applied";counts[status]++});const max=Math.max(1,...Object.values(counts));
+  $("statusChart").innerHTML=STATUS.map(s=>`<div class="status-row"><span>${s}</span><div class="bar"><i style="width:${Math.round(counts[s]/max*100)}%"></i></div><b>${counts[s]}</b></div>`).join("");
+  const pipes=[...document.querySelectorAll("#pipeline .pipe-card")];STATUS.forEach((s,i)=>{if(!pipes[i])return;pipes[i].querySelector("strong").textContent=counts[s];pipes[i].querySelector(".pipe-bar i").style.width=Math.round(counts[s]/max*100)+"%"});
+  const enquiries=[];enqSnap.forEach(d=>enquiries.push({id:d.id,...d.data()}));enquiries.sort((a,b)=>timestamp(b.createdAt)-timestamp(a.createdAt));
   $("enquiryList").innerHTML=enquiries.slice(0,4).map(r=>`<div class="mini-row"><div class="avatar">${initials(r.companyName||"E")}</div><div class="mini-copy"><b>${esc(r.companyName||"Employer")}</b><span>${esc(r.description||r.service||"Recruitment enquiry")}</span></div><div class="mini-date">${date(r.createdAt)}</div></div>`).join("")||"<div style='font-size:9px;color:#64748b;padding:10px 0'>No employer enquiries yet.</div>";
-
   const cats={};jobsSnap.forEach(d=>{const r=d.data();const c=r.category||r.department||r.position||"Other";cats[c]=(cats[c]||0)+1});const catRows=Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,5),catMax=Math.max(1,...catRows.map(x=>x[1]));
   $("categoryList").innerHTML=catRows.map(([c,n])=>`<div class="category-row"><span>${esc(c).slice(0,14)}</span><div class="bar"><i style="width:${Math.round(n/catMax*100)}%;background:#0b63d9"></i></div><b>${n}</b></div>`).join("")||"<div style='font-size:9px;color:#64748b;padding:10px 0'>No active jobs yet.</div>";
-
-  const candidates=[];candSnap.forEach(d=>candidates.push({id:d.id,...d.data()}));candidates.sort((a,b)=>(b.updatedAt?.seconds||0)-(a.updatedAt?.seconds||0));
+  const candidates=[];candSnap.forEach(d=>candidates.push({id:d.id,...d.data()}));candidates.sort((a,b)=>timestamp(b.updatedAt)-timestamp(a.updatedAt));
   $("candidateList").innerHTML=candidates.slice(0,4).map(r=>`<div class="mini-row"><div class="avatar">${initials(r.fullName)}</div><div class="mini-copy"><b>${esc(r.fullName||"Candidate")}</b><span>${esc(r.experience||"Experience not provided")} · ${esc(r.location||"Location not provided")}</span></div></div>`).join("")||"<div style='font-size:9px;color:#64748b;padding:10px 0'>No candidates yet.</div>";
- }catch(e){console.error(e);$("tableWrap").innerHTML="<div style='padding:18px;color:#a52828;font-size:10px'>Dashboard data could not be loaded. Please check Firebase configuration and rules.</div>"}
+ }catch(e){console.error("Admin dashboard load failed:",e);showDashboardError(e?.code==="permission-denied"?"Dashboard data access was denied by Firebase rules. Please check the admin permissions.":"Dashboard data could not be loaded. Please check your internet connection and Firebase configuration.")}
 });
-$("logout").onclick=async()=>{await signOut(auth);location.href="admin-login.html"};
-$("menuBtn").onclick=()=>{$("sidebar").classList.toggle("open");$("overlay").classList.toggle("open")};
-$("overlay").onclick=()=>{$("sidebar").classList.remove("open");$("overlay").classList.remove("open")};
+$("logout").addEventListener("click",async()=>{const button=$("logout");button.disabled=true;try{await signOut(auth)}finally{location.replace("admin-login.html")}});
 </script>
 </body></html>
