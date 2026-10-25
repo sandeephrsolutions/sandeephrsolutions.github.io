@@ -1,0 +1,16 @@
+// MERGE SNIPPET ONLY — add this match inside your existing service cloud.firestore { match /databases/{database}/documents { ... } }
+// Replace ADMIN_UID_HERE with the verified Firebase Auth UID for the site owner.
+function isLibraryAdmin() {
+  return request.auth != null &&
+    (request.auth.uid == "ADMIN_UID_HERE" ||
+     request.auth.token.email == "sandeep.hr.solutions.shr@gmail.com");
+}
+match /libraryBooks/{bookId} {
+  allow read: if resource.data.status == "published" || isLibraryAdmin();
+  allow create: if isLibraryAdmin()
+    && request.resource.data.keys().hasAll(["title", "category", "pdfUrl", "status", "createdBy"])
+    && request.resource.data.createdBy == request.auth.uid
+    && request.resource.data.status in ["draft", "published"];
+  allow update, delete: if isLibraryAdmin();
+}
+// Do not deploy this snippet as a complete replacement for your existing Firestore rules.

@@ -1,0 +1,35 @@
+SANDEEP HR SOLUTIONS — FINAL WEBSITE + LEARNING HUB ADMIN STARTER
+===============================================================
+
+PACKAGE CONTENTS
+- Existing website pages from SandeepHR_All_Pages_Content_Refresh_v1.zip
+- learning.html from Book Gallery v4
+- Learning Hub link on homepage/services where safely added
+- sitemap.xml Learning Hub entry
+- library-admin.html: Firebase Auth + Firestore link-based book admin starter
+- firestore.rules.learning-library.txt: MERGE SNIPPET ONLY
+
+IMPORTANT STATUS
+This ZIP is a prepared starter package, not a deployed production admin system. Live Firebase connection, rules deployment, public gallery data integration and direct PDF upload are NOT completed or verified by packaging alone.
+
+SAFE DEPLOYMENT
+1. Keep your existing repository backup.
+2. Extract this ZIP locally. The website files are inside sandeephrsolutions.github.io-main/.
+3. Do not replace existing Firestore rules with firestore.rules.learning-library.txt. It is only a snippet to merge into the existing rules; preserve all existing matches.
+4. In Firebase Console, confirm Email/Password sign-in and create the admin account manually. Disable public sign-up.
+5. Find the admin user's UID and replace ADMIN_UID_HERE in the snippet before merging rules. The email allowlist alone should not be the only authorization check if you can use a fixed UID.
+6. Deploy merged rules in Firebase Console and test with an admin account and a non-admin account.
+7. Upload website files to GitHub repository root, preserving existing assets and checking diff before commit.
+8. Test homepage, services, learning.html, and library-admin.html on mobile.
+
+BOOK ADDING
+- Public link method is implemented in the admin starter after Firebase config and rules are correctly deployed.
+- Direct PDF upload is deliberately disabled until a secure upload service is configured. Do not put an R2 secret, service key, or long-lived upload token in browser JavaScript.
+- For direct uploads, deploy a Cloudflare Worker that verifies Firebase ID tokens and admin UID before issuing short-lived R2 signed uploads. Configure CORS, file size/type limits, rate limits, and public read URLs. This Worker is not included as a production-deployed service in this package.
+- Public Drive links are not private and may be shared by anyone who obtains them.
+
+PUBLIC GALLERY INTEGRATION
+The current Learning Hub gallery design is included. It is not yet wired to query the Firestore libraryBooks collection in this package, so newly added books will not automatically appear until that integration is completed and tested.
+
+LEGAL
+Only publish PDFs that you own, have permission to redistribute, or that are legally available for public redistribution.
