@@ -1,1 +1,0 @@
-Replace your website root index.html with this file. Keep the existing assets folder. The page expects: assets/logo.png, assets/home-hero-hd.jpg, assets/hr-recruitment.jpg, assets/business-consultancy.jpg, assets/restaurant-solutions.jpg, assets/documentation-setup.jpg.
