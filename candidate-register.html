@@ -137,6 +137,52 @@ input[type="email"]:focus,input[type="password"]:focus,input[type="text"]:focus,
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 
+
+<style id="sandeep-candidate-auth-fix-v3">
+/* Targeted fixes from user screenshots: restore CTA contrast and improve responsive form layout */
+.support-strip{
+  background:linear-gradient(100deg,#071d38 0%,#123f68 100%) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  border-radius:16px !important;
+  box-shadow:0 8px 22px rgba(7,29,56,.12);
+  padding:22px 24px !important;
+}
+.support-strip h3,.support-strip strong{color:#fff !important}
+.support-strip p,.support-strip div p{color:#e2ebf5 !important;opacity:1 !important}
+.support-strip .btn.primary,
+.support-strip a.btn.primary{
+  background:#f3bd3f !important;color:#10243c !important;border:1px solid #f3bd3f !important;
+  opacity:1 !important;box-shadow:none !important;text-decoration:none !important
+}
+.support-strip a{opacity:1 !important}
+.portal-intro{min-width:0}
+.wrap.portal>.card,.wrap.portal>.side{min-width:0}
+.card{color:#10243c}
+.card h2,.card h3,.portal-intro h2{color:#10243c}
+.field label{color:#243a53}
+.side{color:#fff}
+.side p,.side li,.side-item,.side-list{color:#edf4fb}
+.feature h3,.feature strong{color:#10243c}
+.feature p,.feature span{color:#5d6f83}
+.steps h2,.steps h3,.steps strong{color:#10243c}
+.steps p,.steps span{color:#607287}
+@media(max-width:620px){
+  .wrap.portal{display:flex !important;flex-direction:column !important;align-items:stretch !important}
+  .wrap.portal>.card,.wrap.portal>.side{width:100% !important;max-width:none !important}
+  .support-strip{display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:14px !important;margin:0 12px 28px !important;padding:18px !important}
+  .support-strip h3{font-size:18px !important}
+  .support-strip p{font-size:12px !important;line-height:1.65 !important}
+  .support-strip a.btn.primary{display:inline-flex !important;justify-content:center !important;align-items:center !important;min-height:44px !important;width:100% !important;box-sizing:border-box}
+  .feature-grid{display:grid !important;grid-template-columns:1fr !important}
+  .step-grid{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .footer-grid{display:grid !important;grid-template-columns:1fr 1fr !important}
+}
+@media(max-width:380px){
+  .step-grid,.footer-grid{grid-template-columns:1fr !important}
+}
+</style>
+
 </head><body>
 <header class="site-header">
 <a href="index.html"><img class="logo" src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a>
