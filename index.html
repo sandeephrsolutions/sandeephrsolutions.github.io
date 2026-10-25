@@ -170,6 +170,135 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
  .section .service>div{padding:10px!important}
 }
 
+
+/* v5: extra-compact hero based on user's latest reference */
+.hero-inner{min-height:220px!important;padding-top:18px!important;padding-bottom:10px!important;grid-template-columns:minmax(0,1.25fr) minmax(180px,.58fr)!important;gap:20px!important}
+.copy h1{font-size:clamp(30px,3.1vw,46px)!important;line-height:.98!important;letter-spacing:-1.3px!important;margin-bottom:9px!important}
+.copy p{font-size:clamp(13px,1.1vw,16px)!important;line-height:1.35!important;margin-bottom:12px!important}
+.actions{gap:8px!important}
+.btn{padding:10px 15px!important;font-size:12px!important}
+.hero-services{width:min(100%,245px)!important;padding:8px 12px!important;border-radius:11px!important}
+.hero-services a{padding:7px 2px!important;font-size:10px!important}
+.hero-services .mini-icon{width:25px!important;height:25px!important;flex-basis:25px!important;font-size:15px!important}
+.hero-stats{padding-top:0!important;padding-bottom:11px!important;gap:10px!important}
+.hero-stat .stat-icon{font-size:22px!important}
+.hero-stat strong{font-size:18px!important}
+.hero-stat span{font-size:10px!important}
+@media(max-width:1120px){
+ .hero-inner{min-height:210px!important;padding-top:16px!important}
+ .hero-services{width:min(100%,225px)!important}
+}
+@media(max-width:820px){
+ .hero-inner{min-height:205px!important;grid-template-columns:minmax(0,1fr) 160px!important;gap:12px!important;padding-top:15px!important}
+ .copy h1{font-size:clamp(28px,4.5vw,38px)!important}
+ .hero-services{padding:6px 9px!important}
+ .hero-services a{padding:6px 1px!important;font-size:9px!important}
+ .hero-stats{padding-bottom:10px!important}
+}
+@media(max-width:600px){
+ .hero-inner{min-height:0!important;padding:22px 18px 14px!important}
+ .copy h1{font-size:34px!important}
+ .copy p{font-size:14px!important}
+ .btn{padding:10px 12px!important;font-size:11px!important}
+ .hero-stats{padding:0 18px 16px!important;gap:12px 8px!important}
+ .hero-stat strong{font-size:17px!important}
+}
+
+
+/* v6: font-matched extra-compact hero */
+.hero-inner{
+  min-height:190px!important;
+  padding-top:14px!important;
+  padding-bottom:8px!important;
+  gap:16px!important;
+}
+.hero .copy,
+.hero .copy h1,
+.hero .copy p,
+.hero .actions,
+.hero .btn,
+.hero-services,
+.hero-services a,
+.hero-stats,
+.hero-stat,
+.hero-stat strong,
+.hero-stat span{
+  font-family:Inter,Arial,Helvetica,sans-serif!important;
+}
+.hero .copy h1{
+  font-size:clamp(28px,2.8vw,40px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.9px!important;
+  font-weight:800!important;
+  margin:0 0 7px!important;
+}
+.hero .copy p{
+  font-size:clamp(12px,1vw,15px)!important;
+  line-height:1.35!important;
+  font-weight:400!important;
+  margin:0 0 10px!important;
+}
+.hero .badge{
+  font-size:10px!important;
+  letter-spacing:1.6px!important;
+  margin-bottom:8px!important;
+}
+.hero .btn{
+  padding:9px 13px!important;
+  font-size:11px!important;
+  line-height:1.25!important;
+  font-weight:800!important;
+  border-radius:7px!important;
+}
+.hero-services{
+  max-width:220px!important;
+  padding:6px 10px!important;
+  border-radius:10px!important;
+}
+.hero-services a{
+  padding:6px 2px!important;
+  font-size:10px!important;
+  line-height:1.25!important;
+  font-weight:700!important;
+}
+.hero-services .mini-icon{
+  width:23px!important;height:23px!important;flex-basis:23px!important;
+  font-size:14px!important;border-radius:6px!important;
+}
+.hero-stats{
+  padding-top:0!important;
+  padding-bottom:9px!important;
+  gap:8px!important;
+}
+.hero-stat{gap:9px!important}
+.hero-stat .stat-icon{font-size:20px!important}
+.hero-stat strong{font-size:16px!important;line-height:1.15!important;font-weight:800!important}
+.hero-stat span{font-size:9px!important;line-height:1.25!important;margin-top:2px!important}
+@media(max-width:1120px){
+  .hero-inner{min-height:185px!important;padding-top:13px!important}
+  .hero-services{max-width:205px!important}
+  .hero .copy h1{font-size:clamp(27px,3.2vw,36px)!important}
+}
+@media(max-width:820px){
+  .hero-inner{min-height:180px!important;padding-top:12px!important;grid-template-columns:minmax(0,1fr) 150px!important}
+  .hero .copy h1{font-size:clamp(25px,4vw,33px)!important}
+  .hero .copy p{font-size:12px!important}
+  .hero .btn{padding:8px 10px!important;font-size:10px!important}
+  .hero-services{max-width:150px!important;padding:5px 7px!important}
+  .hero-services a{font-size:9px!important;padding:5px 1px!important}
+  .hero-stats{padding-bottom:8px!important}
+}
+@media(max-width:600px){
+  .hero-inner{min-height:0!important;padding:20px 18px 12px!important;display:block!important}
+  .hero .copy h1{font-size:32px!important;line-height:1.02!important}
+  .hero .copy p{font-size:13px!important;line-height:1.35!important}
+  .hero .badge{font-size:9px!important;margin-bottom:7px!important}
+  .hero .btn{padding:9px 11px!important;font-size:10px!important}
+  .hero-stats{padding:0 18px 14px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px 8px!important}
+  .hero-stat strong{font-size:16px!important}
+  .hero-stat span{font-size:9px!important}
+}
+
 </style>
 
 </head>
