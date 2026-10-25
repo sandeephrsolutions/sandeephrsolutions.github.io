@@ -86,6 +86,120 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offse
  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
 }
 
+
+/* Employers Page Design v2 — corrected selectors, compact premium layout */
+:root{
+ --navy:#062b57;--navy2:#0d3c70;--gold:#f5b91b;--gold2:#ffd76a;
+ --ink:#102b50;--muted:#61748a;--soft:#f3f7fc;--line:#dce6f0;
+}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:Arial,Helvetica,sans-serif!important;color:var(--ink)!important;line-height:1.45!important}
+header{height:76px!important;box-shadow:0 3px 18px rgba(3,31,66,.07)!important}
+.container{width:min(1160px,92%)!important}
+.container.nav{gap:22px!important}
+.brand img{width:145px!important;max-height:54px!important;object-fit:contain!important}
+.navlinks{gap:clamp(13px,2vw,26px)!important}
+.navlinks a{font-size:13px!important;font-weight:700!important}
+.quote{padding:11px 17px!important;border-radius:8px!important;font-size:12px!important}
+.menu-toggle{font-size:25px!important}
+.hero{min-height:270px!important}
+.hero-inner{padding:30px 0!important;max-width:690px!important}
+.eyebrow{font-size:10px!important;letter-spacing:1.5px!important;gap:7px!important}
+.dot{width:6px!important;height:6px!important}
+h1{font-size:clamp(30px,3.6vw,46px)!important;line-height:1.04!important;letter-spacing:-.8px!important;margin:10px 0 11px!important}
+.hero p{font-size:14px!important;line-height:1.45!important;max-width:620px!important;margin:0 0 18px!important}
+.hero-actions{gap:9px!important}
+.btn{font-size:12px!important;padding:10px 15px!important;border-radius:6px!important}
+.btn.outline{border-color:rgba(255,255,255,.6)!important}
+.section{padding:34px 0!important}
+.kicker{font-size:10px!important;letter-spacing:1.5px!important}
+h2{font-size:clamp(23px,2.5vw,32px)!important;line-height:1.13!important;margin:7px 0 10px!important;letter-spacing:-.35px!important}
+.lead{font-size:12px!important;line-height:1.5!important;max-width:690px!important;margin:0 auto 24px!important}
+.cards{gap:12px!important}
+.card{padding:18px 16px!important;border-radius:11px!important;box-shadow:0 7px 20px rgba(7,27,58,.055)!important}
+.card .num{font-size:11px!important}
+.card h3{font-size:13px!important;line-height:1.25!important;margin:8px 0 6px!important}
+.card p{font-size:10px!important;line-height:1.45!important}
+.split{gap:34px!important}
+.visual{min-height:300px!important;border-radius:11px!important;box-shadow:0 12px 28px rgba(7,27,58,.12)!important}
+.visual img{min-height:300px!important;max-height:390px!important;object-fit:cover!important}
+.checklist{margin:15px 0 0!important}
+.checklist li{font-size:12px!important;line-height:1.4!important;padding:7px 0 7px 25px!important}
+.form-card{padding:20px!important;border-radius:12px!important;border-top-width:3px!important;box-shadow:0 10px 28px rgba(7,27,58,.07)!important}
+.form-card h3{font-size:20px!important;line-height:1.2!important;margin:0 0 14px!important}
+.form-grid{gap:11px!important}
+.field{gap:4px!important}
+.field label{font-size:10px!important}
+.field input,.field select,.field textarea{font-size:12px!important;padding:9px 10px!important;border-radius:6px!important;min-height:37px!important}
+.field textarea{min-height:82px!important}
+.form-card .btn{margin-top:13px!important}
+.process{gap:12px!important;margin-top:22px!important}
+.step{padding:17px 15px!important;border-radius:10px!important}
+.stepno{width:32px!important;height:32px!important;font-size:12px!important;margin-bottom:10px!important}
+.step h3{font-size:13px!important;margin-bottom:5px!important}
+.step p{font-size:10px!important;line-height:1.45!important}
+.cta{padding:32px 0!important}
+.cta-inner{gap:20px!important}
+.cta h2{font-size:23px!important;margin:3px 0 5px!important}
+.cta p{font-size:12px!important;line-height:1.45!important}
+.footer{padding:30px 0 0!important}
+.footer-grid{gap:24px!important}
+.footer-logo{width:130px!important;margin-bottom:10px!important}
+.footer h3{font-size:12px!important;margin-bottom:9px!important}
+.footer p,.footer a{font-size:10px!important;line-height:1.5!important}
+.footer a{margin:5px 0!important}
+.bottom{margin-top:24px!important;padding:13px 0!important;font-size:10px!important}
+.legal{padding-bottom:12px!important}
+.legal a{font-size:10px!important}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold)!important;outline-offset:2px!important}
+
+/* Tablet */
+@media(max-width:950px){
+ header{height:66px!important}
+ .container.nav{gap:12px!important}
+ .brand img{height:42px!important;max-width:115px!important;width:auto!important}
+ .hero{min-height:235px!important}
+ .hero-inner{padding:24px 0!important}
+ h1{font-size:clamp(29px,4.5vw,38px)!important}
+ .section{padding:28px 0!important}
+ .split{gap:22px!important}
+ .visual,.visual img{min-height:245px!important}
+ .form-card{padding:16px!important}
+}
+@media(max-width:700px){
+ .container{width:91%!important}
+ header{height:64px!important}
+ .brand img{height:40px!important;max-width:108px!important}
+ .hero{min-height:0!important}
+ .hero-inner{padding:25px 0!important}
+ h1{font-size:32px!important}
+ .hero p{font-size:12px!important}
+ .section{padding:23px 0!important}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ .card{padding:14px 12px!important}
+ .card h3{font-size:12px!important}
+ .split{grid-template-columns:1fr!important;gap:18px!important}
+ .visual,.visual img{min-height:220px!important;max-height:260px!important}
+ .checklist{margin-top:12px!important}
+ .checklist li{font-size:11px!important;padding:6px 0 6px 24px!important}
+ .form-grid{grid-template-columns:1fr 1fr!important;gap:9px!important}
+ .field.full{grid-column:1/-1!important}
+ .form-card h3{font-size:19px!important}
+ .process{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ .step{padding:14px 12px!important}
+ .cta{padding:25px 0!important}
+ .cta-inner{align-items:flex-start!important}
+ .footer{padding-top:24px!important}
+ .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:17px!important}
+}
+@media(max-width:420px){
+ .cards,.process{grid-template-columns:1fr!important}
+ .form-grid{grid-template-columns:1fr!important}
+ .field.full{grid-column:auto!important}
+ .hero-actions .btn{font-size:11px!important;padding:9px 11px!important}
+ .footer-grid{grid-template-columns:1fr 1fr!important}
+}
+
 </style></head><body>
 <header><div class="container nav"><a class="brand" href="index.html"><img src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button><nav class="navlinks" id="navlinks"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a class="active" href="employers.html" aria-current="page">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a></nav><a class="quote" href="contact.html#enquiry">Get a Quote</a></div></header>
 <main>
