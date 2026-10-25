@@ -14,45 +14,95 @@
 @media(max-width:600px){.hero{min-height:640px}.hero:before{background:linear-gradient(90deg,rgba(3,27,57,.96),rgba(3,27,57,.72)),url("assets/home-hero-hd.jpg") center/cover}.hero-inner{min-height:640px;padding:30px 20px;align-items:flex-start}.copy h1{font-size:42px}.copy p{font-size:18px}.section{padding:35px 18px}.head h2{font-size:26px}.services{grid-template-columns:1fr}.industry-wrap{padding:28px 18px}.industry-grid{grid-template-columns:repeat(3,1fr)}.cta{flex-direction:column;align-items:flex-start}.cta img{width:100%;height:130px}.footer{padding:30px 18px 12px}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:7px}}
 </style>
 
-<style id="shr-blue-hero-spacing-fix">
+<style id="shr-responsive-design-desktop-tablet-mobile">
 
-/* FINAL BLUE HERO SPACING FIX — CSS ONLY.
-   Preserve existing navy/blue/gold colours, background images, content, links and behaviour. */
-.hero {
-  min-height: 0 !important;
-  height: auto !important;
-  padding-block: 0 !important;
+/* Sandeep HR Solutions — responsive layout pass for desktop, tablet and mobile.
+   CSS only. Preserve existing content, palette, images, URLs, scripts and interactions. */
+:root { --shr-breakpoint-mobile: 480px; --shr-breakpoint-tablet: 900px; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 74px; -webkit-text-size-adjust: 100%; }
+body { max-width: 100%; overflow-x: hidden; line-height: 1.48; }
+img, video, iframe { max-width: 100%; }
+img { height: auto; }
+button, input, select, textarea { font: inherit; }
+input, select, textarea { min-width: 0; }
+p { overflow-wrap: break-word; }
+.container, .wrap, .shell { width: min(100% - 40px, 1180px); margin-inline: auto; }
+.hero { min-height: 0 !important; height: auto !important; }
+.hero-inner { min-height: 0 !important; height: auto !important; padding-block: 30px !important; }
+.hero h1 { line-height: 1.08 !important; max-width: 18ch; }
+.hero p { max-width: 68ch; }
+.section { padding-block: clamp(26px, 3.5vw, 44px); }
+.header, .site-header { height: auto; min-height: 0; }
+.header .nav, .site-header .nav { min-height: 64px; height: auto; }
+.card, .service, .service-card, .industry, .process-card, .contact-item, .form-card, .job-card { min-width: 0; }
+.grid, .cards, .services, .service-grid, .stats-grid, .industry-grid, .process-grid, .footer-grid, .form-grid, .search-grid { min-width: 0; }
+button, .btn, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid #f4b41f; outline-offset: 3px; }
+
+/* Wide desktop */
+@media (min-width: 1200px) {
+  .container, .wrap, .shell { width: min(100% - 64px, 1180px); }
+  .hero-inner { padding-block: 34px !important; }
+  .section { padding-block: 42px; }
 }
-.hero-inner {
-  min-height: 0 !important;
-  height: auto !important;
-  box-sizing: border-box !important;
-  padding: 25px 20px !important;
-  align-items: center !important;
+
+/* Tablet: use two-column cards where sensible; avoid cramped multi-column content. */
+@media (min-width: 561px) and (max-width: 900px) {
+  .container, .wrap, .shell { width: calc(100% - 36px); }
+  .hero-inner { padding: 27px 24px !important; }
+  .section { padding-block: 30px; }
+  .services, .service-grid, .cards, .industry-grid, .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 14px !important; }
+  .stats-grid, .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid, .about-grid { gap: 16px !important; }
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px !important; }
+  .hero h1 { font-size: clamp(34px, 5vw, 46px) !important; }
+  .search-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-.hero h1 { margin-top: 8px !important; margin-bottom: 10px !important; }
-.hero p { margin-top: 8px !important; margin-bottom: 12px !important; }
-.hero .breadcrumb { margin-bottom: 10px !important; }
-.hero .hero-actions, .hero .actions { margin-top: 12px !important; gap: 9px !important; }
-.hero .hero-badges, .hero .chips { margin-top: 10px !important; gap: 7px !important; }
-@media (min-width: 761px) {
-  .hero-inner { padding: 30px 5% !important; }
-}
-@media (max-width: 760px) {
-  .hero-inner { padding: 22px 20px !important; }
-  .hero h1 { font-size: clamp(30px, 8vw, 40px) !important; line-height: 1.08 !important; }
+
+/* Mobile: single-column forms and split sections, compact hero, thumb-friendly controls. */
+@media (max-width: 560px) {
+  .container, .wrap, .shell { width: calc(100% - 28px) !important; }
+  .hero-inner { padding: 21px 16px !important; }
+  .hero h1 { font-size: clamp(28px, 8vw, 36px) !important; line-height: 1.08 !important; max-width: 16ch; }
   .hero p { font-size: 15px !important; line-height: 1.45 !important; }
+  .section { padding-block: 23px !important; }
+  .section-head, .head { margin-bottom: 14px !important; }
+  .services, .service-grid, .cards, .industry-grid, .process-grid, .stats-grid, .footer-grid,
+  .grid, .about-grid, .form-grid, .search-grid, .layout { grid-template-columns: minmax(0, 1fr) !important; gap: 12px !important; }
+  .stats, .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px !important; }
+  .card, .service, .service-card, .industry, .process-card, .contact-item, .form-card, .job-card { padding: 13px !important; border-radius: 12px !important; }
+  .hero .actions, .hero .hero-actions, .actions, .hero-actions { display: flex; flex-wrap: wrap; gap: 8px !important; }
+  .hero .actions a, .hero .hero-actions a { max-width: 100%; }
+  .search-wrap { margin-top: -12px !important; }
+  .search-card { padding: 12px !important; }
+  .filters { width: 100%; }
+  .footer { padding-block: 24px 16px !important; }
+  .footer-grid { gap: 16px !important; }
+  input, select, textarea { width: 100%; }
+  button, .btn, .quote, .apply { min-height: 42px; }
+  iframe { width: 100% !important; max-width: 100%; }
 }
-@media (max-width: 420px) {
-  .hero-inner { padding: 19px 16px !important; }
-  .hero h1 { font-size: clamp(28px, 8vw, 34px) !important; }
-}
-/* The home hero has buttons and category chips, so give it a little extra room naturally. */
 
+/* Very small phones */
+@media (max-width: 380px) {
+  .container, .wrap, .shell { width: calc(100% - 22px) !important; }
+  .hero-inner { padding: 18px 12px !important; }
+  .hero h1 { font-size: 28px !important; }
+  .nav { gap: 6px !important; }
+  .card, .service, .service-card, .form-card { padding: 11px !important; }
+}
+
+/* Admin pages: responsive containers and tables without changing admin logic. */
+.admin-main, .admin-layout, .admin-content, .admin-main-inner, .layout { min-width: 0; max-width: 100%; }
+.admin-table-wrap, .table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 @media (max-width: 760px) {
-  .hero-inner { padding-top: 24px !important; padding-bottom: 24px !important; }
-  .hero .actions { margin-top: 11px !important; }
-  .hero .chips { margin-top: 10px !important; }
+  .admin-main-inner, .admin-content, .inner, .auth-shell { padding: 13px !important; }
+  .admin-stats, .stats, .admin-grid-main, .bottom-grid { gap: 10px !important; }
+  .admin-stat, .admin-panel, .panel, .candidate, .auth-form { padding: 13px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
 
 </style>
