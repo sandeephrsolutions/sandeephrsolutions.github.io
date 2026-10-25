@@ -1,126 +1,33 @@
-<!DOCTYPE html>
-<html lang="en-IN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#031f42">
-<meta name="description" content="HR policies, employee documentation, PF/ESIC and labour compliance coordination, and business setup documentation support.">
-<meta property="og:title" content="Documentation & Setup | Sandeep Solutions">
-<meta property="og:description" content="HR policies, employee documentation, PF/ESIC and labour compliance coordination, and business setup documentation support.">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://sandeephrsolutions.github.io/documentation-setup.html">
-<title>Documentation & Setup | Sandeep Solutions</title>
-<link rel="icon" href="assets/logo.png">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#062b57;--deep:#031f42;--blue:#1766ad;--gold:#fbb718;--light:#f2f7fc;--text:#102b50;--muted:#60738a;--line:#dce7f2}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.55;background:#fff}
-a{text-decoration:none;color:inherit}
-.header{height:66px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4.5vw,68px);box-shadow:0 2px 14px rgba(3,29,61,.08);position:sticky;top:0;z-index:20}
-.logo{width:170px;max-height:49px;object-fit:contain}
-.nav{display:flex;align-items:center;gap:clamp(10px,1.7vw,24px);font-size:12px;font-weight:700}
-.nav a.active{color:var(--blue)}
-.quote{background:var(--gold);padding:10px 15px;border-radius:8px;font-size:11px;font-weight:900;color:#08213e}
-.menu-toggle{display:none;border:0;background:#fff;color:var(--navy);font-size:26px;padding:7px 9px;border-radius:8px;cursor:pointer}
-.hero{background:linear-gradient(112deg,#031f42,#123f68);color:#fff;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;right:-100px;top:-180px;width:420px;height:420px;border:1px solid rgba(255,255,255,.1);border-radius:50%;pointer-events:none}
-.hero-inner{max-width:1220px;margin:auto;padding:34px 26px 36px;position:relative;z-index:1}
-.breadcrumb{font-size:11px;color:#d7e6f4;font-weight:700;margin-bottom:14px}
-.breadcrumb a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-.eyebrow{font-size:10px;letter-spacing:1.8px;color:var(--gold);font-weight:900;margin-bottom:8px}
-h1{font-size:clamp(30px,4vw,45px);line-height:1.08;letter-spacing:-1px;max-width:850px;margin-bottom:12px}
-.hero p{font-size:14px;line-height:1.65;color:#e8f1fa;max-width:820px}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:11px 16px;border-radius:8px;background:var(--gold);color:#09213d;font-size:12px;font-weight:900}
-.btn.secondary{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.38);color:#fff}
-.section{padding:34px 22px}
-.container{max-width:1180px;margin:auto}
-.section-head{max-width:820px;text-align:center;margin:0 auto 24px}
-.section-head .eyebrow{color:#b98900}
-h2{font-size:clamp(23px,2.8vw,31px);line-height:1.2;letter-spacing:-.5px;color:var(--deep);margin-bottom:9px}
-.section-head p,.lead{font-size:13px;color:var(--muted);line-height:1.7}
-.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:stretch}
-.panel{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff;box-shadow:0 6px 20px rgba(9,42,76,.05)}
-.panel h3{font-size:17px;margin-bottom:10px;color:var(--deep)}
-.panel p{font-size:12px;color:var(--muted);line-height:1.75;margin-bottom:10px}
-.photo{width:100%;height:100%;min-height:260px;max-height:370px;object-fit:cover;border-radius:12px;display:block}
-.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.service-card{border:1px solid var(--line);border-radius:13px;padding:18px;background:#fff;box-shadow:0 5px 18px rgba(9,42,76,.045)}
-.service-card .icon{width:35px;height:35px;border-radius:10px;display:grid;place-items:center;background:#edf5fc;color:var(--blue);font-size:18px;font-weight:900;margin-bottom:12px}
-.service-card h3{font-size:15px;margin-bottom:7px;color:var(--deep)}
-.service-card p{font-size:11px;line-height:1.65;color:var(--muted)}
-.check-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 18px;margin-top:14px}
-.check-list li{font-size:12px;color:#40566d;padding-left:20px;position:relative;line-height:1.55}
-.check-list li:before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:900}
-.process{background:var(--light)}
-.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.process-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:17px}
-.process-no{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--gold);font-size:11px;font-weight:900;margin-bottom:10px}
-.process-card h3{font-size:14px;margin-bottom:5px}
-.process-card p{font-size:11px;line-height:1.65;color:var(--muted)}
-.faq-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.faq{border:1px solid var(--line);border-radius:12px;padding:17px;background:#fff}
-.faq h3{font-size:13px;margin-bottom:6px;color:var(--deep)}
-.faq p{font-size:11px;line-height:1.7;color:var(--muted)}
-.cta{background:linear-gradient(110deg,#031f42,#123f68);border-radius:15px;padding:25px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.cta h2{color:#fff;font-size:23px;margin-bottom:6px}
-.cta p{color:#dce8f5;font-size:12px;line-height:1.65;max-width:720px}
-.footer{background:var(--deep);color:#e6eef7;padding:30px 5% 13px}
-.footer-grid{display:grid;grid-template-columns:1.35fr .8fr 1fr 1.15fr;gap:28px;max-width:1180px;margin:auto}
-.footer-logo{width:140px;max-height:55px;object-fit:contain;margin-bottom:8px}
-.brandline{color:var(--gold);font-size:11px;font-weight:800}
-.footer p,.footer li,.footer a{font-size:11px;line-height:1.7;color:#c9d7e5}
-.footer h3{font-size:13px;color:#fff;margin-bottom:8px}
-.footer ul{list-style:none}
-.footer li{margin:4px 0}
-.social{display:flex;gap:8px;margin-top:10px}
-.social a{width:28px;height:28px;border-radius:7px;background:#fff;color:#0a315d;display:grid;place-items:center;font-weight:800}
-.footer-bottom{max-width:1180px;margin:18px auto 0;border-top:1px solid rgba(255,255,255,.15);padding-top:10px;display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#9fb2c7}
-a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-@media(max-width:850px){.header{height:60px;padding:0 16px}.logo{width:135px}.menu-toggle{display:block;margin-left:auto}.nav{position:absolute;top:60px;right:14px;display:none;flex-direction:column;align-items:stretch;gap:0;width:220px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 35px rgba(3,29,61,.18);padding:8px;z-index:30}.nav.open{display:flex}.nav a{padding:12px 14px;border-radius:8px}.nav .quote{text-align:center;margin-top:5px}.intro-grid{grid-template-columns:1fr 1fr}.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.hero-inner{padding:25px 18px 28px}h1{font-size:31px}.hero p{font-size:12px}.section{padding:26px 15px}.intro-grid,.service-grid,.process-grid,.faq-list{grid-template-columns:1fr}.photo{min-height:190px;max-height:240px}.panel{padding:17px}.check-list{grid-template-columns:1fr;gap:8px}.cta{flex-direction:column;align-items:stretch;padding:19px}.cta .btn{width:100%}.footer{padding:24px 16px 12px}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.footer-bottom{flex-direction:column}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-</style>
-</head>
-<body>
-<header class="header">
-<a href="index.html" aria-label="Sandeep Solutions home"><img class="logo" src="assets/logo.png" alt="Sandeep Solutions"></a>
-<button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
-<nav class="nav" aria-label="Main navigation">
-<a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="employers.html">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a><a class="quote" href="contact.html#enquiry">Get a Quote</a>
-</nav>
-</header>
-
-<main>
-<section class="hero"><div class="hero-inner">
-<div class="breadcrumb"><a href="index.html">Home</a> &nbsp;›&nbsp; <a href="services.html">Services</a> &nbsp;›&nbsp; Documentation &amp; Setup</div>
-<div class="eyebrow">HR DOCUMENTATION &amp; COMPLIANCE SUPPORT</div>
-<h1>Documentation &amp; Setup Services</h1><p>Organize essential HR documents, establish clear workplace policies and coordinate business documentation requirements with a structured approach.</p>
-<div class="hero-actions"><a class="btn" href="contact.html#enquiry">Discuss Your Requirement →</a><a class="btn secondary" href="services.html">View All Services</a></div>
-</div></section>
-<section class="section"><div class="container intro-grid">
-<div class="panel"><div class="eyebrow" style="color:#b98900">HOW WE HELP</div><h2>Clear documents. Better organized processes.</h2>
-<p>Accurate and accessible documentation helps businesses establish consistent HR practices and manage routine administrative requirements. Sandeep Solutions supports organizations with HR documentation, policy setup and selected registration or compliance coordination services.</p><p>The exact requirement, applicability, government fees, professional fees, timelines and required supporting documents are confirmed before work begins. Statutory outcomes depend on the relevant authority and the client&#x27;s eligibility and submissions.</p></div><div><img class="photo" src="assets/documentation-setup.jpg" alt="Documentation &amp; Setup" loading="eager"></div></div></section>
-<section class="section" style="background:#f8fbfe"><div class="container"><div class="section-head"><div class="eyebrow">SERVICE AREAS</div><h2>Support shaped around your requirements</h2><p>Choose the areas that match your current need. The final scope, timelines and fees are confirmed with you before work starts.</p></div>
-<div class="service-grid"><article class="service-card"><div class="icon">01</div><h3>HR Policies &amp; Employee Handbook</h3><p>Prepare or organize workplace policies, employee handbook content, code of conduct, leave rules and related HR guidance based on the business context.</p></article><article class="service-card"><div class="icon">02</div><h3>Employee Documentation</h3><p>Support offer letters, appointment letters, job descriptions, onboarding checklists and other agreed employee records.</p></article><article class="service-card"><div class="icon">03</div><h3>PF / ESIC Registration Support</h3><p>Help identify information and documents typically needed for applicable registration processes and coordinate the agreed filing support.</p></article><article class="service-card"><div class="icon">04</div><h3>Labour Compliance Coordination</h3><p>Organize compliance requirements and supporting records based on the establishment&#x27;s profile and applicable rules; specialist advice may be needed for complex cases.</p></article><article class="service-card"><div class="icon">05</div><h3>Shop &amp; Establishment Support</h3><p>Assist with requirement understanding and documentation coordination for the relevant state process, subject to applicability and authority rules.</p></article><article class="service-card"><div class="icon">06</div><h3>Business Setup Documentation</h3><p>Help organize selected business setup documents and application requirements. Government approvals and third-party services remain subject to their respective authorities.</p></article></div></div></section>
-<section class="section"><div class="container intro-grid">
-<div class="panel"><div class="eyebrow" style="color:#b98900">WHAT MAY BE INCLUDED</div><h2>Typical deliverables</h2><p>Deliverables are finalized according to the requirement and written quotation.</p><ul class="check-list"><li>Requirement and establishment profile checklist</li><li>Document checklist and information collection</li><li>HR policy / handbook documentation as agreed</li><li>Employee letter and onboarding templates as scoped</li><li>Registration or filing coordination where agreed</li><li>Fee and timeline breakdown before commencement</li><li>Submission status communication</li><li>Record handover and next-step guidance</li></ul></div>
-<div class="panel"><h3>Engagement principles</h3><p><strong>Clear scope:</strong> work starts after the deliverables, responsibilities and commercial terms are agreed.</p><p><strong>Transparent communication:</strong> we clarify required information, dependencies and progress updates.</p><p><strong>Realistic expectations:</strong> hiring decisions, business outcomes and government approvals can depend on factors outside the consultancy's control.</p><p><strong>Confidentiality:</strong> sensitive business and candidate information should be shared only through appropriate channels and handled with care.</p></div>
-</div></section>
-<section class="section process"><div class="container"><div class="section-head"><div class="eyebrow">OUR PROCESS</div><h2>A simple, structured engagement</h2><p>Clear steps help align expectations, deliverables and communication.</p></div><div class="process-grid"><article class="process-card"><div class="process-no">01</div><h3>Check Applicability</h3><p>Understand business type, location, workforce, existing registrations and the requested service.</p></article><article class="process-card"><div class="process-no">02</div><h3>Collect Documents</h3><p>Share a tailored checklist and verify information required for the agreed scope.</p></article><article class="process-card"><div class="process-no">03</div><h3>Prepare &amp; Coordinate</h3><p>Prepare agreed documents and coordinate the relevant process or filing steps.</p></article><article class="process-card"><div class="process-no">04</div><h3>Handover &amp; Follow Up</h3><p>Share available acknowledgements, records and next-step guidance; authority decisions remain external.</p></article></div></div></section>
-<section class="section"><div class="container"><div class="section-head"><div class="eyebrow">COMMON QUESTIONS</div><h2>Before you get started</h2></div><div class="faq-list"><article class="faq"><h3>Are government fees included in the service fee?</h3><p>Not automatically. The quotation should separately identify government/authority fees, professional fees and any third-party charges.</p></article><article class="faq"><h3>Can registration or approval be guaranteed?</h3><p>No. Approval, registration timelines and final decisions depend on applicability, submitted information and the relevant authority.</p></article><article class="faq"><h3>Can you draft HR policies for a small company?</h3><p>Yes. Policy and handbook scope can be tailored to the organization&#x27;s size, working model and requirements.</p></article><article class="faq"><h3>What documents should I prepare?</h3><p>Requirements vary by service and establishment. A specific checklist is provided after the initial requirement discussion.</p></article></div></div></section>
-<section class="section"><div class="container"><div class="cta"><div><h2>Need help organizing your HR or business documents?</h2><p>Tell us your business location, establishment type and the documentation or registration support you need. We will outline the scope and applicable charges.</p></div><a class="btn" href="contact.html#enquiry">Request a Consultation →</a></div></div></section>
-</main>
-
-<footer class="footer"><div class="footer-grid">
-<div><a href="index.html"><img class="footer-logo" src="assets/logo.png" alt="Sandeep Solutions"></a><div class="brandline">People | Process | Performance</div><p style="margin-top:7px">Your trusted partner for HR, recruitment, business consultancy, restaurant solutions and documentation support.</p><div class="social"><a href="https://www.linkedin.com/company/sandeep-hr-solutions/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a><a href="https://instagram.com/sandeep_hr_solutions" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a><a href="https://www.facebook.com/search/pages?q=Sandeep%20Hr%20Solutions" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a><a href="https://www.youtube.com/results?search_query=Sandeep+HR+Solutions" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a></div></div>
-<div><h3>Quick Links</h3><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="employers.html">Employers</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-<div><h3>Our Services</h3><ul><li><a href="hr-recruitment.html">HR &amp; Recruitment</a></li><li><a href="business-consultancy.html">Business Consultancy</a></li><li><a href="restaurant-solutions.html">Restaurant Solutions</a></li><li><a href="documentation-setup.html">Documentation &amp; Setup</a></li></ul></div>
-<div><h3>Contact Info</h3><ul><li>📍 Bangalore, Karnataka, India</li><li>☎ +91 7978259944</li><li>✉ sandeep.hr.solutions.shr@gmail.com</li><li>◷ Mon - Sat: 10:00 AM - 7:00 PM</li></ul></div>
-</div><div class="footer-bottom"><span>© 2026 Sandeep Solutions. All rights reserved.</span><span><a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="disclaimer.html">Disclaimer</a></span></div></footer>
-<script>
-function toggleMenu(){const nav=document.querySelector(".nav"),btn=document.querySelector(".menu-toggle");if(!nav||!btn)return;const open=nav.classList.toggle("open");btn.setAttribute("aria-expanded",String(open));btn.setAttribute("aria-label",open?"Close menu":"Open menu");btn.textContent=open?"✕":"☰";}
-(function(){const nav=document.querySelector(".nav"),btn=document.querySelector(".menu-toggle");if(!nav||!btn)return;function closeMenu(){nav.classList.remove("open");btn.setAttribute("aria-expanded","false");btn.setAttribute("aria-label","Open menu");btn.textContent="☰";}document.addEventListener("click",function(e){if(!nav.contains(e.target)&&!btn.contains(e.target))closeMenu();});document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu();});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));window.addEventListener("resize",function(){if(window.innerWidth>850)closeMenu();});})();
-</script>
-</body></html>
+<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#061b3a"><meta name="description" content="Documentation & Setup | Sandeep Solutions"><link rel="canonical" href="https://sandeephrsolutions.github.io/documentation-setup.html"><title>Documentation & Setup | Sandeep Solutions</title><link rel="stylesheet" href="styles.css"></head><body><header class="site-header"><div class="container nav"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Sandeep Solutions"></a><button class="menu" id="siteMenu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false">☰</button><nav class="navlinks" id="siteNav"><a class="" href="index.html">Home</a><a class="" href="about.html">About</a><a class="active" href="services.html">Services</a><a class="" href="employers.html">Employers</a><a class="" href="jobs.html">Jobs</a><a class="" href="contact.html">Contact</a></nav><a class="quote" href="employers.html">Get a Quote</a></div></header><main><section class="hero"><div class="container hero-grid"><div><div class="breadcrumbs" style="color:#dce8f6">Home &gt; Services &gt; Documentation &amp; Setup</div><h1>Documentation &amp; <span>Setup</span></h1><p><b style="color:#ffd85a">Stay Compliant. Operate Smoothly.</b><br>We help businesses with complete documentation, registrations and compliance support.</p></div><div class="hero-photo"><img src="assets/documentation-setup.jpg" alt="Documentation and business setup"></div></div></section><section class="section"><div class="container"><div class="section-head"><div class="kicker">Our Services</div><h2>Structured support for essential business processes.</h2></div><div class="service-detail"><div class="detail-card"><div class="icon">PF</div><h3>PF / ESIC Registration</h3><p>Complete registration and compliance support</p></div><div class="detail-card"><div class="icon">LL</div><h3>Labour Law Compliance</h3><p>Shops &amp; Establishment, Labour Registrations</p></div><div class="detail-card"><div class="icon">HR</div><h3>HR Policy &amp; Templates</h3><p>Employee handbook, HR policies &amp; formats</p></div><div class="detail-card"><div class="icon">BS</div><h3>Business Setup</h3><p>Company incorporation and documentation</p></div></div></div></section><section class="section dark"><div class="container"><div class="section-head"><div class="kicker">Why Choose Us?</div><h2>Reliable process support.</h2></div><div class="values"><div class="value"><div class="icon">★</div><h3>Expert Guidance</h3></div><div class="value"><div class="icon">◷</div><h3>Timely Completion</h3></div><div class="value"><div class="icon">✓</div><h3>Accurate Documentation</h3></div><div class="value"><div class="icon">∞</div><h3>End-to-End Support</h3></div></div></div></section></main><div class="legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="disclaimer.html">Disclaimer</a></div>
+<footer class="footer"><div class="container footer-grid"><div><h3>Sandeep Solutions</h3><p>HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p><p>Founder: Sandeep Kumar Samal</p></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="jobs.html">Jobs</a></div><div><h3>Our Services</h3><a href="services.html">HR &amp; Recruitment</a><a href="services.html">Business Consultancy</a><a href="restaurant-solutions.html">Restaurant Solutions</a><a href="documentation-setup.html">Documentation &amp; Setup</a></div><div><h3>Contact Info</h3><p>+91 7978259944<br>sandeep.hr.solutions.shr@gmail.com<br>Bangalore, Karnataka, India</p><div class="social"><a href="https://instagram.com/sandeep_solutions?rpxt=MXd6aW4wdnhsZTNkMA%3D%3D" target="_blank" rel="noopener noreferrer">IG</a><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">FB</a><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YT</a></div></div></div><div class="container footer-bottom">© 2026 Sandeep Solutions. All rights reserved.</div></footer><script>
+(function () {
+  const menuButton = document.getElementById('siteMenu');
+  const navigation = document.getElementById('siteNav');
+  if (!menuButton || !navigation) return;
+  function setMenuOpen(open) {
+    navigation.classList.toggle('open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    menuButton.textContent = open ? '✕' : '☰';
+  }
+  menuButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+    setMenuOpen(!navigation.classList.contains('open'));
+  });
+  navigation.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () { setMenuOpen(false); });
+  });
+  document.addEventListener('click', function (event) {
+    if (!navigation.contains(event.target) && !menuButton.contains(event.target)) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') setMenuOpen(false);
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) setMenuOpen(false);
+  });
+  document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
+})();
+</script></body></html>
