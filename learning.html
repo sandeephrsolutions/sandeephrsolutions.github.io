@@ -61,6 +61,36 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
 @media(max-width:760px){.library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.book-cover{height:175px;padding:12px}.book-cover strong{font-size:20px}.cover-label{font-size:7px}.library-item-body{padding:12px}.library-item h3{font-size:14px}.item-meta{font-size:8px}.item-foot{align-items:flex-start;flex-direction:column}.item-foot button{width:100%}.library-tools{grid-template-columns:1fr}.level-select{min-height:48px}.library-banner-icon{font-size:46px;min-width:50px}}
 @media(max-width:380px){.library-grid{grid-template-columns:1fr 1fr;gap:9px}.book-cover{height:150px;padding:10px}.book-cover strong{font-size:17px}.cover-illustration{font-size:29px}.library-item-body{padding:10px}.item-meta{align-items:flex-start;flex-direction:column}.library-item h3{font-size:13px}.library-item p{font-size:11px}.library-banner-icon{display:none}}
 
+
+/* Book-gallery visual pass: inspired by the approved Learning Hub mockup */
+.hero{min-height:300px;background:#031d3d}
+.hero:before{background:linear-gradient(90deg,rgba(3,27,57,.98),rgba(4,40,80,.83) 54%,rgba(4,40,80,.35)),url("assets/business-consultancy.jpg") center/cover no-repeat}
+.hero .container{min-height:300px;padding:30px 0}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(40px,5.3vw,68px);letter-spacing:-1px;margin:8px 0 10px}
+.hero .badge{background:transparent;border:0;padding:0;color:#ffca43;font-size:12px;letter-spacing:1.5px}
+.hero p{max-width:610px;font-size:16px}
+.library-section{padding:22px 0 36px;background:linear-gradient(180deg,#eef4fa 0%,#fff 42%)}
+.library-section .section-head{margin-bottom:16px}
+.library-section .section-head h2{font-size:clamp(25px,2.6vw,32px);margin:4px 0}
+.library-banner{min-height:100px;border-radius:12px;padding:17px 22px;margin:0 0 17px;background:linear-gradient(100deg,#062b57,#0b467c 70%,#082b53);box-shadow:0 10px 24px #062b571c}
+.library-banner h3{font-size:23px;margin:3px 0;color:#fff}.library-banner p{color:#e4edf8;margin:0;font-size:12px}.library-kicker{color:#ffca43;font-size:10px;font-weight:900;letter-spacing:1.7px}.library-banner-icon{font-size:54px;color:#ffca43}
+.library-tools{display:grid;grid-template-columns:minmax(0,1fr) 170px 170px;gap:12px;margin:0 0 15px}
+.searchbox,.level-select{min-height:46px;background:#fff;border:1px solid #d7e2ef;border-radius:9px;box-shadow:0 3px 10px #062b5707}
+.searchbox{display:flex;align-items:center;gap:12px;padding:0 14px}.searchbox span{font-size:24px;color:var(--navy)}.searchbox input{border:0;outline:0;width:100%;min-width:0;font-size:13px;color:var(--ink)}
+.level-select{display:flex;align-items:center;justify-content:space-between;padding:0 12px;gap:7px}.level-select span{font-size:11px;color:var(--muted);font-weight:800}.level-select select{border:0;outline:0;background:transparent;color:var(--navy);font-size:12px;font-weight:800;width:100%;min-width:0}
+.category-row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;overflow:visible;padding:3px 0 13px}
+.category-chip{white-space:normal;min-height:64px;border:1px solid #e0e8f1;background:#fff;color:#435a73;border-radius:10px;padding:10px 8px;font-size:11px;font-weight:800;box-shadow:0 4px 12px #062b5708}
+.category-chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.library-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.library-item{border-radius:10px;box-shadow:0 6px 18px #062b5710}
+.book-cover{height:170px;padding:11px;background-image:linear-gradient(140deg,#0b315a,#1766ad)}
+.book-cover strong{font-family:Georgia,"Times New Roman",serif;font-size:21px;line-height:1.02}
+.cover-label{font-size:7px}.cover-bottom{font-size:7px}
+.library-item-body{padding:11px}.library-item h3{font-size:13px;margin:8px 0 5px}.library-item p{font-size:11px;margin-bottom:12px}.item-meta{font-size:8px}.item-foot{font-size:9px}.item-foot button{padding:8px 9px;font-size:10px}
+@media(max-width:1100px){.library-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.category-row{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:760px){.library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.category-chip{min-height:58px;font-size:10px}.library-tools{grid-template-columns:1fr 1fr}.searchbox{grid-column:1/-1}.book-cover{height:165px}.hero .container{min-height:290px}.library-banner{padding:15px}.library-banner h3{font-size:20px}}
+@media(max-width:380px){.library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.book-cover{height:145px}.book-cover strong{font-size:17px}.category-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style>
 </head>
 <body>
@@ -77,50 +107,12 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
  <div class="container">
   <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;›&nbsp; Learning Hub</div>
   <div class="badge"><i></i> LEARN • PRACTISE • GROW</div>
-  <h1>Build practical skills.<br><span style="color:var(--gold)">Grow with confidence.</span></h1>
-  <p>Explore clear, beginner-friendly lessons for careers and business operations—from HR and recruitment to Excel, hospitality, documentation and professional communication. Learn at your own pace, then practise with a simple task.</p>
-  <div class="hero-actions"><a class="btn primary" href="#courses">Explore Learning Tracks →</a><a class="btn secondary" href="#reading-room">Start a Lesson</a></div>
+  <h1>Learning <span style="color:var(--gold)">Hub</span></h1>
+  <p>Free online lessons, digital books and practical resources for your career and personal growth. Explore professional skills, business guides and reading resources in one place.</p>
+  <div class="hero-actions"><a class="btn primary" href="#book-library">Browse the Library →</a><a class="btn secondary" href="#courses">Explore Online Lessons</a></div>
  </div>
 </section>
 <div class="trustbar"><div class="container trustinner"><span>Beginner-friendly lessons</span><span>Practical tasks and checklists</span><span>Mobile-friendly reading</span><span>Learn at your own pace</span></div></div>
-
-<section id="courses">
- <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Learning tracks</div><h2>Choose what you want to learn</h2></div><p>Start with a subject, read the lesson in the reading room, and practise using the examples. Courses can be expanded into modules, worksheets and assessments.</p></div>
-  <div class="learning-tip"><strong>Not sure where to start?</strong><span>Job seekers: start with HR &amp; Recruitment or Workplace Communication. HR professionals: explore Excel &amp; HR Analytics. Business owners and team leaders: start with Business Consultancy or Hospitality Operations.</span></div>
-  <div class="cards">
-   <article class="course"><div class="iconbox">👥</div><h3>HR & Recruitment</h3><p>Learn recruitment steps, interview coordination, onboarding, attendance, payroll concepts, HR policies and employee documentation.</p><div class="tags"><span class="tag">Candidates</span><span class="tag">HR beginners</span><span class="tag">Professionals</span></div><button data-course="hr">Read HR basics →</button></article>
-   <article class="course"><div class="iconbox">📊</div><h3>Excel & HR Analytics</h3><p>Build spreadsheet confidence with formulas, attendance summaries, payroll examples, data cleaning and dashboard fundamentals.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Reports</span><span class="tag">Analytics</span></div><button data-course="excel">Read Excel basics →</button></article>
-   <article class="course"><div class="iconbox">🏢</div><h3>Business Consultancy</h3><p>Understand basic business planning, process mapping, SOP writing, customer service and operational improvement.</p><div class="tags"><span class="tag">Entrepreneurs</span><span class="tag">SOP</span><span class="tag">Operations</span></div><button data-course="business">Read business basics →</button></article>
-   <article class="course"><div class="iconbox">🍽️</div><h3>Restaurant & Hospitality</h3><p>Explore staff planning, shift handovers, service standards, training, customer handling and routine operational checks.</p><div class="tags"><span class="tag">Restaurant</span><span class="tag">Hospitality</span><span class="tag">Team leads</span></div><button data-course="hospitality">Read hospitality basics →</button></article>
-   <article class="course"><div class="iconbox">📁</div><h3>Documentation & Setup</h3><p>Learn how to organise business records, maintain HR files, prepare checklists and understand common registration workflows.</p><div class="tags"><span class="tag">Checklists</span><span class="tag">Records</span><span class="tag">Setup</span></div><button data-course="docs">Read documentation basics →</button></article>
-   <article class="course"><div class="iconbox">💬</div><h3>Workplace Communication</h3><p>Practise professional emails, interview introductions, client communication, meeting notes and workplace English.</p><div class="tags"><span class="tag">Job seekers</span><span class="tag">English</span><span class="tag">Clients</span></div><button data-course="communication">Read communication basics →</button></article>
-  </div>
- </div>
-</section>
-
-<section id="reading-room" style="background:var(--paper)">
- <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Online reading room</div><h2>Read a lesson here</h2></div><p>Choose a chapter to open its lesson here. Each starter lesson includes key steps, a practical task and a responsible-use note. This is the first version of the Learning Hub; downloadable books and expanded course modules can be added in a later update.</p></div>
-  <div class="learn-layout">
-   <aside class="sidebar"><h3>Course chapters</h3>
-    <button class="lesson-link active" data-course="hr">01 · HR & Recruitment</button>
-    <button class="lesson-link" data-course="excel">02 · Excel & HR Analytics</button>
-    <button class="lesson-link" data-course="business">03 · Business Consultancy</button>
-    <button class="lesson-link" data-course="hospitality">04 · Restaurant & Hospitality</button>
-    <button class="lesson-link" data-course="docs">05 · Documentation & Setup</button>
-    <button class="lesson-link" data-course="communication">06 · Workplace Communication</button>
-   </aside>
-   <article class="lesson" id="lessonContent" aria-live="polite">
-    <div class="meta">Module 01 · Beginner</div><h2>HR & Recruitment Fundamentals</h2>
-    <p>Recruitment is a structured process to understand a vacancy, attract suitable applicants, assess skills and help the selected candidate join successfully.</p>
-    <h3>Typical recruitment workflow</h3><ol><li>Confirm the job description, must-have skills, location, shift and salary range with the hiring manager.</li><li>Choose sourcing channels and prepare a clear job advertisement.</li><li>Screen applications against job-related criteria and document decisions consistently.</li><li>Coordinate interviews, collect interviewer feedback and communicate next steps.</li><li>Verify approved documents, issue the offer through the authorised process and coordinate onboarding.</li><li>Track joining, candidate experience and recruitment metrics for improvement.</li></ol>
-    <div class="note"><strong>Practical tip:</strong> Keep candidate data confidential, collect only what is needed, and use consistent job-related selection criteria.</div>
-    <h3>Practice task</h3><p>Draft a five-point screening checklist for a Customer Service Executive role. Include communication, relevant experience, shift availability, location and salary expectations.</p>
-   </article>
-  </div>
- </div>
-</section>
 
 <section id="book-library" class="library-section">
  <div class="container">
@@ -178,6 +170,46 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
   <div class="library-disclaimer"><strong>About this collection:</strong> The six starter lessons are available to read online. Cards marked “Coming soon” are planned resources, not currently available downloads. Only materials with appropriate ownership or permission should be published.</div>
  </div>
 </section>
+
+<section id="courses">
+ <div class="container">
+  <div class="section-head"><div><div class="eyebrow">Learning tracks</div><h2>Choose what you want to learn</h2></div><p>Start with a subject, read the lesson in the reading room, and practise using the examples. Courses can be expanded into modules, worksheets and assessments.</p></div>
+  <div class="learning-tip"><strong>Not sure where to start?</strong><span>Job seekers: start with HR &amp; Recruitment or Workplace Communication. HR professionals: explore Excel &amp; HR Analytics. Business owners and team leaders: start with Business Consultancy or Hospitality Operations.</span></div>
+  <div class="cards">
+   <article class="course"><div class="iconbox">👥</div><h3>HR & Recruitment</h3><p>Learn recruitment steps, interview coordination, onboarding, attendance, payroll concepts, HR policies and employee documentation.</p><div class="tags"><span class="tag">Candidates</span><span class="tag">HR beginners</span><span class="tag">Professionals</span></div><button data-course="hr">Read HR basics →</button></article>
+   <article class="course"><div class="iconbox">📊</div><h3>Excel & HR Analytics</h3><p>Build spreadsheet confidence with formulas, attendance summaries, payroll examples, data cleaning and dashboard fundamentals.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Reports</span><span class="tag">Analytics</span></div><button data-course="excel">Read Excel basics →</button></article>
+   <article class="course"><div class="iconbox">🏢</div><h3>Business Consultancy</h3><p>Understand basic business planning, process mapping, SOP writing, customer service and operational improvement.</p><div class="tags"><span class="tag">Entrepreneurs</span><span class="tag">SOP</span><span class="tag">Operations</span></div><button data-course="business">Read business basics →</button></article>
+   <article class="course"><div class="iconbox">🍽️</div><h3>Restaurant & Hospitality</h3><p>Explore staff planning, shift handovers, service standards, training, customer handling and routine operational checks.</p><div class="tags"><span class="tag">Restaurant</span><span class="tag">Hospitality</span><span class="tag">Team leads</span></div><button data-course="hospitality">Read hospitality basics →</button></article>
+   <article class="course"><div class="iconbox">📁</div><h3>Documentation & Setup</h3><p>Learn how to organise business records, maintain HR files, prepare checklists and understand common registration workflows.</p><div class="tags"><span class="tag">Checklists</span><span class="tag">Records</span><span class="tag">Setup</span></div><button data-course="docs">Read documentation basics →</button></article>
+   <article class="course"><div class="iconbox">💬</div><h3>Workplace Communication</h3><p>Practise professional emails, interview introductions, client communication, meeting notes and workplace English.</p><div class="tags"><span class="tag">Job seekers</span><span class="tag">English</span><span class="tag">Clients</span></div><button data-course="communication">Read communication basics →</button></article>
+  </div>
+ </div>
+</section>
+
+<section id="reading-room" style="background:var(--paper)">
+ <div class="container">
+  <div class="section-head"><div><div class="eyebrow">Online reading room</div><h2>Read a lesson here</h2></div><p>Choose a chapter to open its lesson here. Each starter lesson includes key steps, a practical task and a responsible-use note. This is the first version of the Learning Hub; downloadable books and expanded course modules can be added in a later update.</p></div>
+  <div class="learn-layout">
+   <aside class="sidebar"><h3>Course chapters</h3>
+    <button class="lesson-link active" data-course="hr">01 · HR & Recruitment</button>
+    <button class="lesson-link" data-course="excel">02 · Excel & HR Analytics</button>
+    <button class="lesson-link" data-course="business">03 · Business Consultancy</button>
+    <button class="lesson-link" data-course="hospitality">04 · Restaurant & Hospitality</button>
+    <button class="lesson-link" data-course="docs">05 · Documentation & Setup</button>
+    <button class="lesson-link" data-course="communication">06 · Workplace Communication</button>
+   </aside>
+   <article class="lesson" id="lessonContent" aria-live="polite">
+    <div class="meta">Module 01 · Beginner</div><h2>HR & Recruitment Fundamentals</h2>
+    <p>Recruitment is a structured process to understand a vacancy, attract suitable applicants, assess skills and help the selected candidate join successfully.</p>
+    <h3>Typical recruitment workflow</h3><ol><li>Confirm the job description, must-have skills, location, shift and salary range with the hiring manager.</li><li>Choose sourcing channels and prepare a clear job advertisement.</li><li>Screen applications against job-related criteria and document decisions consistently.</li><li>Coordinate interviews, collect interviewer feedback and communicate next steps.</li><li>Verify approved documents, issue the offer through the authorised process and coordinate onboarding.</li><li>Track joining, candidate experience and recruitment metrics for improvement.</li></ol>
+    <div class="note"><strong>Practical tip:</strong> Keep candidate data confidential, collect only what is needed, and use consistent job-related selection criteria.</div>
+    <h3>Practice task</h3><p>Draft a five-point screening checklist for a Customer Service Executive role. Include communication, relevant experience, shift availability, location and salary expectations.</p>
+   </article>
+  </div>
+ </div>
+</section>
+
+
 
 <section id="how-it-works" style="background:var(--paper)">
  <div class="container">
