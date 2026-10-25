@@ -57,6 +57,44 @@ footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px}
 .full-preview-doc .file-icon{font-size:70px}
 @media(max-width:600px){.resume-preview-frame{height:200px}.resume-preview-actions .preview-btn{flex:1}.full-preview-overlay{padding:7px}.full-preview-box{width:100%;height:96vh;border-radius:10px}}
 </style>
+
+<style id="sandeep-candidate-dashboard-v1">
+/* Design Standard v1.0 — candidate dashboard only; visual refinements, no behavior changes */
+:root{color-scheme:light}
+body{background:#f3f6fb;color:#172a43}
+main{padding:28px 30px 46px}
+.container,.inner,.dashboard{max-width:1240px}
+h1{font-size:clamp(25px,2.4vw,32px);letter-spacing:-.8px}
+h2{letter-spacing:-.35px}
+p{line-height:1.65}
+header,.dashboard-header,.topbar{box-shadow:0 3px 16px rgba(6,27,58,.05)}
+.panel,.card,.dashboard-card,.section-card{border-radius:15px;box-shadow:0 4px 16px rgba(6,27,58,.04)}
+.panel,.section-card{padding:20px;margin-bottom:18px}
+label{font-size:11px;font-weight:650;color:#30445f}
+input,select,textarea{border:1px solid #d7e1ee;border-radius:9px;min-height:40px;padding:10px 12px;font-size:12px;color:#172a43;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:#2878d7;box-shadow:0 0 0 3px rgba(40,120,215,.12)}
+button,.btn,a.button{border-radius:9px;transition:filter .15s,transform .15s}
+button:hover,.btn:hover,a.button:hover{filter:brightness(.97)}
+.status,.badge{letter-spacing:.2px}
+.job-card,.application-card,.profile-card,.record{border-radius:13px;box-shadow:0 4px 14px rgba(6,27,58,.035);transition:border-color .15s,box-shadow .15s}
+.job-card:hover,.application-card:hover,.profile-card:hover,.record:hover{border-color:#c8d9ef;box-shadow:0 8px 22px rgba(6,27,58,.07)}
+.meta,.muted,.help-text{font-size:11px;line-height:1.65;color:#64748b}
+.alert,.notice{border-radius:11px;padding:13px 15px;font-size:11px;line-height:1.65}
+.footer{font-size:9px;line-height:1.8}
+@media(max-width:1000px){main{padding:23px 20px 38px}.panel,.section-card{padding:17px}}
+@media(max-width:900px){main{padding:22px 16px 34px}}
+@media(max-width:650px){
+ main{padding:18px 12px 28px}
+ h1{font-size:25px}
+ .panel,.section-card{padding:14px;border-radius:13px}
+ input,select,textarea{width:100%;min-height:42px;font-size:12px}
+ .grid,.dashboard-grid,.cards{grid-template-columns:1fr;gap:11px}
+ .actions,.button-row{display:flex;flex-wrap:wrap;gap:8px}
+ .actions button,.button-row button{flex:1 1 auto}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
 </head>
 <body>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
