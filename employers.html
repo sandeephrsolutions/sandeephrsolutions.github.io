@@ -200,6 +200,118 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .footer-grid{grid-template-columns:1fr 1fr!important}
 }
 
+
+/* v3 final consistency pass: align Employers with Home/About/Services compact design */
+:root{
+  --navy:#062b57;--deep:#031f42;--blue:#1766ad;--gold:#fbb718;
+  --light:#f4f8fd;--text:#102b50;--muted:#60738a;--line:#dce7f2;
+}
+body{font-family:Inter,Arial,Helvetica,sans-serif!important;color:var(--text)!important;line-height:1.45!important}
+header{height:68px!important;background:#fff!important}
+.container{width:min(1160px,92%)!important}
+.container.nav{height:68px!important;gap:18px!important}
+.brand img{width:132px!important;max-height:48px!important;object-fit:contain!important}
+.navlinks{gap:clamp(10px,1.55vw,22px)!important}
+.navlinks a{font-size:12px!important;line-height:1.2!important}
+.quote{font-size:11px!important;padding:9px 14px!important;border-radius:7px!important}
+.hero{min-height:205px!important;background-position:center!important}
+.container.hero-inner{min-height:205px!important;padding-top:22px!important;padding-bottom:22px!important;align-content:center!important}
+.eyebrow{font-size:9px!important;letter-spacing:1.4px!important;line-height:1.3!important}
+h1{font-size:clamp(28px,3vw,39px)!important;line-height:1.03!important;letter-spacing:-.65px!important;margin:8px 0 9px!important}
+.hero p{font-size:12px!important;line-height:1.45!important;max-width:620px!important;margin-bottom:13px!important}
+.hero-actions{gap:8px!important}
+.btn{font-size:10px!important;padding:9px 12px!important;border-radius:6px!important;line-height:1.2!important}
+.section{padding:25px 0!important}
+.container.center h2,.section h2{font-size:clamp(21px,2.1vw,28px)!important;line-height:1.14!important;letter-spacing:-.35px!important;margin:6px 0 8px!important}
+.kicker{font-size:9px!important;letter-spacing:1.45px!important}
+.lead{font-size:11px!important;line-height:1.45!important;margin:0 auto 19px!important;color:var(--muted)!important}
+.cards{gap:10px!important}
+.card{padding:15px 13px!important;border:1px solid var(--line)!important;border-radius:10px!important;box-shadow:0 5px 16px rgba(9,42,76,.055)!important}
+.card .num{font-size:10px!important}
+.card h3{font-size:12px!important;line-height:1.25!important;margin:7px 0 5px!important}
+.card p{font-size:9px!important;line-height:1.42!important}
+.section.soft{background:var(--light)!important}
+.container.split{gap:28px!important;align-items:center!important}
+.visual{min-height:250px!important;border-radius:10px!important;box-shadow:0 8px 22px rgba(9,42,76,.10)!important;overflow:hidden!important}
+.visual img{width:100%!important;height:100%!important;min-height:250px!important;max-height:320px!important;object-fit:cover!important}
+.checklist{margin:12px 0 0!important}
+.checklist li{font-size:11px!important;line-height:1.35!important;padding:6px 0 6px 23px!important}
+.form-card{padding:17px!important;border-radius:11px!important;border:1px solid var(--line)!important;border-top:3px solid var(--gold)!important;box-shadow:0 7px 20px rgba(9,42,76,.06)!important}
+.form-card h3{font-size:18px!important;line-height:1.2!important;margin:0 0 12px!important}
+.form-grid{gap:9px!important}
+.field{gap:4px!important}
+.field label{font-size:9px!important;font-weight:700!important}
+.field input,.field select,.field textarea{font:11px Inter,Arial,sans-serif!important;min-height:34px!important;padding:8px 9px!important;border:1px solid #d4deea!important;border-radius:6px!important}
+.field textarea{min-height:72px!important}
+.form-card .btn{font-size:10px!important;padding:9px 12px!important;margin-top:10px!important}
+.process{gap:10px!important;margin-top:17px!important}
+.step{padding:14px 12px!important;border-radius:9px!important;border:1px solid var(--line)!important;box-shadow:0 4px 12px rgba(9,42,76,.04)!important}
+.stepno{width:29px!important;height:29px!important;font-size:11px!important;margin-bottom:8px!important}
+.step h3{font-size:12px!important;margin:0 0 5px!important}
+.step p{font-size:9px!important;line-height:1.4!important}
+.cta{padding:25px 0!important}
+.cta-inner{gap:18px!important}
+.cta h2{font-size:21px!important;margin:3px 0 6px!important}
+.cta p{font-size:11px!important;line-height:1.45!important}
+.footer{padding:24px 0 0!important}
+.footer-grid{gap:20px!important}
+.footer-logo{width:125px!important;max-height:48px!important}
+.footer h3{font-size:11px!important;margin-bottom:8px!important}
+.footer p,.footer a{font-size:9px!important;line-height:1.5!important}
+.bottom{margin-top:18px!important;padding:11px 0!important;font-size:9px!important}
+.legal{padding-bottom:10px!important}
+.legal a{font-size:9px!important}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold)!important;outline-offset:2px!important}
+
+/* Tablet: keep the form and content compact without crushing fields */
+@media(max-width:850px){
+ header,.container.nav{height:62px!important}
+ .brand img{width:118px!important;max-height:43px!important}
+ .navlinks{gap:9px!important}
+ .navlinks a{font-size:11px!important}
+ .hero,.container.hero-inner{min-height:185px!important}
+ .container.hero-inner{padding:18px 0!important}
+ .section{padding:21px 0!important}
+ .container.split{gap:18px!important}
+ .visual,.visual img{min-height:220px!important;max-height:280px!important}
+ .form-card{padding:14px!important}
+}
+@media(max-width:700px){
+ .container{width:91%!important}
+ header,.container.nav{height:60px!important}
+ .brand img{width:110px!important;max-height:40px!important}
+ .hero,.container.hero-inner{min-height:0!important}
+ .container.hero-inner{padding:22px 0!important}
+ h1{font-size:30px!important}
+ .hero p{font-size:12px!important}
+ .section{padding:21px 0!important}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ .card{padding:13px 10px!important}
+ .card h3{font-size:11px!important}
+ .container.split{grid-template-columns:1fr!important;gap:16px!important}
+ .visual,.visual img{min-height:210px!important;max-height:245px!important}
+ .checklist li{font-size:10px!important;padding:5px 0 5px 22px!important}
+ .form-card{padding:14px!important}
+ .form-card h3{font-size:18px!important}
+ .form-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
+ .field.full{grid-column:1/-1!important}
+ .field label{font-size:9px!important}
+ .field input,.field select,.field textarea{font-size:11px!important;min-height:34px!important}
+ .process{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ .step{padding:12px 10px!important}
+ .cta{padding:21px 0!important}
+ .cta-inner{align-items:flex-start!important}
+ .footer{padding-top:22px!important}
+ .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:15px!important}
+}
+@media(max-width:420px){
+ .cards,.process{grid-template-columns:1fr!important}
+ .form-grid{grid-template-columns:1fr!important}
+ .field.full{grid-column:auto!important}
+ .hero-actions .btn{font-size:10px!important;padding:8px 10px!important}
+ .cta-inner{flex-direction:column!important}
+}
+
 </style></head><body>
 <header><div class="container nav"><a class="brand" href="index.html"><img src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button><nav class="navlinks" id="navlinks"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a class="active" href="employers.html" aria-current="page">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a></nav><a class="quote" href="contact.html#enquiry">Get a Quote</a></div></header>
 <main>
