@@ -32,7 +32,95 @@ footer{background:var(--navy);color:#aebdca;padding:28px 0;text-align:center;fon
 @media(max-width:950px){.site-header{height:88px;padding:0 20px}.site-header .logo{width:125px}.site-nav{gap:12px}.footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:820px){.site-header{height:78px;padding:0 18px}.site-header .logo{width:112px}.menu-toggle{display:block;margin-left:auto}.site-nav{position:absolute;top:78px;right:18px;display:none;flex-direction:column;align-items:stretch;gap:0;width:230px;background:#fff;border:1px solid #dbe6f0;border-radius:12px;box-shadow:0 14px 35px rgba(3,29,61,.18);padding:8px;z-index:30}.site-nav.open{display:flex}.site-nav a{padding:12px 14px;font-size:14px;border-radius:8px}.site-nav .quote{text-align:center;margin-top:5px}.feature-grid{grid-template-columns:1fr 1fr;padding-left:16px;padding-right:16px}.steps{margin-left:16px;margin-right:16px}.step-grid{grid-template-columns:1fr 1fr}.support-strip{margin-left:16px;margin-right:16px}}
 @media(max-width:600px){.portal-intro{padding:30px 16px 10px}.portal-intro h2{font-size:25px}.feature-grid{grid-template-columns:1fr}.steps{padding:20px}.step-grid{grid-template-columns:1fr}.support-strip{margin-bottom:32px;flex-direction:column;align-items:flex-start}.support-strip .btn{width:100%}.footer{padding-left:18px;padding-right:18px}.footer-grid{grid-template-columns:1fr;gap:25px}.footer-bottom{flex-direction:column;text-align:center}}
-</style></head><body>
+</style>
+<style id="shr-all-pages-hero-spacing-fix">
+
+/* Sandeep HR Solutions — all-page hero whitespace and CTA layout fix.
+   CSS-only: no copy, links, forms, scripts, Firebase or business details changed. */
+html { scroll-padding-top: 72px; }
+body { overflow-x: hidden; }
+.hero {
+  height: auto !important;
+  min-height: 0 !important;
+  padding-block: 0 !important;
+  display: block !important;
+}
+.hero-inner {
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  padding: clamp(20px, 2.4vw, 32px) clamp(18px, 4vw, 52px) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+}
+.hero .breadcrumb { margin: 0 0 8px !important; }
+.hero .eyebrow, .hero .kicker, .hero .badge { margin-bottom: 8px !important; }
+.hero h1 {
+  margin-top: 6px !important;
+  margin-bottom: 8px !important;
+  line-height: 1.07 !important;
+}
+.hero p {
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+  line-height: 1.45 !important;
+}
+.hero .actions, .hero .hero-actions {
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+.hero .chips, .hero .hero-badges {
+  margin-top: 9px !important;
+  margin-bottom: 0 !important;
+  gap: 7px !important;
+}
+.hero .actions a, .hero .hero-actions a,
+.hero .actions button, .hero .hero-actions button {
+  margin-block: 0 !important;
+}
+.hero .hero-copy { margin-block: 0 !important; }
+
+/* Remove oversized blank area immediately below the hero and pull search/CTA areas up. */
+.search-wrap { margin-top: -14px !important; margin-bottom: 10px !important; }
+.stats, .stats-grid { padding-block: 10px !important; }
+.section { padding-block: clamp(23px, 3vw, 36px) !important; }
+.section-head, .section-heading, .head { margin-bottom: 14px !important; }
+.footer { padding-top: 26px !important; }
+
+/* Desktop */
+@media (min-width: 901px) {
+  .hero-inner { padding: 28px 5% !important; }
+  .hero h1 { max-width: 18ch; }
+}
+/* Tablet */
+@media (min-width: 561px) and (max-width: 900px) {
+  .hero-inner { padding: 24px 24px !important; }
+  .hero h1 { font-size: clamp(32px, 4.8vw, 44px) !important; }
+  .hero p { max-width: 62ch; }
+}
+/* Mobile */
+@media (max-width: 560px) {
+  .hero-inner { padding: 20px 16px !important; }
+  .hero h1 { font-size: clamp(28px, 8vw, 36px) !important; line-height: 1.08 !important; }
+  .hero p { font-size: 15px !important; line-height: 1.42 !important; }
+  .hero .actions, .hero .hero-actions { gap: 7px !important; }
+  .hero .actions a, .hero .hero-actions a,
+  .hero .actions button, .hero .hero-actions button { min-height: 40px; }
+  .hero .chips, .hero .hero-badges { margin-top: 8px !important; }
+  .section { padding-block: 22px !important; }
+  .search-wrap { margin-top: -10px !important; }
+}
+/* Small phones */
+@media (max-width: 380px) {
+  .hero-inner { padding: 18px 13px !important; }
+  .hero h1 { font-size: 28px !important; }
+}
+
+</style>
+</head><body>
 <header class="site-header">
 <a href="index.html"><img class="logo" src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a>
 <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
