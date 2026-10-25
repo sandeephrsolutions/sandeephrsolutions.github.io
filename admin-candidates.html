@@ -29,6 +29,103 @@ main{padding:25px 30px 45px;min-width:0}.inner{width:min(1180px,100%);margin:aut
 .admin-workspace-brand{display:flex;align-items:center;gap:12px;min-width:245px}.admin-workspace-brand img{width:112px;height:52px;object-fit:contain;background:#fff;border-radius:7px;padding:3px}.admin-workspace-brand span{font-size:9px;letter-spacing:1.8px;font-weight:900;color:#c8d8eb;text-transform:uppercase}.admin-workspace-title{margin-left:auto;font-size:12px;font-weight:900;letter-spacing:.4px;color:#fff}.admin-workspace-menu{display:none;border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;border-radius:9px;padding:8px 11px;font-size:18px;cursor:pointer}
 @media(max-width:900px){.admin-workspace-header{height:66px;padding:0 15px}.admin-workspace-brand{min-width:0}.admin-workspace-brand img{width:92px;height:46px}.admin-workspace-brand span{display:none}.admin-workspace-title{font-size:10px}.admin-workspace-menu{display:block;margin-left:8px}.admin-workspace-header + .admin-layout,.admin-workspace-header + .admin-shell,.admin-workspace-header + .layout{min-height:calc(100vh - 66px)}}
 </style>
+
+<style id="sandeep-admin-candidates-v1">
+/* Design Standard v1.0 — candidates page only; no behavior or data logic changed */
+:root{color-scheme:light}
+body{background:#f3f6fb;color:#172a43}
+.admin-workspace-header{background:#061b3a}
+main{padding:28px 30px 46px}
+.inner{max-width:1240px}
+.title{align-items:center;margin-bottom:22px}
+.title h1{font-size:clamp(25px,2.4vw,32px);letter-spacing:-.8px}
+.title p{font-size:12px;line-height:1.5}
+.kicker{letter-spacing:1.7px}
+.stats{gap:14px;margin-bottom:20px}
+.stat{padding:17px 16px;border-radius:14px;transition:transform .18s ease,box-shadow .18s ease}
+.stat:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(6,27,58,.08)}
+.stat b{font-size:24px;letter-spacing:-.5px}
+.stat span{font-size:10px}
+.icon{width:40px;height:40px;flex-basis:40px;border-radius:12px}
+.panel{padding:20px;border-radius:15px;margin-bottom:18px}
+.head{align-items:flex-start;margin-bottom:15px}
+.head h2{font-size:16px;letter-spacing:-.2px}
+.sub{font-size:11px;line-height:1.5}
+.tools{align-items:center}
+.search,.filter{min-height:39px;border-color:#d7e1ee;border-radius:9px;font-size:11px;outline:none;transition:border-color .15s,box-shadow .15s}
+.search:focus,.filter:focus{border-color:#2878d7;box-shadow:0 0 0 3px rgba(40,120,215,.12)}
+.search{min-width:240px}
+.candidate{padding:18px;border-radius:14px;margin-top:12px;box-shadow:0 4px 14px rgba(6,27,58,.035);transition:border-color .15s,box-shadow .15s}
+.candidate:hover{border-color:#c8d9ef;box-shadow:0 8px 22px rgba(6,27,58,.07)}
+.identity h3{font-size:15px;letter-spacing:-.2px}
+.meta{font-size:10px;line-height:1.65;overflow-wrap:anywhere}
+.avatar{border-radius:13px}
+.badge{letter-spacing:.25px}
+.details{gap:12px 18px;margin-top:16px}
+.item{font-size:11px;line-height:1.55;overflow-wrap:anywhere}
+.skills{padding:10px 12px;border-radius:10px;font-size:11px}
+.actions{gap:8px;margin-top:15px}
+.action{padding:9px 12px;font-size:10px;transition:filter .15s,transform .15s}
+.action:hover{filter:brightness(.97);transform:translateY(-1px)}
+.tip{border-radius:15px;padding:21px;background:linear-gradient(135deg,#061b3a 0%,#0b4d80 100%)}
+.tip h2{font-size:20px;letter-spacing:-.35px}
+.tip p{font-size:11px;line-height:1.7}
+.tip li{font-size:10px;line-height:1.9}
+.mini{padding:15px;border-radius:11px;background:#fbfcfe}
+.mini b{font-size:11px}
+.mini span{font-size:10px;line-height:1.6}
+.modal{backdrop-filter:blur(3px)}
+.modal-box{border-radius:18px;padding:25px}
+.profile-item{font-size:11px;line-height:1.55}
+.profile-item b{font-size:10px}
+.application-row{font-size:11px;line-height:1.55}
+.footer{font-size:9px;line-height:1.8}
+@media(max-width:1000px){
+ main{padding:23px 20px 38px}
+ .panel{padding:17px}
+ .search{min-width:200px}
+}
+@media(max-width:900px){
+ main{padding:22px 16px 34px}
+ .title{gap:12px;align-items:flex-start}
+ .admin-workspace-title{font-size:10px}
+}
+@media(max-width:650px){
+ main{padding:18px 12px 28px}
+ .title{display:block;margin-bottom:17px}
+ .title h1{font-size:25px}
+ .date{display:inline-block;margin-top:10px}
+ .stats{gap:9px}
+ .stat{padding:12px 10px;gap:8px;border-radius:12px}
+ .stat b{font-size:20px}
+ .stat span{font-size:9px;line-height:1.35}
+ .icon{width:32px;height:32px;flex-basis:32px;font-size:14px}
+ .panel{padding:14px;border-radius:13px}
+ .head{display:block}
+ .tools{margin-top:12px;display:grid;grid-template-columns:1fr;gap:8px}
+ .search,.filter{width:100%;min-width:0;min-height:42px;font-size:12px}
+ .candidate{padding:13px;border-radius:12px}
+ .candidate-top{gap:8px}
+ .identity{gap:9px}
+ .avatar{width:36px;height:36px;flex-basis:36px}
+ .identity h3{font-size:13px;overflow-wrap:anywhere}
+ .details{grid-template-columns:1fr;gap:9px;margin-top:12px}
+ .full{grid-column:auto}
+ .actions .action{flex:1 1 auto;text-align:center}
+ .two{gap:12px}
+ .tip{padding:16px}
+ .tip h2{font-size:18px}
+ .modal{padding:12px}
+ .modal-box{margin:14px auto;padding:16px;border-radius:14px}
+ .profile-grid{grid-template-columns:1fr;gap:8px}
+ .profile-full{grid-column:auto}
+ .modal-head h2{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+</style>
+
 </head>
 <body>
 <header class="admin-workspace-header">
