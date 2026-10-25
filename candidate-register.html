@@ -65,6 +65,78 @@ button:hover,.btn:hover,a.button:hover{filter:brightness(.97)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style>
 
+
+<style id="sandeep-candidate-auth-final-v2">
+/* Candidate portal visual correction v2 — matches supplied mobile screenshots */
+:root{--candidate-navy:#071d38;--candidate-blue:#123e65;--candidate-gold:#f3bd3f;--candidate-bg:#f2f6fc;--candidate-ink:#10243c}
+html{scroll-behavior:smooth}
+body{background:var(--candidate-bg);color:var(--candidate-ink)}
+.site-header{background:#fff}
+.site-nav a{font-weight:650}
+.hero{background:linear-gradient(112deg,var(--candidate-navy) 0%,#103e65 100%);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-100px;top:-145px;width:360px;height:360px;border:1px solid rgba(255,255,255,.09);border-radius:50%;pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.eyebrow{letter-spacing:2px}
+.portal{padding-top:24px;padding-bottom:44px}
+.wrap.portal{display:grid;grid-template-columns:minmax(0,2fr) minmax(250px,1fr);gap:22px;align-items:start}
+.card{background:#fff;border:1px solid #e0e8f1;border-radius:16px;box-shadow:0 10px 28px rgba(8,31,57,.07);padding:24px}
+.portal-intro h2,.card h2{letter-spacing:-.45px}
+.badge{border-radius:999px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.field{min-width:0;display:flex;flex-direction:column;gap:7px}
+.field label{font-size:11px;font-weight:700;color:#243a53}
+.field input,.field select,.field textarea,
+input[type="email"],input[type="password"],input[type="text"],input[type="tel"]{
+ width:100%;min-width:0;box-sizing:border-box;min-height:42px;padding:10px 12px;border:1px solid #d9e2ec;border-radius:9px;background:#fbfcfe;color:#122740;font:inherit;font-size:12px;outline:none;transition:border-color .15s,box-shadow .15s
+}
+.field input:focus,.field select:focus,.field textarea:focus,
+input[type="email"]:focus,input[type="password"]:focus,input[type="text"]:focus,input[type="tel"]:focus{
+ border-color:#2b79c2;box-shadow:0 0 0 3px rgba(43,121,194,.13);background:#fff
+}
+.field.full{grid-column:1/-1}
+.btn{border-radius:9px;font-weight:750;min-height:42px}
+.btn.primary{background:var(--candidate-gold);border-color:var(--candidate-gold);color:#101f32}
+.btn.secondary{background:#edf3f9;color:#10243c;border-color:#e2eaf3}
+.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.side{background:linear-gradient(145deg,#071d38 0%,#0c3457 100%);color:#fff;border-radius:16px;padding:23px;box-shadow:0 10px 28px rgba(8,31,57,.09)}
+.side h2,.side h3{color:#fff}
+.side-item{line-height:1.6}
+.side-list{gap:10px}
+.feature-grid{gap:14px}
+.feature{border:1px solid #e1e9f2;border-radius:14px;box-shadow:0 5px 18px rgba(8,31,57,.045);background:#fff}
+.feature-icon{border-radius:10px}
+.steps,.support-strip{border:1px solid #e0e8f1;border-radius:14px;background:#fff}
+.notice{border-radius:10px;background:#f7f9fc;border:1px solid #e4ebf3;color:#53667c;font-size:10px;line-height:1.6}
+.divider{border-color:#e4eaf1}
+.footer{background:#071d38;color:#e7eef7}
+.footer a{color:#e7eef7}
+@media(max-width:800px){
+ .wrap.portal{grid-template-columns:minmax(0,1fr) minmax(220px,.72fr);gap:16px}
+ .card{padding:20px}
+}
+@media(max-width:620px){
+ .hero{padding-top:28px;padding-bottom:28px}
+ .hero h1{font-size:clamp(27px,7vw,36px);line-height:1.13}
+ .hero p{font-size:12px;line-height:1.7}
+ .wrap.portal{display:flex;flex-direction:column;gap:15px;padding-top:16px;padding-bottom:28px}
+ .wrap.portal>.card,.wrap.portal>.side{width:100%;box-sizing:border-box}
+ .card{padding:16px;border-radius:13px}
+ .portal-intro h2,.card h2{font-size:20px}
+ .grid{grid-template-columns:minmax(0,1fr);gap:12px}
+ .field.full{grid-column:auto}
+ .field label{font-size:11px}
+ .field input,.field select,.field textarea,input[type="email"],input[type="password"],input[type="text"],input[type="tel"]{min-height:44px;font-size:13px}
+ .actions{gap:8px}
+ .actions .btn{width:100%;justify-content:center}
+ .side{padding:18px;border-radius:13px}
+ .feature-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+ .steps{padding:16px}
+ .step-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:22px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+
 </head><body>
 <header class="site-header">
 <a href="index.html"><img class="logo" src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a>
