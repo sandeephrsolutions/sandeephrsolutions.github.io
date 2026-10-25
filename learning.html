@@ -91,9 +91,20 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
 @media(max-width:760px){.library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.category-chip{min-height:58px;font-size:10px}.library-tools{grid-template-columns:1fr 1fr}.searchbox{grid-column:1/-1}.book-cover{height:165px}.hero .container{min-height:290px}.library-banner{padding:15px}.library-banner h3{font-size:20px}}
 @media(max-width:380px){.library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.book-cover{height:145px}.book-cover strong{font-size:17px}.category-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+
+/* Learning Hub temporary launch notice */
+.learning-coming-soon {max-width:900px;margin:48px auto 64px;padding:clamp(28px,6vw,64px) 22px;text-align:center;background:linear-gradient(135deg,#082747,#123e68);color:#fff;border-radius:22px;box-shadow:0 18px 48px rgba(5,30,58,.18)}
+.learning-coming-soon .launch-icon{font-size:clamp(42px,8vw,68px);margin-bottom:18px}
+.learning-coming-soon .launch-tag{display:inline-block;background:rgba(255,190,30,.16);color:#ffd15b;border:1px solid rgba(255,209,91,.45);padding:8px 14px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:1.5px}
+.learning-coming-soon h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:20px 0 14px;color:#fff}
+.learning-coming-soon p{max-width:620px;margin:0 auto 22px;line-height:1.75;color:#e1eaf4}
+.learning-coming-soon .launch-accent{color:#ffd15b}
+.learning-coming-soon .launch-note{font-size:13px;color:#c6d6e7;margin-top:20px}
+body.learning-prelaunch main > :not(.learning-coming-soon){display:none!important}
+
 </style>
 </head>
-<body>
+<body class="learning-prelaunch">
 <header class="header">
   <a href="index.html" aria-label="Sandeep Solutions home"><img class="logo" src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a>
   <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
@@ -103,133 +114,13 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
 </header>
 
 <main>
-<section class="hero">
- <div class="container">
-  <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;›&nbsp; Learning Hub</div>
-  <div class="badge"><i></i> LEARN • PRACTISE • GROW</div>
-  <h1>Learning <span style="color:var(--gold)">Hub</span></h1>
-  <p>Free online lessons, digital books and practical resources for your career and personal growth. Explore professional skills, business guides and reading resources in one place.</p>
-  <div class="hero-actions"><a class="btn primary" href="#book-library">Browse the Library →</a><a class="btn secondary" href="#courses">Explore Online Lessons</a></div>
- </div>
-</section>
-<div class="trustbar"><div class="container trustinner"><span>Beginner-friendly lessons</span><span>Practical tasks and checklists</span><span>Mobile-friendly reading</span><span>Learn at your own pace</span></div></div>
-
-<section id="book-library" class="library-section">
- <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Sandeep Solutions Library</div><h2>Find your next lesson</h2></div><p>Browse the learning collection like a digital book gallery. Search by title or topic, filter by category, and open a lesson directly. Actual downloadable PDF books can be added when approved files are ready.</p></div>
-  <div class="library-banner"><div><span class="library-kicker">YOUR KNOWLEDGE SHELF</span><h3>Learn something useful today.</h3><p>Practical guides for work, careers and business—organised in one place.</p></div><div class="library-banner-icon" aria-hidden="true">📚</div></div>
-  <div class="library-tools">
-   <label class="searchbox"><span aria-hidden="true">⌕</span><input id="librarySearch" type="search" placeholder="Search books, lessons or topics..." aria-label="Search library"></label>
-   <label class="level-select"><span>Level</span><select id="levelFilter" aria-label="Filter by level"><option value="all">All levels</option><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option></select></label>
-  </div>
-  <div class="category-row" id="categoryFilters" aria-label="Filter library by category">
-   <button class="category-chip active" type="button" data-category="all" aria-pressed="true">✦ All resources</button>
-   <button class="category-chip" type="button" data-category="hr" aria-pressed="false">👥 HR & Recruitment</button>
-   <button class="category-chip" type="button" data-category="excel" aria-pressed="false">📊 Excel & Analytics</button>
-   <button class="category-chip" type="button" data-category="business" aria-pressed="false">🏢 Business</button>
-   <button class="category-chip" type="button" data-category="hospitality" aria-pressed="false">🍽️ Hospitality</button>
-   <button class="category-chip" type="button" data-category="docs" aria-pressed="false">📁 Documentation</button>
-   <button class="category-chip" type="button" data-category="communication" aria-pressed="false">💬 Communication</button>
-  </div>
-  <div class="library-results"><span id="resultCount" aria-live="polite">6 resources</span><span>Choose a card to start reading</span></div>
-  <div class="library-grid" id="libraryGrid">
-   <article class="library-item" data-category="hr" data-level="beginner" data-search="hr recruitment hiring interview onboarding employee candidate recruitment basics">
-    <div class="book-cover cover-hr"><span class="cover-label">SANDEEP SOLUTIONS · LEARNING SERIES</span><div class="cover-illustration">👥</div><strong>HR &amp;<br>Recruitment</strong><span class="cover-bottom">A PRACTICAL STARTER GUIDE</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>HR &amp; Recruitment</span><span class="level-pill">Beginner</span></div><h3>HR &amp; Recruitment Fundamentals</h3><p>Vacancy briefing, candidate screening, interview coordination and onboarding basics.</p><div class="item-foot"><span>📖 Online lesson</span><button type="button" data-open-course="hr">Read now ↗</button></div></div>
-   </article>
-   <article class="library-item" data-category="excel" data-level="beginner" data-search="excel hr analytics spreadsheet formulas attendance reports dashboard data">
-    <div class="book-cover cover-excel"><span class="cover-label">SANDEEP SOLUTIONS · LEARNING SERIES</span><div class="cover-illustration">▦</div><strong>Excel &amp;<br>HR Analytics</strong><span class="cover-bottom">FROM DATA TO INSIGHT</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>Excel &amp; Analytics</span><span class="level-pill">Beginner</span></div><h3>Excel &amp; HR Analytics</h3><p>Start with formulas, clean data, attendance reports and dashboard fundamentals.</p><div class="item-foot"><span>📖 Online lesson</span><button type="button" data-open-course="excel">Read now ↗</button></div></div>
-   </article>
-   <article class="library-item" data-category="business" data-level="beginner" data-search="business consultancy process improvement sop operations customer service entrepreneurs">
-    <div class="book-cover cover-business"><span class="cover-label">SANDEEP SOLUTIONS · LEARNING SERIES</span><div class="cover-illustration">⌂</div><strong>Business &amp;<br>Process Basics</strong><span class="cover-bottom">PLAN · IMPROVE · GROW</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>Business</span><span class="level-pill">Beginner</span></div><h3>Business Consultancy Basics</h3><p>Understand SOPs, process mapping, service quality and practical improvement.</p><div class="item-foot"><span>📖 Online lesson</span><button type="button" data-open-course="business">Read now ↗</button></div></div>
-   </article>
-   <article class="library-item" data-category="hospitality" data-level="beginner" data-search="restaurant hospitality operations staff shifts guest service safety handover">
-    <div class="book-cover cover-hospitality"><span class="cover-label">SANDEEP SOLUTIONS · LEARNING SERIES</span><div class="cover-illustration">♨</div><strong>Restaurant &amp;<br>Hospitality</strong><span class="cover-bottom">SERVICE EXCELLENCE</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>Hospitality</span><span class="level-pill">Beginner</span></div><h3>Restaurant Operations Starter</h3><p>Shift handovers, team briefings, guest complaints and daily operations checks.</p><div class="item-foot"><span>📖 Online lesson</span><button type="button" data-open-course="hospitality">Read now ↗</button></div></div>
-   </article>
-   <article class="library-item" data-category="docs" data-level="beginner" data-search="documentation business setup records checklist registration official sources HR files">
-    <div class="book-cover cover-docs"><span class="cover-label">SANDEEP SOLUTIONS · LEARNING SERIES</span><div class="cover-illustration">▤</div><strong>Documentation<br>&amp; Setup</strong><span class="cover-bottom">ORGANISE WITH CONFIDENCE</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>Documentation</span><span class="level-pill">Beginner</span></div><h3>Documentation &amp; Setup Basics</h3><p>Organise records, track renewals and research business requirements responsibly.</p><div class="item-foot"><span>📖 Online lesson</span><button type="button" data-open-course="docs">Read now ↗</button></div></div>
-   </article>
-   <article class="library-item" data-category="communication" data-level="beginner" data-search="workplace communication professional email English interview introduction client meeting">
-    <div class="book-cover cover-communication"><span class="cover-label">SANDEEP SOLUTIONS · LEARNING SERIES</span><div class="cover-illustration">✉</div><strong>Workplace<br>Communication</strong><span class="cover-bottom">SPEAK · WRITE · CONNECT</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>Communication</span><span class="level-pill">Beginner</span></div><h3>Professional Communication</h3><p>Practise clear emails, interview introductions, client messages and meeting notes.</p><div class="item-foot"><span>📖 Online lesson</span><button type="button" data-open-course="communication">Read now ↗</button></div></div>
-   </article>
-   <article class="library-item future-resource" data-category="excel" data-level="intermediate" data-search="pdf book workbook download excel analytics practice workbook coming soon">
-    <div class="book-cover cover-workbook"><span class="cover-label">SANDEEP SOLUTIONS · WORKBOOK</span><div class="cover-illustration">✎</div><strong>Practice<br>Workbooks</strong><span class="cover-bottom">WORKSHEETS &amp; EXERCISES</span><span class="coming-stamp">COMING SOON</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>Workbooks</span><span class="level-pill intermediate">Intermediate</span></div><h3>Practice Worksheets Collection</h3><p>Planned: downloadable practice sheets and exercises. No workbook file has been published yet.</p><div class="item-foot"><span>🗂️ Planned resource</span><span class="coming-text">Coming soon</span></div></div>
-   </article>
-   <article class="library-item future-resource" data-category="hr" data-level="intermediate" data-search="pdf book HR policy templates compliance checklist practical handbook coming soon">
-    <div class="book-cover cover-handbook"><span class="cover-label">SANDEEP SOLUTIONS · HANDBOOK</span><div class="cover-illustration">▣</div><strong>HR Toolkit &amp;<br>Checklists</strong><span class="cover-bottom">TEMPLATES FOR PRACTICE</span><span class="coming-stamp">COMING SOON</span></div>
-    <div class="library-item-body"><div class="item-meta"><span>HR Resources</span><span class="level-pill intermediate">Intermediate</span></div><h3>HR Toolkit &amp; Checklists</h3><p>Planned: practical templates and checklists. The downloadable files still need to be prepared.</p><div class="item-foot"><span>🗂️ Planned resource</span><span class="coming-text">Coming soon</span></div></div>
-   </article>
-  </div>
-  <div id="noLibraryResults" class="no-results" hidden><strong>No matching resources found.</strong><p>Try a different keyword or choose another category.</p><button type="button" id="clearLibraryFilters">Clear filters</button></div>
-  <div class="library-disclaimer"><strong>About this collection:</strong> The six starter lessons are available to read online. Cards marked “Coming soon” are planned resources, not currently available downloads. Only materials with appropriate ownership or permission should be published.</div>
- </div>
-</section>
-
-<section id="courses">
- <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Learning tracks</div><h2>Choose what you want to learn</h2></div><p>Start with a subject, read the lesson in the reading room, and practise using the examples. Courses can be expanded into modules, worksheets and assessments.</p></div>
-  <div class="learning-tip"><strong>Not sure where to start?</strong><span>Job seekers: start with HR &amp; Recruitment or Workplace Communication. HR professionals: explore Excel &amp; HR Analytics. Business owners and team leaders: start with Business Consultancy or Hospitality Operations.</span></div>
-  <div class="cards">
-   <article class="course"><div class="iconbox">👥</div><h3>HR & Recruitment</h3><p>Learn recruitment steps, interview coordination, onboarding, attendance, payroll concepts, HR policies and employee documentation.</p><div class="tags"><span class="tag">Candidates</span><span class="tag">HR beginners</span><span class="tag">Professionals</span></div><button data-course="hr">Read HR basics →</button></article>
-   <article class="course"><div class="iconbox">📊</div><h3>Excel & HR Analytics</h3><p>Build spreadsheet confidence with formulas, attendance summaries, payroll examples, data cleaning and dashboard fundamentals.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Reports</span><span class="tag">Analytics</span></div><button data-course="excel">Read Excel basics →</button></article>
-   <article class="course"><div class="iconbox">🏢</div><h3>Business Consultancy</h3><p>Understand basic business planning, process mapping, SOP writing, customer service and operational improvement.</p><div class="tags"><span class="tag">Entrepreneurs</span><span class="tag">SOP</span><span class="tag">Operations</span></div><button data-course="business">Read business basics →</button></article>
-   <article class="course"><div class="iconbox">🍽️</div><h3>Restaurant & Hospitality</h3><p>Explore staff planning, shift handovers, service standards, training, customer handling and routine operational checks.</p><div class="tags"><span class="tag">Restaurant</span><span class="tag">Hospitality</span><span class="tag">Team leads</span></div><button data-course="hospitality">Read hospitality basics →</button></article>
-   <article class="course"><div class="iconbox">📁</div><h3>Documentation & Setup</h3><p>Learn how to organise business records, maintain HR files, prepare checklists and understand common registration workflows.</p><div class="tags"><span class="tag">Checklists</span><span class="tag">Records</span><span class="tag">Setup</span></div><button data-course="docs">Read documentation basics →</button></article>
-   <article class="course"><div class="iconbox">💬</div><h3>Workplace Communication</h3><p>Practise professional emails, interview introductions, client communication, meeting notes and workplace English.</p><div class="tags"><span class="tag">Job seekers</span><span class="tag">English</span><span class="tag">Clients</span></div><button data-course="communication">Read communication basics →</button></article>
-  </div>
- </div>
-</section>
-
-<section id="reading-room" style="background:var(--paper)">
- <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Online reading room</div><h2>Read a lesson here</h2></div><p>Choose a chapter to open its lesson here. Each starter lesson includes key steps, a practical task and a responsible-use note. This is the first version of the Learning Hub; downloadable books and expanded course modules can be added in a later update.</p></div>
-  <div class="learn-layout">
-   <aside class="sidebar"><h3>Course chapters</h3>
-    <button class="lesson-link active" data-course="hr">01 · HR & Recruitment</button>
-    <button class="lesson-link" data-course="excel">02 · Excel & HR Analytics</button>
-    <button class="lesson-link" data-course="business">03 · Business Consultancy</button>
-    <button class="lesson-link" data-course="hospitality">04 · Restaurant & Hospitality</button>
-    <button class="lesson-link" data-course="docs">05 · Documentation & Setup</button>
-    <button class="lesson-link" data-course="communication">06 · Workplace Communication</button>
-   </aside>
-   <article class="lesson" id="lessonContent" aria-live="polite">
-    <div class="meta">Module 01 · Beginner</div><h2>HR & Recruitment Fundamentals</h2>
-    <p>Recruitment is a structured process to understand a vacancy, attract suitable applicants, assess skills and help the selected candidate join successfully.</p>
-    <h3>Typical recruitment workflow</h3><ol><li>Confirm the job description, must-have skills, location, shift and salary range with the hiring manager.</li><li>Choose sourcing channels and prepare a clear job advertisement.</li><li>Screen applications against job-related criteria and document decisions consistently.</li><li>Coordinate interviews, collect interviewer feedback and communicate next steps.</li><li>Verify approved documents, issue the offer through the authorised process and coordinate onboarding.</li><li>Track joining, candidate experience and recruitment metrics for improvement.</li></ol>
-    <div class="note"><strong>Practical tip:</strong> Keep candidate data confidential, collect only what is needed, and use consistent job-related selection criteria.</div>
-    <h3>Practice task</h3><p>Draft a five-point screening checklist for a Customer Service Executive role. Include communication, relevant experience, shift availability, location and salary expectations.</p>
-   </article>
-  </div>
- </div>
-</section>
-
-
-
-<section id="how-it-works" style="background:var(--paper)">
- <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Learning pathway</div><h2>How learners will use the portal</h2></div></div>
-  <div class="cards">
-   <article class="course"><div class="iconbox">1</div><h3>Select a learning track</h3><p>Choose HR, analytics, business operations, hospitality, documentation or communication.</p></article>
-   <article class="course"><div class="iconbox">2</div><h3>Read the material online</h3><p>Open the lesson, read chapters, review examples and complete practice tasks in the browser.</p></article>
-   <article class="course"><div class="iconbox">3</div><h3>Practise and assess</h3><p>Future modules can include quizzes, worksheets, progress tracking and completion certificates where appropriate.</p></article>
-  </div>
- </div>
-</section>
-
-<section id="faq">
- <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Frequently asked questions</div><h2>Before you start</h2></div></div>
-  <div class="faq"><h3>Are the materials downloadable?</h3><p>The planned experience is browser-based reading, not public download links. However, web content cannot be made completely impossible to copy; access controls and viewer restrictions only reduce casual downloading.</p></div>
-  <div class="faq"><h3>Are all books available now?</h3><p>Not yet. The page provides the Learning Hub structure and starter lessons. Approved PDF books and additional course materials must be added separately.</p></div>
-  <div class="faq"><h3>Can beginners use it?</h3><p>Yes. The learning tracks are designed to support beginners and working professionals. Each course can be expanded with beginner, intermediate and practical modules.</p></div>
-  <div class="faq"><h3>Does the Learning Hub replace professional advice?</h3><p>No. Legal, tax, statutory registration and compliance topics are educational summaries. Users should verify current official requirements or consult a qualified professional for case-specific advice.</p></div>
- </div>
+<section class="learning-coming-soon" aria-labelledby="learningLaunchTitle">
+  <div class="launch-icon" aria-hidden="true">📚</div>
+  <span class="launch-tag">LEARNING HUB · COMING SOON</span>
+  <h1 id="learningLaunchTitle">Something <span class="launch-accent">valuable</span> is on the way.</h1>
+  <p>We are preparing the Sandeep Solutions Learning Hub with practical learning resources, professional guides and a better reading experience. The library will open once everything is ready.</p>
+  <p><strong>Please check back soon.</strong></p>
+  <div class="launch-note">Learn · Practise · Grow — launch preparations in progress</div>
 </section>
 </main>
 <footer class="footer"><div class="footer-grid">
