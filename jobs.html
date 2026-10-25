@@ -55,6 +55,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:700px){header,.header{height:60px!important}.nav,.navlinks{top:60px!important}.hero,.hero-inner{min-height:0!important}.hero-inner{padding:22px 18px!important}.hero h1{font-size:30px!important}.hero p{font-size:12px!important}.section{padding:21px 16px!important}.jobs-grid,.job-list,.filters-grid,.grid{grid-template-columns:1fr!important;gap:9px!important}input,select,textarea{font-size:12px!important;width:100%!important;box-sizing:border-box!important}.footer{padding:22px 16px 10px!important}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:15px!important}}
 
 </style>
+
+<style id="sandeep-public-pages-v1">
+/* Design Standard v1.0 — employers/jobs pages only; visual refinements, no behavior changes */
+:root{color-scheme:light}
+body{background:#f5f7fb;color:#172a43}
+main{padding:30px 30px 48px}
+.container,.inner,.content-wrap{max-width:1200px}
+h1{font-size:clamp(28px,3vw,38px);letter-spacing:-1px;line-height:1.15}
+h2,h3{letter-spacing:-.35px}
+p{line-height:1.7}
+section{scroll-margin-top:90px}
+.card,.service-card,.job-card,.feature-card,.process-card{border-radius:15px;box-shadow:0 6px 22px rgba(6,27,58,.045);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover,.service-card:hover,.job-card:hover,.feature-card:hover,.process-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(6,27,58,.08)}
+input,select,textarea{border:1px solid #d7e1ee;border-radius:9px;min-height:42px;padding:10px 12px;font-size:12px;outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:#2878d7;box-shadow:0 0 0 3px rgba(40,120,215,.12)}
+button,.btn,a.button{border-radius:9px;transition:filter .15s,transform .15s}
+button:hover,.btn:hover,a.button:hover{filter:brightness(.97)}
+.badge,.tag{letter-spacing:.2px}
+.notice,.alert{border-radius:11px;padding:13px 15px;font-size:11px;line-height:1.65}
+@media(max-width:1000px){main{padding:25px 20px 40px}}
+@media(max-width:700px){
+ main{padding:20px 13px 32px}
+ h1{font-size:28px}
+ .grid,.cards,.features,.jobs-grid{grid-template-columns:1fr;gap:12px}
+ input,select,textarea{width:100%;min-height:44px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
 </head><body>
 <header><div class="container nav"><a class="brand" href="index.html"><img src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button><nav class="navlinks" id="navlinks"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="employers.html">Employers</a><a class="active" href="jobs.html" aria-current="page">Jobs</a><a href="contact.html">Contact</a></nav><a class="quote" href="contact.html#enquiry">Get a Quote</a></div></header>
 <main><section class="hero"><div class="container hero-inner"><div class="eyebrow"><span class="dot"></span> Career Opportunities</div><h1>Find your next<br><span style="color:var(--gold2)">opportunity.</span></h1><p>Explore current openings across IT, hospitality, retail, F&amp;B, sales, HR and operations. Find the role that matches your skills and career goals.</p><div class="hero-badges"><span class="badge">Verified Opportunities</span><span class="badge">Multiple Industries</span><span class="badge">No Candidate Fee</span></div></div></section>

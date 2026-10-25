@@ -312,7 +312,36 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
  .cta-inner{flex-direction:column!important}
 }
 
-</style></head><body>
+</style>
+<style id="sandeep-public-pages-v1">
+/* Design Standard v1.0 — employers/jobs pages only; visual refinements, no behavior changes */
+:root{color-scheme:light}
+body{background:#f5f7fb;color:#172a43}
+main{padding:30px 30px 48px}
+.container,.inner,.content-wrap{max-width:1200px}
+h1{font-size:clamp(28px,3vw,38px);letter-spacing:-1px;line-height:1.15}
+h2,h3{letter-spacing:-.35px}
+p{line-height:1.7}
+section{scroll-margin-top:90px}
+.card,.service-card,.job-card,.feature-card,.process-card{border-radius:15px;box-shadow:0 6px 22px rgba(6,27,58,.045);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover,.service-card:hover,.job-card:hover,.feature-card:hover,.process-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(6,27,58,.08)}
+input,select,textarea{border:1px solid #d7e1ee;border-radius:9px;min-height:42px;padding:10px 12px;font-size:12px;outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:#2878d7;box-shadow:0 0 0 3px rgba(40,120,215,.12)}
+button,.btn,a.button{border-radius:9px;transition:filter .15s,transform .15s}
+button:hover,.btn:hover,a.button:hover{filter:brightness(.97)}
+.badge,.tag{letter-spacing:.2px}
+.notice,.alert{border-radius:11px;padding:13px 15px;font-size:11px;line-height:1.65}
+@media(max-width:1000px){main{padding:25px 20px 40px}}
+@media(max-width:700px){
+ main{padding:20px 13px 32px}
+ h1{font-size:28px}
+ .grid,.cards,.features,.jobs-grid{grid-template-columns:1fr;gap:12px}
+ input,select,textarea{width:100%;min-height:44px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+</head><body>
 <header><div class="container nav"><a class="brand" href="index.html"><img src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button><nav class="navlinks" id="navlinks"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a class="active" href="employers.html" aria-current="page">Employers</a><a href="jobs.html">Jobs</a><a href="contact.html">Contact</a></nav><a class="quote" href="contact.html#enquiry">Get a Quote</a></div></header>
 <main>
 <section class="hero"><div class="container hero-inner"><div class="eyebrow"><span class="dot"></span> Employer Solutions</div><h1>Build the right team.<br><span>Grow with confidence.</span></h1><p>Practical recruitment and HR support designed to help businesses hire faster, strengthen people processes and build dependable teams.</p><div class="hero-actions"><a class="btn gold" href="#enquiry">Request Hiring Support</a><a class="btn outline" href="services.html">Explore Services</a></div></div></section>
