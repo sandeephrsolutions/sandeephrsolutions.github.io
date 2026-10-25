@@ -109,14 +109,14 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
   <div class="badge"><i></i> LEARN • PRACTISE • GROW</div>
   <h1>Learning <span style="color:var(--gold)">Hub</span></h1>
   <p>Free online lessons, digital books and practical resources for your career and personal growth. Explore professional skills, business guides and reading resources in one place.</p>
-  <div class="hero-actions"><a class="btn primary" href="#book-library">Browse the Library →</a><a class="btn secondary" href="#courses">Explore Online Lessons</a></div>
+  <div class="hero-actions"><a class="btn primary" href="#book-library">Browse the Library →</a><a class="btn secondary" href="#reading-room">Open Reading Room ↓</a></div>
  </div>
 </section>
 <div class="trustbar"><div class="container trustinner"><span>Beginner-friendly lessons</span><span>Practical tasks and checklists</span><span>Mobile-friendly reading</span><span>Learn at your own pace</span></div></div>
 
 <section id="book-library" class="library-section">
  <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Sandeep Solutions Library</div><h2>Find your next lesson</h2></div><p>Browse the learning collection like a digital book gallery. Search by title or topic, filter by category, and open a lesson directly. Actual downloadable PDF books can be added when approved files are ready.</p></div>
+  <div class="section-head"><div><div class="eyebrow">Sandeep Solutions Library</div><h2>Find your next lesson</h2></div><p>Browse the learning collection like a digital book gallery. Search by title or topic, filter by category, and open a lesson directly. The current collection contains starter lessons; downloadable PDF books will appear here only after approved files are added.</p></div>
   <div class="library-banner"><div><span class="library-kicker">YOUR KNOWLEDGE SHELF</span><h3>Learn something useful today.</h3><p>Practical guides for work, careers and business—organised in one place.</p></div><div class="library-banner-icon" aria-hidden="true">📚</div></div>
   <div class="library-tools">
    <label class="searchbox"><span aria-hidden="true">⌕</span><input id="librarySearch" type="search" placeholder="Search books, lessons or topics..." aria-label="Search library"></label>
@@ -131,7 +131,7 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
    <button class="category-chip" type="button" data-category="docs" aria-pressed="false">📁 Documentation</button>
    <button class="category-chip" type="button" data-category="communication" aria-pressed="false">💬 Communication</button>
   </div>
-  <div class="library-results"><span id="resultCount" aria-live="polite">6 resources</span><span>Choose a card to start reading</span></div>
+  <div class="library-results"><span id="resultCount" aria-live="polite">6 resources</span><span>Starter lessons available now</span></div>
   <div class="library-grid" id="libraryGrid">
    <article class="library-item" data-category="hr" data-level="beginner" data-search="hr recruitment hiring interview onboarding employee candidate recruitment basics">
     <div class="book-cover cover-hr"><span class="cover-label">SANDEEP SOLUTIONS · LEARNING SERIES</span><div class="cover-illustration">👥</div><strong>HR &amp;<br>Recruitment</strong><span class="cover-bottom">A PRACTICAL STARTER GUIDE</span></div>
@@ -186,9 +186,9 @@ footer{background:var(--deep);color:#dce8f6;padding:30px 0;margin-top:30px}.foot
  </div>
 </section>
 
-<section id="reading-room" style="background:var(--paper)">
+<section id="reading-room" style="background:var(--paper)" tabindex="-1" aria-labelledby="readingRoomHeading">
  <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Online reading room</div><h2>Read a lesson here</h2></div><p>Choose a chapter to open its lesson here. Each starter lesson includes key steps, a practical task and a responsible-use note. This is the first version of the Learning Hub; downloadable books and expanded course modules can be added in a later update.</p></div>
+  <div class="section-head"><div><div class="eyebrow">Online reading room</div><h2 id="readingRoomHeading">Read a lesson here</h2></div><p>Choose a chapter to open its lesson here. Each starter lesson includes key steps, a practical task and a responsible-use note. This Reading Room currently contains six starter lessons, not a full PDF book catalogue.</p></div>
   <div class="learn-layout">
    <aside class="sidebar"><h3>Course chapters</h3>
     <button class="lesson-link active" data-course="hr">01 · HR & Recruitment</button>
@@ -258,7 +258,7 @@ function renderLesson(key){
  document.querySelectorAll("[data-course]").forEach(b=>b.classList.toggle("active",b.dataset.course===key));
  document.getElementById("copyLesson").addEventListener("click",()=>{const range=document.createRange();range.selectNodeContents(el);const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);});
 }
-document.querySelectorAll("[data-course]").forEach(b=>b.addEventListener("click",()=>{renderLesson(b.dataset.course);document.getElementById("reading-room").scrollIntoView({behavior:"smooth"});}));
+document.querySelectorAll("[data-course]").forEach(b=>b.addEventListener("click",()=>{renderLesson(b.dataset.course);document.getElementById("reading-room").scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});}));
 // Searchable category-wise digital library
 (function(){
  const search=document.getElementById('librarySearch'),level=document.getElementById('levelFilter'),grid=document.getElementById('libraryGrid');
@@ -266,11 +266,12 @@ document.querySelectorAll("[data-course]").forEach(b=>b.addEventListener("click"
  let category='all';
  const items=[...grid.querySelectorAll('.library-item')],chips=[...document.querySelectorAll('.category-chip')];
  const count=document.getElementById('resultCount'),empty=document.getElementById('noLibraryResults');
- function filter(){const q=search.value.trim().toLowerCase();let visible=0;items.forEach(item=>{const okCat=category==='all'||item.dataset.category===category;const okLevel=level.value==='all'||item.dataset.level===level.value;const okText=!q||(item.dataset.search+' '+item.innerText).toLowerCase().includes(q);const show=okCat&&okLevel&&okText;item.hidden=!show;if(show)visible++;});count.textContent=visible+' resource'+(visible===1?'':'s');empty.hidden=visible!==0;}
+ function filter(){const q=search.value.trim().toLowerCase();let visible=0;items.forEach(item=>{const okCat=category==='all'||item.dataset.category===category;const okLevel=level.value==='all'||item.dataset.level===level.value;const okText=!q||(item.dataset.search+' '+item.innerText).toLowerCase().includes(q);const show=okCat&&okLevel&&okText;item.hidden=!show;if(show)visible++;});if(count)count.textContent=visible+' resource'+(visible===1?'':'s');if(empty)empty.hidden=visible!==0;}
  search.addEventListener('input',filter);level.addEventListener('change',filter);
  chips.forEach(chip=>chip.addEventListener('click',()=>{category=chip.dataset.category;chips.forEach(c=>{const active=c===chip;c.classList.toggle('active',active);c.setAttribute('aria-pressed',String(active));});filter();}));
- document.getElementById('clearLibraryFilters').addEventListener('click',()=>{search.value='';level.value='all';category='all';chips.forEach(c=>{const active=c.dataset.category==='all';c.classList.toggle('active',active);c.setAttribute('aria-pressed',String(active));});filter();});
- document.querySelectorAll('[data-open-course]').forEach(button=>button.addEventListener('click',()=>{renderLesson(button.dataset.openCourse);document.getElementById('reading-room').scrollIntoView({behavior:'smooth'});}));
+ const clearButton=document.getElementById('clearLibraryFilters');
+ if(clearButton)clearButton.addEventListener('click',()=>{search.value='';level.value='all';category='all';chips.forEach(c=>{const active=c.dataset.category==='all';c.classList.toggle('active',active);c.setAttribute('aria-pressed',String(active));});filter();});
+ document.querySelectorAll('[data-open-course]').forEach(button=>button.addEventListener('click',()=>{renderLesson(button.dataset.openCourse);document.getElementById('reading-room').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}));
  filter();
 })();
 function toggleMenu(){
