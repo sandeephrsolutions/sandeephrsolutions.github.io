@@ -32,7 +32,40 @@ footer{background:var(--navy);color:#aebdca;padding:28px 0;text-align:center;fon
 @media(max-width:950px){.site-header{height:88px;padding:0 20px}.site-header .logo{width:125px}.site-nav{gap:12px}.footer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:820px){.site-header{height:78px;padding:0 18px}.site-header .logo{width:112px}.menu-toggle{display:block;margin-left:auto}.site-nav{position:absolute;top:78px;right:18px;display:none;flex-direction:column;align-items:stretch;gap:0;width:230px;background:#fff;border:1px solid #dbe6f0;border-radius:12px;box-shadow:0 14px 35px rgba(3,29,61,.18);padding:8px;z-index:30}.site-nav.open{display:flex}.site-nav a{padding:12px 14px;font-size:14px;border-radius:8px}.site-nav .quote{text-align:center;margin-top:5px}.feature-grid{grid-template-columns:1fr 1fr;padding-left:16px;padding-right:16px}.steps{margin-left:16px;margin-right:16px}.step-grid{grid-template-columns:1fr 1fr}.support-strip{margin-left:16px;margin-right:16px}}
 @media(max-width:600px){.portal-intro{padding:30px 16px 10px}.portal-intro h2{font-size:25px}.feature-grid{grid-template-columns:1fr}.steps{padding:20px}.step-grid{grid-template-columns:1fr}.support-strip{margin-bottom:32px;flex-direction:column;align-items:flex-start}.support-strip .btn{width:100%}.footer{padding-left:18px;padding-right:18px}.footer-grid{grid-template-columns:1fr;gap:25px}.footer-bottom{flex-direction:column;text-align:center}}
-</style></head><body>
+</style>
+<style id="sandeep-candidate-access-v1">
+/* Design Standard v1.0 — candidate login/register pages only; visual refinements, no behavior changes */
+:root{color-scheme:light}
+body{background:#f3f6fb;color:#172a43}
+main{padding:28px 30px 46px}
+.container,.inner,.auth-container,.form-container{max-width:1120px}
+h1{font-size:clamp(25px,2.4vw,32px);letter-spacing:-.8px}
+h2{letter-spacing:-.35px}
+p{line-height:1.65}
+.panel,.card,.auth-card,.form-card{border-radius:16px;box-shadow:0 8px 28px rgba(6,27,58,.07)}
+.panel,.card,.auth-card,.form-card{padding:25px}
+label{font-size:11px;font-weight:650;color:#30445f}
+input,select,textarea{width:100%;border:1px solid #d7e1ee;border-radius:9px;min-height:42px;padding:10px 12px;font-size:12px;color:#172a43;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:#2878d7;box-shadow:0 0 0 3px rgba(40,120,215,.12)}
+button,.btn,a.button{border-radius:9px;transition:filter .15s,transform .15s}
+button:hover,.btn:hover,a.button:hover{filter:brightness(.97)}
+.notice,.alert,.message{border-radius:11px;padding:13px 15px;font-size:11px;line-height:1.65}
+.meta,.muted,.help-text{font-size:11px;line-height:1.65;color:#64748b}
+.footer{font-size:9px;line-height:1.8}
+@media(max-width:1000px){main{padding:23px 20px 38px}.panel,.card,.auth-card,.form-card{padding:21px}}
+@media(max-width:650px){
+ main{padding:18px 12px 28px}
+ h1{font-size:25px}
+ .panel,.card,.auth-card,.form-card{padding:16px;border-radius:13px}
+ input,select,textarea{min-height:44px;font-size:13px}
+ .grid,.form-grid,.auth-layout{grid-template-columns:1fr;gap:12px}
+ .actions,.button-row{display:flex;flex-wrap:wrap;gap:8px}
+ .actions button,.button-row button{flex:1 1 auto}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+</head><body>
 <header class="site-header">
 <a href="index.html"><img class="logo" src="https://sandeephrsolutions.github.io/assets/logo.png?v=20261008" alt="Sandeep Solutions"></a>
 <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
