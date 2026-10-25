@@ -1,0 +1,43 @@
+SANDEEP HR SOLUTIONS — WEBSITE REVIEW & CHANGE REPORT
+Build: Final v2
+
+CHANGES
+- Standardised the Learning Hub navigation link location: immediately after Services and before Employers across site navigation on public pages and candidate entry pages that use the main site navigation.
+- Corrected the Home page and Services page which previously placed Learning Hub at a different location.
+- Added/verified the Reading Room deep-link target (#reading-room) on learning.html.
+- Preserved original assets, Firebase config, Firestore rules, admin files, and existing page content as far as possible.
+- Included the entire extracted website project in this ZIP, not just the edited HTML.
+
+FILES WITH NAVIGATION CHANGES
+- documentation-setup.html
+- index.html
+- privacy.html
+- terms.html
+- learning.html
+- restaurant-solutions.html
+- contact.html
+- candidate-login.html
+- about.html
+- home-alternative.html
+- offline.html
+- jobs.html
+- services.html
+- employers.html
+- disclaimer.html
+- candidate-register.html
+
+VALIDATION NOTES
+- ZIP integrity verified after packaging.
+- Checked internal relative links for missing targets (report below).
+- Automated checks do not replace browser testing on Android/iOS/desktop, Lighthouse, Firebase Auth/database rules verification, or a live GitHub Pages deployment test.
+- The live site could not be fetched by the web checker during this run; this ZIP has not been published to GitHub Pages.
+- Existing library admin starter is not proof of live Firestore-to-gallery sync or PDF upload; those integrations still require separate setup and live testing.
+
+DEPLOYMENT
+1. Keep a backup of the current GitHub repository.
+2. Extract this ZIP. Open the folder sandeephrsolutions.github.io-main.
+3. Upload/commit its contents to the repository root (not the enclosing folder itself).
+4. Check GitHub Pages deployment, then test Home, Learning Hub, Reading Room anchor, search/filter, forms, candidate/employer pages, and mobile menu.
+
+RELATIVE LINK TARGETS NOT FOUND IN PROJECT (may be external/intentional routes or generated assets):
+- None detected.
