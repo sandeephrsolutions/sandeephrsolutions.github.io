@@ -1,90 +1,28 @@
-<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#061b3a"><meta name="description" content="Documentation & Setup | Sandeep Solutions"><link rel="canonical" href="https://sandeephrsolutions.github.io/documentation-setup.html"><title>Documentation & Setup | Sandeep Solutions</title><link rel="stylesheet" href="styles.css">
-<style id="shr-all-pages-hero-spacing-fix">
-
-/* Sandeep HR Solutions — all-page hero whitespace and CTA layout fix.
-   CSS-only: no copy, links, forms, scripts, Firebase or business details changed. */
-html { scroll-padding-top: 72px; }
-body { overflow-x: hidden; }
-.hero {
-  height: auto !important;
-  min-height: 0 !important;
-  padding-block: 0 !important;
-  display: block !important;
-}
-.hero-inner {
-  height: auto !important;
-  min-height: 0 !important;
-  box-sizing: border-box !important;
-  padding: clamp(20px, 2.4vw, 32px) clamp(18px, 4vw, 52px) !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0 !important;
-}
-.hero .breadcrumb { margin: 0 0 8px !important; }
-.hero .eyebrow, .hero .kicker, .hero .badge { margin-bottom: 8px !important; }
-.hero h1 {
-  margin-top: 6px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.07 !important;
-}
-.hero p {
-  margin-top: 6px !important;
-  margin-bottom: 10px !important;
-  line-height: 1.45 !important;
-}
-.hero .actions, .hero .hero-actions {
-  margin-top: 10px !important;
-  margin-bottom: 0 !important;
-  gap: 8px !important;
-  align-items: center !important;
-}
-.hero .chips, .hero .hero-badges {
-  margin-top: 9px !important;
-  margin-bottom: 0 !important;
-  gap: 7px !important;
-}
-.hero .actions a, .hero .hero-actions a,
-.hero .actions button, .hero .hero-actions button {
-  margin-block: 0 !important;
-}
-.hero .hero-copy { margin-block: 0 !important; }
-
-/* Remove oversized blank area immediately below the hero and pull search/CTA areas up. */
-.search-wrap { margin-top: -14px !important; margin-bottom: 10px !important; }
-.stats, .stats-grid { padding-block: 10px !important; }
-.section { padding-block: clamp(23px, 3vw, 36px) !important; }
-.section-head, .section-heading, .head { margin-bottom: 14px !important; }
-.footer { padding-top: 26px !important; }
-
-/* Desktop */
-@media (min-width: 901px) {
-  .hero-inner { padding: 28px 5% !important; }
-  .hero h1 { max-width: 18ch; }
-}
-/* Tablet */
-@media (min-width: 561px) and (max-width: 900px) {
-  .hero-inner { padding: 24px 24px !important; }
-  .hero h1 { font-size: clamp(32px, 4.8vw, 44px) !important; }
-  .hero p { max-width: 62ch; }
-}
-/* Mobile */
-@media (max-width: 560px) {
-  .hero-inner { padding: 20px 16px !important; }
-  .hero h1 { font-size: clamp(28px, 8vw, 36px) !important; line-height: 1.08 !important; }
-  .hero p { font-size: 15px !important; line-height: 1.42 !important; }
-  .hero .actions, .hero .hero-actions { gap: 7px !important; }
-  .hero .actions a, .hero .hero-actions a,
-  .hero .actions button, .hero .hero-actions button { min-height: 40px; }
-  .hero .chips, .hero .hero-badges { margin-top: 8px !important; }
-  .section { padding-block: 22px !important; }
-  .search-wrap { margin-top: -10px !important; }
-}
-/* Small phones */
-@media (max-width: 380px) {
-  .hero-inner { padding: 18px 13px !important; }
-  .hero h1 { font-size: 28px !important; }
-}
-
+<!doctype html><html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#061b3a"><meta name="description" content="Documentation & Setup | Sandeep Solutions"><link rel="canonical" href="https://sandeephrsolutions.github.io/documentation-setup.html"><title>Documentation & Setup | Sandeep Solutions</title><link rel="stylesheet" href="styles.css"><style id="client-experience-design-v1">
+/* Client-experience pass: preserve navy/blue, white and gold brand */
+:root{--shrs-navy:#071b3a;--shrs-blue:#123d78;--shrs-gold:#e3b341;--shrs-ink:#15243a;--shrs-muted:#5b687a;--shrs-line:#e2e8f0;--shrs-soft:#f4f7fb}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{color:var(--shrs-ink);line-height:1.55}
+.container{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+header,.site-header,nav{z-index:100}
+header,.site-header{backdrop-filter:saturate(130%) blur(10px)}
+section{scroll-margin-top:86px}
+.hero,.page-hero,.about-hero,.services-hero,.contact-hero,.jobs-hero,.employer-hero{min-height:0!important;padding-top:clamp(34px,5vw,64px)!important;padding-bottom:clamp(34px,5vw,58px)!important}
+.hero h1,.page-hero h1,.hero-content h1{max-width:900px;line-height:1.08;letter-spacing:-.035em;text-wrap:balance}
+.hero p,.page-hero p,.hero-content p{max-width:680px}
+.hero .btn,.hero a.btn,.page-hero .btn{margin-top:8px}
+.btn,button,.button{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}
+.btn:hover,button:hover,.button:hover{transform:translateY(-1px)}
+.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e3b341;outline-offset:3px}
+.card,.service-card,.stat-card,.contact-item,.job-card,.feature-card{border-radius:16px}
+.card,.service-card,.stat-card,.feature-card{border:1px solid rgba(18,61,120,.10);box-shadow:0 8px 24px rgba(7,27,58,.055)}
+section h2{line-height:1.16;letter-spacing:-.02em;text-wrap:balance}
+.kicker{letter-spacing:.12em}
+input,select,textarea{max-width:100%;border-radius:10px}
+footer{margin-top:0}
+@media(min-width:1200px){.hero,.page-hero,.about-hero,.services-hero,.contact-hero,.jobs-hero,.employer-hero{padding-top:48px!important;padding-bottom:44px!important}.hero h1,.page-hero h1,.hero-content h1{font-size:clamp(2.5rem,4vw,3.7rem)}}
+@media(max-width:767px){.container{width:calc(100% - 32px)}.hero,.page-hero,.about-hero,.services-hero,.contact-hero,.jobs-hero,.employer-hero{padding:30px 0!important}.hero h1,.page-hero h1,.hero-content h1{font-size:clamp(2rem,9vw,2.8rem)}section{padding-block:34px}.btn,button,.button{min-height:44px}.grid,.cards,.services-grid{gap:14px!important}footer{padding-bottom:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 </head><body><header class="site-header"><div class="container nav"><a class="brand" href="index.html"><img src="assets/logo.png" alt="Sandeep Solutions"></a><button class="menu" id="siteMenu" type="button" aria-label="Open navigation menu" aria-controls="siteNav" aria-expanded="false">☰</button><nav class="navlinks" id="siteNav"><a class="" href="index.html">Home</a><a class="" href="about.html">About</a><a class="active" href="services.html">Services</a><a class="" href="employers.html">Employers</a><a class="" href="jobs.html">Jobs</a><a class="" href="contact.html">Contact</a></nav><a class="quote" href="employers.html">Get a Quote</a></div></header><main><section class="hero"><div class="container hero-grid"><div><div class="breadcrumbs" style="color:#dce8f6">Home &gt; Services &gt; Documentation &amp; Setup</div><h1>Documentation &amp; <span>Setup</span></h1><p><b style="color:#ffd85a">Stay Compliant. Operate Smoothly.</b><br>We help businesses with complete documentation, registrations and compliance support.</p></div><div class="hero-photo"><img src="assets/documentation-setup.jpg" alt="Documentation and business setup"></div></div></section><section class="section"><div class="container"><div class="section-head"><div class="kicker">Our Services</div><h2>Structured support for essential business processes.</h2></div><div class="service-detail"><div class="detail-card"><div class="icon">PF</div><h3>PF / ESIC Registration</h3><p>Complete registration and compliance support</p></div><div class="detail-card"><div class="icon">LL</div><h3>Labour Law Compliance</h3><p>Shops &amp; Establishment, Labour Registrations</p></div><div class="detail-card"><div class="icon">HR</div><h3>HR Policy &amp; Templates</h3><p>Employee handbook, HR policies &amp; formats</p></div><div class="detail-card"><div class="icon">BS</div><h3>Business Setup</h3><p>Company incorporation and documentation</p></div></div></div></section><section class="section dark"><div class="container"><div class="section-head"><div class="kicker">Why Choose Us?</div><h2>Reliable process support.</h2></div><div class="values"><div class="value"><div class="icon">★</div><h3>Expert Guidance</h3></div><div class="value"><div class="icon">◷</div><h3>Timely Completion</h3></div><div class="value"><div class="icon">✓</div><h3>Accurate Documentation</h3></div><div class="value"><div class="icon">∞</div><h3>End-to-End Support</h3></div></div></div></section></main><div class="legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="disclaimer.html">Disclaimer</a></div>
 <footer class="footer"><div class="container footer-grid"><div><h3>Sandeep Solutions</h3><p>HR &amp; Recruitment • Business Consultancy • Restaurant Solutions • Documentation &amp; Setup</p><p>Founder: Sandeep Kumar Samal</p></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="jobs.html">Jobs</a></div><div><h3>Our Services</h3><a href="services.html">HR &amp; Recruitment</a><a href="services.html">Business Consultancy</a><a href="restaurant-solutions.html">Restaurant Solutions</a><a href="documentation-setup.html">Documentation &amp; Setup</a></div><div><h3>Contact Info</h3><p>+91 7978259944<br>sandeep.hr.solutions.shr@gmail.com<br>Bangalore, Karnataka, India</p><div class="social"><a href="https://instagram.com/sandeep_solutions?rpxt=MXd6aW4wdnhsZTNkMA%3D%3D" target="_blank" rel="noopener noreferrer">IG</a><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">FB</a><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YT</a></div></div></div><div class="container footer-bottom">© 2026 Sandeep Solutions. All rights reserved.</div></footer><script>
